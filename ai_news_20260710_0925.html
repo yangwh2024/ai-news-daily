@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>AI资讯早知道</title>
+   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+   <style>
+       :root {
+           --dark-900: #F8FAFC;       /* 浅色背景 */
+           --dark-800: #FFFFFF;
+           --dark-700: #FFFFFF;
+           --dark-600: #F1F5F9;
+           --dark-500: #E2E8F0;
+           --dark-400: #94A3B8;       /* 辅助色 */
+           --dark-300: #64748B;       /* 次要文字色 */
+           --dark-200: #475569;
+           --dark-100: #334155;
+           --dark-50: #1E293B;        /* 主文字色 */
+           --cyber-300: #0EA5E9;
+           --cyber-400: #0EA5E9;      /* emergency 青色 */
+           --cyber-500: #0284C7;
+           --neon-purple: #7C3AED;    /* industry 紫色 */
+           --neon-green: #10B981;
+           --neon-orange: #F59E0B;    /* algo_eng 橙色 */
+           --neon-red: #EF4444;       /* hotspot 红色 */
+           --glass-bg: #FFFFFF;       /* 卡片背景 */
+           --glass-border: #E2E8F0;   /* 卡片边框 */
+           --gradient-cyber: linear-gradient(135deg, #0EA5E9 0%, #7C3AED 100%);
+           --gradient-text: linear-gradient(to right, #0EA5E9, #7C3AED, #10B981);
+           --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+           --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+           --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+       }
+
+       * { box-sizing: border-box; margin: 0; padding: 0; }
+       ::selection { background: rgba(14, 165, 233, 0.2); color: #1E293B; }
+       ::-webkit-scrollbar { width: 6px; height: 6px; }
+       ::-webkit-scrollbar-track { background: var(--dark-600); }
+       ::-webkit-scrollbar-thumb { background: var(--dark-400); border-radius: 3px; }
+       ::-webkit-scrollbar-thumb:hover { background: var(--dark-300); }
+
+       body {
+           font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+           line-height: 1.6;
+           color: var(--dark-50);
+           background-color: var(--dark-900);
+           min-height: 100vh;
+           position: relative;
+       }
+
+       /* 网格背景 + 光晕（浅色主题已禁用） */
+       .bg-grid { display: none; }
+       .bg-glow { display: none; }
+
+       /* ===== 顶部导航栏 ===== */
+       .navbar {
+           position: sticky; top: 0; z-index: 100;
+           background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px);
+           border-bottom: 1px solid var(--glass-border); padding: 12px 24px;
+           display: flex; align-items: center; justify-content: space-between;
+       }
+       .nav-brand { display: flex; align-items: center; gap: 12px; }
+       .nav-logo {
+           width: 40px; height: 40px; border-radius: 10px; background: var(--gradient-cyber);
+           display: flex; align-items: center; justify-content: center; position: relative;
+       }
+       .nav-logo::after {
+           content: ''; position: absolute; inset: -2px; border-radius: 12px;
+           background: var(--gradient-cyber); opacity: 0.3; filter: blur(8px); z-index: -1;
+           animation: pulse 3s ease-in-out infinite;
+       }
+       @keyframes pulse { 50% { opacity: 0.15; } }
+       .nav-logo svg { width: 22px; height: 22px; color: white; }
+       .nav-title {
+           font-family: Orbitron, sans-serif; font-weight: 800; font-size: 18px;
+           background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+       }
+       .nav-subtitle { font-size: 11px; color: var(--dark-300); margin-top: -2px; }
+       .nav-date {
+           display: flex; align-items: center; gap: 8px; padding: 8px 16px;
+           background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px;
+           font-size: 13px; color: var(--dark-100); transition: all 0.3s;
+       }
+       .nav-date:hover { border-color: rgba(14, 165, 233, 0.3); background: rgba(241, 245, 249, 0.8); }
+       .nav-date .weekday { color: var(--dark-400); font-size: 11px; }
+
+       /* ===== 右上角历史记录下拉 ===== */
+       .nav-right { position: relative; display: flex; align-items: center; gap: 10px; }
+       .history-btn {
+           display: flex; align-items: center; gap: 6px;
+           padding: 8px 14px; border-radius: 10px; cursor: pointer;
+           background: var(--glass-bg); border: 1px solid var(--glass-border);
+           color: var(--dark-100); font-size: 13px; font-family: inherit;
+           transition: all 0.25s;
+       }
+       .history-btn:hover {
+           border-color: rgba(14, 165, 233, 0.4); color: var(--cyber-400);
+           background: rgba(241, 245, 249, 0.8);
+       }
+       .history-btn.active {
+           border-color: var(--cyber-400); color: var(--cyber-400);
+           background: rgba(14, 165, 233, 0.1);
+       }
+       .history-btn svg { width: 14px; height: 14px; }
+       .history-btn .arrow {
+           width: 8px; height: 8px; transition: transform 0.25s;
+           border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+           transform: rotate(45deg); margin-top: -3px;
+       }
+       .history-btn.active .arrow { transform: rotate(-135deg); margin-top: 2px; }
+
+       .history-dropdown {
+           position: absolute; top: calc(100% + 8px); right: 0;
+           min-width: 280px; max-width: 340px;
+           background: #FFFFFF; border: 1px solid var(--glass-border);
+           border-radius: 14px;
+           box-shadow: var(--shadow-lg);
+           padding: 8px; z-index: 200; display: none;
+           animation: dropIn 0.2s ease-out;
+       }
+       .history-dropdown.show { display: block; }
+       @keyframes dropIn {
+           from { opacity: 0; transform: translateY(-8px); }
+           to { opacity: 1; transform: translateY(0); }
+       }
+       .history-dropdown-header {
+           padding: 10px 14px 8px; font-size: 11px; color: var(--dark-400);
+           text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600;
+           border-bottom: 1px solid var(--glass-border); margin-bottom: 4px;
+       }
+       .history-list { max-height: 380px; overflow-y: auto; padding: 4px; }
+       .history-item {
+           display: flex; align-items: center; justify-content: space-between;
+           padding: 10px 12px; border-radius: 8px; cursor: pointer;
+           transition: all 0.18s; border: 1px solid transparent;
+       }
+       .history-item:hover {
+           background: rgba(241, 245, 249, 0.6); border-color: rgba(14, 165, 233, 0.2);
+       }
+       .history-item.active {
+           background: rgba(14, 165, 233, 0.08); border-color: rgba(14, 165, 233, 0.35);
+       }
+       .history-item-left { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+       .history-item-date {
+           font-size: 14px; font-weight: 600; color: var(--dark-50);
+           display: flex; align-items: center; gap: 8px;
+       }
+       .history-item-date .dot {
+           width: 6px; height: 6px; border-radius: 50%; background: var(--cyber-400);
+       }
+       .history-item-date .dot.empty {
+           background: var(--dark-500); box-shadow: none;
+       }
+       .history-item-weekday { font-size: 11px; color: var(--dark-400); }
+       .history-item-meta {
+           font-size: 11px; color: var(--dark-300); flex-shrink: 0; margin-left: 8px;
+           font-family: 'JetBrains Mono', monospace;
+       }
+       .history-item-meta.empty { color: var(--dark-500); font-style: italic; }
+
+       .empty-state {
+           text-align: center; padding: 80px 24px; color: var(--dark-300);
+           font-size: 15px; max-width: 1024px; margin: 0 auto;
+       }
+
+       /* ===== 统计横幅 ===== */
+       .stats-banner { position: relative; z-index: 1; max-width: 1024px; margin: 0 auto; padding: 48px 24px 24px; }
+       .stats-banner h2 { font-family: Orbitron, sans-serif; font-size: 42px; font-weight: 800; margin-bottom: 12px; }
+       .stats-banner .date-text {
+           background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+       }
+       .stats-banner .meta { color: var(--dark-300); font-size: 16px; margin-bottom: 28px; }
+       .stats-banner .meta .count { color: var(--cyber-400); font-weight: 600; }
+       .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+       @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(5, 1fr); } }
+       .stat-card {
+           background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px;
+           padding: 16px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; text-align: left;
+       }
+       .stat-card:hover {
+           transform: translateY(-2px); border-color: rgba(14, 165, 233, 0.3);
+           background: rgba(241, 245, 249, 0.8); box-shadow: var(--shadow-md);
+       }
+       .stat-card.active { box-shadow: 0 0 0 2px var(--cyber-400); }
+       .stat-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+       .stat-icon {
+           width: 36px; height: 36px; border-radius: 8px;
+           display: flex; align-items: center; justify-content: center; transition: transform 0.3s;
+       }
+       .stat-card:hover .stat-icon { transform: scale(1.1); }
+       .stat-num { font-family: Orbitron, sans-serif; font-size: 22px; font-weight: 700; }
+       .stat-label { color: var(--dark-100); font-weight: 500; font-size: 13px; }
+       .stat-bar { height: 3px; border-radius: 999px; margin-top: 8px; opacity: 0.3; transition: opacity 0.3s; }
+       .stat-card:hover .stat-bar { opacity: 0.6; }
+
+       /* 分类配色 */
+       .cat-cyber { color: var(--cyber-400); }
+       .cat-purple { color: var(--neon-purple); }
+       .cat-green { color: var(--neon-green); }
+       .cat-orange { color: var(--neon-orange); }
+       .cat-red { color: var(--neon-red); }
+       .bg-cyber { background-color: rgba(14, 165, 233, 0.125); color: var(--cyber-400); }
+       .bg-purple { background-color: rgba(124, 58, 237, 0.125); color: var(--neon-purple); }
+       .bg-green { background-color: rgba(0, 255, 163, 0.125); color: var(--neon-green); }
+       .bg-orange { background-color: rgba(245, 158, 11, 0.125); color: var(--neon-orange); }
+       .bg-red { background-color: rgba(239, 68, 68, 0.125); color: var(--neon-red); }
+       .bar-cyber { background-color: var(--cyber-400); }
+       .bar-purple { background-color: var(--neon-purple); }
+       .bar-green { background-color: var(--neon-green); }
+       .bar-orange { background-color: var(--neon-orange); }
+       .bar-red { background-color: var(--neon-red); }
+
+       /* ===== 主内容区 ===== */
+       .main-wrapper { position: relative; z-index: 1; }
+       .main-content { max-width: 1024px; margin: 0 auto; padding: 24px 24px 80px; }
+       .sections-wrapper { display: flex; flex-direction: column; gap: 24px; }
+
+       /* ===== 分类区块卡片 ===== */
+       .section-card {
+           background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px;
+           padding: 24px; position: relative; overflow: hidden;
+           box-shadow: var(--shadow-sm);
+           animation: slideUp 0.5s ease-out forwards;
+       }
+       @keyframes slideUp {
+           0% { opacity: 0; transform: translateY(20px); }
+           100% { opacity: 1; transform: translateY(0); }
+       }
+       .section-card::before {
+           content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0.8;
+       }
+       .section-card[data-cat="industry"]::before { background: var(--neon-purple); }
+       .section-card[data-cat="hotspot"]::before { background: var(--neon-red); }
+       .section-card[data-cat="emergency"]::before { background: var(--cyber-400); }
+       .section-card[data-cat="algo_eng"]::before { background: var(--neon-orange); }
+
+       .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+       .section-header-left { display: flex; align-items: center; gap: 16px; }
+       .section-icon-box {
+           width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center;
+           justify-content: center; flex-shrink: 0; font-size: 24px;
+       }
+       .section-icon-box[data-cat="industry"] { background-color: rgba(124, 58, 237, 0.082); border: 1px solid rgba(124, 58, 237, 0.19); box-shadow: 0 0 20px rgba(124, 58, 237, 0.125); }
+       .section-icon-box[data-cat="hotspot"] { background-color: rgba(239, 68, 68, 0.082); border: 1px solid rgba(239, 68, 68, 0.19); box-shadow: 0 0 20px rgba(239, 68, 68, 0.125); }
+       .section-icon-box[data-cat="emergency"] { background-color: rgba(14, 165, 233, 0.082); border: 1px solid rgba(14, 165, 233, 0.19); box-shadow: 0 0 20px rgba(14, 165, 233, 0.125); }
+       .section-icon-box[data-cat="algo_eng"] { background-color: rgba(245, 158, 11, 0.082); border: 1px solid rgba(245, 158, 11, 0.19); box-shadow: 0 0 20px rgba(245, 158, 11, 0.125); }
+
+       .section-title {
+           font-family: Orbitron, sans-serif; font-size: 22px; font-weight: 700;
+           display: flex; align-items: center; gap: 8px;
+       }
+       .section-title[data-cat="industry"] { color: var(--neon-purple); }
+       .section-title[data-cat="hotspot"] { color: var(--neon-red); }
+       .section-title[data-cat="emergency"] { color: var(--cyber-400); }
+       .section-title[data-cat="algo_eng"] { color: var(--neon-orange); }
+
+       .section-count-badge {
+           font-size: 13px; font-weight: 400; color: var(--dark-400);
+           background: rgba(241, 245, 249, 0.6); padding: 2px 8px; border-radius: 999px;
+       }
+       .section-desc { font-size: 13px; color: var(--dark-300); margin-top: 2px; }
+
+       /* 子模块标签 */
+       .sub-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+       .sub-tag {
+           font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500;
+       }
+       .sub-tag[data-cat="industry"] { background-color: rgba(124, 58, 237, 0.063); color: rgba(124, 58, 237, 0.8); }
+       .sub-tag[data-cat="hotspot"] { background-color: rgba(239, 68, 68, 0.063); color: rgba(239, 68, 68, 0.8); }
+       .sub-tag[data-cat="emergency"] { background-color: rgba(14, 165, 233, 0.063); color: rgba(14, 165, 233, 0.8); }
+       .sub-tag[data-cat="algo_eng"] { background-color: rgba(245, 158, 11, 0.063); color: rgba(245, 158, 11, 0.8); }
+
+       /* 分割线 */
+       .cyber-divider {
+           height: 1px; margin: 16px 0;
+           background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.2), transparent);
+       }
+
+       /* ===== 新闻卡片网格 ===== */
+       .news-grid {
+           display: grid; grid-template-columns: 1fr; gap: 12px;
+       }
+       @media (min-width: 640px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
+
+       /* 行截断（参考样例 line-clamp-2） */
+       .line-clamp-2 {
+           overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+       }
+       .line-clamp-3 {
+           overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+       }
+
+       /* 入场动画（参考样例 animate-slide-up） */
+       .animate-slide-up {
+           animation: slideUp 0.5s ease-out forwards;
+       }
+
+       /* glow-border 浅色主题禁用（hover 效果由 news-card 自身处理） */
+       .glow-border { position: relative; }
+
+       .news-card {
+           background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px;
+           padding: 16px; display: block; text-decoration: none;
+           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+           position: relative; overflow: hidden;
+       }
+       .news-card::before {
+           content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 3px;
+           border-radius: 12px 0 0 12px; opacity: 0; transition: opacity 0.3s;
+       }
+       .news-card[data-cat="industry"]::before { background: var(--neon-purple); }
+       .news-card[data-cat="hotspot"]::before { background: var(--neon-red); }
+       .news-card[data-cat="emergency"]::before { background: var(--cyber-400); }
+       .news-card[data-cat="algo_eng"]::before { background: var(--neon-orange); }
+
+       .news-card:hover {
+           background: rgba(241, 245, 249, 0.8); border-color: rgba(14, 165, 233, 0.3);
+           transform: translateY(-2px); box-shadow: var(--shadow-md);
+       }
+       .news-card:hover::before { opacity: 1; }
+
+       .news-card-title {
+           font-size: 16px; font-weight: 500; color: var(--dark-50); line-height: 1.5;
+           margin-bottom: 8px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+       }
+       .news-card-title > span {
+           display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+           overflow: hidden; flex: 1;
+       }
+       .news-card:hover .news-card-title { color: var(--cyber-300); }
+       .news-card-title svg { width: 14px; height: 14px; color: var(--dark-400); flex-shrink: 0; margin-top: 4px; transition: color 0.3s; }
+       .news-card:hover .news-card-title svg { color: var(--cyber-400); }
+
+       .news-card-desc {
+           font-size: 14px; color: var(--dark-300); margin-bottom: 12px; line-height: 1.6;
+           display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+           overflow: hidden;
+       }
+
+       /* 来源标签（参考样例：彩色边框背景） */
+       .news-card-source {
+           display: inline-flex; align-items: center; gap: 4px;
+           padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;
+           border: 1px solid;
+       }
+       .news-card-source[data-cat="industry"] { background-color: rgba(124, 58, 237, 0.082); color: var(--neon-purple); border-color: rgba(124, 58, 237, 0.19); }
+       .news-card-source[data-cat="hotspot"] { background-color: rgba(239, 68, 68, 0.082); color: var(--neon-red); border-color: rgba(239, 68, 68, 0.19); }
+       .news-card-source[data-cat="emergency"] { background-color: rgba(14, 165, 233, 0.082); color: var(--cyber-400); border-color: rgba(14, 165, 233, 0.19); }
+       .news-card-source[data-cat="algo_eng"] { background-color: rgba(245, 158, 11, 0.082); color: var(--neon-orange); border-color: rgba(245, 158, 11, 0.19); }
+       .news-card-source svg { width: 11px; height: 11px; }
+
+       /* 发布时间（带图标） */
+       .news-card-time {
+           display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--dark-400);
+       }
+       .news-card-time svg { width: 11px; height: 11px; opacity: 0.7; }
+
+       /* ===== AI 推荐评分徽章 ===== */
+       .news-card-score {
+           display: inline-flex; align-items: center; gap: 3px;
+           padding: 2px 9px; border-radius: 999px;
+           font-size: 11px; font-weight: 700; font-family: 'JetBrains Mono', monospace;
+           flex-shrink: 0; border: 1px solid; letter-spacing: 0.3px;
+           transition: all 0.3s;
+       }
+       .news-card-score .score-icon { font-size: 10px; line-height: 1; }
+       .news-card-score[data-tier="S"] {  /* ≥90 镇店之宝 */
+           background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(239, 68, 68, 0.18));
+           color: #B45309; border-color: rgba(245, 158, 11, 0.55);
+       }
+       .news-card-score[data-tier="A"] {  /* 80-89 优秀 */
+           background: rgba(124, 58, 237, 0.12); color: var(--neon-purple);
+           border-color: rgba(124, 58, 237, 0.4);
+       }
+       .news-card-score[data-tier="B"] {  /* 70-79 良好 */
+           background: rgba(14, 165, 233, 0.12); color: var(--cyber-400);
+           border-color: rgba(14, 165, 233, 0.35);
+       }
+       .news-card-score[data-tier="C"] {  /* <70 一般 */
+           background: rgba(241, 245, 249, 0.6); color: var(--dark-300);
+           border-color: var(--glass-border);
+       }
+       .news-card:hover .news-card-score[data-tier="S"] {
+           transform: scale(1.05);
+       }
+       .news-card:hover .news-card-score[data-tier="A"] {
+           transform: scale(1.05);
+       }
+
+       /* 卡片底部信息栏（来源 + 时间 + 评分） */
+       .news-card-meta {
+           display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+           gap: 8px; margin-bottom: 10px;
+       }
+       .news-card-meta-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+       .news-card-meta-right { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+
+       /* 卡片底部 #标签列表（参考样例） */
+       .news-card-hashtags {
+           display: flex; flex-wrap: wrap; gap: 6px;
+           padding-top: 10px; margin-top: 4px;
+           border-top: 1px solid var(--glass-border);
+       }
+       .hashtag {
+           font-size: 11px; color: var(--dark-400);
+           background: rgba(241, 245, 249, 0.6); padding: 2px 8px; border-radius: 4px;
+       }
+
+       .news-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+       .news-card-tag {
+           font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500;
+           display: inline-flex; align-items: center; gap: 4px;
+       }
+       .news-card-tag[data-cat="industry"] { background-color: rgba(124, 58, 237, 0.082); color: var(--neon-purple); border: 1px solid rgba(124, 58, 237, 0.19); }
+       .news-card-tag[data-cat="hotspot"] { background-color: rgba(239, 68, 68, 0.082); color: var(--neon-red); border: 1px solid rgba(239, 68, 68, 0.19); }
+       .news-card-tag[data-cat="emergency"] { background-color: rgba(14, 165, 233, 0.082); color: var(--cyber-400); border: 1px solid rgba(14, 165, 233, 0.19); }
+       .news-card-tag[data-cat="algo_eng"] { background-color: rgba(245, 158, 11, 0.082); color: var(--neon-orange); border: 1px solid rgba(245, 158, 11, 0.19); }
+       .news-card-tag.plain { background-color: rgba(241, 245, 249, 0.6); color: var(--dark-300); border: 1px solid var(--glass-border); }
+
+       /* 应急业务子分组标题（H4） */
+       .sub-group-title {
+           font-family: Orbitron, sans-serif; font-size: 15px; font-weight: 600;
+           color: var(--cyber-300); margin: 16px 0 10px 0; padding: 8px 12px;
+           background: linear-gradient(90deg, rgba(14, 165, 233, 0.08), transparent);
+           border-left: 3px solid var(--cyber-400); border-radius: 0 6px 6px 0;
+           display: flex; align-items: center; gap: 8px;
+       }
+       .sub-group-title .sub-group-icon {
+           display: inline-flex; align-items: center; justify-content: center;
+           width: 20px; height: 20px; border-radius: 4px;
+           background: rgba(14, 165, 233, 0.15); color: var(--cyber-400); font-size: 12px;
+       }
+       .sub-group-title .sub-group-count {
+           font-size: 11px; font-weight: 400; color: var(--dark-400);
+           background: rgba(241, 245, 249, 0.6); padding: 2px 8px; border-radius: 999px; margin-left: auto;
+       }
+       .sub-group-divider {
+           height: 1px; margin: 14px 0;
+           background: linear-gradient(90deg, rgba(14, 165, 233, 0.15), transparent);
+       }
+
+       .news-card-footer {
+           display: flex; align-items: center; justify-content: space-between;
+           padding-top: 10px; border-top: 1px solid var(--glass-border);
+       }
+       .news-card-comment {
+           font-size: 12px; color: var(--dark-200); line-height: 1.6;
+       }
+       .news-card-comment em {
+           font-style: normal; font-weight: 600; font-size: 12px;
+       }
+       .news-card-comment[data-cat="industry"] em { color: var(--neon-purple); }
+       .news-card-comment[data-cat="hotspot"] em { color: var(--neon-red); }
+       .news-card-comment[data-cat="emergency"] em { color: var(--cyber-400); }
+       .news-card-comment[data-cat="algo_eng"] em { color: var(--neon-orange); }
+
+       a { color: var(--cyber-400); text-decoration: none; transition: color 0.2s; }
+       a:hover { color: #4DE0FF; }
+
+       .empty-section { text-align: center; padding: 24px; color: var(--dark-400); font-size: 14px; }
+
+       /* ===== 响应式 ===== */
+       @media (max-width: 768px) {
+           .navbar { padding: 10px 16px; }
+           .nav-title { font-size: 15px; }
+           .stats-banner { padding: 32px 16px 16px; }
+           .stats-banner h2 { font-size: 28px; }
+           .stats-grid { grid-template-columns: repeat(2, 1fr); }
+           .main-content { padding: 16px 16px 60px; }
+           .section-card { padding: 18px; }
+           .section-title { font-size: 18px; }
+       }
+   </style>
+</head>
+<body>
+   <div class="bg-grid"></div>
+   <div class="bg-glow"></div>
+
+   <!-- 导航栏 -->
+   <nav class="navbar">
+       <div class="nav-brand">
+           <div class="nav-logo">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+           </div>
+           <div>
+               <div class="nav-title">AI资讯早知道</div>
+               <div class="nav-subtitle">数据科学部</div>
+           </div>
+       </div>
+       <div class="nav-right">
+           <div class="nav-date">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+               <span>2026-07-10</span>
+               <span class="weekday">周五</span>
+           </div>
+           <button class="history-btn" id="history-btn" onclick="toggleHistoryDropdown(event)">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+               <span>历史记录</span>
+               <span class="arrow"></span>
+           </button>
+           <div class="history-dropdown" id="history-dropdown">
+               <div class="history-dropdown-header">今天 + 最近 7 天</div>
+               <div class="history-list" id="history-list"></div>
+           </div>
+       </div>
+   </nav>
+
+   <div class="main-wrapper">
+   <!-- 统计横幅 -->
+   <section class="stats-banner">
+       <h2><span class="date-text">2026年07月10日</span></h2>
+       <p class="meta">AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯</p>
+       <div class="stats-grid">
+           <div class="stat-card active animate-slide-up" onclick="filterCategory('all', this)" data-cat="all" style="animation-delay:0ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-cyber"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></div>
+                   <div class="stat-num cat-cyber" id="count-all">0</div>
+               </div>
+               <div class="stat-label">全部</div>
+               <div class="stat-bar bar-cyber"></div>
+           </div>
+           <div class="stat-card animate-slide-up" onclick="filterCategory('hotspot', this)" data-cat="hotspot" style="animation-delay:100ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+                   <div class="stat-num cat-red" id="count-hotspot">0</div>
+               </div>
+               <div class="stat-label">热点新闻</div>
+               <div class="stat-bar bar-red"></div>
+           </div>
+           <div class="stat-card animate-slide-up" onclick="filterCategory('industry', this)" data-cat="industry" style="animation-delay:200ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-purple"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M2 20h20"/><path d="M5 20V8l4 3V8l4 3V8l4 3v9"/><path d="M9 20v-4h2v4"/></svg></div>
+                   <div class="stat-num cat-purple" id="count-industry">0</div>
+               </div>
+               <div class="stat-label">行业动态</div>
+               <div class="stat-bar bar-purple"></div>
+           </div>
+           <div class="stat-card animate-slide-up" onclick="filterCategory('algo_eng', this)" data-cat="algo_eng" style="animation-delay:300ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-orange"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div>
+                   <div class="stat-num cat-orange" id="count-algo_eng">0</div>
+               </div>
+               <div class="stat-label">算法专项</div>
+               <div class="stat-bar bar-orange"></div>
+           </div>
+           <div class="stat-card animate-slide-up" onclick="filterCategory('emergency', this)" data-cat="emergency" style="animation-delay:400ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-cyber"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></div>
+                   <div class="stat-num cat-cyber" id="count-emergency">0</div>
+               </div>
+               <div class="stat-label">应急业务</div>
+               <div class="stat-bar bar-cyber"></div>
+           </div>
+       </div>
+   </section>
+
+   <!-- 主内容 -->
+   <div class="main-content">
+       <div class="sections-wrapper" id="sections-container"></div>
+   </div>
+   </div>
+
+   <textarea id="md-source-today" style="display:none;">### 🏭 行业动态
+- **OpenAI 推出 ChatGPT Work** OpenAI 发布 ChatGPT Work，一个能跨应用和文件收集信息、将复杂项目分解为小步骤独立完成并持续工作数小时的 AI 智能体 | 来源: OpenAI官方 | 发布时间: 2026-07-09 ([原文链接](https://openai.com/index/chatgpt-for-your-most-ambitious-work))
+  - *推荐理由*：ChatGPT Work 的推出标志着 AI 智能体在实际工作中的应用进一步深化，有望大幅提升工作效率。
+
+- **Meta 开放 Muse Spark AI 模型 API** Meta 正式向开发者开放 Muse Spark AI 模型 API，加入 AI 商业化竞争 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/775.htm))
+  - *推荐理由*：Meta 的这一举措标志着其在 AI 商业化方面的进一步布局，将加剧市场竞争。
+
+- **NVIDIA 发布 Nemotron-Labs-3-Puzzle-75B-A9B** NVIDIA 发布 Nemotron-3-Super 的压缩变体 Nemotron-Labs-3-Puzzle-75B-A9B，总参数从 120.7B 降至 75.3B，服务器吞吐量提升 2.03 倍 | 来源: MarkTechPost | 发布时间: 2026-07-09 ([原文链接](https://www.marktechpost.com/2026/07/09/nvidia-releases-nemotron-labs-3-puzzle-75b-a9b-a-compressed-hybrid-moe-llm-delivering-2-03x-server-throughput-at-matched-user-throughput))
+  - *推荐理由*：NVIDIA 的这一发布将显著提升大规模语言模型的效率和性能，降低部署成本。
+
+- **蚂蚁灵波全栈2.0模型定义具身智能“新大脑”** 蚂蚁灵波科技升级全栈大脑2.0，一口气发布了涵盖视觉、动作、操作以及物理预测等方向的具身智能大模型 | 来源: 雷峰网 | 发布时间: 2026-07-09 ([原文链接](https://www.leiphone.com/category/industrynews/G37AgItr75dHXX0i.html))
+  - *推荐理由*：蚂蚁灵波的全栈2.0模型将推动具身智能领域的发展，为机器人和仿真数据生成提供新的工具。
+
+- **法国对英伟达反垄断调查接近尾声** 法国竞争管理局确认，对英伟达的反垄断调查已近尾声，即将发布正式异议声明 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/744.htm))
+  - *推荐理由*：此次调查结果可能对全球 AI 加速器市场格局产生重大影响，值得关注。
+
+- **Claude 推出反思功能（Beta）** Anthropic 为 Claude 推出一项反思功能（Beta），帮助用户追踪使用模式，回顾过去 1、3、6 或 12 个月的活动总结 | 来源: Anthropic Newsroom | 发布时间: 2026-07-09 ([原文链接](https://www.anthropic.com/news/reflect-with-claude))
+  - *推荐理由*：反思功能将帮助用户更好地理解和管理他们的 AI 使用行为，提高透明度和可控性。
+
+- **OpenAI 整合桌面端 ChatGPT / Codex 应用** OpenAI 公司今天（7 月 10 日）发布公告，宣布推出全新桌面应用程序，将整合 Codex 和 ChatGPT 体验 | 来源: IT之家 | 发布时间: 2026-07-10 ([原文链接](https://www.ithome.com/0/974/804.htm))
+  - *推荐理由*：OpenAI 的这一整合将提升用户的 AI 编程体验，扩展覆盖更多非开发者群体。
+
+- **Orqa 提供高级军事 FPV 无人机培训** Orqa 与其西班牙合作伙伴成功为西班牙陆军提供了高级军事 FPV 无人机操作员课程 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/orqa-delivers-advanced-military-fpv-drone-training-to-spanish-army/))
+  - *推荐理由*：高级军事 FPV 无人机培训将提升军队的无人机操作技能，增强作战能力。
+### 🔥 热点新闻
+- **美光加快美国晶圆厂投资** 美光宣布加快美国晶圆厂及技术投资计划，并预计到 2035 年，相关支出将增至 2500 亿美元以上 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/756.htm))
+  - *推荐理由*：美光的投资计划将显著提升其在存储市场的竞争力，满足 AI 时代快速增长的需求。
+
+- **星巴克借助 AI 开发内部工具** 星巴克正借助人工智能开发自有软件工具，希望取代目前从微软、IBM 等公司采购的部分企业软件 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/750.htm))
+  - *推荐理由*：星巴克的这一举措反映了越来越多企业希望通过 AI 技术自主开发应用程序的趋势。
+
+- **PrismML 模型 AI 压缩技术被苹果看中** 苹果公司正接洽 PrismML 初创公司，评估在 iPhone 上直接运行更大规模 AI 模型的可行性 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/796.htm))
+  - *推荐理由*：PrismML 的原生 1-bit 模型压缩技术将显著降低 AI 模型的内存占用和能耗，提升移动设备上的 AI 性能。
+
+- **Anthropic发起"硬问题"倡议** Anthropic 作为公益公司，发起"硬问题"倡议，邀请公众就 AI 对就业、社会、家庭、科学医学等领域的影响提出最尖锐的问题 | 来源: Anthropic Newsroom | 发布时间: 2026-07-09 ([原文链接](https://www.anthropic.com/news/hard-questions))
+  - *推荐理由*：该倡议有助于促进公众对 AI 影响的深入讨论，推动更加负责任的 AI 发展。
+### 🚨 应急业务
+- **DJI 的 EV50 无人机在珠峰测试** DJI 的新 EV50 VTOL 无人机在珠峰附近进行了前所未有的测试飞行，有望革新应急物流 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/beyond-the-helicopter-djis-ev50-drone-brings-autonomous-logistics-to-the-slopes-of-mount-everest/))
+  - *推荐理由*：EV50 无人机的测试成功展示了其在恶劣环境下的应急物流能力，有望替代传统直升机。
+
+- **AG3 Labs 利用模块化设计实现现场无人机维修** AG3 Labs 开发了一种模块化无人机架构，允许操作员在现场快速更换组件并 3D 打印备件 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/ag3-labs-utilises-modular-design-to-operationalise-in-field-drone-repairs/))
+  - *推荐理由*：模块化设计将显著提高无人机的维护效率，减少对长物流链的依赖。
+
+- **Valkyrie Dynamics HEIMDALL** Valkyrie Dynamics 推出了 HEIMDALL，一种用于无人机拦截器的小型化、AI 驱动雷达 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/valkyrie-dynamics-heimdall/))
+  - *推荐理由*：HEIMDALL 将提升无人机拦截器的探测和跟踪能力，增强消防安全。
+### 🧠 算法专项
+- **蚂蚁灵波开源 LingBot-World 2.0** 蚂蚁灵波开源新一代实时交互世界模型 LingBot-World 2.0（14B 参数），支持施法、攻击、跳跃等丰富角色动作及文本驱动事件 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/508.htm))
+  - *推荐理由*：LingBot-World 2.0 的开源将进一步推动具身智能的发展，为开发者提供更多创新机会。
+
+- **Google 推出 LiteRT.js** Google 发布 LiteRT.js，这是 LiteRT 跨平台边缘 AI 运行时的最新成员，专为 JavaScript 开发者设计，可直接在浏览器中运行机器学习模型 | 来源: Google Developers Blog | 发布时间: 2026-07-09 ([原文链接](https://developers.googleblog.com/litertjs-googles-high-performance-web-ai-inference))
+  - *推荐理由*：LiteRT.js 的推出将使 Web 开发者能够更轻松地在浏览器中部署高性能的 AI 模型，提升用户体验。
+
+- **蚂蚁灵波开源 LingBot-Video** 蚂蚁灵波科技正式开源 LingBot-Video，这是全球首个基于 MoE 架构、面向具身智能的视频生成基础模型 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/517.htm))
+  - *推荐理由*：LingBot-Video 的开源将推动具身智能领域的研究和应用，为机器人和仿真数据生成提供新的工具。
+
+- **SpaR3D-MoE: 自适应 3D 空间推理** SpaR3D-MoE 是一种自适应 3D 空间推理框架，结合了几何归纳混合专家模型 | 来源: arXiv.org | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06620))
+  - *推荐理由*：SpaR3D-MoE 通过结合几何归纳和混合专家模型，提升了 3D 空间推理的准确性和效率。
+
+- **ReMoDEx: 大规模图像数据集的局部到全局相关性模型决策解释框架** ReMoDEx 是一种局部到全局相关性模型决策解释框架，适用于大规模图像数据集 | 来源: arXiv.org | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06889))
+  - *推荐理由*：ReMoDEx 通过局部到全局的相关性分析，提高了图像分类模型的解释性和透明度。
+
+- **EdgeCompress: 边缘 AI 的多维模型压缩和动态推理耦合** EdgeCompress 结合了多维模型压缩和动态推理，适用于资源受限的嵌入式设备 | 来源: arXiv.org | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06982))
+  - *推荐理由*：EdgeCompress 通过多维压缩和动态推理，降低了 CNN 在边缘设备上的计算成本。
+
+- **MiLSD: 面向资源受限设备的微型线段检测器** MiLSD 是一种面向资源受限设备的微型线段检测器，适用于视觉 SLAM 和 3D 重建 | 来源: arXiv.org | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06600))
+  - *推荐理由*：MiLSD 通过优化模型大小和内存占用，提升了资源受限设备上的线段检测性能。
+
+- **几何崩溃：当视觉模型无法验证物理因果关系时** 该论文探讨了视觉模型在验证物理因果关系时的局限性，并提出了 Scrambled Edges 方法 | 来源: arXiv.org | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06871))
+  - *推荐理由*：该研究揭示了视觉模型在物理因果关系验证方面的不足，并提出了改进方法。
+
+- **Seeing What Matters: 胸部 X 光报告生成的病灶感知高分辨率补丁发现与融合** 该论文提出了一种病灶感知的高分辨率补丁发现与融合方法，用于胸部 X 光报告生成 | 来源: arXiv.org | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06909))
+  - *推荐理由*：该方法通过高分辨率补丁发现与融合，提高了胸部 X 光报告生成的准确性。
+
+- **LoCA: 空间感知的低秩卷积自适应视觉基础模型** LoCA 是一种空间感知的低秩卷积自适应方法，用于视觉基础模型的迁移学习 | 来源: arXiv.org | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06918))
+  - *推荐理由*：LoCA 通过低秩卷积自适应，减少了迁移学习中的计算成本和灾难性遗忘。
+
+- **SpiS-GAN: 基于螺旋调制的手写合成** SpiS-GAN 是一种基于螺旋调制的手写合成方法，结合了星形操作 | 来源: arXiv.org | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06949))
+  - *推荐理由*：SpiS-GAN 通过螺旋调制和星形操作，提升了手写合成的鲁棒性和多样性。</textarea>
+
+   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
+   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态
+- **阶跃星辰发布新一代 AI 智能体终端** 阶跃星辰宣布推出新一代智能体终端，成为全球大模型厂商中率先迈出这一步的玩家 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/325.htm))
+  - *推荐理由*：这一发布标志着 AI 终端市场的新突破，可能引领未来智能设备的发展方向。
+
+- **OpenAI 政府与国家安全合作原则** OpenAI 公布与政府及国家安全合作伙伴的原则，强调负责任的 AI 使用、民主问责和公共安全 | 来源: OpenAI News | 发布时间: 2026-07-08 ([原文链接](https://openai.com/index/government-national-security-partnerships))
+  - *推荐理由*：这些原则为 AI 在政府和国家安全领域的应用提供了指导，确保技术的安全和透明。
+### 🔥 热点新闻
+- **英伟达 Nemotron 3 Ultra 获开源模型最高准确率** 英伟达在 LangChain 的 Deep Agents 基准测试中，Nemotron 3 Ultra 取得开源模型最高准确率，推理成本仅为顶级闭源模型的 1/10 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/269.htm))
+  - *推荐理由*：这一成就展示了英伟达在开源模型领域的领先地位，降低了高性能 AI 模型的使用成本。
+
+- **ICML 2026 中国大厂抢人才** ICML 2026 期间，中国互联网大厂纷纷在会场内外展开激烈的人才争夺战 | 来源: 雷峰网 | 发布时间: 2026-07-08 ([原文链接](https://www.leiphone.com/category/academic/DiVzwoGAPFZarhqd.html))
+  - *推荐理由*：这场人才争夺战反映了中国企业在 AI 领域的积极布局和对高端人才的迫切需求。
+
+- **英特尔 Arc Pro B70 显卡推理测试表现优异** 蓝戟测试结果显示，英特尔 Arc Pro B70 GPU 在 DeepSeek R1 模型推理表现上超过英伟达 RTX 5090D 和 RTX 4090D 显卡 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/422.htm))
+  - *推荐理由*：这一测试结果表明英特尔在 AI 推理性能方面取得了显著进步，为用户提供了更多选择。
+
+- **IDC：PC 大盘微降 6.1%** IDC 最新研究显示，AI 超级周期带来的不仅是技术代际的更迭，更是一场深层次的组织范式变革 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/331.htm))
+  - *推荐理由*：这一变化将对 PC 等终端硬件市场产生结构性的拉动效应，推动新的生产力形态发展。
+
+- **腾讯混元 Hy3 调用激增，WorkBuddy 扩容** 腾讯混元宣布 Hy3 调用激增，已紧急扩容 WorkBuddy 以提供更好的使用体验 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/310.htm))
+  - *推荐理由*：Hy3 的高调用率反映了其在实际应用中的受欢迎程度，扩容措施有助于提升用户体验。
+
+- **中通快运接入 AI 版支付宝** 中通快运作为首批接入的零担快运企业，同步入驻支付宝 AI 生态，用户可通过自然对话一键触达核心服务 | 来源: 雷峰网 | 发布时间: 2026-07-08 ([原文链接](https://www.leiphone.com/category/industrynews/5eKwrT43WHs8AwI7.html))
+  - *推荐理由*：这一举措简化了物流操作流程，提升了用户体验，展示了 AI 在物流领域的应用潜力。
+### 🚨 应急业务
+暂无相关内容
+
+### 🧠 算法专项
+- **ICML 2026 Spotlight Poster 汇总** ICML 2026 第二天，雷峰网精选了最具代表性的研究成果，涵盖多个前沿领域 | 来源: 雷峰网 | 发布时间: 2026-07-08 ([原文链接](https://www.leiphone.com/category/private/7a2o088m7EXWQXv5.html))
+  - *推荐理由*：这些论文展示了机器学习领域的最新进展，是学术界和工业界的关注焦点。
+
+- **OpenAI 分析 SWE-Bench Pro 问题** OpenAI 发布新分析，揭示 SWE-Bench Pro 编码基准的问题，引发对 AI 模型评估可靠性的担忧 | 来源: OpenAI News | 发布时间: 2026-07-08 ([原文链接](https://openai.com/index/separating-signal-from-noise-coding-evaluations))
+  - *推荐理由*：该分析有助于提高 AI 模型评估的准确性，推动行业标准的改进。
+
+- **Ground3D-LMM：细粒度 3D 点定位和空间推理** 该论文提出了一种新的方法，通过 LMM 实现细粒度 3D 点定位和空间推理 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05493))
+  - *推荐理由*：该方法提高了 3D 环境中自然语言查询的可验证性和度量性，具有广泛的应用前景。
+
+- **REVIVE：多模态框架检测和恢复自动驾驶车辆破坏行为** 该论文提出了一种多模态框架 REVIVE，用于检测和恢复自动驾驶车辆中的破坏行为 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05649))
+  - *推荐理由*：该框架有助于提高自动驾驶车辆的安全性和鲁棒性，减少因破坏行为导致的故障。
+
+- **渲染感知贝叶斯 3D 高斯散射** 该论文提出了一种渲染感知的贝叶斯 3D 高斯散射方法，提供原生不确定性控制和自适应复杂度控制 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05522))
+  - *推荐理由*：该方法提高了 3D 高斯散射的训练效率和性能，适用于实时新视图合成等任务。
+
+- **利用生成图像模型进行无训练原始形状抽象** 该论文提出了一种利用生成图像模型进行无训练原始形状抽象的方法 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05568))
+  - *推荐理由*：该方法能够高效地从大规模生成图像模型中提取几何基元，适用于机器人、仿真和场景理解等领域。
+
+- **Patch 知识转移用于高效 AI 生成图像质量评估** 该论文提出了一种 Patch 知识转移方法，用于高效评估 AI 生成图像的质量 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05605))
+  - *推荐理由*：该方法提高了 AI 生成图像质量评估的效率，有助于推动图像生成技术的发展。
+
+- **Taxlifier：利用疾病分类增强胸部 X 射线多标签分类** 该论文提出了一种 Taxlifier 方法，利用疾病分类增强胸部 X 射线的多标签分类 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05628))
+  - *推荐理由*：该方法提高了胸部 X 射线多标签分类的准确性，有助于及时诊断和治疗胸腔疾病。
+
+- **场景图思维：强化多模态大语言模型的结构化视觉推理** 该论文提出了一种场景图思维方法，强化多模态大语言模型的结构化视觉推理能力 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05716))
+  - *推荐理由*：该方法提高了多模态大语言模型的视觉推理能力，有助于更好地理解和处理复杂的视觉信息。
+
+- **Image2Sim：通过生成神经模拟器扩展具身导航** 该论文提出了一种 Image2Sim 方法，通过生成神经模拟器扩展具身导航 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05765))
+  - *推荐理由*：该方法提高了具身导航的性能，有助于构建更可靠的自主导航系统。</textarea>
+   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态
+- **OpenAI 发布 GPT-5.6 模型** OpenAI 发布 GPT-5.6 模型，Sol 在 TerminalBench 2.1 得分 88.8%，定价 $5/$30 每百万输入/输出 token | 来源: The Decoder | 发布时间: 2026-07-08 ([原文链接](https://the-decoder.com/openais-gpt-5-6-launches-thursday-after-a-delay-forced-by-the-u-s-government))
+  - *推荐理由*：新模型在性能和成本上具有显著优势，有望推动更多企业和开发者采用。
+
+- **Liquid AI 开源 Antidoom 修复方法** Liquid AI 开源了 Antidoom，一种基于 Final Token Preference Optimization 的修复方法，减少推理模型中的死循环问题 | 来源: MarkTechPost | 发布时间: 2026-07-07 ([原文链接](https://www.marktechpost.com/2026/07/07/liquid-ai-antidoom-doom-loops-ftpo))
+  - *推荐理由*：该方法有效提升了模型的稳定性和可靠性，有助于提升用户体验。
+
+- **Google Gemini API 新增功能** Google 为 Gemini API 的 Managed Agents 新增后台执行、远程 MCP 服务器集成等功能，帮助开发者构建可靠的生产级 AI 智能体 | 来源: Google Blog | 发布时间: 2026-07-07 ([原文链接](https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api))
+  - *推荐理由*：这些更新使得 Gemini API 更加灵活和强大，有助于加速 AI 应用的开发和部署。
+
+- **Claude Cowork 向移动端和网页端开放** Claude Cowork 正在向移动端和网页端开放，支持跨设备同步任务和文件 | 来源: Claude Blog | 发布时间: 2026-07-07 ([原文链接](https://claude.com/blog/cowork-web-mobile))
+  - *推荐理由*：这一更新将极大提升用户的使用体验，特别是在多设备协同工作方面。
+
+- **黑客利用 AI 工具组装僵尸网络** 黑客可利用 9 款最流行的 AI 工具组装大规模僵尸网络，执行 DDoS 攻击并大规模感染设备 | 来源: Ars Technica | 发布时间: 2026-07-08 ([原文链接](https://arstechnica.com/security/2026/07/hackers-can-use-9-of-the-most-popular-ai-tools-to-assemble-massive-botnets))
+  - *推荐理由*：这一发现提醒我们在使用 AI 工具时需要加强安全防护，防止被恶意利用。
+
+- **蚂蚁集团提出 Token 密度策略** 蚂蚁集团副总裁周俊在 AICon 演讲中提出从“更多 Token”转向“更高 Token 密度”的策略，提升模型效率 | 来源: 公众号：蚂蚁百灵 | 发布时间: 2026-07-08 ([原文链接](https://mp.weixin.qq.com/s/dsIfi4C-T5Q4emmIh-7yzg))
+  - *推荐理由*：这一策略有助于降低算力成本，提高模型的实用性和经济性。
+
+- **Meta 推出 Muse Image 和 Muse Video** Meta Superintelligence Labs 发布首个媒体生成模型 Muse Image 和 Muse Video，实现高视觉保真度并原生支持音频 | 来源: X: AI at Meta | 发布时间: 2026-07-07 ([原文链接](https://x.com/AIatMeta/status/2074577662840832382))
+  - *推荐理由*：这些模型将为图像和视频生成带来新的可能性，提升内容创作的效率和质量。
+
+### 🔥 热点新闻
+- **蚂蚁灵波开源 LingBot-VLA 2.0** 蚂蚁灵波科技宣布升级并开源新一代具身基座模型 LingBot-VLA 2.0，覆盖 17 个主流机器人品牌的 20 种机器人构型 | 来源: 雷峰网 | 发布时间: 2026-07-08 ([原文链接](https://www.leiphone.com/category/industrynews/4583hFHXszrX7fky.html))
+  - *推荐理由*：LingBot-VLA 2.0 的开源将进一步推动具身智能的发展，促进机器人技术的广泛应用。
+
+- **美国企业拥抱中国 AI 模型** 基于 OpenRouter 的数据，美国公司每周调用 DeepSeek、智谱 GLM 系列等中国模型的比重持续保持在 30% 以上，峰值达到 46% | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/036.htm))
+  - *推荐理由*：这表明中国 AI 模型在全球市场上的竞争力不断增强，受到越来越多企业的认可。
+
+- **工信部发布 Claude Code 风险提示** 工信部网络安全威胁和漏洞信息共享平台发布风险提示，指出 Claude Code 存在安全后门隐患 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/001.htm))
+  - *推荐理由*：这一风险提示提醒用户注意 AI 工具的安全性，及时采取措施保护敏感信息。
+
+- **OpenAI 更新 GPT Realtime AI 模型** OpenAI 更新 2.1 系列 GPT Realtime AI 模型，p95 延迟至少降低 25% | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/021.htm))
+  - *推荐理由*：延迟的降低将显著提升实时交互应用的用户体验，推动更多场景的应用。
+
+- **马斯克确认 SpaceXAI 将开放 Grok 4.5** SpaceX 创始人埃隆·马斯克确认，SpaceXAI 将于“明天”向公众开放 Grok 4.5 模型 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/035.htm))
+  - *推荐理由*：Grok 4.5 的开放将为公众提供更多高性能的 AI 模型选择，推动 AI 技术的普及。
+
+- **前沿 AI 模型竞争激烈** 在 Epoch Capabilities Index（ECI）榜单榜首更迭中，前沿模型只能维持约 7 周领先地位 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/045.htm))
+  - *推荐理由*：这一现象反映了 AI 模型领域的快速发展和激烈竞争，促使各厂商不断推陈出新。
+
+- **英伟达发布 Audex 统一模型** 英伟达推出 Audex 统一音频-文本大语言模型，总参数量 30B，避免多模态扩展后文本能力下滑问题 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/973/992.htm))
+  - *推荐理由*：Audex 模型的发布将为多模态 AI 应用提供更强的支持，提升整体性能。
+
+- **支付宝“碰一下”升级为 AI 经营网络** 支付宝宣布“碰一下”完成 AI 升级，百万级商家侧碰一下设备整体升级为“碰设备 Agent”，同步推出面向中小商家的服务平台 | 来源: 36氪 | 发布时间: 2026-07-08 ([原文链接](https://36kr.com/newsflashes/3886665005166600?f=rss))
+  - *推荐理由*：这一升级将大幅提升线下商家的智能化水平，推动商业数字化转型。
+
+### 🧠 算法/模型/论文专项
+- **NVIDIA Vera CPU 提升 AI 工厂吞吐量** NVIDIA 发布 Vera CPU，通过优化缓存机制和自定义函数调用，提升 AI 工厂的吞吐量 | 来源: NVIDIA Technical Blog | 发布时间: 2026-07-07 ([原文链接](https://developer.nvidia.com/blog/nvidia-vera-cpu-boosts-ai-factory-throughput-to-accelerate-agentic-workloads/))
+  - *推荐理由*：Vera CPU 的推出将显著提升 AI 工厂的处理能力和效率，推动 AI 应用的规模化部署。
+
+- **DeepSeek 自研 AI 推理芯片** DeepSeek 被曝自研 AI 推理芯片，一年前已启动，正对接代工与存储厂商 | 来源: InfoQ | 发布时间: 2026-07-08 ([原文链接](https://www.infoq.cn/article/sLYxUorQQs5K17DILrx8?utm_source=rss&amp;utm_medium=article))
+  - *推荐理由*：自研 AI 推理芯片将有助于提升 DeepSeek 的技术自主性和竞争力，推动 AI 技术的进一步发展。
+
+- **高德发布 Phys AI Data** 高德发布 Phys AI Data，首个面向物理 AI 训练与应用的一站式空间数据基座 | 来源: 量子位 | 发布时间: 2026-07-08 ([原文链接](https://www.qbitai.com/2026/07/445946.html))
+  - *推荐理由*：Phys AI Data 的发布将为物理 AI 的训练和应用提供强有力的数据支持，推动相关领域的发展。
+
+- **阿里斩获国际 AI 顶会最佳资源论文奖** 阿里巴巴在国际 AI 顶会上获得最佳资源论文奖，提出 Agent 评测新范式 | 来源: 量子位 | 发布时间: 2026-07-08 ([原文链接](https://www.qbitai.com/2026/07/446069.html))
+  - *推荐理由*：这一奖项肯定了阿里巴巴在 AI 领域的研究成果，提出的评测新范式将对行业产生重要影响。
+
+- **大模型推理的智能调度机制** 研究人员提出一种让奖励模型按需分配算力的动态路由机制，实现大模型推理的智能调度 | 来源: InfoQ | 发布时间: 2026-07-08 ([原文链接](https://www.infoq.cn/article/qYcpkTcUhClJvytSbLu1?utm_source=rss&amp;utm_medium=article))
+  - *推荐理由*：这一机制将显著提升大模型推理的效率和灵活性，有助于优化资源利用。
+
+- **Harrison.Rad 1.5 技术报告** Harrison.Rad 1.5 是一种放射学基础模型，能够根据图像、先验和临床上下文起草报告 | 来源: arXiv | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05880))
+  - *推荐理由*：这一模型将显著提升放射科医生的工作效率，减轻其工作负担。
+
+- **GaussFusion: 多模态 3D 高斯预训练** GaussFusion 是一种多模态 3D 高斯预训练方法，提供几何和外观的联合建模 | 来源: arXiv | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05906))
+  - *推荐理由*：这一方法将为 3D 表示学习提供新的思路，推动相关领域的研究进展。</textarea>
+   <textarea id="md-source-day_3" style="display:none;"></textarea>
+   <textarea id="md-source-day_4" style="display:none;"></textarea>
+   <textarea id="md-source-day_5" style="display:none;"></textarea>
+   <textarea id="md-source-day_6" style="display:none;"></textarea>
+   <textarea id="md-source-day_7" style="display:none;"></textarea>
+
+   <script>
+       // AI 推荐评分映射（仅 today 有；历史早报 tab 无评分显示）
+       // 由后端 render() 注入：url -> score
+       const SCORES_MAP = {"https://openai.com/index/chatgpt-for-your-most-ambitious-work": 92.0, "https://www.ithome.com/0/974/508.htm": 92.0, "https://developers.googleblog.com/litertjs-googles-high-performance-web-ai-inference": 90.0, "https://www.marktechpost.com/2026/07/09/nvidia-releases-nemotron-labs-3-puzzle-75b-a9b-a-compressed-hybrid-moe-llm-delivering-2-03x-server-throughput-at-matched-user-throughput": 88.0, "https://www.ithome.com/0/974/744.htm": 86.0, "https://www.anthropic.com/news/hard-questions": 85.0, "https://www.anthropic.com/news/reflect-with-claude": 85.0, "https://www.ithome.com/0/974/517.htm": 85.0, "https://www.ithome.com/0/974/775.htm": 92.0, "https://www.ithome.com/0/974/756.htm": 92.0, "https://www.leiphone.com/category/industrynews/I7tF0IFX1Q8hH4Im.html": 92.0, "https://www.ithome.com/0/974/750.htm": 88.0, "https://www.leiphone.com/category/industrynews/G37AgItr75dHXX0i.html": 88.0, "https://www.leiphone.com/category/industrynews/P1RW5pSlLbX6EKfq.html": 88.0, "https://www.ithome.com/0/974/804.htm": 85.0, "https://www.ithome.com/0/974/796.htm": 85.0, "https://www.suasnews.com/2026/07/beyond-the-helicopter-djis-ev50-drone-brings-autonomous-logistics-to-the-slopes-of-mount-everest/": 78.0, "https://www.suasnews.com/2026/07/valkyrie-dynamics-heimdall/": 60.0, "https://www.suasnews.com/2026/07/ag3-labs-utilises-modular-design-to-operationalise-in-field-drone-repairs/": 60.0, "https://www.suasnews.com/2026/07/orqa-delivers-advanced-military-fpv-drone-training-to-spanish-army/": 60.0, "https://arxiv.org/abs/2607.06620": 86.0, "https://arxiv.org/abs/2607.06889": 86.0, "https://arxiv.org/abs/2607.06982": 86.0, "https://arxiv.org/abs/2607.06600": 85.0, "https://arxiv.org/abs/2607.06871": 85.0, "https://arxiv.org/abs/2607.06909": 85.0, "https://arxiv.org/abs/2607.06918": 85.0, "https://arxiv.org/abs/2607.06949": 85.0};
+
+       // 分类配置
+       const CATEGORY_CONFIG = {
+           'industry': {
+               name: '行业动态', emoji: '🏭', color: 'purple',
+               desc: '大模型、智能体、RAG、Physical AI、具身智能、基础设施、厂商发布、开源模型、论文/benchmark、政策',
+               subTags: ['大模型', '智能体', 'RAG', '厂商发布', '论文', '政策']
+           },
+           'hotspot': {
+               name: '热点新闻', emoji: '🔥', color: 'red',
+               desc: '当天高讨论度事件、GitHub 热门项目、引发行业讨论的新概念',
+               subTags: ['热门事件', 'GitHub 热门', '新概念', 'AI 趋势']
+           },
+           'emergency': {
+               name: '应急业务', emoji: '🚨', color: 'cyber',
+               desc: '应急、消防两个子板块（建筑巡检、病害识别、缺陷检测、遥感/低空、无人机巡检、智慧消防）',
+               subTags: ['应急', '消防', '无人机巡检', '建筑巡检', '智慧消防']
+           },
+           'algo_eng': {
+               name: '算法专项', emoji: '🧠', color: 'orange',
+               desc: '检测、分割、OCR、视频理解、多模态、开放词汇、小样本、轻量化部署、边缘端部署、端侧压缩',
+               subTags: ['目标检测', '语义分割', '多模态', '边缘部署', '模型压缩']
+           }
+       };
+
+       // 解析 Markdown 提取新闻条目（直接从源文本按行解析，更可靠）
+       function parseMarkdown(dayKey) {
+           const md = document.getElementById('md-source-' + dayKey).value;
+           const lines = md.split('\n');
+
+           // sections[catKey] = 数组；每个元素可能是 { type: 'item', ... } 或 { type: 'subgroup', name, items: [] }
+           const sections = {};
+           const categoryOrder = ['hotspot', 'industry', 'algo_eng', 'emergency'];
+
+           let currentCat = null;
+           let currentSubGroup = null;  // 当前 H4 子分组名（仅 emergency 分类下使用）
+
+           // 用于缓存当前列表项的点评（下一行如果是缩进的 - *推荐理由*，就附加到上一条）
+           let pendingItem = null;
+
+           for (let i = 0; i < lines.length; i++) {
+               const rawLine = lines[i];
+               const line = rawLine.trim();
+
+               // 空行：清空 pendingItem 关联（但不影响点评匹配）
+               if (!line) continue;
+
+               // 过滤干扰行：孤立的 # / --- / *** 等分隔符或残缺标题
+               if (/^(#+\s*)?$/.test(line) || /^(-\{3,}|\*\{3,}|_\{3,})$/.test(line)) continue;
+
+               // H3 分类标题
+               const h3Match = line.match(/^###\s+(.+)$/);
+               if (h3Match) {
+                   const text = h3Match[1];
+                   if (text.includes('行业动态') || text.includes('行业资讯')) currentCat = 'industry';
+                   else if (text.includes('热点新闻') || text.includes('重点热点')) currentCat = 'hotspot';
+                   else if (text.includes('应急业务') || text.includes('应急消防') || text.includes('业务相关')) currentCat = 'emergency';
+                   else if (text.includes('算法专项') || text.includes('算法专项') || text.includes('算法与工程')) currentCat = 'algo_eng';
+                   else if (currentCat === 'emergency' && (text.includes('应急') || text.includes('消防'))) {
+                       // AI 误把子分组写成 H3（### 应急 / ### 消防），当作 H4 处理
+                       currentSubGroup = text.trim();
+                       if (!sections[currentCat]) sections[currentCat] = [];
+                       sections[currentCat].push({ type: 'subgroup', name: currentSubGroup, items: [] });
+                       pendingItem = null;
+                       continue;
+                   }
+                   else { currentCat = null; }
+                   currentSubGroup = null;
+                   if (currentCat && !sections[currentCat]) sections[currentCat] = [];
+                   pendingItem = null;
+                   continue;
+               }
+
+               // H4 子分组标题（仅 emergency 分类下生效）
+               const h4Match = line.match(/^####\s+(.+)$/);
+               if (h4Match && currentCat === 'emergency') {
+                   currentSubGroup = h4Match[1].trim();
+                   if (!sections[currentCat]) sections[currentCat] = [];
+                   sections[currentCat].push({ type: 'subgroup', name: currentSubGroup, items: [] });
+                   pendingItem = null;
+                   continue;
+               }
+
+               if (!currentCat) continue;
+
+               // 缩进的点评行：  - *推荐理由*：xxx  或  - *架构师点评*：xxx（兼容历史数据）
+               const commentIndentMatch = rawLine.match(/^\s+-\s+\*?(?:推荐理由|架构师点评)\*?\s*[：:]\s*(.+)$/);
+               if (commentIndentMatch && pendingItem) {
+                   pendingItem.comment = commentIndentMatch[1].trim();
+                   pendingItem = null;
+                   continue;
+               }
+
+               // 普通列表项：- **标题** 摘要 | 来源: xxx | 发布时间: xxx ([链接](URL))
+               const itemMatch = line.match(/^-\s+(.+)$/);
+               if (itemMatch) {
+                   const newsItem = parseNewsItemFromText(itemMatch[1], currentCat);
+                   if (!newsItem) continue;
+
+                   // 放入子分组或作为普通条目
+                   if (currentSubGroup && sections[currentCat].length > 0) {
+                       const lastEntry = sections[currentCat][sections[currentCat].length - 1];
+                       if (lastEntry.type === 'subgroup' && lastEntry.name === currentSubGroup) {
+                           lastEntry.items.push(newsItem);
+                           pendingItem = newsItem;
+                           continue;
+                       }
+                   }
+                   sections[currentCat].push({ type: 'item', ...newsItem });
+                   pendingItem = newsItem;
+                   continue;
+               }
+           }
+           return { sections, categoryOrder };
+       }
+
+       // 从单行 markdown 文本解析新闻条目
+       // 输入示例: **标题** 摘要内容 | 来源: arXiv | 发布时间: 2026-07-04 ([原文链接](URL))
+       function parseNewsItemFromText(text, catKey) {
+           let rest = text.trim();
+
+           // 1. 提取链接 ([文本](URL)) 或 ([URL](URL)) —— 取最后一个 (...) 形式
+           let link = '#';
+           const linkMatch = rest.match(/\(\[([^\]]*)\]\(([^)]+)\)\)/);
+           if (linkMatch) {
+               link = linkMatch[2];
+               // 从原文中移除链接部分
+               rest = rest.replace(linkMatch[0], '').trim();
+           } else {
+               // 兼容裸链接 [文本](URL)
+               const linkMatch2 = rest.match(/\[([^\]]*)\]\(([^)]+)\)/);
+               if (linkMatch2) {
+                   link = linkMatch2[2];
+                   rest = rest.replace(linkMatch2[0], '').trim();
+               }
+           }
+
+           // 2. 提取标题（**xxx** 或 __xxx__）
+           let title = '';
+           const titleMatch = rest.match(/^\*\*(.+?)\*\*/) || rest.match(/^__(.+?)__/);
+           if (titleMatch) {
+               title = titleMatch[1].trim();
+               // 如果标题形如 "[中文标题]"，去掉方括号
+               const bracketMatch = title.match(/^\[([^\]]+)\]$/);
+               if (bracketMatch) title = bracketMatch[1].trim();
+               rest = rest.substring(titleMatch[0].length).trim();
+           }
+
+           // 3. 用 | 分隔，提取来源、发布时间
+           let source = '';
+           let pubTime = '';
+           let summary = '';
+           const pipeParts = rest.split('|').map(s => s.trim());
+           if (pipeParts.length > 1) {
+               // 第一部分是摘要
+               summary = pipeParts[0];
+               for (let k = 1; k < pipeParts.length; k++) {
+                   const part = pipeParts[k];
+                   const srcMatch = part.match(/^来源\s*[：:]\s*(.+)$/i);
+                   if (srcMatch) { source = srcMatch[1].trim(); continue; }
+                   const timeMatch = part.match(/^发布时间\s*[：:]\s*(.+)$/i);
+                   if (timeMatch) { pubTime = timeMatch[1].trim(); continue; }
+               }
+           } else {
+               summary = rest;
+           }
+
+           // 4. 清理摘要：去掉首尾标点/空白
+           summary = summary.replace(/^[\s\u3000\u2014\-\|：:*#]+/, '').trim();
+           summary = summary.replace(/[\s\u3000\-\|：:*#]+$/, '').trim();
+
+           // 5. fallback：如果标题为空但摘要非空，把摘要第一句作为标题
+           if (!title && summary) {
+               const m = summary.match(/^(.+?)[。.!！？?]/);
+               if (m) { title = m[1].trim(); }
+               else { title = summary.substring(0, 30); }
+           }
+
+           // 6. 兜底保护：如果标题非空但摘要为空（AI 把所有信息塞进标题的情况）
+           //    用标题作为摘要内容，保证卡片总能显示描述
+           if (title && !summary) {
+               summary = title;
+           }
+
+           // 7. 标题过长时截断（前端展示需要紧凑），完整信息已在 summary 中
+           if (title && title.length > 30) {
+               // 如果 summary 还是直接等于 title，则把完整 title 保留为 summary，截断 title
+               if (summary === title) {
+                   summary = title;
+                   title = title.substring(0, 25) + '…';
+               } else {
+                   title = title.substring(0, 25) + '…';
+               }
+           }
+
+           if (!title) return null;
+           // AI 推荐评分：从 SCORES_MAP 按 URL 匹配（仅 today 有，历史 tab 自然无评分）
+           const score = (link && SCORES_MAP && SCORES_MAP[link]) ? SCORES_MAP[link] : 0;
+           return { title, link, summary, comment: '', source, pubTime, catKey, score };
+       }
+
+       // 兼容保留：从 li 元素解析（已弃用，新逻辑直接从源文本解析）
+       function parseNewsItem(li, catKey) {
+           return parseNewsItemFromText(li.textContent, catKey);
+       }
+
+       // 渲染单条新闻卡片 HTML（参考样例 NewsCard 结构）
+       function renderNewsCard(item, catKey, config, index) {
+           const animDelay = (index || 0) * 50;
+
+           // 来源标签（彩色边框背景）
+           const sourceTag = item.source ? `
+               <span class="news-card-source" data-cat="${catKey}">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                   ${item.source}
+               </span>` : '';
+
+           // 发布时间（带时钟图标）
+           const timeTag = item.pubTime ? `
+               <span class="news-card-time" title="${item.pubTime}">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                   ${item.pubTime}
+               </span>` : '';
+
+           // AI 推荐评分徽章（4 个 tier）
+           let scoreTag = '';
+           if (item.score && item.score > 0) {
+               let tier, icon, label;
+               const s = item.score;
+               if (s >= 90) { tier = 'S'; icon = '🔥'; label = '镇店之宝'; }
+               else if (s >= 80) { tier = 'A'; icon = '★'; label = '优秀'; }
+               else if (s >= 70) { tier = 'B'; icon = '◆'; label = '良好'; }
+               else { tier = 'C'; icon = '·'; label = '一般'; }
+               scoreTag = `<span class="news-card-score" data-tier="${tier}" title="AI 推荐评分 ${s}/100 (${label})"><span class="score-icon">${icon}</span>${Math.round(s)}</span>`;
+           }
+
+           // 元信息栏：左侧来源/时间，右侧评分徽章
+           const metaHtml = (sourceTag || timeTag || scoreTag) ? `
+               <div class="news-card-meta">
+                   <div class="news-card-meta-left">
+                       ${sourceTag}
+                       ${timeTag}
+                   </div>
+                   ${scoreTag ? `<div class="news-card-meta-right">${scoreTag}</div>` : ''}
+               </div>` : '';
+
+           // 底部 #标签列表（参考样例：分类标签 + 子标签）
+           const hashtags = [`#${config.name}`, '#AI'];
+           if (item.source) hashtags.push(`#${item.source}`);
+           const hashtagsHtml = hashtags.map(tag => `<span class="hashtag">${tag}</span>`).join('');
+
+           return `<a class="news-card glow-border animate-slide-up" href="${item.link}" target="_blank" rel="noopener" data-cat="${catKey}" style="animation-delay:${animDelay}ms;">
+               <div class="news-card-title">
+                   <span>${item.title}</span>
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+               </div>
+               ${item.summary ? `<div class="news-card-desc">${item.summary}</div>` : ''}
+               ${metaHtml}
+               ${item.comment ? `<div class="news-card-footer">
+                   <div class="news-card-comment" data-cat="${catKey}"><em>推荐理由</em>：${item.comment}</div>
+               </div>` : ''}
+               <div class="news-card-hashtags">${hashtagsHtml}</div>
+           </a>`;
+       }
+
+       // 渲染分类区块
+       function renderSections(dayKey) {
+           const { sections, categoryOrder } = parseMarkdown(dayKey);
+           const container = document.getElementById('sections-container');
+           container.innerHTML = '';
+
+           // 检查是否有内容（历史早报缺失时显示占位）
+           const hasContent = categoryOrder.some(catKey => (sections[catKey] || []).length > 0);
+           if (!hasContent) {
+               container.innerHTML = '<div class="empty-state">暂无该日早报数据</div>';
+               // 重置顶部统计所有分类计数
+               document.getElementById('total-count').textContent = '0';
+               document.getElementById('count-all').textContent = '0';
+               categoryOrder.forEach(catKey => {
+                   const el = document.getElementById('count-' + catKey);
+                   if (el) el.textContent = '0';
+               });
+               return;
+           }
+
+           let totalCount = 0;
+       const counts = {};
+       let sectionIdx = 0;
+
+       categoryOrder.forEach(catKey => {
+           const config = CATEGORY_CONFIG[catKey];
+           const entries = sections[catKey] || [];
+
+           // 统计实际新闻条数（子分组内的也算）
+           let itemCount = 0;
+           entries.forEach(entry => {
+               if (entry.type === 'subgroup') itemCount += entry.items.length;
+               else itemCount += 1;
+           });
+           counts[catKey] = itemCount;
+           totalCount += itemCount;
+
+           const sectionEl = document.createElement('section');
+           // 入场动画延迟（section-card 自带 animation）
+           const sectionDelay = sectionIdx * 100;
+           sectionEl.className = 'section-card';
+           sectionEl.setAttribute('data-cat', catKey);
+           sectionEl.setAttribute('data-category', catKey);
+           sectionEl.setAttribute('style', `animation-delay:${sectionDelay}ms;`);
+           sectionIdx++;
+
+               // 子标签
+               const subTagsHtml = config.subTags.map(tag =>
+                   `<span class="sub-tag" data-cat="${catKey}">${tag}</span>`
+               ).join('');
+
+               // 渲染内容：区分子分组和普通条目
+               let contentHtml = '';
+               if (entries.length === 0) {
+                   contentHtml = '<div class="empty-section">今日暂无相关资讯</div>';
+               } else {
+                   let parts = [];
+                   let globalIdx = 0;  // 用于动画延迟
+                   let pendingItems = [];  // 连续普通条目缓冲区，合并到同一个 grid
+
+                   // 把缓冲区里的普通条目输出到一个 news-grid（双列）
+                   const flushPending = () => {
+                       if (pendingItems.length === 0) return;
+                       const cards = pendingItems.map(item => renderNewsCard(item, catKey, config, globalIdx++)).join('');
+                       parts.push(`<div class="news-grid">${cards}</div>`);
+                       pendingItems = [];
+                   };
+
+                   entries.forEach(entry => {
+                       if (entry.type === 'subgroup') {
+                           // 遇到子分组，先 flush 普通条目
+                           flushPending();
+                           if (entry.items.length === 0) return;
+                           const subgroupCards = entry.items.map(item => renderNewsCard(item, catKey, config, globalIdx++)).join('');
+                           parts.push(`
+                               <div class="sub-group-title">
+                                   <span class="sub-group-icon">▸</span>
+                                   ${entry.name}
+                                   <span class="sub-group-count">${entry.items.length} 条</span>
+                               </div>
+                               <div class="news-grid">${subgroupCards}</div>
+                               <div class="sub-group-divider"></div>
+                           `);
+                       } else {
+                           // 普通条目：先缓冲，等遇到子分组或结束时统一输出
+                           const item = { title: entry.title, link: entry.link, summary: entry.summary, comment: entry.comment, source: entry.source, pubTime: entry.pubTime, score: entry.score || 0 };
+                           pendingItems.push(item);
+                       }
+                   });
+                   flushPending();  // 结束时 flush 剩余的普通条目
+                   contentHtml = parts.join('');
+               }
+
+               sectionEl.innerHTML = `
+                   <div class="section-header">
+                       <div class="section-header-left">
+                           <div class="section-icon-box" data-cat="${catKey}">${config.emoji}</div>
+                           <div>
+                               <div class="section-title" data-cat="${catKey}">${config.name}<span class="section-count-badge">${itemCount} 条</span></div>
+                               <div class="section-desc">${config.desc}</div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="sub-tags">${subTagsHtml}</div>
+                   <div class="cyber-divider"></div>
+                   ${contentHtml}
+               `;
+
+               container.appendChild(sectionEl);
+           });
+
+           // 更新计数
+           document.getElementById('total-count').textContent = totalCount;
+           document.getElementById('count-all').textContent = totalCount;
+           categoryOrder.forEach(cat => {
+               const el = document.getElementById('count-' + cat);
+               if (el) el.textContent = counts[cat] || 0;
+           });
+       }
+
+       // 分类过滤
+       function filterCategory(category, btnElement) {
+           document.querySelectorAll('.stat-card').forEach(btn => btn.classList.remove('active'));
+           btnElement.classList.add('active');
+           const cat = btnElement.getAttribute('data-cat');
+           document.querySelectorAll('[data-cat="' + cat + '"]').forEach(el => {
+               if (el.classList.contains('stat-card')) {
+                   el.classList.add('active');
+               }
+           });
+           document.querySelectorAll('.section-card').forEach(sec => {
+               if (category === 'all' || sec.getAttribute('data-category') === category) {
+                   sec.style.display = '';
+               } else {
+                   sec.style.display = 'none';
+               }
+           });
+       }
+
+       // 日期元信息（render 时注入，供历史下拉与顶部日期联动使用）
+       // 结构: today/day_1..day_7 各含 date_display / date_iso / weekday
+       const DAY_META = {"today": {"date_display": "2026年07月10日", "date_iso": "2026-07-10", "weekday": "周五"}, "day_1": {"date_display": "2026年07月09日", "date_iso": "2026-07-09", "weekday": "周四"}, "day_2": {"date_display": "2026年07月08日", "date_iso": "2026-07-08", "weekday": "周三"}, "day_3": {"date_display": "2026年07月07日", "date_iso": "2026-07-07", "weekday": "周二"}, "day_4": {"date_display": "2026年07月06日", "date_iso": "2026-07-06", "weekday": "周一"}, "day_5": {"date_display": "2026年07月05日", "date_iso": "2026-07-05", "weekday": "周日"}, "day_6": {"date_display": "2026年07月04日", "date_iso": "2026-07-04", "weekday": "周六"}, "day_7": {"date_display": "2026年07月03日", "date_iso": "2026-07-03", "weekday": "周五"}};
+
+       // 历史记录列表（今天放第一位，方便从历史日期返回今天）
+       const HISTORY_DAYS = ['today', 'day_1', 'day_2', 'day_3', 'day_4', 'day_5', 'day_6', 'day_7'];
+
+       const historyBtn = document.getElementById('history-btn');
+       const historyDropdown = document.getElementById('history-dropdown');
+       const historyList = document.getElementById('history-list');
+       let historyRendered = false;
+
+       function toggleHistoryDropdown(e) {
+           e.stopPropagation();
+           const isOpen = historyDropdown.classList.contains('show');
+           if (isOpen) {
+               historyDropdown.classList.remove('show');
+               historyBtn.classList.remove('active');
+           } else {
+               historyDropdown.classList.add('show');
+               historyBtn.classList.add('active');
+               if (!historyRendered) {
+                   renderHistoryList();
+                   historyRendered = true;
+               }
+           }
+       }
+
+       // 点击页面其他地方关闭下拉
+       document.addEventListener('click', (e) => {
+           if (!historyDropdown.contains(e.target) && !historyBtn.contains(e.target)) {
+               historyDropdown.classList.remove('show');
+               historyBtn.classList.remove('active');
+           }
+       });
+
+       function renderHistoryList() {
+           historyList.innerHTML = HISTORY_DAYS.map((key) => {
+               const meta = DAY_META[key] || {};
+               const ta = document.getElementById('md-source-' + key);
+               const mdText = ta ? ta.value.trim() : '';
+               const hasContent = mdText.length > 0;
+               const dotClass = hasContent ? 'dot' : 'dot empty';
+               const metaClass = hasContent ? '' : 'empty';
+               const metaText = hasContent ? '可查看' : '暂无数据';
+               const dateLabel = meta.date_iso || key;
+               const weekdayLabel = meta.weekday ? (' ' + meta.weekday) : '';
+               return `
+                   <div class="history-item" data-key="${key}" onclick="loadHistoryDay('${key}')">
+                       <div class="history-item-left">
+                           <div class="history-item-date">
+                               <span class="${dotClass}"></span>
+                               ${dateLabel}
+                               <span class="history-item-weekday">${weekdayLabel}</span>
+                           </div>
+                       </div>
+                       <div class="history-item-meta ${metaClass}">${metaText}</div>
+                   </div>
+               `;
+           }).join('');
+       }
+
+       function loadHistoryDay(dayKey) {
+           // 取消之前的 active，标记当前项
+           document.querySelectorAll('.history-item').forEach(el => el.classList.remove('active'));
+           const targetEl = document.querySelector(`.history-item[data-key="${dayKey}"]`);
+           if (targetEl) targetEl.classList.add('active');
+
+           // 关闭下拉
+           historyDropdown.classList.remove('show');
+           historyBtn.classList.remove('active');
+
+           // 顶部日期联动（统一从 DAY_META 取）
+           const meta = DAY_META[dayKey] || {};
+           const navDateSpans = document.querySelectorAll('.nav-date span');
+           if (navDateSpans.length >= 2 && meta.date_iso) {
+               navDateSpans[0].textContent = meta.date_iso;
+               navDateSpans[1].textContent = meta.weekday || '';
+           }
+           const dateTextEl = document.querySelector('.date-text');
+           if (dateTextEl && meta.date_display) dateTextEl.textContent = meta.date_display;
+           const metaEl = document.querySelector('.meta');
+           if (metaEl) metaEl.innerHTML = 'AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯';
+
+           // 复用 renderSections：无内容时自动显示"暂无该日早报数据"
+           renderSections(dayKey);
+       }
+
+       // 初始化
+       renderSections('today');
+   </script>
+</body>
+</html>
