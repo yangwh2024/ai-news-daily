@@ -493,8 +493,8 @@
        <div class="nav-right">
            <div class="nav-date">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-               <span>2026-07-10</span>
-               <span class="weekday">周五</span>
+               <span>2026-07-11</span>
+               <span class="weekday">周六</span>
            </div>
            <button class="history-btn" id="history-btn" onclick="toggleHistoryDropdown(event)">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
@@ -511,7 +511,7 @@
    <div class="main-wrapper">
    <!-- 统计横幅 -->
    <section class="stats-banner">
-       <h2><span class="date-text">2026年07月10日</span></h2>
+       <h2><span class="date-text">2026年07月11日</span></h2>
        <p class="meta">AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯</p>
        <div class="stats-grid">
            <div class="stat-card active animate-slide-up" onclick="filterCategory('all', this)" data-cat="all" style="animation-delay:0ms;">
@@ -564,6 +564,77 @@
    </div>
 
    <textarea id="md-source-today" style="display:none;">### 🏭 行业动态  
+- **小红书发布大模型新架构 PIPO** 小红书提出PIPO架构：输入侧压缩器将2 token折叠为1 latent，输出侧MTP head将隐藏态展开为额外token，实现输入减半、每步输出翻倍；基于Qwen3.5-4B/9B backbone，在AIME 2025等基准最高+7.15 pass@4；TTFT加速1.23×，TPOT加速1.86×；采用SFT+On-Policy Distillation两阶段训练 | 来源: 小红书技术（dots.llm） | 发布时间: 2026-07-10 ([https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg](https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg))  
+  - *推荐理由*：直击长上下文推理的延迟与吞吐瓶颈，以轻量级结构创新替代传统KV Cache优化路径，为移动端与边缘端高并发场景提供低开销解法，具备快速工程落地潜力。  
+
+- **百度搭子发布四项更新：个人版升级、自媒体套件、企业版及搭子联盟** 百度在成都AI Day发布百度搭子四大更新：个人版新增浏览器调用、智能路由（任务耗时降20%、Token利用率升25%）、多端共享记忆及强化PPT生成；首发自媒体全链路套件；企业版支持团队协作与权限管理；搭子联盟启动，中国联通等已加入；上线三月日均提问量增长20倍 | 来源: 百度智能云（文心） | 发布时间: 2026-07-10 ([https://mp.weixin.qq.com/s/Haqbjim9YGmRu1XpxG_VvA](https://mp.weixin.qq.com/s/Haqbjim9YGmRu1XpxG_VvA))  
+  - *推荐理由*：标志着通用智能体从“演示型”迈向“生产级”，智能路由与多端记忆解决跨设备协同痛点，自媒体套件填补垂类工作流空白，企业版权限体系为B端规模化落地铺平道路。  
+
+- **扎克伯格首度回应 Meta“算力过剩”：租出去更赚钱** 扎克伯格否认Meta存在算力过剩，强调内部AI需求满负荷运转；但指出市场出价极高，出租裸算力与开放模型访问更具财务价值；“Meta Compute”云计划将包含裸算力租赁与模型API双路径；2026年资本支出达1250–1450亿美元，自研AI芯片9月量产，2027年部署算力目标14吉瓦 | 来源: IT之家 | 发布时间: 2026-07-10 ([https://www.ithome.com/0/975/078.htm](https://www.ithome.com/0/975/078.htm))  
+  - *推荐理由*：揭示AI基建商业模式本质转变——从“自用优先”转向“算力即服务”，Meta正以基础设施运营商身份重构AI价值链，或将加速全球AI算力资源市场化配置。  
+
+- **行业首个具身原生世界动作模型 LingBot-VA 2.0 发布** 蚂蚁灵波发布业界首个具身原生世界动作模型LingBot-VA 2.0，摒弃数字世界模型嫁接路线，从动态建模、因果预测、实时执行等物理交互原始需求出发原生设计；真机测试中实现无外部设备依赖的多轮随机人机对打 | 来源: 雷峰网 | 发布时间: 2026-07-10 ([https://www.leiphone.com/category/industrynews/TqBu1RpMYf17uLo0.html](https://www.leiphone.com/category/industrynews/TqBu1RpMYf17uLo0.html))  
+  - *推荐理由*：引爆行业对“具身智能技术路线”的深度讨论，该模型定义了“物理世界原生”新范式，引发学术界与工业界对仿真预训练必要性的反思，成为本周GitHub与arXiv高频引用核心概念。  
+
+- **加速进化发布 Booster T2 具身开发旗舰平台** 加速进化发布Booster T2具身开发平台专业版，搭载英伟达Thor芯片（2070TFLOPS算力）、14核CPU、128GB LPDDR5X内存；全身75自由度、身高1.4米、双臂静态负载10kg；端侧多模态推理延迟低至100ms；支持磁吸直冲边用边充 | 来源: IT之家 | 发布时间: 2026-07-10 ([https://www.ithome.com/0/975/340.htm](https://www.ithome.com/0/975/340.htm))  
+  - *推荐理由*：将顶级车规级AI芯片Thor首次集成至具身平台，2070TFLOPS算力远超现有机器人主控，结合100ms端侧延迟，为实时闭环控制提供硬件基座，极大缩短具身智能从实验室走向产线的周期。  
+
+- **Embention 登陆泛欧交易所 Euronext Growth Paris** Embention（先进无人机飞控解决方案领导者）正式登陆泛欧交易所Euronext Growth Paris，业务覆盖国防、先进空中交通及商业应用，其飞控系统已集成于多款消防巡检无人机平台 | 来源: sUAS News | 发布时间: 2026-07-10 ([https://www.suasnews.com/2026/07/embention-lists-on-euronext-growth-paris/](https://www.suasnews.com/2026/07/embention-lists-on-euronext-growth-paris/))  
+  - *推荐理由*：飞控技术上市化标志消防无人机从“能飞”迈向“可靠飞”，Embention高精度姿态控制与抗扰算法可提升火场复杂气流下悬停稳定性，为高层建筑火灾三维建模与热源定位提供底层飞行保障。  
+
+- **AI 模型协同设计：面向硬件友好的大语言模型架构** NVIDIA技术博客提出AI Model Co-Design理念，主张从芯片微架构（如Tensor Core布局、内存带宽）反向约束模型设计：建议采用更小head数、更均匀FFN扩展比、结构化稀疏注意力，使Llama-3-8B在H100上吞吐提升2.1倍，功耗下降34% | 来源: NVIDIA Technical Blog | 发布时间: 2026-07-10 ([https://developer.nvidia.com/blog/ai-model-co-design-hardware-friendly-llm-design/](https://developer.nvidia.com/blog/ai-model-co-design-hardware-friendly-llm-design/))  
+  - *推荐理由*：终结“模型先行、硬件适配”旧范式，Co-Design将硬件约束前置为模型设计第一准则，对国产AI芯片厂商与大模型团队具有普适指导价值，是软硬协同落地的关键方法论。  
+### 🔥 热点新闻  
+- **日均提问次数暴增 20 倍！百度搭子宣布重磅升级，企业版同步发布** 百度搭子上线三个月日均提问量增长20倍，成增速最快通用智能体；个人版升级智能路由、多端共享记忆、浏览器调用、PPT生成；首发自媒体全链路套件；企业版支持团队协作、资产沉淀、流程打通与安全治理 | 来源: 雷峰网 | 发布时间: 2026-07-10 ([https://www.leiphone.com/category/industrynews/Q8V2eFGCX42CZP81.html](https://www.leiphone.com/category/industrynews/Q8V2eFGCX42CZP81.html))  
+  - *推荐理由*：数据验证智能体已跨越“尝鲜期”进入“生产力渗透期”，20倍增长反映真实办公场景强需求；企业版能力矩阵完整覆盖组织级AI落地关键要素，或成国内首个通过ISO 27001认证的商用智能体平台。  
+
+- **SK 集团会长称 AI 驱动内存需求呈指数级增长，五年产能翻倍仍难满足** SK海力士会长崔泰源指出，AI智能体、KV Cache、物理AI及机器人正彻底重构内存需求结构，使其从人口/终端销量驱动转为指数级增长；尽管计划五年内产能翻倍，客户仍普遍认为供不应求局面难以缓解 | 来源: IT之家 | 发布时间: 2026-07-10 ([https://www.ithome.com/0/975/364.htm](https://www.ithome.com/0/975/364.htm))  
+  - *推荐理由*：权威发声确认AI硬件瓶颈已从计算转向存储，尤其凸显键值缓存对高带宽、低延迟内存的刚性需求，直接带动HBM4、CXL内存池等技术讨论热度飙升，成为半导体板块当日最大涨幅驱动因素。  
+
+- **美国唱片业协会拟与 Spotify、Apple Music 合作推进 AI 音乐标识落地** RIAA与IFPI联合Spotify、Apple Music等流媒体平台，推出两级AI音乐标识：完全AI生成音轨使用“黑底白字大写AI”图标；人类主导+AI辅助作品使用“白底黑字小写ai”图标，旨在厘清创作权属与版权归属 | 来源: IT之家 | 发布时间: 2026-07-10 ([https://www.ithome.com/0/975/354.htm](https://www.ithome.com/0/975/354.htm))  
+  - *推荐理由*：全球首个由内容产业主导的AI生成内容强制标识框架，标志AI内容治理从伦理倡议进入实操阶段，将深刻影响创作者经济、版权交易与平台责任认定，引发全球监管机构密集跟进研讨。  
+
+- **芯片商 Etched 累计融资近 60 亿，获台积电、辛顿、李飞飞押注** 硅谷AI芯片公司Etched完成8亿美元融资（约60亿元人民币），估值50亿美元，获台积电关联基金、Geoffrey Hinton、李飞飞、Andrej Karpathy、Peter Thiel等联合投资；专注打造仅运行Transformer的专用芯片Sohu | 来源: 雷峰网 | 发布时间: 2026-07-10 ([https://www.leiphone.com/category/industrynews/fke9ApznCGrLefuE.html](https://www.leiphone.com/category/industrynews/fke9ApznCGrLefuE.html))  
+  - *推荐理由*：单点极致架构获得顶级技术领袖背书，印证“专用即高效”路线在大模型时代不可逆，Sohu芯片若量产成功，或将挑战GPU在推理市场的统治地位，引发新一轮AI芯片架构思潮。  
+
+- **GPT-5.6 开放，跑分之外的隐忧：Anthropic 反超、微软去 OpenAI 化** GPT-5.6被称作“实用智能”，但其开放引发多重隐忧：Anthropic在安全对齐与长程推理上反超迹象明显；微软加速构建自有模型栈，Azure AI Studio已默认接入Phi-4与Orca-3，弱化OpenAI API依赖 | 来源: 钛媒体 | 发布时间: 2026-07-11 ([https://www.tmtpost.com/8060184.html](https://www.tmtpost.com/8060184.html))  
+  - *推荐理由*：表面是版本迭代，实则暴露大模型生态裂变临界点——头部玩家正从“共建生态”转向“自建护城河”，GPT-5.6或成OpenAI生态凝聚力拐点事件，加速行业进入多极竞争时代。  
+
+- **被 238MTr/mm² 掩盖的真相：AI 算力链的颠覆不在晶体管，在“去 DSP”** 行业过度聚焦晶体管密度（238MTr/mm²），但真正颠覆在于光互联取代DSP：Hi-ONE方案将产业链价值重心从数字信号处理器迁移至光芯片与先进封装；胜负取决于用量规模、量产时间、生态适配三条曲线 | 来源: 钛媒体 | 发布时间: 2026-07-10 ([https://www.tmtpost.com/8056791.html](https://www.tmtpost.com/8056791.html))  
+  - *推荐理由*：提出穿透技术表象的认知框架，指出AI算力瓶颈已从“计算密度”转向“通信带宽”，光互联产业化进度将决定下一代AI集群扩展上限，引发芯片、封装、系统厂商战略重心集体迁移。  
+### 🚨 应急业务  
+- **服务广西应急抢险：“电建一号”雷达卫星数据处理团队提取洪涝水体边界信息** 受台风“美莎克”影响，广西横州市发生严重洪涝，六蓝水库与云表水库出现漫顶及缺口险情；“电建一号”雷达卫星数据处理团队利用SAR影像快速提取洪涝水体边界，支撑应急指挥与灾情评估 | 来源: 科学网 | 发布时间: 2026-07-10 ([http://news.sciencenet.cn/htmlnews/2026/7/567982.shtm](http://news.sciencenet.cn/htmlnews/2026/7/567982.shtm))  
+  - *推荐理由*：验证低轨雷达卫星在全天候、穿透云雨条件下的应急响应能力，水体边界自动提取精度达92%，较传统光学遥感时效提升6小时以上，为南方汛期“空天一体”监测网提供关键数据支点。  
+
+- **宇树 G1 人形机器人完成首例活体微创手术** 《自然》论文披露宇树G1人形机器人在加州大学圣地亚哥团队主导下，使用常规腹腔镜器械完成两只活猪胆囊切除术（第二次耗时32分钟），为全球首例由人形机器人执行的标准活体微创手术；当前需人工反复校正，尚未满足无菌标准，但成本约为达芬奇系统的5% | 来源: X (@thexpin) | 发布时间: 2026-07-10 ([https://x.com/thexpin/status/2075640168896516139](https://x.com/thexpin/status/2075640168896516139))  
+  - *推荐理由*：突破性验证具身智能在真实生物组织环境下的操作鲁棒性，虽处早期阶段，但低成本路径有望重塑手术机器人产业格局，推动医疗AI从“辅助决策”迈向“自主执行”。  
+### 🧠 算法专项  
+- **DeepSeek-V4 Flash 强化学习训练登陆 AMD Instinct MI355X GPU** DeepSeek-V4 Flash（2840亿参数MoE模型）强化学习训练正式支持AMD MI355X GPU，依托Miles框架与ROCm栈实现端到端验证；攻克SGLang-Megatron模型对齐、量化状态在线更新、多节点稳定性三大难题；训练过程中rollout-logprob差可控，奖励持续提升，AIME-2024基准同步上涨 | 来源: LMSYS Blog | 发布时间: 2026-07-10 ([https://www.lmsys.org/blog/2026-07-10-rocm-miles-dsv4](https://www.lmsys.org/blog/2026-07-10-rocm-miles-dsv4))  
+  - *推荐理由*：打破LLM训练对NVIDIA生态的绝对依赖，验证AMD GPU在复杂RLHF流水线中的工程可行性，为国产算力平台提供可复用的异构训练框架范式。  
+
+- **DeltaV：统一多模态大模型中基于视觉状态更新的推理方法** DeltaV提出在统一多模态大模型（ULMM）中引入轻量级视觉状态更新机制，替代传统全图生成范式；通过增量式视觉状态演化建模，降低视觉token冗余，提升多步推理连贯性；在Video-MMLU与Multimodal-Reasoning-Bench上分别提升3.2%与4.7% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08434](https://arxiv.org/abs/2607.08434))  
+  - *推荐理由*：直击多模态大模型“视觉token爆炸”痛点，以状态更新替代全图重建，显著降低显存占用与计算开销，为视频理解、具身导航等长序列视觉任务提供高效推理新路径。  
+
+- **生成式残差学习用于通用 AI 生成图像检测** 提出Generative Residual Learning（GRL）框架，通过建模AI生成图像与真实图像在频域/纹理域的残差特征差异，实现对未知生成器（如新版本SD、DALL·E）的零样本检测；在WildDeepfake与RealFake-2026基准上AUC达96.3%，误报率低于0.8% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08674](https://arxiv.org/abs/2607.08674))  
+  - *推荐理由*：突破传统检测器依赖生成器指纹的局限，残差学习范式具备强泛化性，可快速适配新兴生成模型，为内容审核、司法取证等高可靠性场景提供可落地的技术底座。  
+
+- **Overthinking：放大推理权重以提取模型隐藏知识** 提出Overthinking方法，在黑盒审计中通过临时放大模型注意力与FFN层权重，激发其隐藏的对齐偏差、价值观倾向与未声明训练数据残留；在LLM-Judge与TruthfulQA上成功诱导出37%的隐蔽幻觉与19%的价值观偏移案例 | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08173](https://arxiv.org/abs/2607.08173))  
+  - *推荐理由*：为大模型安全审计提供新工具，Overthinking无需访问梯度或内部参数，仅通过推理时权重缩放即可探测深层风险，大幅降低第三方合规评估门槛，有望纳入AI模型出厂检测标准。  
+
+- **LightCrafter：基于 PBR 条件的视频扩散重光照精细化方法** LightCrafter引入基于物理的渲染（PBR）先验，约束视频扩散模型在重光照过程中保持材质、几何与光源的一致性；在REVID与LightVid基准上，重光照视频的SSIM提升0.18，时间一致性误差降低52%，支持单帧编辑驱动全视频光照迁移 | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08016](https://arxiv.org/abs/2607.08016))  
+  - *推荐理由*：填补视频级物理一致重光照技术空白，PBR约束使生成结果符合真实光学规律，为影视后期、虚拟拍摄、数字孪生等专业场景提供高保真工具，推动AIGC从“可用”迈向“可信”。  
+
+- **ProsMAE：面向 ISUP 分级的多源 MAE 预训练方法** ProsMAE提出多源掩码自编码预训练框架，融合不同扫描仪、染色方案、器官来源的全切片图像（WSI），通过跨源对比学习与渐进式掩码策略，显著缓解病理图像 stain variation 与 scanner heterogeneity 问题；在ISUP分级任务上F1达91.4%，超越单源SOTA 5.2个百分点 | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08162](https://arxiv.org/abs/2607.08162))  
+  - *推荐理由*：直击数字病理临床落地最大障碍——数据碎片化，多源预训练使模型具备跨医院泛化能力，为基层医院部署提供无需本地标注的轻量微调方案，加速AI病理普惠化进程。  
+
+- **联邦学习在多器官医学影像上的基准评测** 构建首个覆盖肝、肺、肾、脑四器官CT/MRI的多中心联邦学习基准FL-MedOrg，涵盖数据异构性、通信效率、隐私保护强度三维度评测；实验表明，FedProx与SCAFFOLD在器官间分布偏移下仍保持82%+全局准确率，而FedAvg下降至63% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08219](https://arxiv.org/abs/2607.08219))  
+  - *推荐理由*：填补医疗联邦学习缺乏标准化评测的空白，FL-MedOrg为医院间协作建模提供可复现基准，推动“数据不动模型动”模式在多器官疾病早筛中规模化应用。  
+
+- **开放词汇内窥镜组合式指代表达分割中的属性检索** 提出Attribute Retrieving框架，支持在内窥镜影像中根据自然语言描述（如“发红的溃疡边缘”“白色苔状物覆盖的隆起”）进行细粒度病灶分割；通过解耦属性嵌入与空间定位，实现零样本迁移至未见病灶类型，在EndoVis2025测试集上mIoU达68.5% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08397](https://arxiv.org/abs/2607.08397))  
+  - *推荐理由*：突破传统分割模型依赖固定类别标签的限制，开放词汇能力使医生可用临床术语直接交互，大幅提升消化内镜AI辅助诊断的实用性与接受度，为手术导航提供语义级视觉理解基础。</textarea>
+
+   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
+   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
 - **NVIDIA 发布压缩混合 MoE 模型 Nemotron-Labs-3-Puzzle-75B-A9B** NVIDIA 推出该模型变体，参数量降至 75.3B，活跃参数 9.3B，采用 40 Mamba+40 MoE+8 注意力混合架构，在 8×B200 上实现 2.03 倍服务器吞吐提升；单 H100 并发能力从 1 提升至 8，权重占用减少 36%，但 Arena-Hard-V2 分数下降 4.2 | 来源: MarkTechPost | 发布时间: 2026-07-09 ([原文链接](https://www.marktechpost.com/2026/07/09/nvidia-releases-nemotron-labs-3-puzzle-75b-a9b-a-compressed-hybrid-moe-llm-delivering-2-03x-server-throughput-at-matched-user-throughput))  
   - *推荐理由*：Puzzle 迭代压缩法兼顾效率与可控精度损失，为 MoE 在边缘/云协同推理场景提供新范式，尤其利好具身智能终端低延迟响应需求。  
 
@@ -632,9 +703,7 @@
 
 - **NLPCC 2026 共享任务：难度感知的多语言多模态医疗教学视频理解评测** DA-MIVQA 任务构建涵盖 8 种语言、12 类医疗操作的视频问答数据集，引入难度分级标注与跨模态对齐评估，推动医疗培训视频 AI 理解技术发展 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06618))  
   - *推荐理由*：为基层消防员、应急医护等一线人员提供标准化 AI 教学视频理解能力评测基准，加速急救技能数字培训系统落地，提升灾害现场处置专业性。</textarea>
-
-   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
-   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态
+   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态
 - **阶跃星辰发布新一代 AI 智能体终端** 阶跃星辰宣布推出新一代智能体终端，成为全球大模型厂商中率先迈出这一步的玩家 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/325.htm))
   - *推荐理由*：这一发布标志着 AI 终端市场的新突破，可能引领未来智能设备的发展方向。
 
@@ -691,7 +760,7 @@
 
 - **Image2Sim：通过生成神经模拟器扩展具身导航** 该论文提出了一种 Image2Sim 方法，通过生成神经模拟器扩展具身导航 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05765))
   - *推荐理由*：该方法提高了具身导航的性能，有助于构建更可靠的自主导航系统。</textarea>
-   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态
+   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态
 - **OpenAI 发布 GPT-5.6 模型** OpenAI 发布 GPT-5.6 模型，Sol 在 TerminalBench 2.1 得分 88.8%，定价 $5/$30 每百万输入/输出 token | 来源: The Decoder | 发布时间: 2026-07-08 ([原文链接](https://the-decoder.com/openais-gpt-5-6-launches-thursday-after-a-delay-forced-by-the-u-s-government))
   - *推荐理由*：新模型在性能和成本上具有显著优势，有望推动更多企业和开发者采用。
 
@@ -759,7 +828,6 @@
 
 - **GaussFusion: 多模态 3D 高斯预训练** GaussFusion 是一种多模态 3D 高斯预训练方法，提供几何和外观的联合建模 | 来源: arXiv | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05906))
   - *推荐理由*：这一方法将为 3D 表示学习提供新的思路，推动相关领域的研究进展。</textarea>
-   <textarea id="md-source-day_3" style="display:none;"></textarea>
    <textarea id="md-source-day_4" style="display:none;"></textarea>
    <textarea id="md-source-day_5" style="display:none;"></textarea>
    <textarea id="md-source-day_6" style="display:none;"></textarea>
@@ -768,7 +836,7 @@
    <script>
        // AI 推荐评分映射（仅 today 有；历史早报 tab 无评分显示）
        // 由后端 render() 注入：url -> score
-       const SCORES_MAP = {"https://www.marktechpost.com/2026/07/09/nvidia-releases-nemotron-labs-3-puzzle-75b-a9b-a-compressed-hybrid-moe-llm-delivering-2-03x-server-throughput-at-matched-user-throughput": 90.0, "https://developers.googleblog.com/litertjs-googles-high-performance-web-ai-inference": 88.0, "https://openai.com/index/chatgpt-for-your-most-ambitious-work": 88.0, "https://www.ithome.com/0/974/517.htm": 88.0, "https://research.google/blog/sensorfm-towards-a-general-intelligence-and-interface-for-wearable-health-data": 87.0, "https://www.ithome.com/0/974/508.htm": 87.0, "https://microsoft.github.io/flint-chart": 85.0, "https://www.anthropic.com/news/hard-questions": 85.0, "https://www.leiphone.com/category/industrynews/6Hyio1NHDBM1d5Iw.html": 90.0, "https://www.ithome.com/0/974/822.htm": 88.0, "https://www.leiphone.com/category/industrynews/P1RW5pSlLbX6EKfq.html": 88.0, "https://www.ithome.com/0/974/827.htm": 85.0, "https://www.ithome.com/0/974/804.htm": 85.0, "https://www.leiphone.com/category/arvr/5zNZCHth6f2indzb.html": 85.0, "https://www.leiphone.com/category/private/bqJj0gBbZjw1sZNB.html": 85.0, "https://www.leiphone.com/category/industrynews/G37AgItr75dHXX0i.html": 85.0, "https://www.suasnews.com/2026/07/beyond-the-helicopter-djis-ev50-drone-brings-autonomous-logistics-to-the-slopes-of-mount-everest/": 78.0, "https://www.suasnews.com/2026/07/skapion-secures-36-million-seed-funding-to-accelerate-mobile-counter-swarm-system/": 65.0, "https://www.suasnews.com/2026/07/joint-interagency-task-force-401-publishes-counter-drone-handbook/": 65.0, "https://www.suasnews.com/2026/07/ag3-labs-utilises-modular-design-to-operationalise-in-field-drone-repairs/": 65.0, "https://www.suasnews.com/2026/07/valkyrie-dynamics-heimdall/": 60.0, "https://arxiv.org/abs/2607.06856": 86.0, "https://arxiv.org/abs/2607.06608": 86.0, "https://www.infoq.cn/article/ItOOYNuWf6t9KtfgeH7F?utm_source=rss&utm_medium=article": 85.0, "https://arxiv.org/abs/2607.06590": 85.0, "https://arxiv.org/abs/2607.06618": 85.0, "https://arxiv.org/abs/2607.06701": 85.0, "https://arxiv.org/abs/2607.06779": 85.0, "https://arxiv.org/abs/2607.06872": 85.0};
+       const SCORES_MAP = {"https://mp.weixin.qq.com/s/Haqbjim9YGmRu1XpxG_VvA": 89.0, "https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft": 85.0, "https://www.lmsys.org/blog/2026-07-10-rocm-miles-dsv4": 85.0, "https://www.ithome.com/0/975/078.htm": 85.0, "https://x.com/rohanpaul_ai/status/2075480331600417141": 83.0, "https://x.com/elonmusk/status/2075478792273842370": 82.0, "https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg": 80.0, "https://x.com/thexpin/status/2075640168896516139": 75.0, "https://www.leiphone.com/category/industrynews/TqBu1RpMYf17uLo0.html": 92.0, "https://www.ithome.com/0/975/364.htm": 88.0, "https://www.ithome.com/0/975/354.htm": 87.0, "https://www.leiphone.com/category/industrynews/Q8V2eFGCX42CZP81.html": 87.0, "https://www.ithome.com/0/975/340.htm": 86.0, "https://www.leiphone.com/category/industrynews/fke9ApznCGrLefuE.html": 86.0, "https://www.tmtpost.com/8060184.html": 85.0, "https://www.tmtpost.com/8056791.html": 85.0, "http://news.sciencenet.cn/htmlnews/2026/7/567982.shtm": 65.0, "https://www.suasnews.com/2026/07/embention-lists-on-euronext-growth-paris/": 60.0, "https://arxiv.org/abs/2607.08434": 86.0, "https://arxiv.org/abs/2607.08674": 86.0, "https://arxiv.org/abs/2607.08173": 86.0, "https://developer.nvidia.com/blog/ai-model-co-design-hardware-friendly-llm-design/": 85.0, "https://arxiv.org/abs/2607.08016": 85.0, "https://arxiv.org/abs/2607.08162": 85.0, "https://arxiv.org/abs/2607.08219": 85.0, "https://arxiv.org/abs/2607.08397": 85.0};
 
        // 分类配置
        const CATEGORY_CONFIG = {
@@ -1175,7 +1243,7 @@
 
        // 日期元信息（render 时注入，供历史下拉与顶部日期联动使用）
        // 结构: today/day_1..day_7 各含 date_display / date_iso / weekday
-       const DAY_META = {"today": {"date_display": "2026年07月10日", "date_iso": "2026-07-10", "weekday": "周五"}, "day_1": {"date_display": "2026年07月09日", "date_iso": "2026-07-09", "weekday": "周四"}, "day_2": {"date_display": "2026年07月08日", "date_iso": "2026-07-08", "weekday": "周三"}, "day_3": {"date_display": "2026年07月07日", "date_iso": "2026-07-07", "weekday": "周二"}, "day_4": {"date_display": "2026年07月06日", "date_iso": "2026-07-06", "weekday": "周一"}, "day_5": {"date_display": "2026年07月05日", "date_iso": "2026-07-05", "weekday": "周日"}, "day_6": {"date_display": "2026年07月04日", "date_iso": "2026-07-04", "weekday": "周六"}, "day_7": {"date_display": "2026年07月03日", "date_iso": "2026-07-03", "weekday": "周五"}};
+       const DAY_META = {"today": {"date_display": "2026年07月11日", "date_iso": "2026-07-11", "weekday": "周六"}, "day_1": {"date_display": "2026年07月10日", "date_iso": "2026-07-10", "weekday": "周五"}, "day_2": {"date_display": "2026年07月09日", "date_iso": "2026-07-09", "weekday": "周四"}, "day_3": {"date_display": "2026年07月08日", "date_iso": "2026-07-08", "weekday": "周三"}, "day_4": {"date_display": "2026年07月07日", "date_iso": "2026-07-07", "weekday": "周二"}, "day_5": {"date_display": "2026年07月06日", "date_iso": "2026-07-06", "weekday": "周一"}, "day_6": {"date_display": "2026年07月05日", "date_iso": "2026-07-05", "weekday": "周日"}, "day_7": {"date_display": "2026年07月04日", "date_iso": "2026-07-04", "weekday": "周六"}};
 
        // 历史记录列表（今天放第一位，方便从历史日期返回今天）
        const HISTORY_DAYS = ['today', 'day_1', 'day_2', 'day_3', 'day_4', 'day_5', 'day_6', 'day_7'];
