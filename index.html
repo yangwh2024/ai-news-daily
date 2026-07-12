@@ -493,8 +493,8 @@
        <div class="nav-right">
            <div class="nav-date">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-               <span>2026-07-11</span>
-               <span class="weekday">周六</span>
+               <span>2026-07-12</span>
+               <span class="weekday">周日</span>
            </div>
            <button class="history-btn" id="history-btn" onclick="toggleHistoryDropdown(event)">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
@@ -511,7 +511,7 @@
    <div class="main-wrapper">
    <!-- 统计横幅 -->
    <section class="stats-banner">
-       <h2><span class="date-text">2026年07月11日</span></h2>
+       <h2><span class="date-text">2026年07月12日</span></h2>
        <p class="meta">AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯</p>
        <div class="stats-grid">
            <div class="stat-card active animate-slide-up" onclick="filterCategory('all', this)" data-cat="all" style="animation-delay:0ms;">
@@ -564,6 +564,63 @@
    </div>
 
    <textarea id="md-source-today" style="display:none;">### 🏭 行业动态  
+- **蚂蚁集团发布LingBot-VA 2.0具身基础模型** Robbyant团队推出首个原生具身基础模型，采用因果DiT架构，支持多块预测（MCP）与前瞻推理，推理延迟降至142ms/chunk，在RoboTwin 2.0 50项任务中成功率超93.4% | 来源: MarkTechPost | 发布时间: 2026-07-11 ([原文链接](https://www.marktechpost.com/2026/07/11/ant-groups-robbyant-unveils-lingbot-va-2-0))  
+  - *推荐理由*：突破传统视觉语言模型对具身任务的泛化瓶颈，因果DiT+MCP设计显著提升训练效率与实时性，为服务机器人、工业巡检等边缘部署场景提供可落地的原生具身底座，加速物理世界AI闭环进程。  
+
+- **特斯拉Cybercab将在得州工厂向员工开放试乘** Cybercab首次开放无方向盘、无踏板无人驾驶出租车试乘，限定于奥斯汀得州超级工厂内部；官方未明确是否为真实Robotaxi服务或仅限园区接驳 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/636.htm))  
+  - *推荐理由*：释放L4级自动驾驶商业化落地信号，虽范围受限，但验证了端到端架构在封闭场景的可靠性；此举将加速中美车企在“无人运营权”政策博弈中的技术储备竞赛。  
+
+- **腾讯拟入股Manus但将维持少数股东身份** 腾讯参与Manus股权重组，旨在补齐Meta退出后的资本缺口；交易后腾讯仅为少数外部股东，Manus已迁至新加坡并终止境内服务 | 来源: IT之家 | 发布时间: 2026-07-11 ([原文链接](https://www.ithome.com/0/975/622.htm))  
+  - *推荐理由*：反映中国AI初创企业全球化生存策略转型——通过资本结构国际化规避地缘风险，同时保留技术自主性；腾讯“少数股东”定位凸显其战略投资逻辑从控股转向生态协同。  
+
+- **OpenAI发布GPT-5.6系列医疗评估结果** GPT-5.6 Luna在最低推理强度下即超越GPT-5.5最高强度表现，成本低25倍；GPT-5.6 Sol在准确性、沟通、健康决策帮助性等五维盲评中全面超越专科医生，且医生自评缺陷率高于模型输出 | 来源: OpenAI官方 | 发布时间: 2026-07-11 ([原文链接](https://x.com/sama/status/2075985056846451123))  
+  - *推荐理由*：首次以临床级盲评方式验证大模型医疗能力，标志AI从辅助工具迈向可信决策伙伴；低成本高能效变体（Luna）的成熟，预示基层医疗普惠化部署窗口已开启。  
+
+- **Claude Fable 5用11天重写Bun运行时为Rust** 开发者Jarred Sumner调用Claude Fable 5并行64实例，11天完成Bun从Zig到Rust百万行代码重构，修复128个内存错误，v1.4.0 Canary版性能提升2%-5% | 来源: IT之家 | 发布时间: 2026-07-11 ([原文链接](https://www.ithome.com/0/975/469.htm))  
+  - *推荐理由*：验证大模型在系统级工程重构中的可行性，Rust内存安全特性与Claude Fable 5的强类型推理能力形成正向闭环，为边缘设备OS、嵌入式固件等高可靠性场景提供AI辅助开发新范式。  
+
+- **Claude Code v2.1.207正式发布** 新版本默认启用Auto模式（无需环境变量），修复流式响应卡顿、Windows凭证超时挂起、自定义脚本覆盖等关键工程问题；Bedrock/Vertex/AWS平台默认切换至Claude Opus 4.8 | 来源: GitHub Releases | 发布时间: 2026-07-11 ([原文链接](https://github.com/anthropics/claude-code/releases/tag/v2.1.207))  
+  - *推荐理由*：聚焦开发者真实痛点，显著提升IDE集成稳定性与跨云平台一致性，体现Anthropic对工程体验的深度投入，为AI编程助手从“可用”迈向“可靠”奠定基础设施基础。  
+
+- **GPT-5.6一小时解开50年数学猜想** GPT-5.6通过700词精细化Prompt调度64个子Agent协同求解，成功证明组合数学领域悬置50年的“双色Ramsey数R(5,5)”下界问题，全程耗时不足1小时 | 来源: 量子位 | 发布时间: 2026-07-11 ([原文链接](https://www.qbitai.com/2026/07/447873.html))  
+  - *推荐理由*：首次展示大模型在纯数学推理领域的突破性能力，64子Agent分工体现复杂任务分解与协作调度能力，为形式化验证、芯片验证等高确定性领域提供全新自动化求解路径。
+### 🔥 热点新闻  
+- **GPT-5.6上线之际马斯克与奥尔特曼再度隔空交锋** 马斯克转发帖文称奥尔特曼“把诈骗提升到新高度”，并嘲讽其听证会发言；奥尔特曼回击称马斯克炒作“太空数据中心”；双方围绕AI伦理、商业化诚信展开舆论战 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/641.htm))  
+  - *推荐理由*：本质是AI发展路径之争的公开化——奥尔特曼代表渐进式安全演进路线，马斯克则主张激进开源与去中心化；舆论战加剧公众对AI信任危机的认知，倒逼行业建立第三方透明度审计机制。  
+
+- **OpenAI招聘家庭产品经理拓展家庭用户市场** OpenAI启动面向家庭、护理人员及老年人的产品经理招聘，强调需具备高信任机制设计经验；35岁以上用户占比持续攀升，用户结构发生代际迁移 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/633.htm))  
+  - *推荐理由*：标志生成式AI进入“家庭数字管家”阶段，需求从单点工具转向跨设备、跨代际、高隐私敏感的系统性体验，倒逼厂商重构身份认证、数据主权与适老化交互设计能力。  
+
+- **360周鸿祎称中国版Mythos需以Harness弥补基模差距** 周鸿祎指出，中国团队不应照搬Anthropic Mythos路线，而应通过Harness（提示工程增强框架）快速补齐基模能力短板，聚焦垂直领域安全攻防实战 | 来源: AI前线 | 发布时间: 2026-07-11 ([原文链接](https://mp.weixin.qq.com/s?__biz=MzU1NDA4NjU2MA==&amp;mid=2247664697&amp;idx=2&amp;sn=d4e0cbdb15dc227c92179bb901566e87))  
+  - *推荐理由*：提出务实可行的国产AI安全大模型发展路径——绕过基模军备竞赛，以工程化Harness框架激活现有模型安全能力，加速政企侧网络安全AI产品规模化落地。  
+### 🚨 应急业务  
+#### 应急  
+（无相关内容）  
+
+#### 消防  
+（无相关内容）  
+
+### 🧠 算法专项  
+
+
+### 🧠 算法专项
+- **智谱唐杰启动“Touch High摸高计划”聚焦AGI攻坚** 智谱宣布放弃短期变现，投入百亿级资源攻坚机械可解释性，目标厘清模型决策神经元逻辑，实现黑盒系统向透明可解释系统转变 | 来源: IT之家 | 发布时间: 2026-07-11 ([原文链接](https://www.ithome.com/0/975/620.htm))  
+  - *推荐理由*：直指AGI落地最大障碍——不可信，将“可解释性”从学术课题升维为战略级投入，有望推动监管框架从“结果合规”转向“过程可控”，重塑AI治理范式。  
+
+- **AMD公布PEPS神经纹理压缩技术参数降低25%** PEPS通过李萨如曲线采样改进位置编码，使隐式神经表示在同等画质下参数量减少25%，适用于NeRF、3DGS等实时渲染场景 | 来源: IT之家 | 发布时间: 2026-07-11 ([原文链接](https://www.ithome.com/0/975/580.htm))  
+  - *推荐理由*：突破神经渲染模型“精度-体积”权衡瓶颈，为AR/VR终端、车载HUD等边缘设备提供轻量化3D内容分发方案，加速空间计算生态从云端向端侧迁移。  
+
+- **启境刘嘉铭详解华为ADS 5在WEWA 2.0架构下的博弈优化** ADS 5搭载WEWA 2.0架构，云端引入Multi-Agent博弈与在线强化学习，车端应用安全风险场实时评估，显著提升会车跟车场景决策稳定性 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/642.htm))  
+  - *推荐理由*：将AI智能体技术深度融入自动驾驶核心链路，Multi-Agent博弈机制有效应对复杂交通博弈不确定性，标志着智驾系统从规则驱动迈向“类人策略演化”新阶段。  
+
+- **Ghost Font：人类可读、AI难解的反AI字体原型发布** Ghost Font通过视频帧间运动、背景同色噪点与诱饵信息隐藏文本，使Claude Fable、GPT-5.6 Sol等前沿模型无法解码，仅在明确提示技术原理后方可识别；数据全程本地处理 | 来源: Hacker News（buzzing.cc译） | 发布时间: 2026-07-11 ([原文链接](https://www.mixfont.com/ghost-font))  
+  - *推荐理由*：直击多模态模型视觉感知鲁棒性短板，为对抗AI内容审核、构建新型CAPTCHA及AI安全基准测试提供可复用范式，倒逼厂商加强视频时序理解与抗干扰能力研发。  
+### 🚨 应急业务
+- **博科圣地利用主流AI聊天机器人策划袭击与武器开发** 剑桥大学研究证实该组织设立专职AI部门，使用ChatGPT、Claude、Gemini等模型进行爆炸物配方优化、袭击路线模拟及安全规避；Anthropic承认越狱防护存在根本性局限 | 来源: The Decoder | 发布时间: 2026-07-11 ([原文链接](https://the-decoder.com/terrorist-groups-are-using-every-major-ai-chatbot-for-attack-planning-and-weapons-development))  
+  - *推荐理由*：首次实证AI模型已被系统性武器化，暴露出当前RLHF与宪法AI在对抗性提示工程面前的防御失效，要求监管层强制推行“高危用途风险评估备案制”与开源模型安全加固标准。  </textarea>
+
+   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
+   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
 - **小红书发布大模型新架构 PIPO** 小红书提出PIPO架构：输入侧压缩器将2 token折叠为1 latent，输出侧MTP head将隐藏态展开为额外token，实现输入减半、每步输出翻倍；基于Qwen3.5-4B/9B backbone，在AIME 2025等基准最高+7.15 pass@4；TTFT加速1.23×，TPOT加速1.86×；采用SFT+On-Policy Distillation两阶段训练 | 来源: 小红书技术（dots.llm） | 发布时间: 2026-07-10 ([https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg](https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg))  
   - *推荐理由*：直击长上下文推理的延迟与吞吐瓶颈，以轻量级结构创新替代传统KV Cache优化路径，为移动端与边缘端高并发场景提供低开销解法，具备快速工程落地潜力。  
 
@@ -632,9 +689,7 @@
 
 - **开放词汇内窥镜组合式指代表达分割中的属性检索** 提出Attribute Retrieving框架，支持在内窥镜影像中根据自然语言描述（如“发红的溃疡边缘”“白色苔状物覆盖的隆起”）进行细粒度病灶分割；通过解耦属性嵌入与空间定位，实现零样本迁移至未见病灶类型，在EndoVis2025测试集上mIoU达68.5% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08397](https://arxiv.org/abs/2607.08397))  
   - *推荐理由*：突破传统分割模型依赖固定类别标签的限制，开放词汇能力使医生可用临床术语直接交互，大幅提升消化内镜AI辅助诊断的实用性与接受度，为手术导航提供语义级视觉理解基础。</textarea>
-
-   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
-   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
 - **NVIDIA 发布压缩混合 MoE 模型 Nemotron-Labs-3-Puzzle-75B-A9B** NVIDIA 推出该模型变体，参数量降至 75.3B，活跃参数 9.3B，采用 40 Mamba+40 MoE+8 注意力混合架构，在 8×B200 上实现 2.03 倍服务器吞吐提升；单 H100 并发能力从 1 提升至 8，权重占用减少 36%，但 Arena-Hard-V2 分数下降 4.2 | 来源: MarkTechPost | 发布时间: 2026-07-09 ([原文链接](https://www.marktechpost.com/2026/07/09/nvidia-releases-nemotron-labs-3-puzzle-75b-a9b-a-compressed-hybrid-moe-llm-delivering-2-03x-server-throughput-at-matched-user-throughput))  
   - *推荐理由*：Puzzle 迭代压缩法兼顾效率与可控精度损失，为 MoE 在边缘/云协同推理场景提供新范式，尤其利好具身智能终端低延迟响应需求。  
 
@@ -703,7 +758,7 @@
 
 - **NLPCC 2026 共享任务：难度感知的多语言多模态医疗教学视频理解评测** DA-MIVQA 任务构建涵盖 8 种语言、12 类医疗操作的视频问答数据集，引入难度分级标注与跨模态对齐评估，推动医疗培训视频 AI 理解技术发展 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06618))  
   - *推荐理由*：为基层消防员、应急医护等一线人员提供标准化 AI 教学视频理解能力评测基准，加速急救技能数字培训系统落地，提升灾害现场处置专业性。</textarea>
-   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态
+   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态
 - **阶跃星辰发布新一代 AI 智能体终端** 阶跃星辰宣布推出新一代智能体终端，成为全球大模型厂商中率先迈出这一步的玩家 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/325.htm))
   - *推荐理由*：这一发布标志着 AI 终端市场的新突破，可能引领未来智能设备的发展方向。
 
@@ -760,7 +815,7 @@
 
 - **Image2Sim：通过生成神经模拟器扩展具身导航** 该论文提出了一种 Image2Sim 方法，通过生成神经模拟器扩展具身导航 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05765))
   - *推荐理由*：该方法提高了具身导航的性能，有助于构建更可靠的自主导航系统。</textarea>
-   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态
+   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态
 - **OpenAI 发布 GPT-5.6 模型** OpenAI 发布 GPT-5.6 模型，Sol 在 TerminalBench 2.1 得分 88.8%，定价 $5/$30 每百万输入/输出 token | 来源: The Decoder | 发布时间: 2026-07-08 ([原文链接](https://the-decoder.com/openais-gpt-5-6-launches-thursday-after-a-delay-forced-by-the-u-s-government))
   - *推荐理由*：新模型在性能和成本上具有显著优势，有望推动更多企业和开发者采用。
 
@@ -828,7 +883,6 @@
 
 - **GaussFusion: 多模态 3D 高斯预训练** GaussFusion 是一种多模态 3D 高斯预训练方法，提供几何和外观的联合建模 | 来源: arXiv | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05906))
   - *推荐理由*：这一方法将为 3D 表示学习提供新的思路，推动相关领域的研究进展。</textarea>
-   <textarea id="md-source-day_4" style="display:none;"></textarea>
    <textarea id="md-source-day_5" style="display:none;"></textarea>
    <textarea id="md-source-day_6" style="display:none;"></textarea>
    <textarea id="md-source-day_7" style="display:none;"></textarea>
@@ -836,7 +890,7 @@
    <script>
        // AI 推荐评分映射（仅 today 有；历史早报 tab 无评分显示）
        // 由后端 render() 注入：url -> score
-       const SCORES_MAP = {"https://mp.weixin.qq.com/s/Haqbjim9YGmRu1XpxG_VvA": 89.0, "https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft": 85.0, "https://www.lmsys.org/blog/2026-07-10-rocm-miles-dsv4": 85.0, "https://www.ithome.com/0/975/078.htm": 85.0, "https://x.com/rohanpaul_ai/status/2075480331600417141": 83.0, "https://x.com/elonmusk/status/2075478792273842370": 82.0, "https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg": 80.0, "https://x.com/thexpin/status/2075640168896516139": 75.0, "https://www.leiphone.com/category/industrynews/TqBu1RpMYf17uLo0.html": 92.0, "https://www.ithome.com/0/975/364.htm": 88.0, "https://www.ithome.com/0/975/354.htm": 87.0, "https://www.leiphone.com/category/industrynews/Q8V2eFGCX42CZP81.html": 87.0, "https://www.ithome.com/0/975/340.htm": 86.0, "https://www.leiphone.com/category/industrynews/fke9ApznCGrLefuE.html": 86.0, "https://www.tmtpost.com/8060184.html": 85.0, "https://www.tmtpost.com/8056791.html": 85.0, "http://news.sciencenet.cn/htmlnews/2026/7/567982.shtm": 65.0, "https://www.suasnews.com/2026/07/embention-lists-on-euronext-growth-paris/": 60.0, "https://arxiv.org/abs/2607.08434": 86.0, "https://arxiv.org/abs/2607.08674": 86.0, "https://arxiv.org/abs/2607.08173": 86.0, "https://developer.nvidia.com/blog/ai-model-co-design-hardware-friendly-llm-design/": 85.0, "https://arxiv.org/abs/2607.08016": 85.0, "https://arxiv.org/abs/2607.08162": 85.0, "https://arxiv.org/abs/2607.08219": 85.0, "https://arxiv.org/abs/2607.08397": 85.0};
+       const SCORES_MAP = {"https://x.com/AYi_AInotes/status/2075761215251312722": 90.0, "https://www.marktechpost.com/2026/07/11/ant-groups-robbyant-unveils-lingbot-va-2-0": 87.0, "https://x.com/sama/status/2075985056846451123": 84.0, "https://www.mixfont.com/ghost-font": 83.0, "https://www.ithome.com/0/975/469.htm": 83.0, "https://www.ithome.com/0/975/634.htm": 82.0, "https://the-decoder.com/terrorist-groups-are-using-every-major-ai-chatbot-for-attack-planning-and-weapons-development": 81.0, "https://github.com/anthropics/claude-code/releases/tag/v2.1.207": 75.0, "https://www.ithome.com/0/975/641.htm": 88.0, "https://www.ithome.com/0/975/620.htm": 88.0, "https://www.ithome.com/0/975/636.htm": 87.0, "https://www.ithome.com/0/975/633.htm": 86.0, "https://www.ithome.com/0/975/580.htm": 86.0, "https://www.ithome.com/0/975/642.htm": 85.0, "https://www.ithome.com/0/975/622.htm": 85.0, "https://mp.weixin.qq.com/s?__biz=MzU1NDA4NjU2MA==&mid=2247664697&idx=2&sn=d4e0cbdb15dc227c92179bb901566e87": 85.0, "https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651043860&idx=2&sn=97c8f838e97a33452ca653c26acb0333": 65.0, "https://www.qbitai.com/2026/07/447873.html": 60.0};
 
        // 分类配置
        const CATEGORY_CONFIG = {
@@ -1243,7 +1297,7 @@
 
        // 日期元信息（render 时注入，供历史下拉与顶部日期联动使用）
        // 结构: today/day_1..day_7 各含 date_display / date_iso / weekday
-       const DAY_META = {"today": {"date_display": "2026年07月11日", "date_iso": "2026-07-11", "weekday": "周六"}, "day_1": {"date_display": "2026年07月10日", "date_iso": "2026-07-10", "weekday": "周五"}, "day_2": {"date_display": "2026年07月09日", "date_iso": "2026-07-09", "weekday": "周四"}, "day_3": {"date_display": "2026年07月08日", "date_iso": "2026-07-08", "weekday": "周三"}, "day_4": {"date_display": "2026年07月07日", "date_iso": "2026-07-07", "weekday": "周二"}, "day_5": {"date_display": "2026年07月06日", "date_iso": "2026-07-06", "weekday": "周一"}, "day_6": {"date_display": "2026年07月05日", "date_iso": "2026-07-05", "weekday": "周日"}, "day_7": {"date_display": "2026年07月04日", "date_iso": "2026-07-04", "weekday": "周六"}};
+       const DAY_META = {"today": {"date_display": "2026年07月12日", "date_iso": "2026-07-12", "weekday": "周日"}, "day_1": {"date_display": "2026年07月11日", "date_iso": "2026-07-11", "weekday": "周六"}, "day_2": {"date_display": "2026年07月10日", "date_iso": "2026-07-10", "weekday": "周五"}, "day_3": {"date_display": "2026年07月09日", "date_iso": "2026-07-09", "weekday": "周四"}, "day_4": {"date_display": "2026年07月08日", "date_iso": "2026-07-08", "weekday": "周三"}, "day_5": {"date_display": "2026年07月07日", "date_iso": "2026-07-07", "weekday": "周二"}, "day_6": {"date_display": "2026年07月06日", "date_iso": "2026-07-06", "weekday": "周一"}, "day_7": {"date_display": "2026年07月05日", "date_iso": "2026-07-05", "weekday": "周日"}};
 
        // 历史记录列表（今天放第一位，方便从历史日期返回今天）
        const HISTORY_DAYS = ['today', 'day_1', 'day_2', 'day_3', 'day_4', 'day_5', 'day_6', 'day_7'];
