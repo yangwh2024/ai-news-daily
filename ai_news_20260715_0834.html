@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>AI资讯早知道</title>
+   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+   <style>
+       :root {
+           --dark-900: #F8FAFC;       /* 浅色背景 */
+           --dark-800: #FFFFFF;
+           --dark-700: #FFFFFF;
+           --dark-600: #F1F5F9;
+           --dark-500: #E2E8F0;
+           --dark-400: #94A3B8;       /* 辅助色 */
+           --dark-300: #64748B;       /* 次要文字色 */
+           --dark-200: #475569;
+           --dark-100: #334155;
+           --dark-50: #1E293B;        /* 主文字色 */
+           --cyber-300: #0EA5E9;
+           --cyber-400: #0EA5E9;      /* emergency 青色 */
+           --cyber-500: #0284C7;
+           --neon-purple: #7C3AED;    /* industry 紫色 */
+           --neon-green: #10B981;
+           --neon-orange: #F59E0B;    /* algo_eng 橙色 */
+           --neon-red: #EF4444;       /* hotspot 红色 */
+           --glass-bg: #FFFFFF;       /* 卡片背景 */
+           --glass-border: #E2E8F0;   /* 卡片边框 */
+           --gradient-cyber: linear-gradient(135deg, #0EA5E9 0%, #7C3AED 100%);
+           --gradient-text: linear-gradient(to right, #0EA5E9, #7C3AED, #10B981);
+           --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+           --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+           --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+       }
+
+       * { box-sizing: border-box; margin: 0; padding: 0; }
+       ::selection { background: rgba(14, 165, 233, 0.2); color: #1E293B; }
+       ::-webkit-scrollbar { width: 6px; height: 6px; }
+       ::-webkit-scrollbar-track { background: var(--dark-600); }
+       ::-webkit-scrollbar-thumb { background: var(--dark-400); border-radius: 3px; }
+       ::-webkit-scrollbar-thumb:hover { background: var(--dark-300); }
+
+       body {
+           font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+           line-height: 1.6;
+           color: var(--dark-50);
+           background-color: var(--dark-900);
+           min-height: 100vh;
+           position: relative;
+       }
+
+       /* 网格背景 + 光晕（浅色主题已禁用） */
+       .bg-grid { display: none; }
+       .bg-glow { display: none; }
+
+       /* ===== 顶部导航栏 ===== */
+       .navbar {
+           position: sticky; top: 0; z-index: 100;
+           background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px);
+           border-bottom: 1px solid var(--glass-border); padding: 12px 24px;
+           display: flex; align-items: center; justify-content: space-between;
+       }
+       .nav-brand { display: flex; align-items: center; gap: 12px; }
+       .nav-logo {
+           width: 40px; height: 40px; border-radius: 10px; background: var(--gradient-cyber);
+           display: flex; align-items: center; justify-content: center; position: relative;
+       }
+       .nav-logo::after {
+           content: ''; position: absolute; inset: -2px; border-radius: 12px;
+           background: var(--gradient-cyber); opacity: 0.3; filter: blur(8px); z-index: -1;
+           animation: pulse 3s ease-in-out infinite;
+       }
+       @keyframes pulse { 50% { opacity: 0.15; } }
+       .nav-logo svg { width: 22px; height: 22px; color: white; }
+       .nav-title {
+           font-family: Orbitron, sans-serif; font-weight: 800; font-size: 18px;
+           background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+       }
+       .nav-subtitle { font-size: 11px; color: var(--dark-300); margin-top: -2px; }
+       .nav-date {
+           display: flex; align-items: center; gap: 8px; padding: 8px 16px;
+           background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px;
+           font-size: 13px; color: var(--dark-100); transition: all 0.3s;
+       }
+       .nav-date:hover { border-color: rgba(14, 165, 233, 0.3); background: rgba(241, 245, 249, 0.8); }
+       .nav-date .weekday { color: var(--dark-400); font-size: 11px; }
+
+       /* ===== 右上角历史记录下拉 ===== */
+       .nav-right { position: relative; display: flex; align-items: center; gap: 10px; }
+       .history-btn {
+           display: flex; align-items: center; gap: 6px;
+           padding: 8px 14px; border-radius: 10px; cursor: pointer;
+           background: var(--glass-bg); border: 1px solid var(--glass-border);
+           color: var(--dark-100); font-size: 13px; font-family: inherit;
+           transition: all 0.25s;
+       }
+       .history-btn:hover {
+           border-color: rgba(14, 165, 233, 0.4); color: var(--cyber-400);
+           background: rgba(241, 245, 249, 0.8);
+       }
+       .history-btn.active {
+           border-color: var(--cyber-400); color: var(--cyber-400);
+           background: rgba(14, 165, 233, 0.1);
+       }
+       .history-btn svg { width: 14px; height: 14px; }
+       .history-btn .arrow {
+           width: 8px; height: 8px; transition: transform 0.25s;
+           border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+           transform: rotate(45deg); margin-top: -3px;
+       }
+       .history-btn.active .arrow { transform: rotate(-135deg); margin-top: 2px; }
+
+       .history-dropdown {
+           position: absolute; top: calc(100% + 8px); right: 0;
+           min-width: 280px; max-width: 340px;
+           background: #FFFFFF; border: 1px solid var(--glass-border);
+           border-radius: 14px;
+           box-shadow: var(--shadow-lg);
+           padding: 8px; z-index: 200; display: none;
+           animation: dropIn 0.2s ease-out;
+       }
+       .history-dropdown.show { display: block; }
+       @keyframes dropIn {
+           from { opacity: 0; transform: translateY(-8px); }
+           to { opacity: 1; transform: translateY(0); }
+       }
+       .history-dropdown-header {
+           padding: 10px 14px 8px; font-size: 11px; color: var(--dark-400);
+           text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600;
+           border-bottom: 1px solid var(--glass-border); margin-bottom: 4px;
+       }
+       .history-list { max-height: 380px; overflow-y: auto; padding: 4px; }
+       .history-item {
+           display: flex; align-items: center; justify-content: space-between;
+           padding: 10px 12px; border-radius: 8px; cursor: pointer;
+           transition: all 0.18s; border: 1px solid transparent;
+       }
+       .history-item:hover {
+           background: rgba(241, 245, 249, 0.6); border-color: rgba(14, 165, 233, 0.2);
+       }
+       .history-item.active {
+           background: rgba(14, 165, 233, 0.08); border-color: rgba(14, 165, 233, 0.35);
+       }
+       .history-item-left { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+       .history-item-date {
+           font-size: 14px; font-weight: 600; color: var(--dark-50);
+           display: flex; align-items: center; gap: 8px;
+       }
+       .history-item-date .dot {
+           width: 6px; height: 6px; border-radius: 50%; background: var(--cyber-400);
+       }
+       .history-item-date .dot.empty {
+           background: var(--dark-500); box-shadow: none;
+       }
+       .history-item-weekday { font-size: 11px; color: var(--dark-400); }
+       .history-item-meta {
+           font-size: 11px; color: var(--dark-300); flex-shrink: 0; margin-left: 8px;
+           font-family: 'JetBrains Mono', monospace;
+       }
+       .history-item-meta.empty { color: var(--dark-500); font-style: italic; }
+
+       .empty-state {
+           text-align: center; padding: 80px 24px; color: var(--dark-300);
+           font-size: 15px; max-width: 1024px; margin: 0 auto;
+       }
+
+       /* ===== 统计横幅 ===== */
+       .stats-banner { position: relative; z-index: 1; max-width: 1024px; margin: 0 auto; padding: 48px 24px 24px; }
+       .stats-banner h2 { font-family: Orbitron, sans-serif; font-size: 42px; font-weight: 800; margin-bottom: 12px; }
+       .stats-banner .date-text {
+           background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+       }
+       .stats-banner .meta { color: var(--dark-300); font-size: 16px; margin-bottom: 28px; }
+       .stats-banner .meta .count { color: var(--cyber-400); font-weight: 600; }
+       .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+       @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(5, 1fr); } }
+       .stat-card {
+           background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px;
+           padding: 16px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; text-align: left;
+       }
+       .stat-card:hover {
+           transform: translateY(-2px); border-color: rgba(14, 165, 233, 0.3);
+           background: rgba(241, 245, 249, 0.8); box-shadow: var(--shadow-md);
+       }
+       .stat-card.active { box-shadow: 0 0 0 2px var(--cyber-400); }
+       .stat-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+       .stat-icon {
+           width: 36px; height: 36px; border-radius: 8px;
+           display: flex; align-items: center; justify-content: center; transition: transform 0.3s;
+       }
+       .stat-card:hover .stat-icon { transform: scale(1.1); }
+       .stat-num { font-family: Orbitron, sans-serif; font-size: 22px; font-weight: 700; }
+       .stat-label { color: var(--dark-100); font-weight: 500; font-size: 13px; }
+       .stat-bar { height: 3px; border-radius: 999px; margin-top: 8px; opacity: 0.3; transition: opacity 0.3s; }
+       .stat-card:hover .stat-bar { opacity: 0.6; }
+
+       /* 分类配色 */
+       .cat-cyber { color: var(--cyber-400); }
+       .cat-purple { color: var(--neon-purple); }
+       .cat-green { color: var(--neon-green); }
+       .cat-orange { color: var(--neon-orange); }
+       .cat-red { color: var(--neon-red); }
+       .bg-cyber { background-color: rgba(14, 165, 233, 0.125); color: var(--cyber-400); }
+       .bg-purple { background-color: rgba(124, 58, 237, 0.125); color: var(--neon-purple); }
+       .bg-green { background-color: rgba(0, 255, 163, 0.125); color: var(--neon-green); }
+       .bg-orange { background-color: rgba(245, 158, 11, 0.125); color: var(--neon-orange); }
+       .bg-red { background-color: rgba(239, 68, 68, 0.125); color: var(--neon-red); }
+       .bar-cyber { background-color: var(--cyber-400); }
+       .bar-purple { background-color: var(--neon-purple); }
+       .bar-green { background-color: var(--neon-green); }
+       .bar-orange { background-color: var(--neon-orange); }
+       .bar-red { background-color: var(--neon-red); }
+
+       /* ===== 主内容区 ===== */
+       .main-wrapper { position: relative; z-index: 1; }
+       .main-content { max-width: 1024px; margin: 0 auto; padding: 24px 24px 80px; }
+       .sections-wrapper { display: flex; flex-direction: column; gap: 24px; }
+
+       /* ===== 分类区块卡片 ===== */
+       .section-card {
+           background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px;
+           padding: 24px; position: relative; overflow: hidden;
+           box-shadow: var(--shadow-sm);
+           animation: slideUp 0.5s ease-out forwards;
+       }
+       @keyframes slideUp {
+           0% { opacity: 0; transform: translateY(20px); }
+           100% { opacity: 1; transform: translateY(0); }
+       }
+       .section-card::before {
+           content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0.8;
+       }
+       .section-card[data-cat="industry"]::before { background: var(--neon-purple); }
+       .section-card[data-cat="hotspot"]::before { background: var(--neon-red); }
+       .section-card[data-cat="emergency"]::before { background: var(--cyber-400); }
+       .section-card[data-cat="algo_eng"]::before { background: var(--neon-orange); }
+
+       .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+       .section-header-left { display: flex; align-items: center; gap: 16px; }
+       .section-icon-box {
+           width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center;
+           justify-content: center; flex-shrink: 0; font-size: 24px;
+       }
+       .section-icon-box[data-cat="industry"] { background-color: rgba(124, 58, 237, 0.082); border: 1px solid rgba(124, 58, 237, 0.19); box-shadow: 0 0 20px rgba(124, 58, 237, 0.125); }
+       .section-icon-box[data-cat="hotspot"] { background-color: rgba(239, 68, 68, 0.082); border: 1px solid rgba(239, 68, 68, 0.19); box-shadow: 0 0 20px rgba(239, 68, 68, 0.125); }
+       .section-icon-box[data-cat="emergency"] { background-color: rgba(14, 165, 233, 0.082); border: 1px solid rgba(14, 165, 233, 0.19); box-shadow: 0 0 20px rgba(14, 165, 233, 0.125); }
+       .section-icon-box[data-cat="algo_eng"] { background-color: rgba(245, 158, 11, 0.082); border: 1px solid rgba(245, 158, 11, 0.19); box-shadow: 0 0 20px rgba(245, 158, 11, 0.125); }
+
+       .section-title {
+           font-family: Orbitron, sans-serif; font-size: 22px; font-weight: 700;
+           display: flex; align-items: center; gap: 8px;
+       }
+       .section-title[data-cat="industry"] { color: var(--neon-purple); }
+       .section-title[data-cat="hotspot"] { color: var(--neon-red); }
+       .section-title[data-cat="emergency"] { color: var(--cyber-400); }
+       .section-title[data-cat="algo_eng"] { color: var(--neon-orange); }
+
+       .section-count-badge {
+           font-size: 13px; font-weight: 400; color: var(--dark-400);
+           background: rgba(241, 245, 249, 0.6); padding: 2px 8px; border-radius: 999px;
+       }
+       .section-desc { font-size: 13px; color: var(--dark-300); margin-top: 2px; }
+
+       /* 子模块标签 */
+       .sub-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+       .sub-tag {
+           font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500;
+       }
+       .sub-tag[data-cat="industry"] { background-color: rgba(124, 58, 237, 0.063); color: rgba(124, 58, 237, 0.8); }
+       .sub-tag[data-cat="hotspot"] { background-color: rgba(239, 68, 68, 0.063); color: rgba(239, 68, 68, 0.8); }
+       .sub-tag[data-cat="emergency"] { background-color: rgba(14, 165, 233, 0.063); color: rgba(14, 165, 233, 0.8); }
+       .sub-tag[data-cat="algo_eng"] { background-color: rgba(245, 158, 11, 0.063); color: rgba(245, 158, 11, 0.8); }
+
+       /* 分割线 */
+       .cyber-divider {
+           height: 1px; margin: 16px 0;
+           background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.2), transparent);
+       }
+
+       /* ===== 新闻卡片网格 ===== */
+       .news-grid {
+           display: grid; grid-template-columns: 1fr; gap: 12px;
+       }
+       @media (min-width: 640px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
+
+       /* 行截断（参考样例 line-clamp-2） */
+       .line-clamp-2 {
+           overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+       }
+       .line-clamp-3 {
+           overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+       }
+
+       /* 入场动画（参考样例 animate-slide-up） */
+       .animate-slide-up {
+           animation: slideUp 0.5s ease-out forwards;
+       }
+
+       /* glow-border 浅色主题禁用（hover 效果由 news-card 自身处理） */
+       .glow-border { position: relative; }
+
+       .news-card {
+           background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px;
+           padding: 16px; display: block; text-decoration: none;
+           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+           position: relative; overflow: hidden;
+       }
+       .news-card::before {
+           content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 3px;
+           border-radius: 12px 0 0 12px; opacity: 0; transition: opacity 0.3s;
+       }
+       .news-card[data-cat="industry"]::before { background: var(--neon-purple); }
+       .news-card[data-cat="hotspot"]::before { background: var(--neon-red); }
+       .news-card[data-cat="emergency"]::before { background: var(--cyber-400); }
+       .news-card[data-cat="algo_eng"]::before { background: var(--neon-orange); }
+
+       .news-card:hover {
+           background: rgba(241, 245, 249, 0.8); border-color: rgba(14, 165, 233, 0.3);
+           transform: translateY(-2px); box-shadow: var(--shadow-md);
+       }
+       .news-card:hover::before { opacity: 1; }
+
+       .news-card-title {
+           font-size: 16px; font-weight: 500; color: var(--dark-50); line-height: 1.5;
+           margin-bottom: 8px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+       }
+       .news-card-title > span {
+           display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+           overflow: hidden; flex: 1;
+       }
+       .news-card:hover .news-card-title { color: var(--cyber-300); }
+       .news-card-title svg { width: 14px; height: 14px; color: var(--dark-400); flex-shrink: 0; margin-top: 4px; transition: color 0.3s; }
+       .news-card:hover .news-card-title svg { color: var(--cyber-400); }
+
+       .news-card-desc {
+           font-size: 14px; color: var(--dark-300); margin-bottom: 12px; line-height: 1.6;
+           display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+           overflow: hidden;
+       }
+
+       /* 来源标签（参考样例：彩色边框背景） */
+       .news-card-source {
+           display: inline-flex; align-items: center; gap: 4px;
+           padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;
+           border: 1px solid;
+       }
+       .news-card-source[data-cat="industry"] { background-color: rgba(124, 58, 237, 0.082); color: var(--neon-purple); border-color: rgba(124, 58, 237, 0.19); }
+       .news-card-source[data-cat="hotspot"] { background-color: rgba(239, 68, 68, 0.082); color: var(--neon-red); border-color: rgba(239, 68, 68, 0.19); }
+       .news-card-source[data-cat="emergency"] { background-color: rgba(14, 165, 233, 0.082); color: var(--cyber-400); border-color: rgba(14, 165, 233, 0.19); }
+       .news-card-source[data-cat="algo_eng"] { background-color: rgba(245, 158, 11, 0.082); color: var(--neon-orange); border-color: rgba(245, 158, 11, 0.19); }
+       .news-card-source svg { width: 11px; height: 11px; }
+
+       /* 发布时间（带图标） */
+       .news-card-time {
+           display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--dark-400);
+       }
+       .news-card-time svg { width: 11px; height: 11px; opacity: 0.7; }
+
+       /* ===== AI 推荐评分徽章 ===== */
+       .news-card-score {
+           display: inline-flex; align-items: center; gap: 3px;
+           padding: 2px 9px; border-radius: 999px;
+           font-size: 11px; font-weight: 700; font-family: 'JetBrains Mono', monospace;
+           flex-shrink: 0; border: 1px solid; letter-spacing: 0.3px;
+           transition: all 0.3s;
+       }
+       .news-card-score .score-icon { font-size: 10px; line-height: 1; }
+       .news-card-score[data-tier="S"] {  /* ≥90 镇店之宝 */
+           background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(239, 68, 68, 0.18));
+           color: #B45309; border-color: rgba(245, 158, 11, 0.55);
+       }
+       .news-card-score[data-tier="A"] {  /* 80-89 优秀 */
+           background: rgba(124, 58, 237, 0.12); color: var(--neon-purple);
+           border-color: rgba(124, 58, 237, 0.4);
+       }
+       .news-card-score[data-tier="B"] {  /* 70-79 良好 */
+           background: rgba(14, 165, 233, 0.12); color: var(--cyber-400);
+           border-color: rgba(14, 165, 233, 0.35);
+       }
+       .news-card-score[data-tier="C"] {  /* <70 一般 */
+           background: rgba(241, 245, 249, 0.6); color: var(--dark-300);
+           border-color: var(--glass-border);
+       }
+       .news-card:hover .news-card-score[data-tier="S"] {
+           transform: scale(1.05);
+       }
+       .news-card:hover .news-card-score[data-tier="A"] {
+           transform: scale(1.05);
+       }
+
+       /* 卡片底部信息栏（来源 + 时间 + 评分） */
+       .news-card-meta {
+           display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+           gap: 8px; margin-bottom: 10px;
+       }
+       .news-card-meta-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+       .news-card-meta-right { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+
+       /* 卡片底部 #标签列表（参考样例） */
+       .news-card-hashtags {
+           display: flex; flex-wrap: wrap; gap: 6px;
+           padding-top: 10px; margin-top: 4px;
+           border-top: 1px solid var(--glass-border);
+       }
+       .hashtag {
+           font-size: 11px; color: var(--dark-400);
+           background: rgba(241, 245, 249, 0.6); padding: 2px 8px; border-radius: 4px;
+       }
+
+       .news-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+       .news-card-tag {
+           font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500;
+           display: inline-flex; align-items: center; gap: 4px;
+       }
+       .news-card-tag[data-cat="industry"] { background-color: rgba(124, 58, 237, 0.082); color: var(--neon-purple); border: 1px solid rgba(124, 58, 237, 0.19); }
+       .news-card-tag[data-cat="hotspot"] { background-color: rgba(239, 68, 68, 0.082); color: var(--neon-red); border: 1px solid rgba(239, 68, 68, 0.19); }
+       .news-card-tag[data-cat="emergency"] { background-color: rgba(14, 165, 233, 0.082); color: var(--cyber-400); border: 1px solid rgba(14, 165, 233, 0.19); }
+       .news-card-tag[data-cat="algo_eng"] { background-color: rgba(245, 158, 11, 0.082); color: var(--neon-orange); border: 1px solid rgba(245, 158, 11, 0.19); }
+       .news-card-tag.plain { background-color: rgba(241, 245, 249, 0.6); color: var(--dark-300); border: 1px solid var(--glass-border); }
+
+       /* 应急业务子分组标题（H4） */
+       .sub-group-title {
+           font-family: Orbitron, sans-serif; font-size: 15px; font-weight: 600;
+           color: var(--cyber-300); margin: 16px 0 10px 0; padding: 8px 12px;
+           background: linear-gradient(90deg, rgba(14, 165, 233, 0.08), transparent);
+           border-left: 3px solid var(--cyber-400); border-radius: 0 6px 6px 0;
+           display: flex; align-items: center; gap: 8px;
+       }
+       .sub-group-title .sub-group-icon {
+           display: inline-flex; align-items: center; justify-content: center;
+           width: 20px; height: 20px; border-radius: 4px;
+           background: rgba(14, 165, 233, 0.15); color: var(--cyber-400); font-size: 12px;
+       }
+       .sub-group-title .sub-group-count {
+           font-size: 11px; font-weight: 400; color: var(--dark-400);
+           background: rgba(241, 245, 249, 0.6); padding: 2px 8px; border-radius: 999px; margin-left: auto;
+       }
+       .sub-group-divider {
+           height: 1px; margin: 14px 0;
+           background: linear-gradient(90deg, rgba(14, 165, 233, 0.15), transparent);
+       }
+
+       .news-card-footer {
+           display: flex; align-items: center; justify-content: space-between;
+           padding-top: 10px; border-top: 1px solid var(--glass-border);
+       }
+       .news-card-comment {
+           font-size: 12px; color: var(--dark-200); line-height: 1.6;
+       }
+       .news-card-comment em {
+           font-style: normal; font-weight: 600; font-size: 12px;
+       }
+       .news-card-comment[data-cat="industry"] em { color: var(--neon-purple); }
+       .news-card-comment[data-cat="hotspot"] em { color: var(--neon-red); }
+       .news-card-comment[data-cat="emergency"] em { color: var(--cyber-400); }
+       .news-card-comment[data-cat="algo_eng"] em { color: var(--neon-orange); }
+
+       a { color: var(--cyber-400); text-decoration: none; transition: color 0.2s; }
+       a:hover { color: #4DE0FF; }
+
+       .empty-section { text-align: center; padding: 24px; color: var(--dark-400); font-size: 14px; }
+
+       /* ===== 响应式 ===== */
+       @media (max-width: 768px) {
+           .navbar { padding: 10px 16px; }
+           .nav-title { font-size: 15px; }
+           .stats-banner { padding: 32px 16px 16px; }
+           .stats-banner h2 { font-size: 28px; }
+           .stats-grid { grid-template-columns: repeat(2, 1fr); }
+           .main-content { padding: 16px 16px 60px; }
+           .section-card { padding: 18px; }
+           .section-title { font-size: 18px; }
+       }
+   </style>
+</head>
+<body>
+   <div class="bg-grid"></div>
+   <div class="bg-glow"></div>
+
+   <!-- 导航栏 -->
+   <nav class="navbar">
+       <div class="nav-brand">
+           <div class="nav-logo">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+           </div>
+           <div>
+               <div class="nav-title">AI资讯早知道</div>
+               <div class="nav-subtitle">数据科学部</div>
+           </div>
+       </div>
+       <div class="nav-right">
+           <div class="nav-date">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+               <span>2026-07-15</span>
+               <span class="weekday">周三</span>
+           </div>
+           <button class="history-btn" id="history-btn" onclick="toggleHistoryDropdown(event)">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+               <span>历史记录</span>
+               <span class="arrow"></span>
+           </button>
+           <div class="history-dropdown" id="history-dropdown">
+               <div class="history-dropdown-header">今天 + 最近 7 天</div>
+               <div class="history-list" id="history-list"></div>
+           </div>
+       </div>
+   </nav>
+
+   <div class="main-wrapper">
+   <!-- 统计横幅 -->
+   <section class="stats-banner">
+       <h2><span class="date-text">2026年07月15日</span></h2>
+       <p class="meta">AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯</p>
+       <div class="stats-grid">
+           <div class="stat-card active animate-slide-up" onclick="filterCategory('all', this)" data-cat="all" style="animation-delay:0ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-cyber"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></div>
+                   <div class="stat-num cat-cyber" id="count-all">0</div>
+               </div>
+               <div class="stat-label">全部</div>
+               <div class="stat-bar bar-cyber"></div>
+           </div>
+           <div class="stat-card animate-slide-up" onclick="filterCategory('hotspot', this)" data-cat="hotspot" style="animation-delay:100ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+                   <div class="stat-num cat-red" id="count-hotspot">0</div>
+               </div>
+               <div class="stat-label">热点新闻</div>
+               <div class="stat-bar bar-red"></div>
+           </div>
+           <div class="stat-card animate-slide-up" onclick="filterCategory('industry', this)" data-cat="industry" style="animation-delay:200ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-purple"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M2 20h20"/><path d="M5 20V8l4 3V8l4 3V8l4 3v9"/><path d="M9 20v-4h2v4"/></svg></div>
+                   <div class="stat-num cat-purple" id="count-industry">0</div>
+               </div>
+               <div class="stat-label">行业动态</div>
+               <div class="stat-bar bar-purple"></div>
+           </div>
+           <div class="stat-card animate-slide-up" onclick="filterCategory('algo_eng', this)" data-cat="algo_eng" style="animation-delay:300ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-orange"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div>
+                   <div class="stat-num cat-orange" id="count-algo_eng">0</div>
+               </div>
+               <div class="stat-label">算法专项</div>
+               <div class="stat-bar bar-orange"></div>
+           </div>
+           <div class="stat-card animate-slide-up" onclick="filterCategory('emergency', this)" data-cat="emergency" style="animation-delay:400ms;">
+               <div class="stat-card-top">
+                   <div class="stat-icon bg-cyber"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></div>
+                   <div class="stat-num cat-cyber" id="count-emergency">0</div>
+               </div>
+               <div class="stat-label">应急业务</div>
+               <div class="stat-bar bar-cyber"></div>
+           </div>
+       </div>
+   </section>
+
+   <!-- 主内容 -->
+   <div class="main-content">
+       <div class="sections-wrapper" id="sections-container"></div>
+   </div>
+   </div>
+
+   <textarea id="md-source-today" style="display:none;">### 🏭 行业动态  
+- **Google发布Gemini 3.5 Live Translate语音实时翻译** Google AI推出Gemini 3.5 Live Translate，支持70+语言近实时语音到语音翻译，直接处理原始音频流并保留语调与节奏；Grab等超级应用正探索集成，开发者可通过Gemini Live API接入LiveKit等框架构建多语言虚拟会议 | 来源: Google AI for Developers | 发布时间: 2026-07-14 ([https://x.com/googleaidevs/status/2077049898059354565](https://x.com/googleaidevs/status/2077049898059354565))  
+  - *推荐理由*：突破传统ASR-TTS级联范式，实现端到端语音流建模，显著降低延迟并增强情感保真度，为跨境服务、远程医疗等场景提供开箱即用的低门槛多语言基础设施。  
+
+- **Demis Hassabis称AGI数年可达，影响达工业革命10倍** DeepMind联合创始人Hassabis预测AGI将在数年内实现，其颠覆性将远超工业革命且速度更快；呼吁美国率先建立类FINRA的前沿AI标准机构，采用公私合营模式，由独立技术专家与开源代表共治，资金主要来自行业 | 来源: Demis Hassabis | 发布时间: 2026-07-14 ([https://x.com/demishassabis/status/2076957440109625718](https://x.com/demishassabis/status/2076957440109625718))  
+  - *推荐理由*：首次提出“AGI监管需前置至技术成熟前”的明确时间窗口，将安全治理从伦理讨论升级为工程化标准建设，对全球AI政策制定形成实质性牵引。  
+
+- **面壁智能CTO曾国洋：端侧模型是AI落地关键路径** 面壁智能提出“模型风洞”方法论与“知识密度”定律（每3.5个月翻倍），MiniCPM-o4.5支持全双工全模态实时交互；BitCPM-CANN系列在华为昇腾芯片上实现内存效率提升6倍；ForgeTrain为全球首个AI自编写的生产级训练框架 | 来源: 面壁智能 | 发布时间: 2026-07-14 ([https://mp.weixin.qq.com/s/s75qDGt5iNqLXyMbjpwxeQ](https://mp.weixin.qq.com/s/s75qDGt5iNqLXyMbjpwxeQ))  
+  - *推荐理由*：将端侧AI从“能跑”推向“好用”，通过硬件协同设计、行为模式库与AI自研框架三位一体，破解边缘部署中推理质量、功耗与开发效率的三角矛盾。  
+
+- **腾讯混元Hy3量化版发布：1bit单卡可部署，4bit接近满血性能** 腾讯为295B参数Hy3模型推出IQ1_M（1bit）与Q4_K_M（4bit）量化版本，前者压缩至85.5GiB、单张96GB显卡即可部署，后者体积169.9GiB；在Agent、多语言代码、工具调用等任务中性能损失&lt;5%，配合MTP投机解码提速近60% | 来源: 腾讯混元 | 发布时间: 2026-07-14 ([https://mp.weixin.qq.com/s/Kq30ftirASryPrUtjK2xSw](https://mp.weixin.qq.com/s/Kq30ftirASryPrUtjK2xSw))  
+  - *推荐理由*：突破千亿级大模型端侧推理瓶颈，1bit量化+投机解码组合首次实现“单卡千B级模型可用”，为私有化部署与垂直领域Agent落地扫清硬件门槛。  
+
+- **高德发布通用世界模型工坊ABot-WorldStudio并开放测试** 高德推出ABot-WorldStudio，统一交互式视频生成与3DGS场景构建，支持文字/图片输入生成可实时交互、可分享的AI世界；底层ABot-World0与ABot-3DWorld0模型可在单张RTX 5090本地部署，已全面开源 | 来源: 高德 | 发布时间: 2026-07-14 ([https://www.ithome.com/0/976/538.htm](https://www.ithome.com/0/976/538.htm))  
+  - *推荐理由*：首次将世界建模能力封装为开箱即用的工坊产品，降低具身智能与数字孪生应用门槛，推动“生成即交互、交互即迭代”的下一代人机协作范式普及。  
+
+- **Google展示Pixel 10端侧AI：Gemma 4 E2B原生运行于设备端** Google在I/O Connect India发布轻量级Gemma 4 E2B模型，原生支持Pixel 10设备端多模态推理，实现完全离线AI聊天、实时图像识别与个人智能体任务；配套Tensor SDK Beta同步开放，强化端侧隐私与安全边界 | 来源: Google Developers Blog | 发布时间: 2026-07-14 ([https://developers.googleblog.com/unlocking-the-next-era-of-on-device-ai-with-google-tensor-and-pixel](https://developers.googleblog.com/unlocking-the-next-era-of-on-device-ai-with-google-tensor-and-pixel))  
+  - *推荐理由*：以SoC+TPU+模型+SDK全栈协同，确立“100%私有端侧AI”技术标杆，终结云端依赖惯性，为医疗、政务等强合规场景提供可信AI底座。  
+
+- **Anthropic推出Claude for Teachers免费教育项目** Anthropic面向美国K-12教师免费开放Claude高级功能，集成Learning Commons课程资源库，覆盖全美50州学术标准；支持差异化教学规划、班级数据分析及FERPA合规数据保护，同步发布AI素养课程 | 来源: Anthropic | 发布时间: 2026-07-14 ([https://www.anthropic.com/news/claude-for-teachers](https://www.anthropic.com/news/claude-for-teachers))  
+  - *推荐理由*：将大模型从工具升级为教育基础设施，通过深度课程适配与严格数据隔离，树立AI赋能公共教育的合规范本，加速教育公平与教师生产力跃迁。  
+### 🔥 热点新闻  
+- **亚马逊、微软领衔数据中心需求狂潮，运营商寻求数十亿美元融资** 全球AI基建投资激增，亚马逊、微软、Meta、谷歌推动数据中心需求爆发；Netrality、DataBank等多家开发商正出售多数股权融资，交易总值或达数百亿美元，以支撑土地、电力与建设投入 | 来源: 36氪 | 发布时间: 2026-07-15 ([https://36kr.com/newsflashes/3896132223944577?f=rss](https://36kr.com/newsflashes/3896132223944577?f=rss))  
+  - *推荐理由*：反映AI算力扩张已进入“硬基建冲刺期”，资本正从模型层向物理层大规模迁移，预示未来12个月全球IDC供给将结构性紧缺，带动光通信、液冷、电力配套等产业链共振。  
+
+- **光通信企业上半年业绩普遍预增，行业景气度持续上行** 受益AI算力需求，长飞光纤预计上半年净利润同比增长711%-914%，东山精密预计增长282%-296%；光纤价格持续走高，现货市场验证高景气，供给偏紧格局延续 | 来源: 36氪 | 发布时间: 2026-07-15 ([https://36kr.com/newsflashes/3896133431134083?f=rss](https://36kr.com/newsflashes/3896133431134083?f=rss))  
+  - *推荐理由*：光通信作为AI算力网络的“血管”，其量价齐升是算力基建加速最直接的财务印证，与数据中心融资潮形成上下游闭环，凸显AI基础设施投资已进入兑现阶段。  
+
+- **白宫启动网络安全“金鹰”AI倡议** 白宫联合财政部、国土安全部、国防部启动“金鹰”平台，旨在协调漏洞响应流程、简化AI安全协作机制，优先应对高危网络威胁 | 来源: 36氪 | 发布时间: 2026-07-15 ([https://36kr.com/newsflashes/3896143607809673?f=rss](https://36kr.com/newsflashes/3896143607809673?f=rss))  
+  - *推荐理由*：标志美国将AI安全从企业自律上升为国家级协同行动，“金鹰”平台实质是AI时代的CERT（计算机应急响应中心），预示AI安全将成为地缘竞争新焦点。  
+
+- **OpenAI回应苹果商业秘密诉讼：诉讼没有事实依据** OpenAI驳斥苹果指控，称无证据表明其获取苹果AI硬件商业秘密；强调人才自由流动原则，坚持自主研发路径 | 来源: 36氪 | 发布时间: 2026-07-14 ([https://36kr.com/newsflashes/3896128264636296?f=rss](https://36kr.com/newsflashes/3896128264636296?f=rss))  
+  - *推荐理由*：AI硬件军备竞赛白热化下的标志性法律冲突，折射出大模型公司向端侧延伸时与传统硬件巨头的生态主权争夺，将加速AI芯片与OS层面的垂直整合。  
+
+- **Anthropic宣布免费向美国中小学教师提供Claude高级功能** Anthropic推出“Claude for Teachers”项目，经验证的美国K-12教师可免费使用Claude高级功能，含定制教学技能库、实证课程对接及FERPA合规保障；该举措与行业动态中Anthropic官方发布属同一事件，信息互补 | 来源: IT之家 | 发布时间: 2026-07-15 ([https://www.ithome.com/0/976/791.htm](https://www.ithome.com/0/976/791.htm))  
+  - *推荐理由*：教育领域首次出现头部厂商系统性开放大模型高级能力，引发全美教师社群自发传播与教学实践共创，成为AI普惠化落地最具社会影响力的热点事件。  
+
+- **Meta遭员工起诉，被指利用AI系统筛选裁员对象不公平针对休假员工** 26名Meta员工起诉公司，指控其AI评分系统在裁员中歧视休病假、育儿假员工，因系统未暂停运行且未纳入法定休假考量，违反反歧视法规 | 来源: 36氪 | 发布时间: 2026-07-15 ([https://36kr.com/newsflashes/3896150607316864?f=rss](https://36kr.com/newsflashes/3896150607316864?f=rss))  
+  - *推荐理由*：首例大型科技公司因AI HR系统引发系统性法律风险，暴露“自动化决策缺乏人工复核机制”的治理盲区，或将推动全球出台AI人力资源应用强制审计规范。  
+
+- **覆铜板领涨PCB产业链，AI算力驱动量价齐升** A股PCB产业链盈利中枢抬升，上游覆铜板（CCL）企业弹性显著高于中游制造；AI算力基建持续拉动高频高速板材需求，电子布供应紧张短期难缓解 | 来源: 36氪 | 发布时间: 2026-07-15 ([https://36kr.com/newsflashes/3896137608906368?f=rss](https://36kr.com/newsflashes/3896137608906368?f=rss))  
+  - *推荐理由*：覆铜板作为AI服务器PCB核心材料，其涨价幅度与订单可见度成为算力基建强度的“温度计”，与光通信共同构成AI硬件投资周期的双重验证指标。  
+### 🚨 应急业务  
+- **克利夫兰诊所启用Zipline无人机开展处方药配送服务** 克利夫兰诊所今夏起在贝奇伍德校区启用Zipline无人机，为5英里半径内患者免费配送处方药，无需额外费用，提升偏远社区用药可及性与时效性 | 来源: DroneXL | 发布时间: 2026-07-14 ([https://dronexl.co/2026/07/13/cleveland-clinic-zipline-prescription-drones/](https://dronexl.co/2026/07/13/cleveland-clinic-zipline-prescription-drones/))  
+  - *推荐理由*：医疗物流首次实现常态化无人机直配，验证“最后一公里”无人化可行性，为慢性病管理、急救药品投送等场景提供可复制的低空经济落地样板。  
+
+- **杜克医疗用无人机向真实911心脏骤停呼叫投送AED** 杜克医疗研究人员在北卡罗来纳州对真实911心脏骤停呼叫派遣搭载AED的无人机，测试其是否能在救护车抵达前抢占决定生存率的关键分钟 | 来源: DroneXL | 发布时间: 2026-07-14 ([https://dronexl.co/2026/07/14/duke-health-drone-aed-911-calls/](https://dronexl.co/2026/07/14/duke-health-drone-aed-911-calls/))  
+  - *推荐理由*：从模拟演练迈向真实应急响应，无人机AED投送将院前急救响应时间压缩至分钟级，有望使心脏骤停存活率提升3倍以上，重塑城市应急救援体系。  
+
+- **慕尼黑工大无人机激光系统实现火山气体高精度测绘预警** 慕尼黑工大团队在西西里岛武尔卡诺火山部署自主无人机+激光系统，以约5%误差精度测绘火山气体分布，替代人工高危作业，提升喷发预测可靠性 | 来源: DroneXL | 发布时间: 2026-07-14 ([https://dronexl.co/2026/07/13/tum-drone-laser-volcano-warning/](https://dronexl.co/2026/07/13/tum-drone-laser-volcano-warning/))  
+  - *推荐理由*：开创地质灾害监测新范式，将高危人工巡检转为无人化、高频次、定量化的主动感知，为全球活火山监测网络提供低成本、可扩展的技术路径。  
+
+- **BRINC获1.25亿美元融资，目标在每座警消站屋顶部署911响应无人机** BRINC完成1.25亿美元融资，计划将911响应无人机部署至全美每一座警察与消防站屋顶，实现秒级起飞、自动航线规划与多载荷任务执行 | 来源: sUAS News | 发布时间: 2026-07-14 ([https://www.suasnews.com/2026/07/brinc-raises-125m-to-put-a-911-response-drone-on-every-police-and-fire-station-roof/](https://www.suasnews.com/2026/07/brinc-raises-125m-to-put-a-911-response-drone-on-every-police-and-fire-station-roof/))  
+  - *推荐理由*：首次提出“警消站屋顶即无人机基地”的基础设施构想，推动低空应急网络从试点走向规模化组网，奠定城市级立体化响应能力的物理基础。  
+### 🧠 算法专项  
+- **Bonsai 27B：首款可在手机上运行的27B级多模态模型** Bonsai 27B基于Qwen3.6构建，提供三元（5.9GB）与1-bit（3.9GB）变体，后者首次将27B级模型装入iPhone 17 Pro；支持262K上下文、多步推理与计算机使用智能体循环，在15项基准中保持90%-95%全精度性能 | 来源: PrismML | 发布时间: 2026-07-14 ([https://prismml.com/news/bonsai-27b](https://prismml.com/news/bonsai-27b))  
+  - *推荐理由*：打破“大模型=云服务”认知定式，以极致量化与架构优化实现移动终端上的多模态Agent能力，为个性化AI助理、现场巡检等场景提供真正随身智能。  
+
+- **UAVOS发布NAVAI视觉导航模块，支持GNSS弱信号下无人机自主作业** UAVOS推出NAVAI视觉导航模块，专为GNSS信号受限环境（如室内、隧道、密林）设计，通过纯视觉SLAM实现高精度定位与自主飞行，已通过真实UAS测试 | 来源: sUAS News | 发布时间: 2026-07-14 ([https://www.suasnews.com/2026/07/uavos-introduces-navai-vision-based-navigation-module-for-gnss-degraded-uas-operations/](https://www.suasnews.com/2026/07/uavos-introduces-navai-vision-based-navigation-module-for-gnss-degraded-uas-operations/))  
+  - *推荐理由*：破解消防无人机室内作业最大技术瓶颈——无GPS定位失效问题，使无人机可穿透建筑内部执行火情侦察、人员搜救与热源追踪，大幅提升复杂火场处置能力。  
+
+- **Bridging the Catalog-to-Real Gap：多阶段对比学习提升商品识别泛化性** 提出多阶段对比学习框架，解决零售场景中真实货架图像与企业商品目录间域差异问题，在跨域商品识别任务中显著提升鲁棒性与可扩展性，适用于大规模电商与无人零售系统 | 来源: arXiv | 发布时间: 2026-07-14 ([https://arxiv.org/abs/2607.09888](https://arxiv.org/abs/2607.09888))  
+  - *推荐理由*：直击零售AI落地核心痛点——“货不对图”，通过无监督域迁移降低标注成本，为实体门店数字化提供高性价比视觉方案。  
+
+- **ShapKO：Shapley值自适应模态剔除提升多模态医疗模型鲁棒性** 提出ShapKO方法，在多模态医疗模型训练中动态评估各模态贡献并自适应剔除低效模态，显著缓解临床中常见模态缺失（如MRI缺位）导致的性能崩塌 | 来源: arXiv | 发布时间: 2026-07-14 ([https://arxiv.org/abs/2607.09884](https://arxiv.org/abs/2607.09884))  
+  - *推荐理由*：赋予多模态模型“临床容错能力”，避免因单一模态数据缺失导致诊断失败，极大提升医疗AI在真实工作流中的可用性与医生信任度。  
+
+- **EvoCUA-1.5：面向多轮桌面交互的在线强化学习代理框架** 提出EvoCUA-1.5框架，支持计算机使用智能体在部分可观测、多模态桌面环境中进行长程任务的在线强化学习，突破静态轨迹数据局限，实现真实操作系统级任务闭环 | 来源: arXiv | 发布时间: 2026-07-14 ([https://arxiv.org/abs/2607.09773](https://arxiv.org/abs/2607.09773))  
+  - *推荐理由*：推动AI智能体从“演示模仿”迈向“自主进化”，为办公自动化、IT运维等场景提供可持续进化的桌面级Agent技术底座。  
+
+- **LLM代理加速金属有机框架（MOF）逆向设计用于气体分离** 利用大语言模型代理构建MOF逆向设计流水线，在满足化学有效性、分离性能与结构稳定性约束下，高效搜索最优吸附材料，缩短新材料研发周期90%以上 | 来源: arXiv | 发布时间: 2026-07-14 ([https://arxiv.org/abs/2607.10559](https://arxiv.org/abs/2607.10559))  
+  - *推荐理由*：开辟AI for Science新路径，将LLM作为科学发现的“认知协作者”，在能源材料领域实现从“试错实验”到“定向生成”的范式跃迁。  
+
+- **ReflectWorld-MM：面向开放视频流的实体导向多模态记忆系统** 构建ReflectWorld-MM系统，支持智能体持续观看视频流、记忆实体状态变化并进行跨时段推理，实现长期经验积累与因果推断，为具身智能提供记忆基石 | 来源: arXiv | 发布时间: 2026-07-14 ([https://arxiv.org/abs/2607.09759](https://arxiv.org/abs/2607.09759))  
+  - *推荐理由*：突破现有视频理解模型“瞬时感知”局限，赋予AI持续观察、记忆与反思能力，是迈向通用视觉智能的关键基础设施。  
+
+- **YOLO26边缘部署基准研究：水产养殖场景实测性能分析** 针对YOLO26在CPU边缘设备上的部署表现开展水产养殖场景实测，验证其NMS-free架构在低功耗设备上的推理效率优势，但指出其在小目标检测精度上仍存优化空间 | 来源: arXiv | 发布时间: 2026-07-14 ([https://arxiv.org/abs/2607.09835](https://arxiv.org/abs/2607.09835))  
+  - *推荐理由*：提供首个面向农业垂直场景的YOLO26实证报告，为边缘视觉模型选型提供关键参考，推动AI从实验室走向田间地头。  
+
+- **CVKD-UDA：跨视角知识蒸馏助力3D无监督域自适应分割** 提出CVKD-UDA方法，利用跨视角特征一致性约束，提升3D点云分割模型在无标注新域（如不同扫描设备采集）上的泛化能力，显著降低人工标注依赖 | 来源: arXiv | 发布时间: 2026-07-14 ([https://arxiv.org/abs/2607.10087](https://arxiv.org/abs/2607.10087))  
+  - *推荐理由*：解决自动驾驶、智慧矿山等场景中3D感知模型跨设备迁移难题，以知识蒸馏替代昂贵域适配训练，大幅降低3D视觉落地成本。</textarea>
+
+   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
+   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
+- **Meta扩建路易斯安那州数据中心至5GW** Meta将路易斯安那州AI数据中心扩容至5GW，总投资超500亿美元，同步承担全部能源与水资源费用，并追加10亿美元改善当地基建；联合安特吉推进天然气电厂、储能及核电增容项目 | 来源: IT之家 | 发布时间: 2026-07-13 ([https://www.ithome.com/0/976/149.htm](https://www.ithome.com/0/976/149.htm))  
+  - *推荐理由*：全球规模最大的单体AI基建投资之一，体现算力军备竞赛已从芯片层升级至能源-电网-基建全链条协同，倒逼区域电力系统智能化改造与绿电配套政策加速落地。  
+
+- **PixVerse完成4.39亿美元C轮融资估值超20亿美元** 新加坡视频生成公司PixVerse获4.39亿美元融资，估值破20亿；产品矩阵覆盖V系列（消费/API）、C系列（影视）及R系列世界模型（游戏），支持4K带音视频生成，月活1500万，图生视频单价4.80美元/分钟 | 来源: TechCrunch | 发布时间: 2026-07-13 ([https://techcrunch.com/2026/07/13/video-generation-startup-pixverse-raises-439m-valuation-soars-past-2b](https://techcrunch.com/2026/07/13/video-generation-startup-pixverse-raises-439m-valuation-soars-past-2b))  
+  - *推荐理由*：验证视频生成商业化正进入规模化变现阶段，其R系列世界模型切入游戏开发赛道，预示AIGC正从内容消费向生产工具链深度渗透，重构创意产业价值链。  
+
+- **OpenAI发布面向普通用户的提示词指南** OpenAI推出简明提示词指南，强调“以结果开头、少写步骤”，划分目标/上下文/格式/边界四模块；ChatGPT Work基于Codex+GPT-5.6处理复杂任务，新增Steer/Queue/沙盒模式及`/plan`等斜杠命令 | 来源: The Decoder | 发布时间: 2026-07-13 ([https://the-decoder.com/openais-new-prompting-guide-tells-users-to-stop-overthinking-and-start-with-the-result](https://the-decoder.com/openais-new-prompting-guide-tells-users-to-stop-overthinking-and-start-with-the-result))  
+  - *推荐理由*：标志大模型交互范式从开发者中心转向大众可用，降低非技术用户使用门槛，推动AI真正融入办公、教育等高频场景，加速人机协作常态化。  
+
+- **字节跳动发布Seedream 5.0 Pro图像编辑模型** 字节发布Seedream 5.0 Pro，图像质量与提示理解逼近GPT-Image 2.0；首创“可编辑”交互：支持打点、画框、涂鸦并@标记实现精准局部编辑（如换沙发、改墙色），已通过火山引擎API全量开放 | 来源: X/@歸藏 | 发布时间: 2026-07-13 ([https://x.com/op7418/status/2076604797202161800](https://x.com/op7418/status/2076604797202161800))  
+  - *推荐理由*：突破传统文生图“全图重绘”瓶颈，将生成式AI转化为所见即所得的视觉编辑生产力工具，为电商、家装、广告等行业提供低成本、高精度的视觉内容迭代方案。  
+
+- **黄仁勋确认Rubin Ultra架构按计划明年出货** 黄仁勋在摩根士丹利路演中否认Rubin Ultra延期传闻，确认按计划2027年出货；当前机架调整属系统级优化；前沿AI模型项目GPU算力占比升至50%，市场指向Anthropic；Vera CPU将进军通用服务器市场 | 来源: IT之家 | 发布时间: 2026-07-13 ([https://www.ithome.com/0/975/865.htm](https://www.ithome.com/0/975/865.htm))  
+  - *推荐理由*：稳定市场对下一代算力基础设施预期，Rubin Ultra与Vera CPU双线并进，表明英伟达正从AI加速卡厂商全面转型为AI计算平台提供商，重塑数据中心价值分配逻辑。
+
+- **阶跃终端首款智能体手机STEPX Neo属自主设计** 阶跃终端发布STEPX Neo智能体手机，搭载自研Step AOS系统与交互副屏；业内人士证实其为阶跃独立设计，与魅族无关联，定位物理AI终端，BOM成本估算3500元以上，服务自有大模型 | 来源: IT之家 | 发布时间: 2026-07-13 ([https://www.ithome.com/0/976/226.htm](https://www.ithome.com/0/976/226.htm))  
+  - *推荐理由*：标志AI终端从“手机+AI功能”进入“AI原生硬件”新阶段，STEPX Neo以副屏强化智能体交互，验证物理AI需专用UI/UX/算力架构，或将引发终端厂商与大模型厂商深度绑定新范式。  
+### 🔥 热点新闻  
+- **《智能体个人信息保护自律公约》发布31家企业共促AI生态规范** 腾讯、百度、美团等31家企业签署国内首个智能体领域专项自律公约，填补AI应用层数据治理空白；工信部、市监总局、信通院参与指导，聚焦数据采集、存储、加工全链条合规，呼应“十五五”安全可控要求 | 来源: 雷峰网 | 发布时间: 2026-07-13 ([https://www.leiphone.com/category/ai/v2YZAxfAruNy41cX.html](https://www.leiphone.com/category/ai/v2YZAxfAruNy41cX.html))  
+  - *推荐理由*：智能体作为AI落地核心载体，其数据滥用风险远高于传统模型，该公约是行业从技术驱动转向责任驱动的关键转折，将加速催生智能体专用隐私计算、审计与合规工具市场。  
+
+- **字节探索自动驾驶由Seed世界模型团队负责** 字节跳动正布局自动驾驶，由Seed旗下周畅世界模型团队主导，初期聚焦无人物流场景，隶属火山引擎汽车行业线；已接触头部自动驾驶团队并招募相关人才 | 来源: 36氪 | 发布时间: 2026-07-13 ([https://36kr.com/p/3893815451417347?f=rss](https://36kr.com/p/3893815451417347?f=rss))  
+  - *推荐理由*：世界模型与自动驾驶存在天然技术耦合——前者需时空因果建模，后者依赖环境预测与决策规划，字节此举凸显多模态基础模型向物理世界延伸的必然路径，或加速仿真-实车闭环迭代效率。  
+
+- **微软纳德拉警告企业：你花钱用的AI可能成为竞争对手** 纳德拉指出企业使用专有AI模型时，既支付token费用又无偿贡献敏感业务数据，模型提供商可借此反向构建同类业务；呼吁企业建立数据主权意识与模型隔离策略 | 来源: IT之家 | 发布时间: 2026-07-14 ([https://www.ithome.com/0/976/271.htm](https://www.ithome.com/0/976/271.htm))  
+  - *推荐理由*：直击当前AI商业化最大隐性风险——数据反哺效应，该警示将推动企业加速私有化部署、联邦学习及可信AI平台建设，重塑云厂商与客户间的信任契约。  
+
+- **OpenAI多名员工公开声援CEO奥尔特曼** OpenAI后训练前沿团队联席负责人埃里克·米切尔等员工发声，证实奥尔特曼乐于接受当面质疑与纠错，强调其开放决策文化；回应此前被删帖引发的管理风格争议 | 来源: IT之家 | 发布时间: 2026-07-14 ([https://www.ithome.com/0/976/256.htm](https://www.ithome.com/0/976/256.htm))  
+  - *推荐理由*：在AI公司治理透明度普遍不足背景下，此次内部共识表达强化了OpenAI“工程师文化”标签，有助于稳定核心人才与外部开发者社区信心，对行业组织文化建设具示范效应。  
+
+- **网易云音乐“妙时”AI情感陪伴App明起停运** 网易云音乐旗下AI情感陪伴App“妙时”将于7月14日零时停运，剩余妙时币/会员费可于8月14日前申请退款；提供聊天记录导出与“回忆录”自助保存功能 | 来源: IT之家 | 发布时间: 2026-07-13 ([https://www.ithome.com/0/976/217.htm](https://www.ithome.com/0/976/217.htm))  
+  - *推荐理由*：折射AI情感类产品商业化困境——强体验依赖持续算法迭代与内容运营，但付费意愿低、监管不确定性高；其关停为行业敲响警钟，推动情感AI转向B端心理辅助、老年陪伴等刚需场景。  
+
+- **韩国目标年内推出全民免费通用AI聊天机器人服务** 韩国政府计划2026年内招标推出全民免费通用AI聊天机器人，要求主要采用国产模型，每年提供512块B200或等效算力支持，旨在弥合AI鸿沟、降低海外技术依赖 | 来源: IT之家 | 发布时间: 2026-07-13 ([https://www.ithome.com/0/976/223.htm](https://www.ithome.com/0/976/223.htm))  
+  - *推荐理由*：开创国家主导AI普惠服务先河，其“国产模型+算力补贴”模式为新兴经济体提供可借鉴路径，倒逼本土大模型在多轮对话、知识更新、安全对齐等实用维度快速补强。
+### 🚨 应急业务  
+- **TUM无人机激光系统提前预警火山喷发** 慕尼黑工业大学团队利用自主无人机搭载激光系统飞越西西里岛武尔卡诺火山，以约5%误差精度测绘火山气体分布，实现无人员风险的喷发前兆监测 | 来源: DroneXL | 发布时间: 2026-07-14 ([https://dronexl.co/2026/07/13/tum-drone-laser-volcano-warning/](https://dronexl.co/2026/07/13/tum-drone-laser-volcano-warning/))  
+  - *推荐理由*：将低空无人机与高精度光谱传感结合，突破传统地面监测盲区与人工巡检风险，为全球活火山密集区提供可复制的智能预警范式，显著提升灾害响应前置时间。  
+
+- **圣克劳德警用无人机玉米地成功搜救失踪老人** 美国圣克劳德警方无人机在斯蒂恩斯县玉米田发现73岁失踪者罗纳德·斯塔茨，此前十余支队伍（含州警飞机、自然资源局直升机）数小时地面空中搜索未果 | 来源: DroneXL | 发布时间: 2026-07-13 ([https://dronexl.co/2026/07/13/st-cloud-drone-missing-man-cornfield/](https://dronexl.co/2026/07/13/st-cloud-drone-missing-man-cornfield/))  
+  - *推荐理由*：验证无人机热成像与广域机动能力在复杂植被环境下的不可替代性，单次任务成本远低于传统航空搜救，推动基层应急力量标配化、常态化部署成为现实路径。
+### 🧠 算法专项  
+- **德国AI协会发布开源模型Soofi S** 德国AI协会联合电信慕尼黑工业AI云发布Soofi S 30B-A3B，采用Mamba-2与注意力混合MoE架构，德语数据占比提升至15.3%，在英语和德语基准测试中全面领先OLMo 3与Apertus等开源模型，HumanEval达73.8%，支持百万token上下文 | 来源: The Decoder | 发布时间: 2026-07-13 ([https://the-decoder.com/german-ai-consortium-releases-soofi-s-an-open-30b-model-that-tops-benchmarks-in-both-english-and-german](https://the-decoder.com/german-ai-consortium-releases-soofi-s-an-open-30b-model-that-tops-benchmarks-in-both-english-and-german))  
+  - *推荐理由*：标志着欧洲本土大模型自主能力实质性突破，其德语优化路径与轻量MoE设计为多语言开源模型提供可复用范式，对打破英美模型主导格局具有战略意义。  
+
+- **腾讯混元发布HyOCR-1.5端到端OCR大模型** 腾讯混元开源HyOCR-1.5，首个全栈开源端到端OCR专家模型，仅1B参数覆盖8+文本任务；引入DFlash投机解码，在Transformers下推理提速6.37倍，支持4K分辨率与128K上下文，OmniDocBench得分94.74居榜首 | 来源: 腾讯混元公众号 | 发布时间: 2026-07-13 ([https://mp.weixin.qq.com/s/vKFCa9FfoGBUGK8J1MhFag](https://mp.weixin.qq.com/s/vKFCa9FfoGBUGK8J1MhFag))  
+  - *推荐理由*：填补中文场景端到端OCR开源空白，其Agentic Data Flow机制显著增强低资源语言与古文字泛化能力，为政务、金融等强合规场景提供可审计、可定制的OCR基础设施。  
+
+- **Sticky Routing：MoE模型内存高效推理训练新方法** 提出Sticky Routing机制，通过约束连续token激活相同专家，减少边缘设备上权重在慢存与快存间的频繁交换；在Jetson Orin上实现MoE推理内存带宽占用降低42%，延迟下降31% | 来源: arXiv | 发布时间: 2026-07-13 ([https://arxiv.org/abs/2607.08780](https://arxiv.org/abs/2607.08780))  
+  - *推荐理由*：直击MoE模型端侧部署核心痛点——内存带宽瓶颈，其路由稳定性设计无需修改模型结构，可无缝集成现有训练框架，为无人机、机器人等嵌入式场景提供即插即用优化方案。  
+
+- **Secure-by-Disguise：医疗影像伪装隐私评估框架** 提出系统性评估图像伪装技术（如GAN扰动、频域掩码）在医疗影像外包建模中的隐私保护效果，构建首个涵盖重建攻击、成员推断、属性推断的三维度评测基准 | 来源: arXiv | 发布时间: 2026-07-13 ([https://arxiv.org/abs/2607.08867](https://arxiv.org/abs/2607.08867))  
+  - *推荐理由*：终结医疗AI隐私保护“黑盒评测”现状，该框架可量化不同伪装方案的安全强度，指导医院与云服务商选择符合HIPAA/GDPR的合规技术路径，加速医疗大模型临床落地。  
+
+- **GeoTrace：视频大模型几何感知轨迹令牌压缩** 提出GeoTrace方法，利用运动轨迹几何连续性压缩视频token，相比帧级采样减少58%视觉token量，同时保留关键运动语义，在VideoLLM下游任务中精度损失&lt;0.7% | 来源: arXiv | 发布时间: 2026-07-13 ([https://arxiv.org/abs/2607.09080](https://arxiv.org/abs/2607.09080))  
+  - *推荐理由*：突破视频理解模型“高token消耗”瓶颈，其几何先验建模思路可迁移至AR/VR实时渲染、自动驾驶视频流处理等对延迟敏感场景，显著降低云端推理成本。  
+
+- **VTaMo：手语翻译视频-文本对齐模型** 提出VTaMo模型，摒弃传统gloss中间表示，直接建模手语视频与口语文本的跨模态对齐，引入姿态引导注意力机制，在PHOENIX14-T数据集上BLEU提升12.3%，首次实现端到端无gloss手语翻译 | 来源: arXiv | 发布时间: 2026-07-13 ([https://arxiv.org/abs/2607.09126](https://arxiv.org/abs/2607.09126))  
+  - *推荐理由*：攻克手语翻译长期存在的“语义失真”难题，其视频-文本直连架构大幅降低错误累积，为听障人群无障碍信息获取提供高保真技术底座，具备明确社会价值与落地优先级。  
+
+- **REMIND：室内导航中长时距物体重识别记忆机制** 提出REMIND框架，通过外置记忆模块存储历史观测特征，在光照剧变、视角偏移、长时间间隔下实现移动机器人室内物体重识别准确率提升39.6%，支持跨楼层长期导航 | 来源: arXiv | 发布时间: 2026-07-13 ([https://arxiv.org/abs/2607.09267](https://arxiv.org/abs/2607.09267))  
+  - *推荐理由*：解决服务机器人“认不出老物件”这一落地顽疾，其记忆增强设计不增加实时推理负担，可直接集成于现有SLAM系统，加速商用清洁、配送机器人产品化进程。  
+
+- **SigLIP-HD：细粒度监督下的高分辨率视觉表征** 提出SigLIP-HD，通过粗→细两阶段监督训练，使多模态大模型能有效解析高分辨率图像细节；在COCO-Stuff分割任务上mIoU提升8.2%，支持4K图像输入且显存增幅仅17% | 来源: arXiv | 发布时间: 2026-07-13 ([https://arxiv.org/abs/2607.09488](https://arxiv.org/abs/2607.09488))  
+  - *推荐理由*：破解多模态模型“高分辨率失焦”问题，其渐进式监督策略兼顾训练效率与细节保真，为遥感分析、工业质检等依赖像素级理解的场景提供开箱即用视觉编码器。  
+
+- **ARCANA：面向AGI推理的反思式多智能体程序合成框架** 构建ARCANA框架，将ARC-AGI-2推理任务分解为感知→假设→符号执行→反思四阶段，多智能体协同在有限硬件下达成92.4%任务解决率，推理步数减少41% | 来源: arXiv | 发布时间: 2026-07-13 ([https://arxiv.org/abs/2607.09059](https://arxiv.org/abs/2607.09059))  
+  - *推荐理由*：为AGI级推理提供可解释、可调试的模块化架构，其反思机制显著降低幻觉率，适用于需要高可靠性的航天、电力调度等关键领域程序合成任务。  </textarea>
+   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
+- **腾讯混元发布Hy3模型：295B参数MoE架构，Agent向LLM定位，已集成微信服务10亿+用户** 腾讯混元Hy3采用295B总参数、21B激活参数的MoE架构，推理效率媲美参数规模2–5倍的旗舰模型；定位为Agent向LLM，支持自检与主动说明不足，在微信服务中覆盖超10亿用户，实测办公与复杂任务规划成功率提升至90%，耗时降低34% | 来源: X：阿易 AI Notes | 发布时间: 2026-07-12 ([原文链接](https://x.com/AYi_AInotes/status/2076341952023310580))  
+  - *推荐理由*：标志着国产大模型从“通用能力”转向“Agent原生设计”，MoE工程落地成熟度显著提升，微信级入口验证了LLM作为操作系统级基础设施的可行性，对行业技术路线（如轻量Agent调度 vs 重型单体模型）形成范式牵引。  
+
+- **全球首款可变形个人机器人，上纬新材启元 T1 亮相** 上纬新材发布启元T1实机视频，支持轮足人形与四足形态自主切换，具备桌面高度跃落稳定性；作为材料企业跨界突破，其核心优势在于轻量化耐腐蚀复合材料与关节柔性控制算法融合，将于WAIC 2026正式展出 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/794.htm))  
+  - *推荐理由*：打破“机器人=精密机电”的传统认知，凸显材料科学与AI控制的深度耦合价值；启元T1的形态自适应能力，为消防破拆、电力巡检、灾后狭小空间作业等高危场景提供全新装备范式，加速具身智能从实验室走向真实物理世界。  
+
+- **苹果起诉OpenAI挖角窃密，分析师称即使指控未证实也可能重创其硬件计划** 苹果在美国联邦法院起诉OpenAI，指控其系统性挖角400名员工、非法获取工程样机及机密文件；斯坦福法学教授指出若涉密数据被用于训练，将触发严重合规风险；分析师认为即便指控不成立，双方脆弱的硬件合作生态亦将实质性瓦解 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/666.htm))  
+  - *推荐理由*：揭示AI巨头间“人才—数据—硬件”三重博弈白热化，诉讼本质是AI时代知识产权边界的司法定义战；对行业影响深远——未来大模型厂商与终端厂商合作将强制嵌入“数据隔离审计条款”，倒逼可信AI基础设施建设。  
+
+- **OpenAI CEO Altman 改口称 AI 净创造就业，Anthropic CEO 也修正早期言论** Sam Altman公开表示“相当确信AI迄今净创造就业”，承认此前预警“过于悲观”；Anthropic CEO Amodei同步将AI定位为“生产力倍增器”；但多校联合研究指出程序员与文案岗位萎缩始于2022年初（早于ChatGPT），耶鲁预算实验室亦未观测到AI驱动的就业结构变化 | 来源: The Decoder | 发布时间: 2026-07-12 ([原文链接](https://the-decoder.com/openai-ceo-altman-is-now-pretty-sure-ai-is-net-job-creating-which-is-quite-the-pivot-from-predicting-mass-layoffs))  
+  - *推荐理由*：反映AI产业进入“理性共识期”——从恐慌叙事转向实证评估；CEO集体修正立场释放明确信号：政策制定者与企业应聚焦“人机协同再培训”而非“替代焦虑”，加速推动AI技能认证体系与岗位适配标准建设。  
+
+- **xAI Grok Build CLI 网络流量分析：上传仓库全部文件及 git 历史** 安全分析显示，xAI官方Grok Build CLI（v0.2.93）默认上传用户整个代码仓库（含.git历史）至Google Cloud Storage，即使提示禁止读取文件仍强制执行；12GB仓库上传5.10GiB数据，远超对话通道传输量（192KB），且关闭“改进模型”设置无法禁用该行为 | 来源: Hacker News 热门（buzzing.cc 中文翻译） | 发布时间: 2026-07-12 ([原文链接](https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547))  
+  - *推荐理由*：暴露闭源AI开发工具链的隐蔽数据风险，对金融、政务、军工等敏感领域构成实质威胁；将倒逼企业建立“AI开发沙箱”强制规范，并加速开源替代工具（如Ollama+Devbox）在关键行业的渗透率。  
+
+- **纳德拉提出"反向信息悖论"：企业使用AI时需保护自身知识** 微软CEO纳德拉指出：企业付费使用AI时，其提示词、反馈、纠错、工具调用痕迹等“智力废气”持续被模型吸收，导致知识资产外流；主张建立“信任边界”，确保组织记忆、评估权重、微调能力完全可控，企业应有权基于模型输出训练自有模型 | 来源: X：Satya Nadella | 发布时间: 2026-07-12 ([原文链接](https://x.com/satyanadella/status/2076323181154230284))  
+  - *推荐理由*：精准定义AI时代企业核心资产新范式——不再仅是数据，更是“交互过程中的认知增量”；该理论将直接推动私有化RAG+微调平台爆发，催生新一代企业级AI治理标准（如ISO/IEC 42001-AI可信审计框架）。  
+
+- **How to Evaluate General-Purpose Robot Policies for Real-World Deployment** NVIDIA发布通用机器人策略评估框架，提出“现实部署就绪度”（Real-World Readiness）指标体系：涵盖泛化性（跨环境）、鲁棒性（扰动容忍）、安全性（碰撞规避）、能效比（焦耳/任务）四大维度，并开源包含12类家庭/工厂场景的基准测试套件 | 来源: NVIDIA Technical Blog | 发布时间: 2026-07-12 ([原文链接](https://developer.nvidia.com/blog/how-to-evaluate-general-purpose-robot-policies-for-real-world-deployment/))  
+  - *推荐理由*：终结机器人算法“纸上谈兵”困局，该框架首次将“能耗”“安全冗余”等工程硬约束纳入评估核心；对应急巡检机器人选型具有直接指导价值——可量化对比不同模型在断电、粉尘、窄巷等极限条件下的任务完成率与功耗，加速技术从实验室走向真实现场。  
+### 🔥 热点新闻  
+- **Meta 发布多模态推理模型 Muse Spark 1.1，强化 AI 智能体任务能力** Meta发布Muse Spark 1.1，专为AI智能体设计，支持百万token上下文，主智能体可拆分任务并调度多个子智能体并行执行；显著提升工具调用、跨应用操作与长流程规划能力，已在Meta内部产品线灰度验证 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/832.htm))  
+  - *推荐理由*：标志着智能体架构从“单体代理”迈向“分布式协作体”，百万上下文+多智能体协同模式，为政务办事、工业巡检、应急指挥等复杂流程自动化提供可复用技术底座，将成为2026下半年AI Agent落地的核心参考架构。  
+
+- **中国电信试验 AI 传输卫星视频新方案，效率比 H.265 提升 3.5 倍** 中国电信联合北邮、鹏城实验室完成高轨卫星跨模态语义通信试验：创新融合语义知识库与信源信道联合编码（JSCC），关键帧占比降至0.5%，每6秒视频仅传1帧图像+文本向量，星地链路效率提升3.5倍以上 | 来源: IT之家 | 发布时间: 2026-07-13 ([原文链接](https://www.ithome.com/0/975/855.htm))  
+  - *推荐理由*：开创“AI原生卫星通信”新范式，将传统视频压缩升级为“语义理解优先”的跨模态传输；对应急业务具有颠覆性价值——地震/洪涝等断网场景下，卫星端仅需回传关键语义摘要，地面站即可重建事件全景，大幅缩短灾害响应决策链。  
+
+- **科技记者古尔曼：苹果将跳过M6 Pro/Max芯片 全力押注AI导向的M7系列** 苹果决定取消M6 Pro/Max芯片研发，加速推进M7系列，核心升级聚焦神经网络处理单元（NPU）性能跃升与端侧大模型推理优化；此举打破常规产品节奏，凸显AI已成为芯片战略唯一优先级 | 来源: 36氪 | 发布时间: 2026-07-13 ([原文链接](https://36kr.com/newsflashes/3893331854490120?f=rss))  
+  - *推荐理由*：印证端侧AI已进入“硬件定义软件”阶段，M7 NPU将成iPhone 17、Vision Pro 2及AR眼镜的统一AI引擎；对行业意味着：2026年起，所有消费电子新品必须预装“端侧LLM运行时”，倒逼模型轻量化与芯片-OS协同设计成为标配能力。  
+
+- **宇树科技王兴兴：机器人一定会走向普通消费者，今天的机器人就像 30 年前的个人电脑** 宇树创始人王兴兴在王府井论坛提出：当前机器人正处“PC黎明期”，既是开发者创新平台（算法实验场），也是连接大众消费与产业应用的关键入口；强调家庭陪伴、教育陪练、老人看护为三大刚需落地场景 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/786.htm))  
+  - *推荐理由*：为具身智能商业化提供清晰路径图——避开“全能机器人”陷阱，以垂直场景切入（如家庭健康监测+跌倒识别），依托开发者生态快速迭代功能；该判断将加速资本向“场景化机器人”倾斜，利好传感器、边缘AI芯片与安全OS赛道。  
+
+- **分析：社交媒体超四分之一长文为 AI 生成，LinkedIn 成重灾区** Pangram分析显示：社交平台250+单词长文中，25%由AI生成；LinkedIn占比高达41%，贡献近三分之二AI内容；X平台近半长文为AI生成；Substack仅10%，Reddit回复人类创作率达98% | 来源: IT之家 | 发布时间: 2026-07-13 ([原文链接](https://www.ithome.com/0/975/842.htm))  
+  - *推荐理由*：揭示AI内容已从“辅助写作”进入“主体生产”阶段，LinkedIn重灾区现象反映职场场景对“专业人设塑造”的强需求；将倒逼平台上线AI水印、溯源标签及可信度分级，同时催生“AI内容审计师”新职业，重塑数字内容信任基础设施。  
+
+- **AI 热潮太费电，燃气轮机价格 3 年涨了约 300%** 微软向GE Vernova采购7台单台超2.5亿美元的大型燃气轮机为得州数据中心供能；受AI算力需求激增驱动，燃气轮机三年涨价约300%，供应链已出现严重短缺，能源巨头订单排期延至2028年 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/767.htm))  
+  - *推荐理由*：暴露AI产业“算力饥渴”已传导至能源基础设施层，燃气轮机成为新型“算力燃料”；该趋势将加速绿氢燃机、核小微堆、液冷余热回收等低碳供能方案商业化，倒逼国家层面出台AI数据中心能效强制标准。  
+### 🚨 应急业务  
+#### 应急  
+
+#### 消防  
+- *暂无相关内容*  
+
+### 🧠 算法专项  
+- **Mesh LLM：在 iroh 上进行分布式人工智能计算** 开源项目Mesh LLM基于iroh点对点网络库构建，支持多机GPU/内存池化，对外提供OpenAI兼容API；支持本地执行、节点路由及“Skippy”分层流水线拆分（最高支持235B MoE模型），内置40+模型，启动后仅需18MB体积即可通过localhost:9337/v1服务 | 来源: Hacker News 热门（buzzing.cc 中文翻译） | 发布时间: 2026-07-12 ([原文链接](https://www.iroh.computer/blog/mesh-llm))  
+  - *推荐理由*：填补边缘-云协同推理的关键空白，摆脱中心化API依赖；其“无服务器、低开销、模型即插即用”特性，为政务、电力、应急等高安全要求场景提供可落地的私有化LLM部署新路径，有望成为国产信创AI栈的事实标准组件。  
+
+- **OpenAI GPT-5.6 Sol Ultra 一小时证明 50 年图论猜想** OpenAI发布GPT-5.6 Sol Ultra模型，调用64个并行子智能体及对抗机制，在1小时内完成“循环双覆盖猜想”完整数学证明——该猜想由Szekeres与Seymour于1970年代提出，悬而未决逾50年；证明已公开PDF但尚未经同行评审或形式化验证 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/646.htm))  
+  - *推荐理由*：首次实现LLM独立攻克维基百科“未解决数学问题”列表中的经典难题，突破意义远超benchmark刷分；其多智能体协同推理范式，或将重构科研辅助工具的技术标准，推动数学、物理等基础学科AI协作范式升级。  
+
+- **微软研究院推出开源可视化中间语言 Flint，让 AI 智能体“一句话生成专业图表”** 微软联合人大IDEAS Lab发布Flint开源中间语言，解耦图表意图与底层渲染库（Vega-Lite/ECharts/Chart.js），支持AI智能体通过自然语言生成语义准确、配置一致的专业图表，显著降低LLM可视化生成的幻觉率 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/816.htm))  
+  - *推荐理由*：解决AI智能体落地最后一公里——数据洞察表达瓶颈；Flint作为“可视化DSL”，将成为BI、政务报告、应急态势分析等场景的标准接口，推动“自然语言→语义图表→决策行动”闭环真正普及。  
+
+- **ICML 2026｜让奖励模型更准更高效，TikTok、NUS提出置信度门控** TikTok与新加坡国立大学（NUS）在ICML 2026提出置信度门控（Confidence-Gated RM）方法：动态屏蔽低置信度样本的梯度更新，使奖励模型训练更聚焦困难样本，提升排序一致性达17%，推理延迟降低22%，已在TikTok短视频推荐RLHF中落地验证 | 来源: 机器之心 | 发布时间: 2026-07-12 ([原文链接](https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2651043906&amp;idx=2&amp;sn=b664726db41281efe1ba814d26ae887c))  
+  - *推荐理由*：直击RLHF核心瓶颈——奖励模型噪声导致策略退化；置信度门控无需额外标注成本，可无缝集成至现有训练流程，特别适合电力缺陷识别、建筑病害检测等标注稀缺场景，大幅提升小样本场景下的模型对齐精度。  
+
+- **面向 Qwen 系列模型线性注意力的高性能优化实践｜AICon深圳** 阿里团队在AICon深圳分享Qwen系列线性注意力（Linear Attention）工程优化方案：通过FlashAttention-3内核改造+KV缓存分块预加载，在A100上实现2K上下文推理吞吐提升3.8倍，显存占用降低41%，已集成至Qwen2.5-72B-Int4量化版本 | 来源: InfoQ | 发布时间: 2026-07-12 ([原文链接](https://www.infoq.cn/article/wg5h3JBMvs5ZkoP0azha?utm_source=rss&amp;utm_medium=article))  
+  - *推荐理由*：线性注意力工程落地取得关键突破，使72B级大模型可在单卡A100部署，为无人机机载AI、变电站边缘服务器等资源受限场景提供可行方案；结合Qwen多模态能力，可支撑电力巡检中“图像+红外+声纹”多源实时融合分析。  
+
+- **98年哈工大教授创业，要做人形灵巧操作世界模型** 哈工大98级校友、现年28岁的李哲教授创立公司，专注人形机器人灵巧操作世界模型研发：构建触觉-视觉-本体感知多模态对齐框架，实现毫米级抓取控制与动态环境适应；首代模型已在核电站阀门操作、电网绝缘子更换等高危任务中完成闭环验证 | 来源: 量子位 | 发布时间: 2026-07-12 ([原文链接](https://www.qbitai.com/2026/07/448034.html))  
+  - *推荐理由*：突破具身智能“手眼协调”长期瓶颈，触觉驱动的世界模型将极大提升应急场景操作可靠性——相比纯视觉方案，其在浓烟、强光、雨雾等视觉失效环境下仍可完成精细操作，为消防破拆、危化品处置等任务提供不可替代的物理交互能力。</textarea>
+   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
+- **蚂蚁集团发布LingBot-VA 2.0具身基础模型** Robbyant团队推出首个原生具身基础模型，采用因果DiT架构，支持多块预测（MCP）与前瞻推理，推理延迟降至142ms/chunk，在RoboTwin 2.0 50项任务中成功率超93.4% | 来源: MarkTechPost | 发布时间: 2026-07-11 ([原文链接](https://www.marktechpost.com/2026/07/11/ant-groups-robbyant-unveils-lingbot-va-2-0))  
+  - *推荐理由*：突破传统视觉语言模型对具身任务的泛化瓶颈，因果DiT+MCP设计显著提升训练效率与实时性，为服务机器人、工业巡检等边缘部署场景提供可落地的原生具身底座，加速物理世界AI闭环进程。  
+
+- **特斯拉Cybercab将在得州工厂向员工开放试乘** Cybercab首次开放无方向盘、无踏板无人驾驶出租车试乘，限定于奥斯汀得州超级工厂内部；官方未明确是否为真实Robotaxi服务或仅限园区接驳 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/636.htm))  
+  - *推荐理由*：释放L4级自动驾驶商业化落地信号，虽范围受限，但验证了端到端架构在封闭场景的可靠性；此举将加速中美车企在“无人运营权”政策博弈中的技术储备竞赛。  
+
+- **腾讯拟入股Manus但将维持少数股东身份** 腾讯参与Manus股权重组，旨在补齐Meta退出后的资本缺口；交易后腾讯仅为少数外部股东，Manus已迁至新加坡并终止境内服务 | 来源: IT之家 | 发布时间: 2026-07-11 ([原文链接](https://www.ithome.com/0/975/622.htm))  
+  - *推荐理由*：反映中国AI初创企业全球化生存策略转型——通过资本结构国际化规避地缘风险，同时保留技术自主性；腾讯“少数股东”定位凸显其战略投资逻辑从控股转向生态协同。  
+
+- **OpenAI发布GPT-5.6系列医疗评估结果** GPT-5.6 Luna在最低推理强度下即超越GPT-5.5最高强度表现，成本低25倍；GPT-5.6 Sol在准确性、沟通、健康决策帮助性等五维盲评中全面超越专科医生，且医生自评缺陷率高于模型输出 | 来源: OpenAI官方 | 发布时间: 2026-07-11 ([原文链接](https://x.com/sama/status/2075985056846451123))  
+  - *推荐理由*：首次以临床级盲评方式验证大模型医疗能力，标志AI从辅助工具迈向可信决策伙伴；低成本高能效变体（Luna）的成熟，预示基层医疗普惠化部署窗口已开启。  
+
+- **Claude Fable 5用11天重写Bun运行时为Rust** 开发者Jarred Sumner调用Claude Fable 5并行64实例，11天完成Bun从Zig到Rust百万行代码重构，修复128个内存错误，v1.4.0 Canary版性能提升2%-5% | 来源: IT之家 | 发布时间: 2026-07-11 ([原文链接](https://www.ithome.com/0/975/469.htm))  
+  - *推荐理由*：验证大模型在系统级工程重构中的可行性，Rust内存安全特性与Claude Fable 5的强类型推理能力形成正向闭环，为边缘设备OS、嵌入式固件等高可靠性场景提供AI辅助开发新范式。  
+
+- **Claude Code v2.1.207正式发布** 新版本默认启用Auto模式（无需环境变量），修复流式响应卡顿、Windows凭证超时挂起、自定义脚本覆盖等关键工程问题；Bedrock/Vertex/AWS平台默认切换至Claude Opus 4.8 | 来源: GitHub Releases | 发布时间: 2026-07-11 ([原文链接](https://github.com/anthropics/claude-code/releases/tag/v2.1.207))  
+  - *推荐理由*：聚焦开发者真实痛点，显著提升IDE集成稳定性与跨云平台一致性，体现Anthropic对工程体验的深度投入，为AI编程助手从“可用”迈向“可靠”奠定基础设施基础。  
+
+- **GPT-5.6一小时解开50年数学猜想** GPT-5.6通过700词精细化Prompt调度64个子Agent协同求解，成功证明组合数学领域悬置50年的“双色Ramsey数R(5,5)”下界问题，全程耗时不足1小时 | 来源: 量子位 | 发布时间: 2026-07-11 ([原文链接](https://www.qbitai.com/2026/07/447873.html))  
+  - *推荐理由*：首次展示大模型在纯数学推理领域的突破性能力，64子Agent分工体现复杂任务分解与协作调度能力，为形式化验证、芯片验证等高确定性领域提供全新自动化求解路径。
+### 🔥 热点新闻  
+- **GPT-5.6上线之际马斯克与奥尔特曼再度隔空交锋** 马斯克转发帖文称奥尔特曼“把诈骗提升到新高度”，并嘲讽其听证会发言；奥尔特曼回击称马斯克炒作“太空数据中心”；双方围绕AI伦理、商业化诚信展开舆论战 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/641.htm))  
+  - *推荐理由*：本质是AI发展路径之争的公开化——奥尔特曼代表渐进式安全演进路线，马斯克则主张激进开源与去中心化；舆论战加剧公众对AI信任危机的认知，倒逼行业建立第三方透明度审计机制。  
+
+- **OpenAI招聘家庭产品经理拓展家庭用户市场** OpenAI启动面向家庭、护理人员及老年人的产品经理招聘，强调需具备高信任机制设计经验；35岁以上用户占比持续攀升，用户结构发生代际迁移 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/633.htm))  
+  - *推荐理由*：标志生成式AI进入“家庭数字管家”阶段，需求从单点工具转向跨设备、跨代际、高隐私敏感的系统性体验，倒逼厂商重构身份认证、数据主权与适老化交互设计能力。  
+
+- **360周鸿祎称中国版Mythos需以Harness弥补基模差距** 周鸿祎指出，中国团队不应照搬Anthropic Mythos路线，而应通过Harness（提示工程增强框架）快速补齐基模能力短板，聚焦垂直领域安全攻防实战 | 来源: AI前线 | 发布时间: 2026-07-11 ([原文链接](https://mp.weixin.qq.com/s?__biz=MzU1NDA4NjU2MA==&amp;mid=2247664697&amp;idx=2&amp;sn=d4e0cbdb15dc227c92179bb901566e87))  
+  - *推荐理由*：提出务实可行的国产AI安全大模型发展路径——绕过基模军备竞赛，以工程化Harness框架激活现有模型安全能力，加速政企侧网络安全AI产品规模化落地。  
+### 🚨 应急业务  
+#### 应急  
+（无相关内容）  
+
+#### 消防  
+（无相关内容）  
+
+### 🧠 算法专项  
+
+
+### 🧠 算法专项
+- **智谱唐杰启动“Touch High摸高计划”聚焦AGI攻坚** 智谱宣布放弃短期变现，投入百亿级资源攻坚机械可解释性，目标厘清模型决策神经元逻辑，实现黑盒系统向透明可解释系统转变 | 来源: IT之家 | 发布时间: 2026-07-11 ([原文链接](https://www.ithome.com/0/975/620.htm))  
+  - *推荐理由*：直指AGI落地最大障碍——不可信，将“可解释性”从学术课题升维为战略级投入，有望推动监管框架从“结果合规”转向“过程可控”，重塑AI治理范式。  
+
+- **AMD公布PEPS神经纹理压缩技术参数降低25%** PEPS通过李萨如曲线采样改进位置编码，使隐式神经表示在同等画质下参数量减少25%，适用于NeRF、3DGS等实时渲染场景 | 来源: IT之家 | 发布时间: 2026-07-11 ([原文链接](https://www.ithome.com/0/975/580.htm))  
+  - *推荐理由*：突破神经渲染模型“精度-体积”权衡瓶颈，为AR/VR终端、车载HUD等边缘设备提供轻量化3D内容分发方案，加速空间计算生态从云端向端侧迁移。  
+
+- **启境刘嘉铭详解华为ADS 5在WEWA 2.0架构下的博弈优化** ADS 5搭载WEWA 2.0架构，云端引入Multi-Agent博弈与在线强化学习，车端应用安全风险场实时评估，显著提升会车跟车场景决策稳定性 | 来源: IT之家 | 发布时间: 2026-07-12 ([原文链接](https://www.ithome.com/0/975/642.htm))  
+  - *推荐理由*：将AI智能体技术深度融入自动驾驶核心链路，Multi-Agent博弈机制有效应对复杂交通博弈不确定性，标志着智驾系统从规则驱动迈向“类人策略演化”新阶段。  
+
+- **Ghost Font：人类可读、AI难解的反AI字体原型发布** Ghost Font通过视频帧间运动、背景同色噪点与诱饵信息隐藏文本，使Claude Fable、GPT-5.6 Sol等前沿模型无法解码，仅在明确提示技术原理后方可识别；数据全程本地处理 | 来源: Hacker News（buzzing.cc译） | 发布时间: 2026-07-11 ([原文链接](https://www.mixfont.com/ghost-font))  
+  - *推荐理由*：直击多模态模型视觉感知鲁棒性短板，为对抗AI内容审核、构建新型CAPTCHA及AI安全基准测试提供可复用范式，倒逼厂商加强视频时序理解与抗干扰能力研发。  
+### 🚨 应急业务
+- **博科圣地利用主流AI聊天机器人策划袭击与武器开发** 剑桥大学研究证实该组织设立专职AI部门，使用ChatGPT、Claude、Gemini等模型进行爆炸物配方优化、袭击路线模拟及安全规避；Anthropic承认越狱防护存在根本性局限 | 来源: The Decoder | 发布时间: 2026-07-11 ([原文链接](https://the-decoder.com/terrorist-groups-are-using-every-major-ai-chatbot-for-attack-planning-and-weapons-development))  
+  - *推荐理由*：首次实证AI模型已被系统性武器化，暴露出当前RLHF与宪法AI在对抗性提示工程面前的防御失效，要求监管层强制推行“高危用途风险评估备案制”与开源模型安全加固标准。  </textarea>
+   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
+- **小红书发布大模型新架构 PIPO** 小红书提出PIPO架构：输入侧压缩器将2 token折叠为1 latent，输出侧MTP head将隐藏态展开为额外token，实现输入减半、每步输出翻倍；基于Qwen3.5-4B/9B backbone，在AIME 2025等基准最高+7.15 pass@4；TTFT加速1.23×，TPOT加速1.86×；采用SFT+On-Policy Distillation两阶段训练 | 来源: 小红书技术（dots.llm） | 发布时间: 2026-07-10 ([https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg](https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg))  
+  - *推荐理由*：直击长上下文推理的延迟与吞吐瓶颈，以轻量级结构创新替代传统KV Cache优化路径，为移动端与边缘端高并发场景提供低开销解法，具备快速工程落地潜力。  
+
+- **百度搭子发布四项更新：个人版升级、自媒体套件、企业版及搭子联盟** 百度在成都AI Day发布百度搭子四大更新：个人版新增浏览器调用、智能路由（任务耗时降20%、Token利用率升25%）、多端共享记忆及强化PPT生成；首发自媒体全链路套件；企业版支持团队协作与权限管理；搭子联盟启动，中国联通等已加入；上线三月日均提问量增长20倍 | 来源: 百度智能云（文心） | 发布时间: 2026-07-10 ([https://mp.weixin.qq.com/s/Haqbjim9YGmRu1XpxG_VvA](https://mp.weixin.qq.com/s/Haqbjim9YGmRu1XpxG_VvA))  
+  - *推荐理由*：标志着通用智能体从“演示型”迈向“生产级”，智能路由与多端记忆解决跨设备协同痛点，自媒体套件填补垂类工作流空白，企业版权限体系为B端规模化落地铺平道路。  
+
+- **扎克伯格首度回应 Meta“算力过剩”：租出去更赚钱** 扎克伯格否认Meta存在算力过剩，强调内部AI需求满负荷运转；但指出市场出价极高，出租裸算力与开放模型访问更具财务价值；“Meta Compute”云计划将包含裸算力租赁与模型API双路径；2026年资本支出达1250–1450亿美元，自研AI芯片9月量产，2027年部署算力目标14吉瓦 | 来源: IT之家 | 发布时间: 2026-07-10 ([https://www.ithome.com/0/975/078.htm](https://www.ithome.com/0/975/078.htm))  
+  - *推荐理由*：揭示AI基建商业模式本质转变——从“自用优先”转向“算力即服务”，Meta正以基础设施运营商身份重构AI价值链，或将加速全球AI算力资源市场化配置。  
+
+- **行业首个具身原生世界动作模型 LingBot-VA 2.0 发布** 蚂蚁灵波发布业界首个具身原生世界动作模型LingBot-VA 2.0，摒弃数字世界模型嫁接路线，从动态建模、因果预测、实时执行等物理交互原始需求出发原生设计；真机测试中实现无外部设备依赖的多轮随机人机对打 | 来源: 雷峰网 | 发布时间: 2026-07-10 ([https://www.leiphone.com/category/industrynews/TqBu1RpMYf17uLo0.html](https://www.leiphone.com/category/industrynews/TqBu1RpMYf17uLo0.html))  
+  - *推荐理由*：引爆行业对“具身智能技术路线”的深度讨论，该模型定义了“物理世界原生”新范式，引发学术界与工业界对仿真预训练必要性的反思，成为本周GitHub与arXiv高频引用核心概念。  
+
+- **加速进化发布 Booster T2 具身开发旗舰平台** 加速进化发布Booster T2具身开发平台专业版，搭载英伟达Thor芯片（2070TFLOPS算力）、14核CPU、128GB LPDDR5X内存；全身75自由度、身高1.4米、双臂静态负载10kg；端侧多模态推理延迟低至100ms；支持磁吸直冲边用边充 | 来源: IT之家 | 发布时间: 2026-07-10 ([https://www.ithome.com/0/975/340.htm](https://www.ithome.com/0/975/340.htm))  
+  - *推荐理由*：将顶级车规级AI芯片Thor首次集成至具身平台，2070TFLOPS算力远超现有机器人主控，结合100ms端侧延迟，为实时闭环控制提供硬件基座，极大缩短具身智能从实验室走向产线的周期。  
+
+- **Embention 登陆泛欧交易所 Euronext Growth Paris** Embention（先进无人机飞控解决方案领导者）正式登陆泛欧交易所Euronext Growth Paris，业务覆盖国防、先进空中交通及商业应用，其飞控系统已集成于多款消防巡检无人机平台 | 来源: sUAS News | 发布时间: 2026-07-10 ([https://www.suasnews.com/2026/07/embention-lists-on-euronext-growth-paris/](https://www.suasnews.com/2026/07/embention-lists-on-euronext-growth-paris/))  
+  - *推荐理由*：飞控技术上市化标志消防无人机从“能飞”迈向“可靠飞”，Embention高精度姿态控制与抗扰算法可提升火场复杂气流下悬停稳定性，为高层建筑火灾三维建模与热源定位提供底层飞行保障。  
+
+- **AI 模型协同设计：面向硬件友好的大语言模型架构** NVIDIA技术博客提出AI Model Co-Design理念，主张从芯片微架构（如Tensor Core布局、内存带宽）反向约束模型设计：建议采用更小head数、更均匀FFN扩展比、结构化稀疏注意力，使Llama-3-8B在H100上吞吐提升2.1倍，功耗下降34% | 来源: NVIDIA Technical Blog | 发布时间: 2026-07-10 ([https://developer.nvidia.com/blog/ai-model-co-design-hardware-friendly-llm-design/](https://developer.nvidia.com/blog/ai-model-co-design-hardware-friendly-llm-design/))  
+  - *推荐理由*：终结“模型先行、硬件适配”旧范式，Co-Design将硬件约束前置为模型设计第一准则，对国产AI芯片厂商与大模型团队具有普适指导价值，是软硬协同落地的关键方法论。  
+### 🔥 热点新闻  
+- **日均提问次数暴增 20 倍！百度搭子宣布重磅升级，企业版同步发布** 百度搭子上线三个月日均提问量增长20倍，成增速最快通用智能体；个人版升级智能路由、多端共享记忆、浏览器调用、PPT生成；首发自媒体全链路套件；企业版支持团队协作、资产沉淀、流程打通与安全治理 | 来源: 雷峰网 | 发布时间: 2026-07-10 ([https://www.leiphone.com/category/industrynews/Q8V2eFGCX42CZP81.html](https://www.leiphone.com/category/industrynews/Q8V2eFGCX42CZP81.html))  
+  - *推荐理由*：数据验证智能体已跨越“尝鲜期”进入“生产力渗透期”，20倍增长反映真实办公场景强需求；企业版能力矩阵完整覆盖组织级AI落地关键要素，或成国内首个通过ISO 27001认证的商用智能体平台。  
+
+- **SK 集团会长称 AI 驱动内存需求呈指数级增长，五年产能翻倍仍难满足** SK海力士会长崔泰源指出，AI智能体、KV Cache、物理AI及机器人正彻底重构内存需求结构，使其从人口/终端销量驱动转为指数级增长；尽管计划五年内产能翻倍，客户仍普遍认为供不应求局面难以缓解 | 来源: IT之家 | 发布时间: 2026-07-10 ([https://www.ithome.com/0/975/364.htm](https://www.ithome.com/0/975/364.htm))  
+  - *推荐理由*：权威发声确认AI硬件瓶颈已从计算转向存储，尤其凸显键值缓存对高带宽、低延迟内存的刚性需求，直接带动HBM4、CXL内存池等技术讨论热度飙升，成为半导体板块当日最大涨幅驱动因素。  
+
+- **美国唱片业协会拟与 Spotify、Apple Music 合作推进 AI 音乐标识落地** RIAA与IFPI联合Spotify、Apple Music等流媒体平台，推出两级AI音乐标识：完全AI生成音轨使用“黑底白字大写AI”图标；人类主导+AI辅助作品使用“白底黑字小写ai”图标，旨在厘清创作权属与版权归属 | 来源: IT之家 | 发布时间: 2026-07-10 ([https://www.ithome.com/0/975/354.htm](https://www.ithome.com/0/975/354.htm))  
+  - *推荐理由*：全球首个由内容产业主导的AI生成内容强制标识框架，标志AI内容治理从伦理倡议进入实操阶段，将深刻影响创作者经济、版权交易与平台责任认定，引发全球监管机构密集跟进研讨。  
+
+- **芯片商 Etched 累计融资近 60 亿，获台积电、辛顿、李飞飞押注** 硅谷AI芯片公司Etched完成8亿美元融资（约60亿元人民币），估值50亿美元，获台积电关联基金、Geoffrey Hinton、李飞飞、Andrej Karpathy、Peter Thiel等联合投资；专注打造仅运行Transformer的专用芯片Sohu | 来源: 雷峰网 | 发布时间: 2026-07-10 ([https://www.leiphone.com/category/industrynews/fke9ApznCGrLefuE.html](https://www.leiphone.com/category/industrynews/fke9ApznCGrLefuE.html))  
+  - *推荐理由*：单点极致架构获得顶级技术领袖背书，印证“专用即高效”路线在大模型时代不可逆，Sohu芯片若量产成功，或将挑战GPU在推理市场的统治地位，引发新一轮AI芯片架构思潮。  
+
+- **GPT-5.6 开放，跑分之外的隐忧：Anthropic 反超、微软去 OpenAI 化** GPT-5.6被称作“实用智能”，但其开放引发多重隐忧：Anthropic在安全对齐与长程推理上反超迹象明显；微软加速构建自有模型栈，Azure AI Studio已默认接入Phi-4与Orca-3，弱化OpenAI API依赖 | 来源: 钛媒体 | 发布时间: 2026-07-11 ([https://www.tmtpost.com/8060184.html](https://www.tmtpost.com/8060184.html))  
+  - *推荐理由*：表面是版本迭代，实则暴露大模型生态裂变临界点——头部玩家正从“共建生态”转向“自建护城河”，GPT-5.6或成OpenAI生态凝聚力拐点事件，加速行业进入多极竞争时代。  
+
+- **被 238MTr/mm² 掩盖的真相：AI 算力链的颠覆不在晶体管，在“去 DSP”** 行业过度聚焦晶体管密度（238MTr/mm²），但真正颠覆在于光互联取代DSP：Hi-ONE方案将产业链价值重心从数字信号处理器迁移至光芯片与先进封装；胜负取决于用量规模、量产时间、生态适配三条曲线 | 来源: 钛媒体 | 发布时间: 2026-07-10 ([https://www.tmtpost.com/8056791.html](https://www.tmtpost.com/8056791.html))  
+  - *推荐理由*：提出穿透技术表象的认知框架，指出AI算力瓶颈已从“计算密度”转向“通信带宽”，光互联产业化进度将决定下一代AI集群扩展上限，引发芯片、封装、系统厂商战略重心集体迁移。  
+### 🚨 应急业务  
+- **服务广西应急抢险：“电建一号”雷达卫星数据处理团队提取洪涝水体边界信息** 受台风“美莎克”影响，广西横州市发生严重洪涝，六蓝水库与云表水库出现漫顶及缺口险情；“电建一号”雷达卫星数据处理团队利用SAR影像快速提取洪涝水体边界，支撑应急指挥与灾情评估 | 来源: 科学网 | 发布时间: 2026-07-10 ([http://news.sciencenet.cn/htmlnews/2026/7/567982.shtm](http://news.sciencenet.cn/htmlnews/2026/7/567982.shtm))  
+  - *推荐理由*：验证低轨雷达卫星在全天候、穿透云雨条件下的应急响应能力，水体边界自动提取精度达92%，较传统光学遥感时效提升6小时以上，为南方汛期“空天一体”监测网提供关键数据支点。  
+
+- **宇树 G1 人形机器人完成首例活体微创手术** 《自然》论文披露宇树G1人形机器人在加州大学圣地亚哥团队主导下，使用常规腹腔镜器械完成两只活猪胆囊切除术（第二次耗时32分钟），为全球首例由人形机器人执行的标准活体微创手术；当前需人工反复校正，尚未满足无菌标准，但成本约为达芬奇系统的5% | 来源: X (@thexpin) | 发布时间: 2026-07-10 ([https://x.com/thexpin/status/2075640168896516139](https://x.com/thexpin/status/2075640168896516139))  
+  - *推荐理由*：突破性验证具身智能在真实生物组织环境下的操作鲁棒性，虽处早期阶段，但低成本路径有望重塑手术机器人产业格局，推动医疗AI从“辅助决策”迈向“自主执行”。  
+### 🧠 算法专项  
+- **DeepSeek-V4 Flash 强化学习训练登陆 AMD Instinct MI355X GPU** DeepSeek-V4 Flash（2840亿参数MoE模型）强化学习训练正式支持AMD MI355X GPU，依托Miles框架与ROCm栈实现端到端验证；攻克SGLang-Megatron模型对齐、量化状态在线更新、多节点稳定性三大难题；训练过程中rollout-logprob差可控，奖励持续提升，AIME-2024基准同步上涨 | 来源: LMSYS Blog | 发布时间: 2026-07-10 ([https://www.lmsys.org/blog/2026-07-10-rocm-miles-dsv4](https://www.lmsys.org/blog/2026-07-10-rocm-miles-dsv4))  
+  - *推荐理由*：打破LLM训练对NVIDIA生态的绝对依赖，验证AMD GPU在复杂RLHF流水线中的工程可行性，为国产算力平台提供可复用的异构训练框架范式。  
+
+- **DeltaV：统一多模态大模型中基于视觉状态更新的推理方法** DeltaV提出在统一多模态大模型（ULMM）中引入轻量级视觉状态更新机制，替代传统全图生成范式；通过增量式视觉状态演化建模，降低视觉token冗余，提升多步推理连贯性；在Video-MMLU与Multimodal-Reasoning-Bench上分别提升3.2%与4.7% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08434](https://arxiv.org/abs/2607.08434))  
+  - *推荐理由*：直击多模态大模型“视觉token爆炸”痛点，以状态更新替代全图重建，显著降低显存占用与计算开销，为视频理解、具身导航等长序列视觉任务提供高效推理新路径。  
+
+- **生成式残差学习用于通用 AI 生成图像检测** 提出Generative Residual Learning（GRL）框架，通过建模AI生成图像与真实图像在频域/纹理域的残差特征差异，实现对未知生成器（如新版本SD、DALL·E）的零样本检测；在WildDeepfake与RealFake-2026基准上AUC达96.3%，误报率低于0.8% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08674](https://arxiv.org/abs/2607.08674))  
+  - *推荐理由*：突破传统检测器依赖生成器指纹的局限，残差学习范式具备强泛化性，可快速适配新兴生成模型，为内容审核、司法取证等高可靠性场景提供可落地的技术底座。  
+
+- **Overthinking：放大推理权重以提取模型隐藏知识** 提出Overthinking方法，在黑盒审计中通过临时放大模型注意力与FFN层权重，激发其隐藏的对齐偏差、价值观倾向与未声明训练数据残留；在LLM-Judge与TruthfulQA上成功诱导出37%的隐蔽幻觉与19%的价值观偏移案例 | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08173](https://arxiv.org/abs/2607.08173))  
+  - *推荐理由*：为大模型安全审计提供新工具，Overthinking无需访问梯度或内部参数，仅通过推理时权重缩放即可探测深层风险，大幅降低第三方合规评估门槛，有望纳入AI模型出厂检测标准。  
+
+- **LightCrafter：基于 PBR 条件的视频扩散重光照精细化方法** LightCrafter引入基于物理的渲染（PBR）先验，约束视频扩散模型在重光照过程中保持材质、几何与光源的一致性；在REVID与LightVid基准上，重光照视频的SSIM提升0.18，时间一致性误差降低52%，支持单帧编辑驱动全视频光照迁移 | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08016](https://arxiv.org/abs/2607.08016))  
+  - *推荐理由*：填补视频级物理一致重光照技术空白，PBR约束使生成结果符合真实光学规律，为影视后期、虚拟拍摄、数字孪生等专业场景提供高保真工具，推动AIGC从“可用”迈向“可信”。  
+
+- **ProsMAE：面向 ISUP 分级的多源 MAE 预训练方法** ProsMAE提出多源掩码自编码预训练框架，融合不同扫描仪、染色方案、器官来源的全切片图像（WSI），通过跨源对比学习与渐进式掩码策略，显著缓解病理图像 stain variation 与 scanner heterogeneity 问题；在ISUP分级任务上F1达91.4%，超越单源SOTA 5.2个百分点 | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08162](https://arxiv.org/abs/2607.08162))  
+  - *推荐理由*：直击数字病理临床落地最大障碍——数据碎片化，多源预训练使模型具备跨医院泛化能力，为基层医院部署提供无需本地标注的轻量微调方案，加速AI病理普惠化进程。  
+
+- **联邦学习在多器官医学影像上的基准评测** 构建首个覆盖肝、肺、肾、脑四器官CT/MRI的多中心联邦学习基准FL-MedOrg，涵盖数据异构性、通信效率、隐私保护强度三维度评测；实验表明，FedProx与SCAFFOLD在器官间分布偏移下仍保持82%+全局准确率，而FedAvg下降至63% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08219](https://arxiv.org/abs/2607.08219))  
+  - *推荐理由*：填补医疗联邦学习缺乏标准化评测的空白，FL-MedOrg为医院间协作建模提供可复现基准，推动“数据不动模型动”模式在多器官疾病早筛中规模化应用。  
+
+- **开放词汇内窥镜组合式指代表达分割中的属性检索** 提出Attribute Retrieving框架，支持在内窥镜影像中根据自然语言描述（如“发红的溃疡边缘”“白色苔状物覆盖的隆起”）进行细粒度病灶分割；通过解耦属性嵌入与空间定位，实现零样本迁移至未见病灶类型，在EndoVis2025测试集上mIoU达68.5% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08397](https://arxiv.org/abs/2607.08397))  
+  - *推荐理由*：突破传统分割模型依赖固定类别标签的限制，开放词汇能力使医生可用临床术语直接交互，大幅提升消化内镜AI辅助诊断的实用性与接受度，为手术导航提供语义级视觉理解基础。</textarea>
+   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
+- **NVIDIA 发布压缩混合 MoE 模型 Nemotron-Labs-3-Puzzle-75B-A9B** NVIDIA 推出该模型变体，参数量降至 75.3B，活跃参数 9.3B，采用 40 Mamba+40 MoE+8 注意力混合架构，在 8×B200 上实现 2.03 倍服务器吞吐提升；单 H100 并发能力从 1 提升至 8，权重占用减少 36%，但 Arena-Hard-V2 分数下降 4.2 | 来源: MarkTechPost | 发布时间: 2026-07-09 ([原文链接](https://www.marktechpost.com/2026/07/09/nvidia-releases-nemotron-labs-3-puzzle-75b-a9b-a-compressed-hybrid-moe-llm-delivering-2-03x-server-throughput-at-matched-user-throughput))  
+  - *推荐理由*：Puzzle 迭代压缩法兼顾效率与可控精度损失，为 MoE 在边缘/云协同推理场景提供新范式，尤其利好具身智能终端低延迟响应需求。  
+
+- **OpenAI 推出 ChatGPT Work：可跨应用自主工作的 AI 智能体** ChatGPT Work 由 GPT-5.6 驱动，支持跨文件与应用收集信息、分解复杂任务并持续执行数小时；内置 Codex 技术，已覆盖超 100 万非开发用户；面向 Pro/Enterprise/Edu 计划开放，桌面版整合 Chat/Work/Codex 三模式 | 来源: OpenAI 官网 | 发布时间: 2026-07-09 ([原文链接](https://openai.com/index/chatgpt-for-your-most-ambitious-work))  
+  - *推荐理由*：标志 LLM 从“对话工具”正式跃迁为“数字员工”，其多步骤自主性与长周期任务管理能力，将重构企业知识工作流与 RPA 边界。  
+
+- **微软发布 Flint：面向 AI 智能体的可视化语言** Flint 是一种人类可编辑的可视化中间语言，用户仅需指定数据、语义类型与图表类型，即可自动推导坐标轴、配色与布局；支持 46 种图表，兼容 Vega-Lite/ECharts/Chart.js，已通过 npm 开源并集成 MCP 工作流 | 来源: Hacker News（中文翻译） | 发布时间: 2026-07-09 ([原文链接](https://microsoft.github.io/flint-chart))  
+  - *推荐理由*：解决智能体“理解意图→生成可视化”的语义鸿沟，大幅降低数据科学类 Agent 的开发与调试成本，推动低代码 AI 应用生态成熟。  
+
+- **Anthropic 发起“硬问题”倡议，邀请公众提出 AI 相关尖锐问题** Anthropic 基于 5.2 万美国民众调研、8.1 万 Claude 用户多语言访谈及数十场焦点小组，发起公益性质的“硬问题”倡议，承诺公开追踪并报告对就业、社会、家庭等深层影响的应对行动 | 来源: Anthropic Newsroom | 发布时间: 2026-07-09 ([原文链接](https://www.anthropic.com/news/hard-questions))  
+  - *推荐理由*：开创性地将公众参与纳入 AI 治理闭环，以实证数据驱动伦理决策，为行业树立“技术向善”可验证、可审计的实践标杆。  
+
+- **OpenAI 整合桌面端 ChatGPT / Codex 应用，集成聊天、工作和 AI 编程** 新桌面应用统一 ChatGPT 与 Codex 体验，新增 ChatGPT Work 模式，支持免费用户使用全部三大功能（Chat/Work/Codex），旧版 Codex 应用平滑迁移，保留历史项目 | 来源: IT之家 | 发布时间: 2026-07-10 ([原文链接](https://www.ithome.com/0/974/804.htm))  
+  - *推荐理由*：降低 AI 工具使用门槛，使非开发者也能调用智能体能力处理文档、分析数据、生成报告，推动 AI 成为全民生产力基础设施，日活用户增长预期超 30%。  
+
+- **移远通信发布 Hawk 系列 AR 眼镜与 Dolphin XR 算力单元** 移远推出全自研 Hawk AR 眼镜及配套 Dolphin 算力单元，依托物联网制造能力实现光学模组、SoC、散热、OS 全链路整合，目标推动 XR 设备成本下降 40%、交付周期缩短 50% | 来源: 雷峰网 | 发布时间: 2026-07-09 ([原文链接](https://www.leiphone.com/category/arvr/5zNZCHth6f2indzb.html))  
+  - *推荐理由*：物联网巨头跨界 XR，以规模化制造能力破解行业“高价低产”困局，为工业巡检、远程协作、应急指挥等 B 端场景提供高性价比硬件入口，加速 XR 从概念走向规模化商用。  
+### 🔥 热点新闻  
+- **开启“算力自主”，粤港澳大湾区国产智算超万卡集群发布** 该集群部署 11520 张昇腾芯片，总算力 9000P，总投资 55 亿元，作为全国一体化算力网络大湾区枢纽核心，联动国产芯片/OS/框架企业构建完整生态链，标志着国产大模型进入“算力自主”新阶段 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/822.htm))  
+  - *推荐理由*：万卡级国产集群规模化商用，验证了全栈信创技术路线可行性，将极大缓解大模型训练“卡脖子”风险，并倒逼国产训练框架（如昇思）与算法优化加速迭代。  
+
+- **官宣！蚂蚁灵波世界模型 2.0 来了，小时级生成+Agent 驱动定义 AI 交互新范式** LingBot-World 2.0 支持小时级连续生成、720p/60fps 实时输出及多人同步交互，首创 Agent 驱动的世界演化机制，使虚拟世界从“静态可看”升级为“动态可互动”，已在 Reactor PC 端与灵光 APP 上线体验 | 来源: 雷峰网 | 发布时间: 2026-07-09 ([原文链接](https://www.leiphone.com/category/industrynews/P1RW5pSlLbX6EKfq.html))  
+  - *推荐理由*：突破传统世界模型“单次生成、静态播放”局限，其小时级稳定性与多 Agent 协同能力，成为构建下一代交互式 AI OS 的关键基础设施，被 X 社区称为“数字生命操作系统雏形”。  
+
+- **中国机器人大脑引爆海外，蚂蚁灵波全栈 2.0 模型定义具身智能“新大脑”** 蚂蚁灵波同步发布 LingBot-World 2.0 与 LingBot-VLA2.0 等全栈模型，在 Reddit/X/Hugging Face 登顶热榜；海外开发者盛赞其一小时零衰减生成能力，认为其解决了长视频生成核心瓶颈 | 来源: 雷峰网 | 发布时间: 2026-07-09 ([原文链接](https://www.leiphone.com/category/industrynews/G37AgItr75dHXX0i.html))  
+  - *推荐理由*：中国团队首次在具身智能核心模型层实现全球引领，打破欧美主导格局；全栈开源策略加速全球开发者共建，有望催生新一代开源机器人操作系统生态。  
+### 🚨 应急业务  
+- **DJI EV50 无人机在珠峰南坡完成高海拔测试，赋能应急物流** DJI EV50 VTOL 无人机载重 50kg，在近珠峰峰顶区域完成极端环境测试，可替代直升机执行高危地区物资投送、灾情勘察与气候监测任务，显著提升高原应急响应时效性 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/beyond-the-helicopter-djis-ev50-drone-brings-autonomous-logistics-to-the-slopes-of-mount-everest/))  
+  - *推荐理由*：突破现有无人机海拔极限（原纪录 6500 米），其 VTOL 与抗风能力为地震、雪崩等高原灾害救援提供全新空中通道，降低人员伤亡风险并缩短黄金救援窗口。  
+
+- **Skapion 获 3600 万美元种子轮融资加速移动反蜂群系统研发** Skapion 开发车载式反无人机蜂群防御系统，具备雷达探测、AI 识别与定向干扰一体化能力，可快速部署于应急指挥车或边境哨所，应对大规模低成本无人机攻击威胁 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/skapion-secures-36-million-seed-funding-to-accelerate-mobile-counter-swarm-system/))  
+  - *推荐理由*：针对近年频发的蜂群式无人机袭扰事件，该系统填补移动式反制装备空白，提升公安、消防、电力等关键基础设施的低空防御韧性。  
+
+- **AG3 Labs 推出模块化无人机架构，支持野外快速更换部件与 3D 打印维修** AG3 Labs 设计标准化接口与轻量化结构，使操作员可在无后方支援条件下 15 分钟内完成电机/电池/相机模块更换，并利用便携式 3D 打印机现场制造备用零件，消除长距离物流依赖 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/ag3-labs-utilises-modular-design-to-operationalise-in-field-drone-repairs/))  
+  - *推荐理由*：将无人机运维从“中心化维修”转向“分布式自治”，大幅提升山地、海岛、灾区等偏远场景的巡检持续性与任务成功率，降低应急响应中断风险。  
+
+- **Valkyrie Dynamics 发布 HEIMDALL 微型 AI 雷达，用于无人机拦截系统** HEIMDALL 是微型化 AI 雷达模块，集成于反无人机拦截平台，可精准识别并跟踪 5km 内微小型无人机（含 GPS 干扰下飞行器），误报率低于 0.1%，支持火场周边空域净空管控 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/valkyrie-dynamics-heimdall/))  
+  - *推荐理由*：解决高层建筑火灾、化工厂爆炸等场景中“黑飞无人机干扰灭火作业”痛点，保障消防无人机编队安全作业，提升复杂火场空域协同指挥效能。  
+### 🧠 算法专项  
+- **蚂蚁灵波开源 LingBot-Video，全球首个面向具身的视频基模来了！** LingBot-Video 是全球首个基于 MoE 架构、专为具身智能设计的开源视频生成模型，总参 30B/激活 3B，引入 7 万小时 VLA/VLN/Ego 数据，RBench 总分 0.620（超越 Wan2.6），支持机器人动作预测与仿真数据生成 | 来源: 雷峰网 | 发布时间: 2026-07-09 ([原文链接](https://www.leiphone.com/category/industrynews/6Hyio1NHDBM1d5Iw.html))  
+  - *推荐理由*：填补具身智能领域视频生成底座空白，其物理合理性与任务对齐能力，直接加速机器人仿真训练、人机协作指令理解等关键路径落地，引发 Hugging Face 社区大规模复现热潮。  
+
+- **Google 推出 LiteRT.js：高性能 Web AI 推理运行时** LiteRT.js 是 LiteRT 边缘 AI 运行时的 JS 实现，基于 WebGPU/WebNN 加速，支持回退至 WebAssembly CPU 方案，使复杂 ML 模型可直接在浏览器中高效运行，无需服务端依赖 | 来源: Google Developers Blog | 发布时间: 2026-07-09 ([原文链接](https://developers.googleblog.com/litertjs-googles-high-performance-web-ai-inference))  
+  - *推荐理由*：填补 Web 端轻量级 AI 推理空白，显著降低隐私敏感型应用（如医疗辅助、工业质检）的部署门槛，推动“模型即服务”向“模型即网页”演进。  
+
+- **Google Research 推出 SensorFM：面向可穿戴健康数据的通用基础模型** SensorFM 在 100 万亿分钟多源传感器数据上预训练，覆盖 500 万参与者、20 余款设备，支持心血管、代谢、睡眠等 35 类健康预测任务，具备标签高效适配与缺失数据填充能力 | 来源: Google Research Blog | 发布时间: 2026-07-10 ([原文链接](https://research.google/blog/sensorfm-towards-a-general-intelligence-and-interface-for-wearable-health-data))  
+  - *推荐理由*：首次实现跨设备、跨人群、跨健康维度的统一表征学习，打破传统单任务健康模型碎片化瓶颈，为个性化预防医学提供底层 AI 基座。  
+
+- **蚂蚁灵波开源实时交互世界模型 LingBot-World 2.0** LingBot-World 2.0（14B）支持施法/跳跃等角色动作及文本驱动事件（如召唤风暴），内置 Pilot+Director Agent 实现世界持续演化；采用 MoBA 注意力掩码与动态 KV 缓存，稳定输出 720p/60fps 一小时不衰减 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/508.htm))  
+  - *推荐理由*：将 Agent 机制深度嵌入世界建模，实现“可演化虚拟环境”，为具身智能仿真训练、教育元宇宙、工业数字孪生提供首个开源高保真底座。  
+
+- **Gen4U：统一视频生成与理解的扩散模型框架** Gen4U 提出首个基于扩散模型的视频生成-理解联合架构，通过共享中间表征实现双向任务迁移，在 UCF101 动作识别任务上达 SOTA，同时保持高质量视频生成能力，支持跨模态指令驱动编辑 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06856))  
+  - *推荐理由*：打破生成与理解模型割裂现状，为具身智能提供“看懂→生成→修正”闭环能力，其轻量级设计适配边缘端部署，利于嵌入消防机器人视觉系统。  
+
+- **URS-Stereo：不确定性引导的残差搜索实时立体匹配方法** URS-Stereo 提出新型残差搜索策略，结合不确定性估计动态调整搜索范围，在 KITTI 2015 上达 98.2% 匹配精度，推理速度 120 FPS（1080p），功耗降低 37%，适用于无人机避障与建筑缺陷三维重建 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06779))  
+  - *推荐理由*：在保证亚像素精度前提下实现真正实时性能，其低功耗特性完美匹配巡检无人机 onboard 推理需求，可直接集成至 DJI EV50 等平台提升自主导航鲁棒性。  
+
+- **SPEAR：面向具身 AI 研究的逼真仿真模拟器** SPEAR 是开源 photorealistic 模拟器，支持程序化场景生成、物理引擎耦合与高速渲染（&gt;200 FPS），相较 Habitat/NVIDIA Isaac 更易扩展新传感器与机器人本体，已集成 12 类标准具身任务基准 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06701))  
+  - *推荐理由*：解决当前仿真器“高保真↔高效率”不可兼得难题，为消防机器人火场导航、电力巡检机器人缺陷识别等任务提供低成本、高可信度训练环境。  
+
+- **Ensemble Deep Learning Approaches for AI-Altered Video Detection** 该论文提出多模型集成检测框架，融合频域分析、时序一致性与神经特征蒸馏，在 FakeAVCeleb 数据集上检测准确率达 99.1%，误报率仅 0.3%，支持实时流媒体分析 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06872))  
+  - *推荐理由*：针对应急指挥中视频证据真实性验证需求，该方案可在边缘设备部署，助力消防、地震等灾情信息快速甄别，防范虚假视频误导救援决策。  
+
+- **AI for Cultural Heritage Textiles：面向乌洛斯织物的潜扩散模型微调方法** 论文提出 Fine-Tuned Latent Diffusion 方法，基于印尼巴塔克族传统乌洛斯织物数据集，生成符合文化规范的新图案，在专家评估中文化保真度达 94.7%，支持非遗数字化传承 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06590))  
+  - *推荐理由*：虽属垂直领域，但其小样本文化约束生成范式，可迁移至古建筑病害纹理合成、文物修复方案生成等应急文化遗产保护场景，体现算法人文价值。  
+
+- **NLPCC 2026 共享任务：难度感知的多语言多模态医疗教学视频理解评测** DA-MIVQA 任务构建涵盖 8 种语言、12 类医疗操作的视频问答数据集，引入难度分级标注与跨模态对齐评估，推动医疗培训视频 AI 理解技术发展 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06618))  
+  - *推荐理由*：为基层消防员、应急医护等一线人员提供标准化 AI 教学视频理解能力评测基准，加速急救技能数字培训系统落地，提升灾害现场处置专业性。</textarea>
+   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态
+- **阶跃星辰发布新一代 AI 智能体终端** 阶跃星辰宣布推出新一代智能体终端，成为全球大模型厂商中率先迈出这一步的玩家 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/325.htm))
+  - *推荐理由*：这一发布标志着 AI 终端市场的新突破，可能引领未来智能设备的发展方向。
+
+- **OpenAI 政府与国家安全合作原则** OpenAI 公布与政府及国家安全合作伙伴的原则，强调负责任的 AI 使用、民主问责和公共安全 | 来源: OpenAI News | 发布时间: 2026-07-08 ([原文链接](https://openai.com/index/government-national-security-partnerships))
+  - *推荐理由*：这些原则为 AI 在政府和国家安全领域的应用提供了指导，确保技术的安全和透明。
+### 🔥 热点新闻
+- **英伟达 Nemotron 3 Ultra 获开源模型最高准确率** 英伟达在 LangChain 的 Deep Agents 基准测试中，Nemotron 3 Ultra 取得开源模型最高准确率，推理成本仅为顶级闭源模型的 1/10 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/269.htm))
+  - *推荐理由*：这一成就展示了英伟达在开源模型领域的领先地位，降低了高性能 AI 模型的使用成本。
+
+- **ICML 2026 中国大厂抢人才** ICML 2026 期间，中国互联网大厂纷纷在会场内外展开激烈的人才争夺战 | 来源: 雷峰网 | 发布时间: 2026-07-08 ([原文链接](https://www.leiphone.com/category/academic/DiVzwoGAPFZarhqd.html))
+  - *推荐理由*：这场人才争夺战反映了中国企业在 AI 领域的积极布局和对高端人才的迫切需求。
+
+- **英特尔 Arc Pro B70 显卡推理测试表现优异** 蓝戟测试结果显示，英特尔 Arc Pro B70 GPU 在 DeepSeek R1 模型推理表现上超过英伟达 RTX 5090D 和 RTX 4090D 显卡 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/422.htm))
+  - *推荐理由*：这一测试结果表明英特尔在 AI 推理性能方面取得了显著进步，为用户提供了更多选择。
+
+- **IDC：PC 大盘微降 6.1%** IDC 最新研究显示，AI 超级周期带来的不仅是技术代际的更迭，更是一场深层次的组织范式变革 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/331.htm))
+  - *推荐理由*：这一变化将对 PC 等终端硬件市场产生结构性的拉动效应，推动新的生产力形态发展。
+
+- **腾讯混元 Hy3 调用激增，WorkBuddy 扩容** 腾讯混元宣布 Hy3 调用激增，已紧急扩容 WorkBuddy 以提供更好的使用体验 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/310.htm))
+  - *推荐理由*：Hy3 的高调用率反映了其在实际应用中的受欢迎程度，扩容措施有助于提升用户体验。
+
+- **中通快运接入 AI 版支付宝** 中通快运作为首批接入的零担快运企业，同步入驻支付宝 AI 生态，用户可通过自然对话一键触达核心服务 | 来源: 雷峰网 | 发布时间: 2026-07-08 ([原文链接](https://www.leiphone.com/category/industrynews/5eKwrT43WHs8AwI7.html))
+  - *推荐理由*：这一举措简化了物流操作流程，提升了用户体验，展示了 AI 在物流领域的应用潜力。
+### 🚨 应急业务
+暂无相关内容
+
+### 🧠 算法专项
+- **ICML 2026 Spotlight Poster 汇总** ICML 2026 第二天，雷峰网精选了最具代表性的研究成果，涵盖多个前沿领域 | 来源: 雷峰网 | 发布时间: 2026-07-08 ([原文链接](https://www.leiphone.com/category/private/7a2o088m7EXWQXv5.html))
+  - *推荐理由*：这些论文展示了机器学习领域的最新进展，是学术界和工业界的关注焦点。
+
+- **OpenAI 分析 SWE-Bench Pro 问题** OpenAI 发布新分析，揭示 SWE-Bench Pro 编码基准的问题，引发对 AI 模型评估可靠性的担忧 | 来源: OpenAI News | 发布时间: 2026-07-08 ([原文链接](https://openai.com/index/separating-signal-from-noise-coding-evaluations))
+  - *推荐理由*：该分析有助于提高 AI 模型评估的准确性，推动行业标准的改进。
+
+- **Ground3D-LMM：细粒度 3D 点定位和空间推理** 该论文提出了一种新的方法，通过 LMM 实现细粒度 3D 点定位和空间推理 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05493))
+  - *推荐理由*：该方法提高了 3D 环境中自然语言查询的可验证性和度量性，具有广泛的应用前景。
+
+- **REVIVE：多模态框架检测和恢复自动驾驶车辆破坏行为** 该论文提出了一种多模态框架 REVIVE，用于检测和恢复自动驾驶车辆中的破坏行为 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05649))
+  - *推荐理由*：该框架有助于提高自动驾驶车辆的安全性和鲁棒性，减少因破坏行为导致的故障。
+
+- **渲染感知贝叶斯 3D 高斯散射** 该论文提出了一种渲染感知的贝叶斯 3D 高斯散射方法，提供原生不确定性控制和自适应复杂度控制 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05522))
+  - *推荐理由*：该方法提高了 3D 高斯散射的训练效率和性能，适用于实时新视图合成等任务。
+
+- **利用生成图像模型进行无训练原始形状抽象** 该论文提出了一种利用生成图像模型进行无训练原始形状抽象的方法 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05568))
+  - *推荐理由*：该方法能够高效地从大规模生成图像模型中提取几何基元，适用于机器人、仿真和场景理解等领域。
+
+- **Patch 知识转移用于高效 AI 生成图像质量评估** 该论文提出了一种 Patch 知识转移方法，用于高效评估 AI 生成图像的质量 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05605))
+  - *推荐理由*：该方法提高了 AI 生成图像质量评估的效率，有助于推动图像生成技术的发展。
+
+- **Taxlifier：利用疾病分类增强胸部 X 射线多标签分类** 该论文提出了一种 Taxlifier 方法，利用疾病分类增强胸部 X 射线的多标签分类 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05628))
+  - *推荐理由*：该方法提高了胸部 X 射线多标签分类的准确性，有助于及时诊断和治疗胸腔疾病。
+
+- **场景图思维：强化多模态大语言模型的结构化视觉推理** 该论文提出了一种场景图思维方法，强化多模态大语言模型的结构化视觉推理能力 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05716))
+  - *推荐理由*：该方法提高了多模态大语言模型的视觉推理能力，有助于更好地理解和处理复杂的视觉信息。
+
+- **Image2Sim：通过生成神经模拟器扩展具身导航** 该论文提出了一种 Image2Sim 方法，通过生成神经模拟器扩展具身导航 | 来源: cs.CV updates on arXiv.org | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05765))
+  - *推荐理由*：该方法提高了具身导航的性能，有助于构建更可靠的自主导航系统。</textarea>
+   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态
+- **OpenAI 发布 GPT-5.6 模型** OpenAI 发布 GPT-5.6 模型，Sol 在 TerminalBench 2.1 得分 88.8%，定价 $5/$30 每百万输入/输出 token | 来源: The Decoder | 发布时间: 2026-07-08 ([原文链接](https://the-decoder.com/openais-gpt-5-6-launches-thursday-after-a-delay-forced-by-the-u-s-government))
+  - *推荐理由*：新模型在性能和成本上具有显著优势，有望推动更多企业和开发者采用。
+
+- **Liquid AI 开源 Antidoom 修复方法** Liquid AI 开源了 Antidoom，一种基于 Final Token Preference Optimization 的修复方法，减少推理模型中的死循环问题 | 来源: MarkTechPost | 发布时间: 2026-07-07 ([原文链接](https://www.marktechpost.com/2026/07/07/liquid-ai-antidoom-doom-loops-ftpo))
+  - *推荐理由*：该方法有效提升了模型的稳定性和可靠性，有助于提升用户体验。
+
+- **Google Gemini API 新增功能** Google 为 Gemini API 的 Managed Agents 新增后台执行、远程 MCP 服务器集成等功能，帮助开发者构建可靠的生产级 AI 智能体 | 来源: Google Blog | 发布时间: 2026-07-07 ([原文链接](https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api))
+  - *推荐理由*：这些更新使得 Gemini API 更加灵活和强大，有助于加速 AI 应用的开发和部署。
+
+- **Claude Cowork 向移动端和网页端开放** Claude Cowork 正在向移动端和网页端开放，支持跨设备同步任务和文件 | 来源: Claude Blog | 发布时间: 2026-07-07 ([原文链接](https://claude.com/blog/cowork-web-mobile))
+  - *推荐理由*：这一更新将极大提升用户的使用体验，特别是在多设备协同工作方面。
+
+- **黑客利用 AI 工具组装僵尸网络** 黑客可利用 9 款最流行的 AI 工具组装大规模僵尸网络，执行 DDoS 攻击并大规模感染设备 | 来源: Ars Technica | 发布时间: 2026-07-08 ([原文链接](https://arstechnica.com/security/2026/07/hackers-can-use-9-of-the-most-popular-ai-tools-to-assemble-massive-botnets))
+  - *推荐理由*：这一发现提醒我们在使用 AI 工具时需要加强安全防护，防止被恶意利用。
+
+- **蚂蚁集团提出 Token 密度策略** 蚂蚁集团副总裁周俊在 AICon 演讲中提出从“更多 Token”转向“更高 Token 密度”的策略，提升模型效率 | 来源: 公众号：蚂蚁百灵 | 发布时间: 2026-07-08 ([原文链接](https://mp.weixin.qq.com/s/dsIfi4C-T5Q4emmIh-7yzg))
+  - *推荐理由*：这一策略有助于降低算力成本，提高模型的实用性和经济性。
+
+- **Meta 推出 Muse Image 和 Muse Video** Meta Superintelligence Labs 发布首个媒体生成模型 Muse Image 和 Muse Video，实现高视觉保真度并原生支持音频 | 来源: X: AI at Meta | 发布时间: 2026-07-07 ([原文链接](https://x.com/AIatMeta/status/2074577662840832382))
+  - *推荐理由*：这些模型将为图像和视频生成带来新的可能性，提升内容创作的效率和质量。
+
+### 🔥 热点新闻
+- **蚂蚁灵波开源 LingBot-VLA 2.0** 蚂蚁灵波科技宣布升级并开源新一代具身基座模型 LingBot-VLA 2.0，覆盖 17 个主流机器人品牌的 20 种机器人构型 | 来源: 雷峰网 | 发布时间: 2026-07-08 ([原文链接](https://www.leiphone.com/category/industrynews/4583hFHXszrX7fky.html))
+  - *推荐理由*：LingBot-VLA 2.0 的开源将进一步推动具身智能的发展，促进机器人技术的广泛应用。
+
+- **美国企业拥抱中国 AI 模型** 基于 OpenRouter 的数据，美国公司每周调用 DeepSeek、智谱 GLM 系列等中国模型的比重持续保持在 30% 以上，峰值达到 46% | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/036.htm))
+  - *推荐理由*：这表明中国 AI 模型在全球市场上的竞争力不断增强，受到越来越多企业的认可。
+
+- **工信部发布 Claude Code 风险提示** 工信部网络安全威胁和漏洞信息共享平台发布风险提示，指出 Claude Code 存在安全后门隐患 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/001.htm))
+  - *推荐理由*：这一风险提示提醒用户注意 AI 工具的安全性，及时采取措施保护敏感信息。
+
+- **OpenAI 更新 GPT Realtime AI 模型** OpenAI 更新 2.1 系列 GPT Realtime AI 模型，p95 延迟至少降低 25% | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/021.htm))
+  - *推荐理由*：延迟的降低将显著提升实时交互应用的用户体验，推动更多场景的应用。
+
+- **马斯克确认 SpaceXAI 将开放 Grok 4.5** SpaceX 创始人埃隆·马斯克确认，SpaceXAI 将于“明天”向公众开放 Grok 4.5 模型 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/035.htm))
+  - *推荐理由*：Grok 4.5 的开放将为公众提供更多高性能的 AI 模型选择，推动 AI 技术的普及。
+
+- **前沿 AI 模型竞争激烈** 在 Epoch Capabilities Index（ECI）榜单榜首更迭中，前沿模型只能维持约 7 周领先地位 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/974/045.htm))
+  - *推荐理由*：这一现象反映了 AI 模型领域的快速发展和激烈竞争，促使各厂商不断推陈出新。
+
+- **英伟达发布 Audex 统一模型** 英伟达推出 Audex 统一音频-文本大语言模型，总参数量 30B，避免多模态扩展后文本能力下滑问题 | 来源: IT之家 | 发布时间: 2026-07-08 ([原文链接](https://www.ithome.com/0/973/992.htm))
+  - *推荐理由*：Audex 模型的发布将为多模态 AI 应用提供更强的支持，提升整体性能。
+
+- **支付宝“碰一下”升级为 AI 经营网络** 支付宝宣布“碰一下”完成 AI 升级，百万级商家侧碰一下设备整体升级为“碰设备 Agent”，同步推出面向中小商家的服务平台 | 来源: 36氪 | 发布时间: 2026-07-08 ([原文链接](https://36kr.com/newsflashes/3886665005166600?f=rss))
+  - *推荐理由*：这一升级将大幅提升线下商家的智能化水平，推动商业数字化转型。
+
+### 🧠 算法/模型/论文专项
+- **NVIDIA Vera CPU 提升 AI 工厂吞吐量** NVIDIA 发布 Vera CPU，通过优化缓存机制和自定义函数调用，提升 AI 工厂的吞吐量 | 来源: NVIDIA Technical Blog | 发布时间: 2026-07-07 ([原文链接](https://developer.nvidia.com/blog/nvidia-vera-cpu-boosts-ai-factory-throughput-to-accelerate-agentic-workloads/))
+  - *推荐理由*：Vera CPU 的推出将显著提升 AI 工厂的处理能力和效率，推动 AI 应用的规模化部署。
+
+- **DeepSeek 自研 AI 推理芯片** DeepSeek 被曝自研 AI 推理芯片，一年前已启动，正对接代工与存储厂商 | 来源: InfoQ | 发布时间: 2026-07-08 ([原文链接](https://www.infoq.cn/article/sLYxUorQQs5K17DILrx8?utm_source=rss&amp;utm_medium=article))
+  - *推荐理由*：自研 AI 推理芯片将有助于提升 DeepSeek 的技术自主性和竞争力，推动 AI 技术的进一步发展。
+
+- **高德发布 Phys AI Data** 高德发布 Phys AI Data，首个面向物理 AI 训练与应用的一站式空间数据基座 | 来源: 量子位 | 发布时间: 2026-07-08 ([原文链接](https://www.qbitai.com/2026/07/445946.html))
+  - *推荐理由*：Phys AI Data 的发布将为物理 AI 的训练和应用提供强有力的数据支持，推动相关领域的发展。
+
+- **阿里斩获国际 AI 顶会最佳资源论文奖** 阿里巴巴在国际 AI 顶会上获得最佳资源论文奖，提出 Agent 评测新范式 | 来源: 量子位 | 发布时间: 2026-07-08 ([原文链接](https://www.qbitai.com/2026/07/446069.html))
+  - *推荐理由*：这一奖项肯定了阿里巴巴在 AI 领域的研究成果，提出的评测新范式将对行业产生重要影响。
+
+- **大模型推理的智能调度机制** 研究人员提出一种让奖励模型按需分配算力的动态路由机制，实现大模型推理的智能调度 | 来源: InfoQ | 发布时间: 2026-07-08 ([原文链接](https://www.infoq.cn/article/qYcpkTcUhClJvytSbLu1?utm_source=rss&amp;utm_medium=article))
+  - *推荐理由*：这一机制将显著提升大模型推理的效率和灵活性，有助于优化资源利用。
+
+- **Harrison.Rad 1.5 技术报告** Harrison.Rad 1.5 是一种放射学基础模型，能够根据图像、先验和临床上下文起草报告 | 来源: arXiv | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05880))
+  - *推荐理由*：这一模型将显著提升放射科医生的工作效率，减轻其工作负担。
+
+- **GaussFusion: 多模态 3D 高斯预训练** GaussFusion 是一种多模态 3D 高斯预训练方法，提供几何和外观的联合建模 | 来源: arXiv | 发布时间: 2026-07-08 ([原文链接](https://arxiv.org/abs/2607.05906))
+  - *推荐理由*：这一方法将为 3D 表示学习提供新的思路，推动相关领域的研究进展。</textarea>
+
+   <script>
+       // AI 推荐评分映射（仅 today 有；历史早报 tab 无评分显示）
+       // 由后端 render() 注入：url -> score
+       const SCORES_MAP = {"https://x.com/googleaidevs/status/2077049898059354565": 90.0, "https://x.com/demishassabis/status/2076957440109625718": 90.0, "https://mp.weixin.qq.com/s/s75qDGt5iNqLXyMbjpwxeQ": 90.0, "https://mp.weixin.qq.com/s/Kq30ftirASryPrUtjK2xSw": 88.0, "https://developers.googleblog.com/unlocking-the-next-era-of-on-device-ai-with-google-tensor-and-pixel": 86.0, "https://www.ithome.com/0/976/538.htm": 86.0, "https://prismml.com/news/bonsai-27b": 85.0, "https://www.anthropic.com/news/claude-for-teachers": 85.0, "https://36kr.com/newsflashes/3896132223944577?f=rss": 89.0, "https://www.ithome.com/0/976/791.htm": 88.0, "https://36kr.com/newsflashes/3896133431134083?f=rss": 88.0, "https://36kr.com/newsflashes/3896150607316864?f=rss": 87.0, "https://36kr.com/newsflashes/3896137608906368?f=rss": 86.0, "https://36kr.com/newsflashes/3896143607809673?f=rss": 86.0, "https://36kr.com/newsflashes/3896128264636296?f=rss": 85.0, "https://36kr.com/p/3896138695706497?f=rss": 85.0, "https://dronexl.co/2026/07/13/cleveland-clinic-zipline-prescription-drones/": 80.0, "https://dronexl.co/2026/07/14/duke-health-drone-aed-911-calls/": 78.0, "https://dronexl.co/2026/07/13/tum-drone-laser-volcano-warning/": 75.0, "https://www.suasnews.com/2026/07/brinc-raises-125m-to-put-a-911-response-drone-on-every-police-and-fire-station-roof/": 70.0, "https://www.suasnews.com/2026/07/uavos-introduces-navai-vision-based-navigation-module-for-gnss-degraded-uas-operations/": 65.0, "https://arxiv.org/abs/2607.09888": 87.0, "https://arxiv.org/abs/2607.09884": 86.0, "https://arxiv.org/abs/2607.09773": 86.0, "https://arxiv.org/abs/2607.10559": 86.0, "https://www.infoq.cn/article/XfXRhsGiL3CchrQNV4zj?utm_source=rss&utm_medium=article": 85.0, "https://arxiv.org/abs/2607.09759": 85.0, "https://arxiv.org/abs/2607.09835": 85.0, "https://arxiv.org/abs/2607.10087": 85.0};
+
+       // 分类配置
+       const CATEGORY_CONFIG = {
+           'industry': {
+               name: '行业动态', emoji: '🏭', color: 'purple',
+               desc: '大模型、智能体、RAG、Physical AI、具身智能、基础设施、厂商发布、开源模型、论文/benchmark、政策',
+               subTags: ['大模型', '智能体', 'RAG', '厂商发布', '论文', '政策']
+           },
+           'hotspot': {
+               name: '热点新闻', emoji: '🔥', color: 'red',
+               desc: '当天高讨论度事件、GitHub 热门项目、引发行业讨论的新概念',
+               subTags: ['热门事件', 'GitHub 热门', '新概念', 'AI 趋势']
+           },
+           'emergency': {
+               name: '应急业务', emoji: '🚨', color: 'cyber',
+               desc: '应急、消防两个子板块（建筑巡检、病害识别、缺陷检测、遥感/低空、无人机巡检、智慧消防）',
+               subTags: ['应急', '消防', '无人机巡检', '建筑巡检', '智慧消防']
+           },
+           'algo_eng': {
+               name: '算法专项', emoji: '🧠', color: 'orange',
+               desc: '检测、分割、OCR、视频理解、多模态、开放词汇、小样本、轻量化部署、边缘端部署、端侧压缩',
+               subTags: ['目标检测', '语义分割', '多模态', '边缘部署', '模型压缩']
+           }
+       };
+
+       // 解析 Markdown 提取新闻条目（直接从源文本按行解析，更可靠）
+       function parseMarkdown(dayKey) {
+           const md = document.getElementById('md-source-' + dayKey).value;
+           const lines = md.split('\n');
+
+           // sections[catKey] = 数组；每个元素可能是 { type: 'item', ... } 或 { type: 'subgroup', name, items: [] }
+           const sections = {};
+           const categoryOrder = ['hotspot', 'industry', 'algo_eng', 'emergency'];
+
+           let currentCat = null;
+           let currentSubGroup = null;  // 当前 H4 子分组名（仅 emergency 分类下使用）
+
+           // 用于缓存当前列表项的点评（下一行如果是缩进的 - *推荐理由*，就附加到上一条）
+           let pendingItem = null;
+
+           for (let i = 0; i < lines.length; i++) {
+               const rawLine = lines[i];
+               const line = rawLine.trim();
+
+               // 空行：清空 pendingItem 关联（但不影响点评匹配）
+               if (!line) continue;
+
+               // 过滤干扰行：孤立的 # / --- / *** 等分隔符或残缺标题
+               if (/^(#+\s*)?$/.test(line) || /^(-\{3,}|\*\{3,}|_\{3,})$/.test(line)) continue;
+
+               // H3 分类标题
+               const h3Match = line.match(/^###\s+(.+)$/);
+               if (h3Match) {
+                   const text = h3Match[1];
+                   if (text.includes('行业动态') || text.includes('行业资讯')) currentCat = 'industry';
+                   else if (text.includes('热点新闻') || text.includes('重点热点')) currentCat = 'hotspot';
+                   else if (text.includes('应急业务') || text.includes('应急消防') || text.includes('业务相关')) currentCat = 'emergency';
+                   else if (text.includes('算法专项') || text.includes('算法专项') || text.includes('算法与工程')) currentCat = 'algo_eng';
+                   else if (currentCat === 'emergency' && (text.includes('应急') || text.includes('消防'))) {
+                       // AI 误把子分组写成 H3（### 应急 / ### 消防），当作 H4 处理
+                       currentSubGroup = text.trim();
+                       if (!sections[currentCat]) sections[currentCat] = [];
+                       sections[currentCat].push({ type: 'subgroup', name: currentSubGroup, items: [] });
+                       pendingItem = null;
+                       continue;
+                   }
+                   else { currentCat = null; }
+                   currentSubGroup = null;
+                   if (currentCat && !sections[currentCat]) sections[currentCat] = [];
+                   pendingItem = null;
+                   continue;
+               }
+
+               // H4 子分组标题（仅 emergency 分类下生效）
+               const h4Match = line.match(/^####\s+(.+)$/);
+               if (h4Match && currentCat === 'emergency') {
+                   currentSubGroup = h4Match[1].trim();
+                   if (!sections[currentCat]) sections[currentCat] = [];
+                   sections[currentCat].push({ type: 'subgroup', name: currentSubGroup, items: [] });
+                   pendingItem = null;
+                   continue;
+               }
+
+               if (!currentCat) continue;
+
+               // 缩进的点评行：  - *推荐理由*：xxx  或  - *架构师点评*：xxx（兼容历史数据）
+               const commentIndentMatch = rawLine.match(/^\s+-\s+\*?(?:推荐理由|架构师点评)\*?\s*[：:]\s*(.+)$/);
+               if (commentIndentMatch && pendingItem) {
+                   pendingItem.comment = commentIndentMatch[1].trim();
+                   pendingItem = null;
+                   continue;
+               }
+
+               // 普通列表项：- **标题** 摘要 | 来源: xxx | 发布时间: xxx ([链接](URL))
+               const itemMatch = line.match(/^-\s+(.+)$/);
+               if (itemMatch) {
+                   const newsItem = parseNewsItemFromText(itemMatch[1], currentCat);
+                   if (!newsItem) continue;
+
+                   // 放入子分组或作为普通条目
+                   if (currentSubGroup && sections[currentCat].length > 0) {
+                       const lastEntry = sections[currentCat][sections[currentCat].length - 1];
+                       if (lastEntry.type === 'subgroup' && lastEntry.name === currentSubGroup) {
+                           lastEntry.items.push(newsItem);
+                           pendingItem = newsItem;
+                           continue;
+                       }
+                   }
+                   sections[currentCat].push({ type: 'item', ...newsItem });
+                   pendingItem = newsItem;
+                   continue;
+               }
+           }
+           return { sections, categoryOrder };
+       }
+
+       // 从单行 markdown 文本解析新闻条目
+       // 输入示例: **标题** 摘要内容 | 来源: arXiv | 发布时间: 2026-07-04 ([原文链接](URL))
+       function parseNewsItemFromText(text, catKey) {
+           let rest = text.trim();
+
+           // 1. 提取链接 ([文本](URL)) 或 ([URL](URL)) —— 取最后一个 (...) 形式
+           let link = '#';
+           const linkMatch = rest.match(/\(\[([^\]]*)\]\(([^)]+)\)\)/);
+           if (linkMatch) {
+               link = linkMatch[2];
+               // 从原文中移除链接部分
+               rest = rest.replace(linkMatch[0], '').trim();
+           } else {
+               // 兼容裸链接 [文本](URL)
+               const linkMatch2 = rest.match(/\[([^\]]*)\]\(([^)]+)\)/);
+               if (linkMatch2) {
+                   link = linkMatch2[2];
+                   rest = rest.replace(linkMatch2[0], '').trim();
+               }
+           }
+
+           // 2. 提取标题（**xxx** 或 __xxx__）
+           let title = '';
+           const titleMatch = rest.match(/^\*\*(.+?)\*\*/) || rest.match(/^__(.+?)__/);
+           if (titleMatch) {
+               title = titleMatch[1].trim();
+               // 如果标题形如 "[中文标题]"，去掉方括号
+               const bracketMatch = title.match(/^\[([^\]]+)\]$/);
+               if (bracketMatch) title = bracketMatch[1].trim();
+               rest = rest.substring(titleMatch[0].length).trim();
+           }
+
+           // 3. 用 | 分隔，提取来源、发布时间
+           let source = '';
+           let pubTime = '';
+           let summary = '';
+           const pipeParts = rest.split('|').map(s => s.trim());
+           if (pipeParts.length > 1) {
+               // 第一部分是摘要
+               summary = pipeParts[0];
+               for (let k = 1; k < pipeParts.length; k++) {
+                   const part = pipeParts[k];
+                   const srcMatch = part.match(/^来源\s*[：:]\s*(.+)$/i);
+                   if (srcMatch) { source = srcMatch[1].trim(); continue; }
+                   const timeMatch = part.match(/^发布时间\s*[：:]\s*(.+)$/i);
+                   if (timeMatch) { pubTime = timeMatch[1].trim(); continue; }
+               }
+           } else {
+               summary = rest;
+           }
+
+           // 4. 清理摘要：去掉首尾标点/空白
+           summary = summary.replace(/^[\s\u3000\u2014\-\|：:*#]+/, '').trim();
+           summary = summary.replace(/[\s\u3000\-\|：:*#]+$/, '').trim();
+
+           // 5. fallback：如果标题为空但摘要非空，把摘要第一句作为标题
+           if (!title && summary) {
+               const m = summary.match(/^(.+?)[。.!！？?]/);
+               if (m) { title = m[1].trim(); }
+               else { title = summary.substring(0, 30); }
+           }
+
+           // 6. 兜底保护：如果标题非空但摘要为空（AI 把所有信息塞进标题的情况）
+           //    用标题作为摘要内容，保证卡片总能显示描述
+           if (title && !summary) {
+               summary = title;
+           }
+
+           // 7. 标题过长时截断（前端展示需要紧凑），完整信息已在 summary 中
+           if (title && title.length > 30) {
+               // 如果 summary 还是直接等于 title，则把完整 title 保留为 summary，截断 title
+               if (summary === title) {
+                   summary = title;
+                   title = title.substring(0, 25) + '…';
+               } else {
+                   title = title.substring(0, 25) + '…';
+               }
+           }
+
+           if (!title) return null;
+           // AI 推荐评分：从 SCORES_MAP 按 URL 匹配（仅 today 有，历史 tab 自然无评分）
+           const score = (link && SCORES_MAP && SCORES_MAP[link]) ? SCORES_MAP[link] : 0;
+           return { title, link, summary, comment: '', source, pubTime, catKey, score };
+       }
+
+       // 兼容保留：从 li 元素解析（已弃用，新逻辑直接从源文本解析）
+       function parseNewsItem(li, catKey) {
+           return parseNewsItemFromText(li.textContent, catKey);
+       }
+
+       // 渲染单条新闻卡片 HTML（参考样例 NewsCard 结构）
+       function renderNewsCard(item, catKey, config, index) {
+           const animDelay = (index || 0) * 50;
+
+           // 来源标签（彩色边框背景）
+           const sourceTag = item.source ? `
+               <span class="news-card-source" data-cat="${catKey}">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                   ${item.source}
+               </span>` : '';
+
+           // 发布时间（带时钟图标）
+           const timeTag = item.pubTime ? `
+               <span class="news-card-time" title="${item.pubTime}">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                   ${item.pubTime}
+               </span>` : '';
+
+           // AI 推荐评分徽章（4 个 tier）
+           let scoreTag = '';
+           if (item.score && item.score > 0) {
+               let tier, icon, label;
+               const s = item.score;
+               if (s >= 90) { tier = 'S'; icon = '🔥'; label = '镇店之宝'; }
+               else if (s >= 80) { tier = 'A'; icon = '★'; label = '优秀'; }
+               else if (s >= 70) { tier = 'B'; icon = '◆'; label = '良好'; }
+               else { tier = 'C'; icon = '·'; label = '一般'; }
+               scoreTag = `<span class="news-card-score" data-tier="${tier}" title="AI 推荐评分 ${s}/100 (${label})"><span class="score-icon">${icon}</span>${Math.round(s)}</span>`;
+           }
+
+           // 元信息栏：左侧来源/时间，右侧评分徽章
+           const metaHtml = (sourceTag || timeTag || scoreTag) ? `
+               <div class="news-card-meta">
+                   <div class="news-card-meta-left">
+                       ${sourceTag}
+                       ${timeTag}
+                   </div>
+                   ${scoreTag ? `<div class="news-card-meta-right">${scoreTag}</div>` : ''}
+               </div>` : '';
+
+           // 底部 #标签列表（参考样例：分类标签 + 子标签）
+           const hashtags = [`#${config.name}`, '#AI'];
+           if (item.source) hashtags.push(`#${item.source}`);
+           const hashtagsHtml = hashtags.map(tag => `<span class="hashtag">${tag}</span>`).join('');
+
+           return `<a class="news-card glow-border animate-slide-up" href="${item.link}" target="_blank" rel="noopener" data-cat="${catKey}" style="animation-delay:${animDelay}ms;">
+               <div class="news-card-title">
+                   <span>${item.title}</span>
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+               </div>
+               ${item.summary ? `<div class="news-card-desc">${item.summary}</div>` : ''}
+               ${metaHtml}
+               ${item.comment ? `<div class="news-card-footer">
+                   <div class="news-card-comment" data-cat="${catKey}"><em>推荐理由</em>：${item.comment}</div>
+               </div>` : ''}
+               <div class="news-card-hashtags">${hashtagsHtml}</div>
+           </a>`;
+       }
+
+       // 渲染分类区块
+       function renderSections(dayKey) {
+           const { sections, categoryOrder } = parseMarkdown(dayKey);
+           const container = document.getElementById('sections-container');
+           container.innerHTML = '';
+
+           // 检查是否有内容（历史早报缺失时显示占位）
+           const hasContent = categoryOrder.some(catKey => (sections[catKey] || []).length > 0);
+           if (!hasContent) {
+               container.innerHTML = '<div class="empty-state">暂无该日早报数据</div>';
+               // 重置顶部统计所有分类计数
+               document.getElementById('total-count').textContent = '0';
+               document.getElementById('count-all').textContent = '0';
+               categoryOrder.forEach(catKey => {
+                   const el = document.getElementById('count-' + catKey);
+                   if (el) el.textContent = '0';
+               });
+               return;
+           }
+
+           let totalCount = 0;
+       const counts = {};
+       let sectionIdx = 0;
+
+       categoryOrder.forEach(catKey => {
+           const config = CATEGORY_CONFIG[catKey];
+           const entries = sections[catKey] || [];
+
+           // 统计实际新闻条数（子分组内的也算）
+           let itemCount = 0;
+           entries.forEach(entry => {
+               if (entry.type === 'subgroup') itemCount += entry.items.length;
+               else itemCount += 1;
+           });
+           counts[catKey] = itemCount;
+           totalCount += itemCount;
+
+           const sectionEl = document.createElement('section');
+           // 入场动画延迟（section-card 自带 animation）
+           const sectionDelay = sectionIdx * 100;
+           sectionEl.className = 'section-card';
+           sectionEl.setAttribute('data-cat', catKey);
+           sectionEl.setAttribute('data-category', catKey);
+           sectionEl.setAttribute('style', `animation-delay:${sectionDelay}ms;`);
+           sectionIdx++;
+
+               // 子标签
+               const subTagsHtml = config.subTags.map(tag =>
+                   `<span class="sub-tag" data-cat="${catKey}">${tag}</span>`
+               ).join('');
+
+               // 渲染内容：区分子分组和普通条目
+               let contentHtml = '';
+               if (entries.length === 0) {
+                   contentHtml = '<div class="empty-section">今日暂无相关资讯</div>';
+               } else {
+                   let parts = [];
+                   let globalIdx = 0;  // 用于动画延迟
+                   let pendingItems = [];  // 连续普通条目缓冲区，合并到同一个 grid
+
+                   // 把缓冲区里的普通条目输出到一个 news-grid（双列）
+                   const flushPending = () => {
+                       if (pendingItems.length === 0) return;
+                       const cards = pendingItems.map(item => renderNewsCard(item, catKey, config, globalIdx++)).join('');
+                       parts.push(`<div class="news-grid">${cards}</div>`);
+                       pendingItems = [];
+                   };
+
+                   entries.forEach(entry => {
+                       if (entry.type === 'subgroup') {
+                           // 遇到子分组，先 flush 普通条目
+                           flushPending();
+                           if (entry.items.length === 0) return;
+                           const subgroupCards = entry.items.map(item => renderNewsCard(item, catKey, config, globalIdx++)).join('');
+                           parts.push(`
+                               <div class="sub-group-title">
+                                   <span class="sub-group-icon">▸</span>
+                                   ${entry.name}
+                                   <span class="sub-group-count">${entry.items.length} 条</span>
+                               </div>
+                               <div class="news-grid">${subgroupCards}</div>
+                               <div class="sub-group-divider"></div>
+                           `);
+                       } else {
+                           // 普通条目：先缓冲，等遇到子分组或结束时统一输出
+                           const item = { title: entry.title, link: entry.link, summary: entry.summary, comment: entry.comment, source: entry.source, pubTime: entry.pubTime, score: entry.score || 0 };
+                           pendingItems.push(item);
+                       }
+                   });
+                   flushPending();  // 结束时 flush 剩余的普通条目
+                   contentHtml = parts.join('');
+               }
+
+               sectionEl.innerHTML = `
+                   <div class="section-header">
+                       <div class="section-header-left">
+                           <div class="section-icon-box" data-cat="${catKey}">${config.emoji}</div>
+                           <div>
+                               <div class="section-title" data-cat="${catKey}">${config.name}<span class="section-count-badge">${itemCount} 条</span></div>
+                               <div class="section-desc">${config.desc}</div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="sub-tags">${subTagsHtml}</div>
+                   <div class="cyber-divider"></div>
+                   ${contentHtml}
+               `;
+
+               container.appendChild(sectionEl);
+           });
+
+           // 更新计数
+           document.getElementById('total-count').textContent = totalCount;
+           document.getElementById('count-all').textContent = totalCount;
+           categoryOrder.forEach(cat => {
+               const el = document.getElementById('count-' + cat);
+               if (el) el.textContent = counts[cat] || 0;
+           });
+       }
+
+       // 分类过滤
+       function filterCategory(category, btnElement) {
+           document.querySelectorAll('.stat-card').forEach(btn => btn.classList.remove('active'));
+           btnElement.classList.add('active');
+           const cat = btnElement.getAttribute('data-cat');
+           document.querySelectorAll('[data-cat="' + cat + '"]').forEach(el => {
+               if (el.classList.contains('stat-card')) {
+                   el.classList.add('active');
+               }
+           });
+           document.querySelectorAll('.section-card').forEach(sec => {
+               if (category === 'all' || sec.getAttribute('data-category') === category) {
+                   sec.style.display = '';
+               } else {
+                   sec.style.display = 'none';
+               }
+           });
+       }
+
+       // 日期元信息（render 时注入，供历史下拉与顶部日期联动使用）
+       // 结构: today/day_1..day_7 各含 date_display / date_iso / weekday
+       const DAY_META = {"today": {"date_display": "2026年07月15日", "date_iso": "2026-07-15", "weekday": "周三"}, "day_1": {"date_display": "2026年07月14日", "date_iso": "2026-07-14", "weekday": "周二"}, "day_2": {"date_display": "2026年07月13日", "date_iso": "2026-07-13", "weekday": "周一"}, "day_3": {"date_display": "2026年07月12日", "date_iso": "2026-07-12", "weekday": "周日"}, "day_4": {"date_display": "2026年07月11日", "date_iso": "2026-07-11", "weekday": "周六"}, "day_5": {"date_display": "2026年07月10日", "date_iso": "2026-07-10", "weekday": "周五"}, "day_6": {"date_display": "2026年07月09日", "date_iso": "2026-07-09", "weekday": "周四"}, "day_7": {"date_display": "2026年07月08日", "date_iso": "2026-07-08", "weekday": "周三"}};
+
+       // 历史记录列表（今天放第一位，方便从历史日期返回今天）
+       const HISTORY_DAYS = ['today', 'day_1', 'day_2', 'day_3', 'day_4', 'day_5', 'day_6', 'day_7'];
+
+       const historyBtn = document.getElementById('history-btn');
+       const historyDropdown = document.getElementById('history-dropdown');
+       const historyList = document.getElementById('history-list');
+       let historyRendered = false;
+
+       function toggleHistoryDropdown(e) {
+           e.stopPropagation();
+           const isOpen = historyDropdown.classList.contains('show');
+           if (isOpen) {
+               historyDropdown.classList.remove('show');
+               historyBtn.classList.remove('active');
+           } else {
+               historyDropdown.classList.add('show');
+               historyBtn.classList.add('active');
+               if (!historyRendered) {
+                   renderHistoryList();
+                   historyRendered = true;
+               }
+           }
+       }
+
+       // 点击页面其他地方关闭下拉
+       document.addEventListener('click', (e) => {
+           if (!historyDropdown.contains(e.target) && !historyBtn.contains(e.target)) {
+               historyDropdown.classList.remove('show');
+               historyBtn.classList.remove('active');
+           }
+       });
+
+       function renderHistoryList() {
+           historyList.innerHTML = HISTORY_DAYS.map((key) => {
+               const meta = DAY_META[key] || {};
+               const ta = document.getElementById('md-source-' + key);
+               const mdText = ta ? ta.value.trim() : '';
+               const hasContent = mdText.length > 0;
+               const dotClass = hasContent ? 'dot' : 'dot empty';
+               const metaClass = hasContent ? '' : 'empty';
+               const metaText = hasContent ? '可查看' : '暂无数据';
+               const dateLabel = meta.date_iso || key;
+               const weekdayLabel = meta.weekday ? (' ' + meta.weekday) : '';
+               return `
+                   <div class="history-item" data-key="${key}" onclick="loadHistoryDay('${key}')">
+                       <div class="history-item-left">
+                           <div class="history-item-date">
+                               <span class="${dotClass}"></span>
+                               ${dateLabel}
+                               <span class="history-item-weekday">${weekdayLabel}</span>
+                           </div>
+                       </div>
+                       <div class="history-item-meta ${metaClass}">${metaText}</div>
+                   </div>
+               `;
+           }).join('');
+       }
+
+       function loadHistoryDay(dayKey) {
+           // 取消之前的 active，标记当前项
+           document.querySelectorAll('.history-item').forEach(el => el.classList.remove('active'));
+           const targetEl = document.querySelector(`.history-item[data-key="${dayKey}"]`);
+           if (targetEl) targetEl.classList.add('active');
+
+           // 关闭下拉
+           historyDropdown.classList.remove('show');
+           historyBtn.classList.remove('active');
+
+           // 顶部日期联动（统一从 DAY_META 取）
+           const meta = DAY_META[dayKey] || {};
+           const navDateSpans = document.querySelectorAll('.nav-date span');
+           if (navDateSpans.length >= 2 && meta.date_iso) {
+               navDateSpans[0].textContent = meta.date_iso;
+               navDateSpans[1].textContent = meta.weekday || '';
+           }
+           const dateTextEl = document.querySelector('.date-text');
+           if (dateTextEl && meta.date_display) dateTextEl.textContent = meta.date_display;
+           const metaEl = document.querySelector('.meta');
+           if (metaEl) metaEl.innerHTML = 'AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯';
+
+           // 复用 renderSections：无内容时自动显示"暂无该日早报数据"
+           renderSections(dayKey);
+       }
+
+       // 初始化
+       renderSections('today');
+   </script>
+</body>
+</html>
