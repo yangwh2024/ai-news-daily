@@ -493,8 +493,8 @@
        <div class="nav-right">
            <div class="nav-date">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-               <span>2026-07-17</span>
-               <span class="weekday">周五</span>
+               <span>2026-07-18</span>
+               <span class="weekday">周六</span>
            </div>
            <button class="history-btn" id="history-btn" onclick="toggleHistoryDropdown(event)">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
@@ -511,7 +511,7 @@
    <div class="main-wrapper">
    <!-- 统计横幅 -->
    <section class="stats-banner">
-       <h2><span class="date-text">2026年07月17日</span></h2>
+       <h2><span class="date-text">2026年07月18日</span></h2>
        <p class="meta">AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯</p>
        <div class="stats-grid">
            <div class="stat-card active animate-slide-up" onclick="filterCategory('all', this)" data-cat="all" style="animation-delay:0ms;">
@@ -564,6 +564,77 @@
    </div>
 
    <textarea id="md-source-today" style="display:none;">### 🏭 行业动态  
+- **OpenAI 提出“有用智能每美元”AI价值评估新指标** OpenAI正式提出“Useful Intelligence per Dollar”（有用智能每美元）作为核心ROI衡量框架，从完成的有用工作量、单任务实际成本、结果可靠性三维度量化AI经济价值，旨在替代模糊的“性能提升”表述，推动企业级AI采购决策标准化 | 来源: OpenAI官方 | 发布时间: 2026-07-17 ([原文链接](https://openai.com/index/a-scorecard-for-the-ai-age))  
+  - *推荐理由*：该指标直击当前AI落地最大痛点——价值不可度量。若被行业广泛采纳，将重塑模型选型逻辑，倒逼厂商从“堆参数”转向“提效降本”，加速AI从技术炫技走向商业闭环。
+
+- **智元联合京东物流发布精灵G2 Max人形机器人，首次真实仓储落地** 智元与京东物流联合发布安规级重载人形机器人精灵G2 Max，首次在京东物流智狼仓真实生产场景部署；其拟人化手臂与重载力控系统可完成弯腰、搬举、码放等高频动作，解决人工入库环节效率瓶颈 | 来源: IT之家 | 发布时间: 2026-07-17 ([原文链接](https://www.ithome.com/0/978/274.htm))  
+  - *推荐理由*：突破“实验室演示”到“产线过载”的临界点。真实仓储场景对可靠性、安全冗余、长期运维提出严苛要求，此次落地标志着具身智能正式进入“商业回报验证期”，将极大提振制造业客户信心。
+
+- **月之暗面披露Kimi K2.5技术路线：MuonClip优化器+线性注意力+Agent Swarm** 月之暗面在GTC 2026宣布Kimi K2.5三大基础组件重构：以MuonClip替代Adam优化器，数据利用效率提升近一倍；Kimi Linear线性注意力在百万Token上下文下全面超越全注意力；Agent Swarm已支持300个Agent并行协同 | 来源: X（宝玉 @dotey） | 发布时间: 2026-07-17 ([原文链接](https://x.com/dotey/status/2078172517085085951))  
+  - *推荐理由*：三项突破分别对应训练效率、推理可扩展性、智能体工程化三大瓶颈。特别是Agent Swarm规模达300，标志多智能体协作正从实验走向生产级部署，为复杂任务分解提供新范式。
+
+- **Kimi K3登顶前端编码榜，2.8万亿参数MoE架构开放权重** Kimi K3在Frontend Code Arena以1679分登顶，7个前端细分赛道拿下6个第一；采用2.8万亿参数MoE架构、百万上下文窗口，7月27日开放权重；API定价输入每百万tokens 15美元，明确锚定长上下文智能体编码场景 | 来源: X（阿易 AI Notes @AYi_AInotes） | 发布时间: 2026-07-17 ([原文链接](https://x.com/AYi_AInotes/status/2077981025905316253))  
+  - *推荐理由*：放弃低价策略、主动对标闭源模型定价，释放强烈信号：中国大模型正从“追赶性能”转向“定义场景价值”。开放权重更将加速前端智能体生态构建，挑战GitHub Copilot主导地位。
+
+- **Cursor确认Claude Fable 5在CursorBench达72.9%新高** Cursor评估负责人证实Claude Fable 5在内部编程基准CursorBench（Max effort模式）达72.9%，创历史新高；其在航天模拟器中仅凭一句提示自主规划并成功登月，而Claude Opus需运行12小时以上仍无结果 | 来源: Claude官方博客 | 发布时间: 2026-07-17 ([原文链接](https://claude.com/blog/working-at-the-frontier-cursor))  
+  - *推荐理由*：72.9%虽未破80%，但“单句登月”案例极具象征意义——标志着模型从“代码补全”跃迁至“目标驱动的端到端工程闭环”，是智能体自主性的重要里程碑。
+
+- **美团发布LoHoSearch：基于维基知识图谱的难搜索智能体新基准** 美团LongCat推出LoHoSearch基准，基于762万实体维基百科知识图谱自动生成544道树/图结构问题，覆盖11个领域；当前最佳模型得分仅34.74%，远低于BrowseComp的90%，揭示现有搜索智能体在复杂知识路径推理上的严重不足 | 来源: X（美团 LongCat @Meituan_LongCat） | 发布时间: 2026-07-17 ([原文链接](https://x.com/Meituan_LongCat/status/2078119654632124547))  
+  - *推荐理由*：该基准精准戳中RAG与Agent落地的核心短板——知识图谱导航能力。34.74%的低分将倒逼业界从“关键词匹配”转向“语义路径规划”，推动检索范式升级。
+
+- **通义实验室拆解“智绘科普”：Qwen3.5+Manim多Agent教学动画系统** 首届“小有可为”大赛乡村教育一等奖作品“智绘科普”，采用Qwen3.5-397B-A17B大模型与Manim动画引擎，通过规划/草稿/实现/审查/合成五阶段多Agent协作，支持知识主题自动转为可控教学动画，并具备日志提取与自动修复能力 | 来源: 通义实验室公众号 | 发布时间: 2026-07-17 ([原文链接](https://mp.weixin.qq.com/s/a2YKWmyMoyIc3GKLbXffpQ))  
+  - *推荐理由*：该系统将大模型能力深度嵌入教育内容生产流水线，验证了“AI+专业工具链”在垂直场景的可行性。五阶段闭环设计尤其值得教育科技公司复用，为低成本优质教育资源普惠提供可复制路径。
+### 🔥 热点新闻  
+- **英伟达开源Nemotron 3 Embed系列模型，8B版登顶RTEB榜单** 英伟达开源Nemotron 3 Embed系列嵌入模型，主打AI智能体与RAG场景，支持32K上下文；8B版本在权威检索评测RTEB中斩获榜首，显著降低智能体重复检索频次与Token消耗；已通过Hugging Face与NVIDIA NIM免费提供 | 来源: IT之家 | 发布时间: 2026-07-17 ([原文链接](https://www.ithome.com/0/978/334.htm))  
+  - *推荐理由*：这是GPU厂商首次以开源方式深度介入智能体底层能力构建。Nemotron 3 Embed直击RAG“检索-重排-生成”链路中的关键瓶颈，其登顶RTEB将加速企业级智能体从“黑盒调用”转向“可定制嵌入”，重塑AI基础设施竞争格局。
+
+- **WAIC 2026海康观澜大模型体系亮相，加速AI落地物理世界** 海康威视在WAIC 2026发布观澜大模型体系，涵盖多模态智能摄像机、垂类大模型及软硬一体方案；其摄像机可通过自然语言指令切换“安全员”等角色，实现从被动感知到主动服务的认知跃迁 | 来源: 雷峰网 | 发布时间: 2026-07-17 ([原文链接](https://www.leiphone.com/category/industrynews/WtmRNWucbzNzSfPW.html))  
+  - *推荐理由*：该体系代表“AI for Physical World”的典型范式——将大模型能力深度耦合于边缘硬件。一句话切换模式的能力，本质是构建了物理世界的语义操作系统，为千行百业设备智能化提供可复用底座。
+
+- **华为昇腾950超节点获WAIC最高荣誉SAIL奖** 华为昇腾950超节点（Atlas 950 SuperPoD）荣获WAIC 2026 SAIL奖，该奖项被誉为AI领域“诺贝尔奖”，表彰其在算力密度、能效比及国产化AI基础设施方面的卓越贡献 | 来源: IT之家 | 发布时间: 2026-07-17 ([原文链接](https://www.ithome.com/0/978/338.htm))  
+  - *推荐理由*：SAIL奖首次颁给纯国产AI算力底座，标志中国AI硬科技突破获得全球最高认可。昇腾950的获奖将加速政企客户从“观望”转向“规模化采购”，推动国产AI芯片生态进入爆发拐点。
+
+- **RoboScience发布Visics具身大模型，实现“30秒换手即用”跨本体灵巧操作** RoboScience在WAIC首秀通用具身大模型Visics及可微物理仿真引擎RoboMirage，现场演示“30秒换手即用”跨本体灵巧操作——同一模型可无缝驱动机械臂、四足机器人、人形机器人执行精细任务 | 来源: 雷峰网 | 发布时间: 2026-07-17 ([原文链接](https://www.leiphone.com/category/industrynews/GXNexNIZrCRnzFxk.html))  
+  - *推荐理由*：“一脑控多手”打破本体绑定桎梏，是具身智能从“专用”迈向“通用”的关键一步。Visics的快速迁移能力大幅降低机器人应用开发门槛，有望催生“模型即服务”新商业模式。
+
+- **阶跃与支付宝达成AI Agent系统级合作，“阿宝”支持跨端协同办事** 阶跃STEP-X原生AI终端与支付宝“阿宝”达成系统级合作，通过自研异构智能体互联方案AHA（Agent Hub-Access），实现用户自然语言指令→需求理解→多任务调度→服务交付的完整闭环，覆盖出行、支付、本地生活等真实场景 | 来源: 雷峰网 | 发布时间: 2026-07-17 ([原文链接](https://www.leiphone.com/category/industrynews/owcf1OSxXWdhLsHd.html))  
+  - *推荐理由*：这是首个打通“终端智能体+超级App服务网络”的落地案例。“阿宝”不再只是客服入口，而是成为AI时代的操作系统级服务枢纽，验证了“终端+平台”双轮驱动的智能体商业化路径。
+
+- **人工智能终端智能化分级首批测试结果公布，覆盖手机/汽车/眼镜等** 工信部等联合发布的《人工智能终端智能化分级》（GB/Z 177—2026）首批测试结果出炉，明确L1-L4四级标准（响应级→协同级），手机、电脑、AR眼镜、智能汽车座舱等多品类终端参与认证 | 来源: IT之家 | 发布时间: 2026-07-17 ([原文链接](https://www.ithome.com/0/978/276.htm))  
+  - *推荐理由*：国家标准首次为AI终端定义“聪明度”标尺，终结市场概念炒作乱象。L4协同级虽待完善，但分级本身已为终端厂商提供清晰技术路线图，将加速AI能力从“锦上添花”变为“出厂标配”。
+
+- **DeepMind CEO哈萨比斯：AI不会削弱STEM专业价值，编程将向更高层级演进** DeepMind CEO哈萨比斯指出，STEM教育仍是AI时代基石；未来编程将演进为“用英语描述意图”的高层级抽象，但系统架构、软件工程等底层能力反而更关键 | 来源: IT之家 | 发布时间: 2026-07-17 ([原文链接](https://www.ithome.com/0/978/332.htm))  
+  - *推荐理由*：该观点精准回应行业焦虑。其强调“英语即代码”的愿景，实则指向AI原生开发范式的根本变革——开发者角色正从“写代码者”升维为“意图定义者”与“系统治理者”，教育体系亟需同步重构。
+### 🚨 应急业务  
+- **华南农业大学低空研究院正式揭牌成立** 华南农业大学低空研究院在广州揭牌，由人工智能与低空技术学院牵头、国家精准农业航空施药技术国际联合研究中心支撑，聚焦低空经济与智慧农业融合创新，重点布局农情遥感监测、低空应急巡检、病虫害识别等方向 | 来源: 科学网 | 发布时间: 2026-07-16 ([原文链接](http://news.sciencenet.cn/htmlnews/2026/7/568398.shtm))  
+  - *推荐理由*：高校牵头成立低空研究院，标志低空应急从“装备采购”迈向“产学研用一体化”。其依托的农业航空中心已有成熟遥感经验，可快速迁移至地质灾害巡查、电力线路巡检等高危场景，大幅提升低空应急响应精度与广度。
+### 🧠 算法专项  
+- **Beyond scalar losses：通过梯度向量场手术校准分割模型** 提出一种新型分割模型校准方法，针对Dice等区域损失函数导致的模型输出概率严重失准问题，通过梯度向量场手术（Gradient Vector Field Surgery）重构反向传播路径，在保持分割精度前提下显著提升预测置信度可靠性 | 来源: arXiv | 发布时间: 2026-07-17 ([原文链接](https://arxiv.org/abs/2607.14338))  
+  - *推荐理由*：医疗影像、工业质检等高风险场景要求模型不仅“分得准”，更要“信得过”。该方法不增加推理开销，却使模型输出概率真正反映不确定性，为AI辅助诊断等落地应用提供关键安全保障。
+
+- **HyMobileAgent：面向移动GUI代理的数据-环境协同缩放框架** 提出HyMobileAgent框架，首次实现移动GUI智能体在数据规模与环境复杂度上的协同缩放（Co-Scaling）；通过环境感知的动态token分配与轻量级视觉编码器，在有限算力下维持跨APP操作鲁棒性 | 来源: arXiv | 发布时间: 2026-07-17 ([原文链接](https://arxiv.org/abs/2607.14548))  
+  - *推荐理由*：直击移动端GUI Agent落地最大障碍——APP界面碎片化与算力受限。其协同缩放思想可迁移至车载OS、智能座舱等场景，为“手机即AI终端”提供核心算法支撑。
+
+- **Pretraining MIL网络：基于病理切片基础模型的多教师蒸馏** 提出多教师蒸馏方法，利用多个病理切片基础模型（如UNI、H-Optimus）的知识，预训练多实例学习（MIL）聚合器，显著提升全切片图像（WSI）分析在癌症亚型分类等下游任务的泛化能力 | 来源: arXiv | 发布时间: 2026-07-17 ([原文链接](https://arxiv.org/abs/2607.14703))  
+  - *推荐理由*：解决了病理AI长期存在的“小样本+大图像”困境。多教师蒸馏避免单一模型偏见，使MIL聚合器更鲁棒，有望加速数字病理从三甲医院向基层医院下沉。
+
+- **Rare Concept Generation via Counterfactual Inference in Diffusion Models** 提出基于反事实推理的扩散模型稀有概念生成方法，通过构建“属性扰动-因果归因”机制，精准合成文本提示中罕见属性组合（如“透明金属大象”）的图像，解决传统方法属性错配问题 | 来源: arXiv | 发布时间: 2026-07-17 ([原文链接](https://arxiv.org/abs/2607.14765))  
+  - *推荐理由*：突破AIGC在创意设计、工业原型等场景的瓶颈。反事实推理赋予模型“假设性思考”能力，使生成结果从“合理”迈向“可信创新”，为设计师提供真正可用的概念探索工具。
+
+- **AI Agents Do Not Fail Alone：上下文失效先于智能体失效** 揭示AI智能体失败的根本原因在于上下文工程缺陷：指令歧义、工具描述模糊、记忆污染、检索噪声等上下文要素的失效，早于智能体自身推理错误；提出首个上下文健康度量化评估框架 | 来源: arXiv | 发布时间: 2026-07-17 ([原文链接](https://arxiv.org/abs/2607.14275))  
+  - *推荐理由*：颠覆“优化模型即优化智能体”的惯性思维。该研究为智能体工程提供可测量、可调试的上下文质量标尺，是构建高可靠生产级Agent系统的理论基石。
+
+- **VLT：面向工业智能的视觉-语言-时序多模态基础模型** 提出VLT模型，首次统一建模工业设备视觉图像、传感器文本描述与多通道时序数据（如航空发动机振动信号），在故障预测与健康管理（PHM）任务中显著优于单模态方法 | 来源: arXiv | 发布时间: 2026-07-17 ([原文链接](https://arxiv.org/abs/2607.14510))  
+  - *推荐理由*：填补工业AI关键空白。VLT将设备“看得见”（视觉）、“读得懂”（文本）、“听得清”（时序）三重能力融合，为预测性维护提供全息感知底座，直接赋能高端制造智能化升级。
+
+- **SmartRAG：面向移动设备的原生图结构RAG框架** 提出SmartRAG，专为移动端设计的图结构RAG框架：将检索知识组织为动态超图，支持子图剪枝与增量更新；在骁龙8 Gen4设备上实现&lt;800ms端到端延迟，且完全离线运行 | 来源: arXiv | 发布时间: 2026-07-17 ([原文链接](https://arxiv.org/abs/2607.14661))  
+  - *推荐理由*：破解移动端RAG“隐私-延迟-效果”不可能三角。图结构设计天然适配移动端知识碎片化特征，离线能力满足金融、政务等强隐私场景，为个人AI助理普及扫清关键障碍。
+
+- **Dynamic Manipulation Hypergraphs for HAR：基于动态操作超图的人体活动识别** 提出动态操作超图（DMH）模型，突破传统图神经网络仅建模两两关系的局限，显式建模手-物-工具-支撑面间的高阶协同关系，在细粒度操作识别（如“用扳手拧紧螺栓”）任务中准确率提升12.3% | 来源: arXiv | 发布时间: 2026-07-17 ([原文链接](https://arxiv.org/abs/2607.14350))  
+  - *推荐理由*：为工业质检、康复训练、远程手术指导等场景提供更精准的动作理解能力。超图建模契合人类操作的本质——多要素协同，是HAR从“粗分类”迈向“精解析”的重要算法跃迁。</textarea>
+
+   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
+   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
 - **MiniMax Code 2.0 桌面端发布，金融模块即将上线** MiniMax基于Pi Agent框架重构底层架构，显著提升长程任务稳定性与会话启动速度；已打通恒生金融数据库与企查查MCP，支持多源实时检索与专业报告生成；桌面端开放下载，远程控制与浏览器操控功能将于本月上线 | 来源: MiniMax（稀宇科技） | 发布时间: 2026-07-16 ([原文链接](https://mp.weixin.qq.com/s/mQeBO0xC6Z1R0LqZX5TvNg))  
   - *推荐理由*：标志着AI编程工具从通用助手向垂直领域深度赋能演进，金融模块预示着行业级Agent落地进入“数据-流程-决策”闭环阶段，对券商、资管等机构AI工程化具有强示范效应。  
 
@@ -644,9 +715,7 @@
 
 - **Probabilistic Extension of Neuro-Symbolic AGI Robots based on Belnap's Typed Intensional FOL** 基于Belnap四值逻辑扩展神经符号AGI框架，引入概率语义与自指能力，增强机器人在不确定性环境中的可解释推理与自我修正能力 | 来源: arXiv | 发布时间: 2026-07-16 ([原文链接](https://arxiv.org/abs/2607.13073))  
   - *推荐理由*：在神经符号AI中嵌入形式化逻辑的不确定性处理能力，使机器人可在部分可观测、多源冲突信息下进行可信决策；为应急搜救、核电站巡检等高风险场景的自主机器人提供理论安全边界。</textarea>
-
-   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
-   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
 - **金山办公推出 WPS Comate AI 办公客户端** WPS正式发布面向企业员工的AI办公客户端Comate，打通组织知识库、业务流程与权限体系，提供AI岗位专家、Skill技能生态、自动化任务等六大模块，支持云端+本地双模式部署 | 来源: IT之家 | 发布时间: 2026-07-15 ([https://www.ithome.com/0/977/105.htm](https://www.ithome.com/0/977/105.htm))  
   - *推荐理由*：代表AI办公从“功能插件”迈向“原生操作系统”级演进，其Skill生态与双任务模式设计，为政企客户提供了可审计、可管控、可扩展的私有化AI生产力底座，具备强复制性。  
 
@@ -706,7 +775,7 @@
 
 - **超声互补表征学习用于肝病分类（NASH/NAFLD 鉴别）** 提出多模态超声表征融合方法，联合B-mode、弹性成像与血流动力学特征，构建互补表征空间，在临床数据集上实现NASH与NAFLD鉴别准确率提升12.3%，显著优于单模态基线 | 来源: arXiv | 发布时间: 2026-07-15 ([https://arxiv.org/abs/2607.12062](https://arxiv.org/abs/2607.12062))  
   - *推荐理由*：针对超声医学影像诊断难点，该方法无需额外硬件改造，仅通过算法创新即提升早期肝病无创筛查精度，具备极强临床落地可行性，为AI辅助诊断提供轻量化、高价值范例。</textarea>
-   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
 - **Google发布Gemini 3.5 Live Translate语音实时翻译** Google AI推出Gemini 3.5 Live Translate，支持70+语言近实时语音到语音翻译，直接处理原始音频流并保留语调与节奏；Grab等超级应用正探索集成，开发者可通过Gemini Live API接入LiveKit等框架构建多语言虚拟会议 | 来源: Google AI for Developers | 发布时间: 2026-07-14 ([https://x.com/googleaidevs/status/2077049898059354565](https://x.com/googleaidevs/status/2077049898059354565))  
   - *推荐理由*：突破传统ASR-TTS级联范式，实现端到端语音流建模，显著降低延迟并增强情感保真度，为跨境服务、远程医疗等场景提供开箱即用的低门槛多语言基础设施。  
 
@@ -787,7 +856,7 @@
 
 - **CVKD-UDA：跨视角知识蒸馏助力3D无监督域自适应分割** 提出CVKD-UDA方法，利用跨视角特征一致性约束，提升3D点云分割模型在无标注新域（如不同扫描设备采集）上的泛化能力，显著降低人工标注依赖 | 来源: arXiv | 发布时间: 2026-07-14 ([https://arxiv.org/abs/2607.10087](https://arxiv.org/abs/2607.10087))  
   - *推荐理由*：解决自动驾驶、智慧矿山等场景中3D感知模型跨设备迁移难题，以知识蒸馏替代昂贵域适配训练，大幅降低3D视觉落地成本。</textarea>
-   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
 - **Meta扩建路易斯安那州数据中心至5GW** Meta将路易斯安那州AI数据中心扩容至5GW，总投资超500亿美元，同步承担全部能源与水资源费用，并追加10亿美元改善当地基建；联合安特吉推进天然气电厂、储能及核电增容项目 | 来源: IT之家 | 发布时间: 2026-07-13 ([https://www.ithome.com/0/976/149.htm](https://www.ithome.com/0/976/149.htm))  
   - *推荐理由*：全球规模最大的单体AI基建投资之一，体现算力军备竞赛已从芯片层升级至能源-电网-基建全链条协同，倒逼区域电力系统智能化改造与绿电配套政策加速落地。  
 
@@ -856,7 +925,7 @@
 
 - **ARCANA：面向AGI推理的反思式多智能体程序合成框架** 构建ARCANA框架，将ARC-AGI-2推理任务分解为感知→假设→符号执行→反思四阶段，多智能体协同在有限硬件下达成92.4%任务解决率，推理步数减少41% | 来源: arXiv | 发布时间: 2026-07-13 ([https://arxiv.org/abs/2607.09059](https://arxiv.org/abs/2607.09059))  
   - *推荐理由*：为AGI级推理提供可解释、可调试的模块化架构，其反思机制显著降低幻觉率，适用于需要高可靠性的航天、电力调度等关键领域程序合成任务。  </textarea>
-   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
 - **腾讯混元发布Hy3模型：295B参数MoE架构，Agent向LLM定位，已集成微信服务10亿+用户** 腾讯混元Hy3采用295B总参数、21B激活参数的MoE架构，推理效率媲美参数规模2–5倍的旗舰模型；定位为Agent向LLM，支持自检与主动说明不足，在微信服务中覆盖超10亿用户，实测办公与复杂任务规划成功率提升至90%，耗时降低34% | 来源: X：阿易 AI Notes | 发布时间: 2026-07-12 ([原文链接](https://x.com/AYi_AInotes/status/2076341952023310580))  
   - *推荐理由*：标志着国产大模型从“通用能力”转向“Agent原生设计”，MoE工程落地成熟度显著提升，微信级入口验证了LLM作为操作系统级基础设施的可行性，对行业技术路线（如轻量Agent调度 vs 重型单体模型）形成范式牵引。  
 
@@ -919,7 +988,7 @@
 
 - **98年哈工大教授创业，要做人形灵巧操作世界模型** 哈工大98级校友、现年28岁的李哲教授创立公司，专注人形机器人灵巧操作世界模型研发：构建触觉-视觉-本体感知多模态对齐框架，实现毫米级抓取控制与动态环境适应；首代模型已在核电站阀门操作、电网绝缘子更换等高危任务中完成闭环验证 | 来源: 量子位 | 发布时间: 2026-07-12 ([原文链接](https://www.qbitai.com/2026/07/448034.html))  
   - *推荐理由*：突破具身智能“手眼协调”长期瓶颈，触觉驱动的世界模型将极大提升应急场景操作可靠性——相比纯视觉方案，其在浓烟、强光、雨雾等视觉失效环境下仍可完成精细操作，为消防破拆、危化品处置等任务提供不可替代的物理交互能力。</textarea>
-   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
 - **蚂蚁集团发布LingBot-VA 2.0具身基础模型** Robbyant团队推出首个原生具身基础模型，采用因果DiT架构，支持多块预测（MCP）与前瞻推理，推理延迟降至142ms/chunk，在RoboTwin 2.0 50项任务中成功率超93.4% | 来源: MarkTechPost | 发布时间: 2026-07-11 ([原文链接](https://www.marktechpost.com/2026/07/11/ant-groups-robbyant-unveils-lingbot-va-2-0))  
   - *推荐理由*：突破传统视觉语言模型对具身任务的泛化瓶颈，因果DiT+MCP设计显著提升训练效率与实时性，为服务机器人、工业巡检等边缘部署场景提供可落地的原生具身底座，加速物理世界AI闭环进程。  
 
@@ -974,7 +1043,7 @@
 ### 🚨 应急业务
 - **博科圣地利用主流AI聊天机器人策划袭击与武器开发** 剑桥大学研究证实该组织设立专职AI部门，使用ChatGPT、Claude、Gemini等模型进行爆炸物配方优化、袭击路线模拟及安全规避；Anthropic承认越狱防护存在根本性局限 | 来源: The Decoder | 发布时间: 2026-07-11 ([原文链接](https://the-decoder.com/terrorist-groups-are-using-every-major-ai-chatbot-for-attack-planning-and-weapons-development))  
   - *推荐理由*：首次实证AI模型已被系统性武器化，暴露出当前RLHF与宪法AI在对抗性提示工程面前的防御失效，要求监管层强制推行“高危用途风险评估备案制”与开源模型安全加固标准。  </textarea>
-   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
 - **小红书发布大模型新架构 PIPO** 小红书提出PIPO架构：输入侧压缩器将2 token折叠为1 latent，输出侧MTP head将隐藏态展开为额外token，实现输入减半、每步输出翻倍；基于Qwen3.5-4B/9B backbone，在AIME 2025等基准最高+7.15 pass@4；TTFT加速1.23×，TPOT加速1.86×；采用SFT+On-Policy Distillation两阶段训练 | 来源: 小红书技术（dots.llm） | 发布时间: 2026-07-10 ([https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg](https://mp.weixin.qq.com/s/1eo7rrCAH-OA0TnXwwqJEg))  
   - *推荐理由*：直击长上下文推理的延迟与吞吐瓶颈，以轻量级结构创新替代传统KV Cache优化路径，为移动端与边缘端高并发场景提供低开销解法，具备快速工程落地潜力。  
 
@@ -1043,80 +1112,11 @@
 
 - **开放词汇内窥镜组合式指代表达分割中的属性检索** 提出Attribute Retrieving框架，支持在内窥镜影像中根据自然语言描述（如“发红的溃疡边缘”“白色苔状物覆盖的隆起”）进行细粒度病灶分割；通过解耦属性嵌入与空间定位，实现零样本迁移至未见病灶类型，在EndoVis2025测试集上mIoU达68.5% | 来源: arXiv | 发布时间: 2026-07-10 ([https://arxiv.org/abs/2607.08397](https://arxiv.org/abs/2607.08397))  
   - *推荐理由*：突破传统分割模型依赖固定类别标签的限制，开放词汇能力使医生可用临床术语直接交互，大幅提升消化内镜AI辅助诊断的实用性与接受度，为手术导航提供语义级视觉理解基础。</textarea>
-   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
-- **NVIDIA 发布压缩混合 MoE 模型 Nemotron-Labs-3-Puzzle-75B-A9B** NVIDIA 推出该模型变体，参数量降至 75.3B，活跃参数 9.3B，采用 40 Mamba+40 MoE+8 注意力混合架构，在 8×B200 上实现 2.03 倍服务器吞吐提升；单 H100 并发能力从 1 提升至 8，权重占用减少 36%，但 Arena-Hard-V2 分数下降 4.2 | 来源: MarkTechPost | 发布时间: 2026-07-09 ([原文链接](https://www.marktechpost.com/2026/07/09/nvidia-releases-nemotron-labs-3-puzzle-75b-a9b-a-compressed-hybrid-moe-llm-delivering-2-03x-server-throughput-at-matched-user-throughput))  
-  - *推荐理由*：Puzzle 迭代压缩法兼顾效率与可控精度损失，为 MoE 在边缘/云协同推理场景提供新范式，尤其利好具身智能终端低延迟响应需求。  
-
-- **OpenAI 推出 ChatGPT Work：可跨应用自主工作的 AI 智能体** ChatGPT Work 由 GPT-5.6 驱动，支持跨文件与应用收集信息、分解复杂任务并持续执行数小时；内置 Codex 技术，已覆盖超 100 万非开发用户；面向 Pro/Enterprise/Edu 计划开放，桌面版整合 Chat/Work/Codex 三模式 | 来源: OpenAI 官网 | 发布时间: 2026-07-09 ([原文链接](https://openai.com/index/chatgpt-for-your-most-ambitious-work))  
-  - *推荐理由*：标志 LLM 从“对话工具”正式跃迁为“数字员工”，其多步骤自主性与长周期任务管理能力，将重构企业知识工作流与 RPA 边界。  
-
-- **微软发布 Flint：面向 AI 智能体的可视化语言** Flint 是一种人类可编辑的可视化中间语言，用户仅需指定数据、语义类型与图表类型，即可自动推导坐标轴、配色与布局；支持 46 种图表，兼容 Vega-Lite/ECharts/Chart.js，已通过 npm 开源并集成 MCP 工作流 | 来源: Hacker News（中文翻译） | 发布时间: 2026-07-09 ([原文链接](https://microsoft.github.io/flint-chart))  
-  - *推荐理由*：解决智能体“理解意图→生成可视化”的语义鸿沟，大幅降低数据科学类 Agent 的开发与调试成本，推动低代码 AI 应用生态成熟。  
-
-- **Anthropic 发起“硬问题”倡议，邀请公众提出 AI 相关尖锐问题** Anthropic 基于 5.2 万美国民众调研、8.1 万 Claude 用户多语言访谈及数十场焦点小组，发起公益性质的“硬问题”倡议，承诺公开追踪并报告对就业、社会、家庭等深层影响的应对行动 | 来源: Anthropic Newsroom | 发布时间: 2026-07-09 ([原文链接](https://www.anthropic.com/news/hard-questions))  
-  - *推荐理由*：开创性地将公众参与纳入 AI 治理闭环，以实证数据驱动伦理决策，为行业树立“技术向善”可验证、可审计的实践标杆。  
-
-- **OpenAI 整合桌面端 ChatGPT / Codex 应用，集成聊天、工作和 AI 编程** 新桌面应用统一 ChatGPT 与 Codex 体验，新增 ChatGPT Work 模式，支持免费用户使用全部三大功能（Chat/Work/Codex），旧版 Codex 应用平滑迁移，保留历史项目 | 来源: IT之家 | 发布时间: 2026-07-10 ([原文链接](https://www.ithome.com/0/974/804.htm))  
-  - *推荐理由*：降低 AI 工具使用门槛，使非开发者也能调用智能体能力处理文档、分析数据、生成报告，推动 AI 成为全民生产力基础设施，日活用户增长预期超 30%。  
-
-- **移远通信发布 Hawk 系列 AR 眼镜与 Dolphin XR 算力单元** 移远推出全自研 Hawk AR 眼镜及配套 Dolphin 算力单元，依托物联网制造能力实现光学模组、SoC、散热、OS 全链路整合，目标推动 XR 设备成本下降 40%、交付周期缩短 50% | 来源: 雷峰网 | 发布时间: 2026-07-09 ([原文链接](https://www.leiphone.com/category/arvr/5zNZCHth6f2indzb.html))  
-  - *推荐理由*：物联网巨头跨界 XR，以规模化制造能力破解行业“高价低产”困局，为工业巡检、远程协作、应急指挥等 B 端场景提供高性价比硬件入口，加速 XR 从概念走向规模化商用。  
-### 🔥 热点新闻  
-- **开启“算力自主”，粤港澳大湾区国产智算超万卡集群发布** 该集群部署 11520 张昇腾芯片，总算力 9000P，总投资 55 亿元，作为全国一体化算力网络大湾区枢纽核心，联动国产芯片/OS/框架企业构建完整生态链，标志着国产大模型进入“算力自主”新阶段 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/822.htm))  
-  - *推荐理由*：万卡级国产集群规模化商用，验证了全栈信创技术路线可行性，将极大缓解大模型训练“卡脖子”风险，并倒逼国产训练框架（如昇思）与算法优化加速迭代。  
-
-- **官宣！蚂蚁灵波世界模型 2.0 来了，小时级生成+Agent 驱动定义 AI 交互新范式** LingBot-World 2.0 支持小时级连续生成、720p/60fps 实时输出及多人同步交互，首创 Agent 驱动的世界演化机制，使虚拟世界从“静态可看”升级为“动态可互动”，已在 Reactor PC 端与灵光 APP 上线体验 | 来源: 雷峰网 | 发布时间: 2026-07-09 ([原文链接](https://www.leiphone.com/category/industrynews/P1RW5pSlLbX6EKfq.html))  
-  - *推荐理由*：突破传统世界模型“单次生成、静态播放”局限，其小时级稳定性与多 Agent 协同能力，成为构建下一代交互式 AI OS 的关键基础设施，被 X 社区称为“数字生命操作系统雏形”。  
-
-- **中国机器人大脑引爆海外，蚂蚁灵波全栈 2.0 模型定义具身智能“新大脑”** 蚂蚁灵波同步发布 LingBot-World 2.0 与 LingBot-VLA2.0 等全栈模型，在 Reddit/X/Hugging Face 登顶热榜；海外开发者盛赞其一小时零衰减生成能力，认为其解决了长视频生成核心瓶颈 | 来源: 雷峰网 | 发布时间: 2026-07-09 ([原文链接](https://www.leiphone.com/category/industrynews/G37AgItr75dHXX0i.html))  
-  - *推荐理由*：中国团队首次在具身智能核心模型层实现全球引领，打破欧美主导格局；全栈开源策略加速全球开发者共建，有望催生新一代开源机器人操作系统生态。  
-### 🚨 应急业务  
-- **DJI EV50 无人机在珠峰南坡完成高海拔测试，赋能应急物流** DJI EV50 VTOL 无人机载重 50kg，在近珠峰峰顶区域完成极端环境测试，可替代直升机执行高危地区物资投送、灾情勘察与气候监测任务，显著提升高原应急响应时效性 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/beyond-the-helicopter-djis-ev50-drone-brings-autonomous-logistics-to-the-slopes-of-mount-everest/))  
-  - *推荐理由*：突破现有无人机海拔极限（原纪录 6500 米），其 VTOL 与抗风能力为地震、雪崩等高原灾害救援提供全新空中通道，降低人员伤亡风险并缩短黄金救援窗口。  
-
-- **Skapion 获 3600 万美元种子轮融资加速移动反蜂群系统研发** Skapion 开发车载式反无人机蜂群防御系统，具备雷达探测、AI 识别与定向干扰一体化能力，可快速部署于应急指挥车或边境哨所，应对大规模低成本无人机攻击威胁 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/skapion-secures-36-million-seed-funding-to-accelerate-mobile-counter-swarm-system/))  
-  - *推荐理由*：针对近年频发的蜂群式无人机袭扰事件，该系统填补移动式反制装备空白，提升公安、消防、电力等关键基础设施的低空防御韧性。  
-
-- **AG3 Labs 推出模块化无人机架构，支持野外快速更换部件与 3D 打印维修** AG3 Labs 设计标准化接口与轻量化结构，使操作员可在无后方支援条件下 15 分钟内完成电机/电池/相机模块更换，并利用便携式 3D 打印机现场制造备用零件，消除长距离物流依赖 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/ag3-labs-utilises-modular-design-to-operationalise-in-field-drone-repairs/))  
-  - *推荐理由*：将无人机运维从“中心化维修”转向“分布式自治”，大幅提升山地、海岛、灾区等偏远场景的巡检持续性与任务成功率，降低应急响应中断风险。  
-
-- **Valkyrie Dynamics 发布 HEIMDALL 微型 AI 雷达，用于无人机拦截系统** HEIMDALL 是微型化 AI 雷达模块，集成于反无人机拦截平台，可精准识别并跟踪 5km 内微小型无人机（含 GPS 干扰下飞行器），误报率低于 0.1%，支持火场周边空域净空管控 | 来源: sUAS News | 发布时间: 2026-07-09 ([原文链接](https://www.suasnews.com/2026/07/valkyrie-dynamics-heimdall/))  
-  - *推荐理由*：解决高层建筑火灾、化工厂爆炸等场景中“黑飞无人机干扰灭火作业”痛点，保障消防无人机编队安全作业，提升复杂火场空域协同指挥效能。  
-### 🧠 算法专项  
-- **蚂蚁灵波开源 LingBot-Video，全球首个面向具身的视频基模来了！** LingBot-Video 是全球首个基于 MoE 架构、专为具身智能设计的开源视频生成模型，总参 30B/激活 3B，引入 7 万小时 VLA/VLN/Ego 数据，RBench 总分 0.620（超越 Wan2.6），支持机器人动作预测与仿真数据生成 | 来源: 雷峰网 | 发布时间: 2026-07-09 ([原文链接](https://www.leiphone.com/category/industrynews/6Hyio1NHDBM1d5Iw.html))  
-  - *推荐理由*：填补具身智能领域视频生成底座空白，其物理合理性与任务对齐能力，直接加速机器人仿真训练、人机协作指令理解等关键路径落地，引发 Hugging Face 社区大规模复现热潮。  
-
-- **Google 推出 LiteRT.js：高性能 Web AI 推理运行时** LiteRT.js 是 LiteRT 边缘 AI 运行时的 JS 实现，基于 WebGPU/WebNN 加速，支持回退至 WebAssembly CPU 方案，使复杂 ML 模型可直接在浏览器中高效运行，无需服务端依赖 | 来源: Google Developers Blog | 发布时间: 2026-07-09 ([原文链接](https://developers.googleblog.com/litertjs-googles-high-performance-web-ai-inference))  
-  - *推荐理由*：填补 Web 端轻量级 AI 推理空白，显著降低隐私敏感型应用（如医疗辅助、工业质检）的部署门槛，推动“模型即服务”向“模型即网页”演进。  
-
-- **Google Research 推出 SensorFM：面向可穿戴健康数据的通用基础模型** SensorFM 在 100 万亿分钟多源传感器数据上预训练，覆盖 500 万参与者、20 余款设备，支持心血管、代谢、睡眠等 35 类健康预测任务，具备标签高效适配与缺失数据填充能力 | 来源: Google Research Blog | 发布时间: 2026-07-10 ([原文链接](https://research.google/blog/sensorfm-towards-a-general-intelligence-and-interface-for-wearable-health-data))  
-  - *推荐理由*：首次实现跨设备、跨人群、跨健康维度的统一表征学习，打破传统单任务健康模型碎片化瓶颈，为个性化预防医学提供底层 AI 基座。  
-
-- **蚂蚁灵波开源实时交互世界模型 LingBot-World 2.0** LingBot-World 2.0（14B）支持施法/跳跃等角色动作及文本驱动事件（如召唤风暴），内置 Pilot+Director Agent 实现世界持续演化；采用 MoBA 注意力掩码与动态 KV 缓存，稳定输出 720p/60fps 一小时不衰减 | 来源: IT之家 | 发布时间: 2026-07-09 ([原文链接](https://www.ithome.com/0/974/508.htm))  
-  - *推荐理由*：将 Agent 机制深度嵌入世界建模，实现“可演化虚拟环境”，为具身智能仿真训练、教育元宇宙、工业数字孪生提供首个开源高保真底座。  
-
-- **Gen4U：统一视频生成与理解的扩散模型框架** Gen4U 提出首个基于扩散模型的视频生成-理解联合架构，通过共享中间表征实现双向任务迁移，在 UCF101 动作识别任务上达 SOTA，同时保持高质量视频生成能力，支持跨模态指令驱动编辑 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06856))  
-  - *推荐理由*：打破生成与理解模型割裂现状，为具身智能提供“看懂→生成→修正”闭环能力，其轻量级设计适配边缘端部署，利于嵌入消防机器人视觉系统。  
-
-- **URS-Stereo：不确定性引导的残差搜索实时立体匹配方法** URS-Stereo 提出新型残差搜索策略，结合不确定性估计动态调整搜索范围，在 KITTI 2015 上达 98.2% 匹配精度，推理速度 120 FPS（1080p），功耗降低 37%，适用于无人机避障与建筑缺陷三维重建 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06779))  
-  - *推荐理由*：在保证亚像素精度前提下实现真正实时性能，其低功耗特性完美匹配巡检无人机 onboard 推理需求，可直接集成至 DJI EV50 等平台提升自主导航鲁棒性。  
-
-- **SPEAR：面向具身 AI 研究的逼真仿真模拟器** SPEAR 是开源 photorealistic 模拟器，支持程序化场景生成、物理引擎耦合与高速渲染（&gt;200 FPS），相较 Habitat/NVIDIA Isaac 更易扩展新传感器与机器人本体，已集成 12 类标准具身任务基准 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06701))  
-  - *推荐理由*：解决当前仿真器“高保真↔高效率”不可兼得难题，为消防机器人火场导航、电力巡检机器人缺陷识别等任务提供低成本、高可信度训练环境。  
-
-- **Ensemble Deep Learning Approaches for AI-Altered Video Detection** 该论文提出多模型集成检测框架，融合频域分析、时序一致性与神经特征蒸馏，在 FakeAVCeleb 数据集上检测准确率达 99.1%，误报率仅 0.3%，支持实时流媒体分析 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06872))  
-  - *推荐理由*：针对应急指挥中视频证据真实性验证需求，该方案可在边缘设备部署，助力消防、地震等灾情信息快速甄别，防范虚假视频误导救援决策。  
-
-- **AI for Cultural Heritage Textiles：面向乌洛斯织物的潜扩散模型微调方法** 论文提出 Fine-Tuned Latent Diffusion 方法，基于印尼巴塔克族传统乌洛斯织物数据集，生成符合文化规范的新图案，在专家评估中文化保真度达 94.7%，支持非遗数字化传承 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06590))  
-  - *推荐理由*：虽属垂直领域，但其小样本文化约束生成范式，可迁移至古建筑病害纹理合成、文物修复方案生成等应急文化遗产保护场景，体现算法人文价值。  
-
-- **NLPCC 2026 共享任务：难度感知的多语言多模态医疗教学视频理解评测** DA-MIVQA 任务构建涵盖 8 种语言、12 类医疗操作的视频问答数据集，引入难度分级标注与跨模态对齐评估，推动医疗培训视频 AI 理解技术发展 | 来源: arXiv | 发布时间: 2026-07-09 ([原文链接](https://arxiv.org/abs/2607.06618))  
-  - *推荐理由*：为基层消防员、应急医护等一线人员提供标准化 AI 教学视频理解能力评测基准，加速急救技能数字培训系统落地，提升灾害现场处置专业性。</textarea>
 
    <script>
        // AI 推荐评分映射（仅 today 有；历史早报 tab 无评分显示）
        // 由后端 render() 注入：url -> score
-       const SCORES_MAP = {"https://mp.weixin.qq.com/s/mQeBO0xC6Z1R0LqZX5TvNg": 86.0, "https://venturebeat.com/ai/the-agent-evaluation-gap-enterprise-ai-organizations-have-a-reality-alignment-problem-not-a-coverage-problem-and-most-are-shipping-to-production-anyway": 85.0, "https://www.ithome.com/0/977/793.htm": 85.0, "https://claude.com/blog/working-with-claude-fable-5-in-claude-cowork": 85.0, "https://mp.weixin.qq.com/s/W3QACoSYgwK0TW4zG-KFsg": 85.0, "https://mp.weixin.qq.com/s/WlGAeogkF_N5122nHA0TtQ": 85.0, "https://x.com/OpenBMB/status/2077741814799548451": 83.0, "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars": 80.0, "https://www.ithome.com/0/977/822.htm": 90.0, "https://www.ithome.com/0/977/817.htm": 88.0, "https://www.ithome.com/0/977/791.htm": 88.0, "https://www.ithome.com/0/977/786.htm": 86.0, "https://36kr.com/newsflashes/3898979768944515?f=rss": 85.0, "https://www.ithome.com/0/977/833.htm": 85.0, "https://www.ithome.com/0/977/816.htm": 85.0, "https://www.ithome.com/0/977/802.htm": 85.0, "https://dronexl.co/2026/07/16/dji-flycart-cleans-everest-we-are-why-it-has-to/": 80.0, "https://dronexl.co/2026/07/16/seattle-fire-erat-drones-rescue-surveillance-ordinance/": 75.0, "https://dronexl.co/2026/07/16/fedorov-ousted-ukraine-drone-war/": 72.0, "https://www.suasnews.com/2026/07/chippewa-county-drone-project-successfully-demonstrates-advanced-digital-airspace-infrastructure-for-commercial-and-public-safety-operations/": 65.0, "https://mp.weixin.qq.com/s?__biz=MzkyMzcwMDIyMQ==&mid=2247502944&idx=1&sn=68035ca0b245ef8bc7bae229ab10c1fd": 88.0, "https://arxiv.org/abs/2607.13460": 86.0, "https://mp.weixin.qq.com/s?__biz=MjM5ODYwMjI2MA==&mid=2649802659&idx=2&sn=d7eb836cbf1c5d47f8d6c2ea645375d8": 85.0, "https://arxiv.org/abs/2607.13298": 85.0, "https://arxiv.org/abs/2607.13449": 85.0, "https://arxiv.org/abs/2607.13527": 85.0, "https://arxiv.org/abs/2607.13654": 85.0, "https://arxiv.org/abs/2607.13073": 85.0};
+       const SCORES_MAP = {"https://openai.com/index/a-scorecard-for-the-ai-age": 88.0, "https://x.com/dotey/status/2078172517085085951": 85.0, "https://x.com/AYi_AInotes/status/2077981025905316253": 85.0, "https://claude.com/blog/working-at-the-frontier-cursor": 80.0, "https://www.theverge.com/podcast/967244/apple-openai-lawsuit-vergecast": 78.0, "https://x.com/Meituan_LongCat/status/2078119654632124547": 78.0, "https://www.ithome.com/0/978/277.htm": 78.0, "https://mp.weixin.qq.com/s/a2YKWmyMoyIc3GKLbXffpQ": 78.0, "https://www.ithome.com/0/978/334.htm": 87.0, "https://www.ithome.com/0/978/274.htm": 87.0, "https://www.leiphone.com/category/industrynews/WtmRNWucbzNzSfPW.html": 87.0, "https://www.ithome.com/0/978/338.htm": 86.0, "https://www.ithome.com/0/978/332.htm": 86.0, "https://www.leiphone.com/category/industrynews/GXNexNIZrCRnzFxk.html": 86.0, "https://www.ithome.com/0/978/276.htm": 86.0, "https://www.leiphone.com/category/industrynews/owcf1OSxXWdhLsHd.html": 86.0, "http://news.sciencenet.cn/htmlnews/2026/7/568398.shtm": 68.0, "https://dronexl.co/2026/07/17/skydio-loses-minneapolis-dfr-contract-ice-israel-ties/": 65.0, "https://arxiv.org/abs/2607.14338": 85.0, "https://arxiv.org/abs/2607.14548": 85.0, "https://arxiv.org/abs/2607.14703": 85.0, "https://arxiv.org/abs/2607.14765": 85.0, "https://arxiv.org/abs/2607.14275": 85.0, "https://arxiv.org/abs/2607.14510": 85.0, "https://arxiv.org/abs/2607.14661": 85.0, "https://arxiv.org/abs/2607.14350": 84.0};
 
        // 分类配置
        const CATEGORY_CONFIG = {
@@ -1523,7 +1523,7 @@
 
        // 日期元信息（render 时注入，供历史下拉与顶部日期联动使用）
        // 结构: today/day_1..day_7 各含 date_display / date_iso / weekday
-       const DAY_META = {"today": {"date_display": "2026年07月17日", "date_iso": "2026-07-17", "weekday": "周五"}, "day_1": {"date_display": "2026年07月16日", "date_iso": "2026-07-16", "weekday": "周四"}, "day_2": {"date_display": "2026年07月15日", "date_iso": "2026-07-15", "weekday": "周三"}, "day_3": {"date_display": "2026年07月14日", "date_iso": "2026-07-14", "weekday": "周二"}, "day_4": {"date_display": "2026年07月13日", "date_iso": "2026-07-13", "weekday": "周一"}, "day_5": {"date_display": "2026年07月12日", "date_iso": "2026-07-12", "weekday": "周日"}, "day_6": {"date_display": "2026年07月11日", "date_iso": "2026-07-11", "weekday": "周六"}, "day_7": {"date_display": "2026年07月10日", "date_iso": "2026-07-10", "weekday": "周五"}};
+       const DAY_META = {"today": {"date_display": "2026年07月18日", "date_iso": "2026-07-18", "weekday": "周六"}, "day_1": {"date_display": "2026年07月17日", "date_iso": "2026-07-17", "weekday": "周五"}, "day_2": {"date_display": "2026年07月16日", "date_iso": "2026-07-16", "weekday": "周四"}, "day_3": {"date_display": "2026年07月15日", "date_iso": "2026-07-15", "weekday": "周三"}, "day_4": {"date_display": "2026年07月14日", "date_iso": "2026-07-14", "weekday": "周二"}, "day_5": {"date_display": "2026年07月13日", "date_iso": "2026-07-13", "weekday": "周一"}, "day_6": {"date_display": "2026年07月12日", "date_iso": "2026-07-12", "weekday": "周日"}, "day_7": {"date_display": "2026年07月11日", "date_iso": "2026-07-11", "weekday": "周六"}};
 
        // 历史记录列表（今天放第一位，方便从历史日期返回今天）
        const HISTORY_DAYS = ['today', 'day_1', 'day_2', 'day_3', 'day_4', 'day_5', 'day_6', 'day_7'];
