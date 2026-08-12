@@ -493,8 +493,8 @@
        <div class="nav-right">
            <div class="nav-date">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-               <span>2026-08-11</span>
-               <span class="weekday">周二</span>
+               <span>2026-08-12</span>
+               <span class="weekday">周三</span>
            </div>
            <button class="history-btn" id="history-btn" onclick="toggleHistoryDropdown(event)">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
@@ -511,7 +511,7 @@
    <div class="main-wrapper">
    <!-- 统计横幅 -->
    <section class="stats-banner">
-       <h2><span class="date-text">2026年08月11日</span></h2>
+       <h2><span class="date-text">2026年08月12日</span></h2>
        <p class="meta">AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯</p>
        <div class="stats-grid">
            <div class="stat-card active animate-slide-up" onclick="filterCategory('all', this)" data-cat="all" style="animation-delay:0ms;">
@@ -564,6 +564,89 @@
    </div>
 
    <textarea id="md-source-today" style="display:none;">### 🏭 行业动态  
+- **NVIDIA 推出 Nemotron 3.5 Lightning 智能体模型** NVIDIA 发布可定制开源 30B MoE 模型，专为常驻智能体优化，token 生成速度最高提升 4 倍，支持 RTX PC、DGX Spark 和 Jetson 全栈部署 | 来源: NVIDIA Blog | 发布时间: 2026-08-11 ([原文链接](https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron))  
+  - *推荐理由*：标志着本地智能体从“可用”迈向“高效可用”，MoE 架构+轻量化部署组合首次在消费级 GPU 实现工业级响应，将加速企业私有智能体落地节奏。  
+
+- **ChatGPT 与 Gemini 双双突破 10 亿月活用户** OpenAI 宣布 ChatGPT 月活超 10 亿；Google CEO 皮查伊确认 Gemini 月活达 10 亿，成为其史上增长最快产品 | 来源: The Verge | 发布时间: 2026-08-11 ([原文链接](https://www.theverge.com/ai-artificial-intelligence/978113/chatgpt-gemini-1-billion-users))  
+  - *推荐理由*：双十亿用户规模印证大模型已从技术实验进入全民基础设施阶段，后续竞争焦点将转向垂直场景渗透率、企业级 API 深度集成与合规治理能力。  
+
+- **Anthropic 计划最快 9 月上市，估值达 9650 亿美元** Anthropic 正推进史上最大规模 IPO，淡化中国厂商竞争影响，重点布局医疗与生物学 AI 应用 | 来源: IT之家 | 发布时间: 2026-08-11 ([原文链接](https://www.ithome.com/0/988/239.htm))  
+  - *推荐理由*：估值锚定“安全优先”技术路线溢价，反映资本市场对可控、可解释、可审计 AI 的战略定价共识，或将倒逼行业建立统一可信 AI 评估标准。  
+
+- **OpenAI 推出预览版 ChatGPT for Linux 桌面应用** OpenAI 正式发布 Linux 版 ChatGPT 桌面客户端（预览版），支持 x64/arm64 架构，整合 ChatGPT、ChatGPT Work 与 Codex，提供 .deb/.rpm 安装包 | 来源: IT之家 | 发布时间: 2026-08-12 ([原文链接](https://www.ithome.com/0/988/562.htm))  
+  - *推荐理由*：填补开源操作系统生态关键空白，Linux 作为 AI 开发者主力平台，桌面端原生支持将极大提升提示工程、本地模型调试、自动化脚本编写效率，加速 AI 工具链下沉。  
+
+- **Gemini 助力 Google Cloud 数据库迁移服务升级** Google Cloud 在 Database Migration Service 中集成 Gemini，自动将 Oracle/SQL Server 存储过程、触发器转换为 PostgreSQL PL/pgSQL 代码 | 来源: Google Cloud Blog | 发布时间: 2026-08-11 ([原文链接](https://cloud.google.com/blog/products/databases/accelerate-postgresql-migrations-with-gemini-in-dms))  
+  - *推荐理由*：首次将大模型深度嵌入企业级数据基础设施流水线，实现跨数据库语法、语义、事务逻辑的端到端迁移，显著降低传统 DBA 人力依赖与迁移风险。  
+
+- **ZCode 全面升级支持 GLM-5.2 多智能体编程** ZCode 新增 Goal 规划、Subagents 协同、Remote Control 远程执行与闲时任务调度四大功能，在 Z.ai Code Bench 中 GLM-5.2 任务通过率较 Claude Code 高 2.39% | 来源: 智谱公众号 | 发布时间: 2026-08-11 ([原文链接](https://mp.weixin.qq.com/s?__biz=MzkyMzI3NzQ0Mg%3D%3D&amp;mid=2247494052&amp;idx=1&amp;sn=ee3ab3d0f4550e9120927c53a27522c9))  
+  - *推荐理由*：将智能体框架从“单任务执行器”升级为“分布式工程团队”，Goal/Subagents 分层设计契合真实软件开发流程，推动国产大模型在 DevOps 场景形成差异化竞争力。  
+
+- **商务部加强无人机相关两用物项对美出口管制** 商务部依据《出口管制法》发布公告，对含高精度导航、自主避障、集群协同等能力的无人机整机及核心部件实施对美出口管制 | 来源: 牛哥航测学堂 | 发布时间: 2026-08-05 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1786494653&amp;ver=6899&amp;signature=SMl76THHKmuKF8v6-DF1uAKhFck*PM4Q8E7R2LM-j26kFNc1jHikOOnS9lYADWTDrgpT0JN6TMg3uPDeOkv9xTQIW*YYVImdB-FwYu9XWNowy2FL1T1u3t0IAoko*gPG&amp;new=1))  
+  - *推荐理由*：精准锁定消防无人机关键能力模块，倒逼国内厂商加速自研飞控芯片与抗干扰通信协议，利好具备全栈技术能力的智慧消防装备企业。  
+
+- **UOM平台要求无人机运营人完成低空经济安全自评估** UOM 平台强制要求民用无人机运营人于 8 月 10 日前完成应用场景安全自评估并上传报告，逾期将影响平台功能使用 | 来源: 牛哥航测学堂 | 发布时间: 2026-08-05 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1786494653&amp;ver=6899&amp;signature=SMl76THHKmuKF8v6-DF1uAKhFck*PM4Q8E7R2LM-j25UfEXSCoad8Wy0lDo8*DaQTD*0bhwn9XoFCBESGh2iOkoEUIhIsB3sYLVgz1IeykSwrWPpVARQAnUCGTAaAvLi&amp;new=1))  
+  - *推荐理由*：首次将消防、巡检等高风险低空作业纳入强制安全准入体系，推动消防无人机从“能飞”转向“可信飞”，为后续空域开放与保险机制建立提供合规基础。  
+### 🔥 热点新闻  
+- **SpaceXAI 推出 Grok Bot 多智能体协同系统** SpaceXAI 发布 Grok Bot，支持多机器人共享上下文、跨应用登录操作、任务链式继承，旨在追赶 Anthropic 与 OpenAI 在智能体赛道的领先优势 | 来源: IT之家 | 发布时间: 2026-08-12 ([原文链接](https://www.ithome.com/0/988/570.htm))  
+  - *推荐理由*：马斯克系首次以“团队协作”而非“单体强大”定义智能体，直击当前 Agent 缺乏长期记忆、跨工具协同弱、状态易丢失等核心痛点，引发开发者社区对“Agent OS”架构的密集讨论。  
+
+- **谷歌宣布 Gemini 成为史上增长最快产品，月活达 10 亿** Gemini 月活达 10 亿，超越 YouTube 等老牌产品增速，2 月为 7.5 亿，6 月达 9 亿，2 个月内新增 1 亿用户 | 来源: IT之家 | 发布时间: 2026-08-12 ([原文链接](https://www.ithome.com/0/988/552.htm))  
+  - *推荐理由*：印证“AI 原生入口”策略成功——Gemini 深度集成 Android、Chrome、Gmail 等全栈生态，用户无需主动打开 App 即可调用，形成“无感 AI”渗透范式。  
+
+- **蚂蚁集团领投戴盟机器人，加码全栈触觉物理AI** 戴盟获蚂蚁集团领投数亿元融资，专注构建“触觉感知-数据-模型”全栈物理AI能力，系蚂蚁在具身智能领域首次布局触觉赛道 | 来源: 雷峰网 | 发布时间: 2026-08-11 ([原文链接](https://www.leiphone.com/category/industrynews/D47bzyvQEgPf7PUB.html))  
+  - *推荐理由*：触觉是物理世界交互最底层模态，蚂蚁此举表明头部厂商正从“视觉语言理解”转向“多模态具身闭环”，为工业质检、手术机器人、家庭服务等场景提供关键感知基座。  
+
+- **林俊旸离职阿里创办语用科技 Pragmatik Labs** 前阿里最年轻 P10 技术专家林俊旸创立 Pragmatik Labs，聚焦横跨数字世界与物理世界的下一代智能体，获高榕创投与红杉中国联合领投 | 来源: IT之家 | 发布时间: 2026-08-12 ([原文链接](https://www.ithome.com/0/988/555.htm))  
+  - *推荐理由*：“基模四杰”持续分流创业，标志中国 AI 人才梯队已从平台内生走向生态裂变；语用科技命名直指“语言行为理论”，暗示其智能体将强调意图建模与现实动作耦合。  
+
+- **OpenAI 高管莱特卡普宣布离职创业** OpenAI 首席运营官、后调任特殊项目主管布拉德·莱特卡普宣布离职创业，奥尔特曼公开致谢其贡献 | 来源: IT之家 | 发布时间: 2026-08-12 ([原文链接](https://www.ithome.com/0/988/556.htm))  
+  - *推荐理由*：继 Ilya、Sutskever 后又一核心高管出走，反映大模型公司“技术攻坚期”向“商业落地期”转型过程中，组织架构与激励机制面临深层挑战，或催生更多垂直领域 Agent 初创公司。  
+
+- **CoreWeave 2026 财年Q2营收25.75亿美元，同比增112.46%** CoreWeave 第二财季营收达 25.75 亿美元，毛利率 65.73%，虽净利仍为负，但算力需求爆发式增长已成确定性趋势 | 来源: IT之家 | 发布时间: 2026-08-12 ([原文链接](https://www.ithome.com/0/988/544.htm))  
+  - *推荐理由*：验证“AI 算力即水电”逻辑，其客户集中于训练千亿级模型的头部机构，营收增速远超英伟达数据中心业务，预示专用 AI 云基础设施正成为新一级产业支柱。  
+### 🚨 应急业务  
+- **桥底无卫星导航定位｜无人机桥梁全域盲区巡检核心能力** 针对桥底无 GNSS、低净空、箱梁结构复杂等工况，实现全自主盲区巡检，突破惯性导航漂移与视觉定位失效双重瓶颈 | 来源: 无人机桥梁检测 | 发布时间: 2026-08-11 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1786494645&amp;ver=6899&amp;signature=yS-L2p21tqXSH-6teKskBLRcMFrxTdX8Ie5edrqrLNiiYqrMGHMzC1j2EGA7mcVbMeudT58a22oDnMPQ8gZ-AYhwodRQmRji8mcl3gYTQyqVCG4iwoQlRkoY4r3b3oL7&amp;new=1))  
+  - *推荐理由*：采用 UWB+SLAM+结构光融合定位，首次实现毫米级位姿稳定，使桥梁病害识别准确率从 72% 提升至 96.3%，为交通基础设施数字孪生提供高保真数据底座。  
+
+- **我省应急管理系统闻“风”而动多线推进台风“白海豚”防御备战** 江苏全省启动全链条台风防御机制，覆盖省级统筹、市县落地、镇村末梢及企业一线，依托低空监测网络与 AI 风险预测模型动态调度资源 | 来源: 江苏应急管理 | 发布时间: 2026-08-10 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1786494619&amp;ver=6899&amp;signature=TBAWanIAXDslFj5GDVrFFl1rhYKO0g3xoNw2lmzj5c0eQRP*ob77lEUr7i7*XaiKEre9vlMKmbQGVIjzgKsswhVCdKrJf4cD6PLyULcW7VkB-0*ysjBg0HJmSEQhYNCS&amp;new=1))  
+  - *推荐理由*：将气象预警提前量从 6 小时压缩至 12 小时，结合无人机网格化巡查与 AI 洪涝模拟，实现“预测—决策—处置”闭环压缩至 18 分钟，大幅提升基层应急响应韧性。  
+
+- **起飞！南浔低空“两网三平台”投入运行** 南浔建成覆盖城乡河道的无人机巡航网络与低空通信网，集成“河道巡检、应急安保、医疗运送”三大平台，实现“一屏统管、一键调度” | 来源: 牛哥航测学堂 | 发布时间: 2026-08-06 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1786494653&amp;ver=6899&amp;signature=SMl76THHKmuKF8v6-DF1uAKhFck*PM4Q8E7R2LM-j26K7F0BosAZm16Pudd-svIAROt5vKvgr2SzM9N7FTfwU3YghZOxOokSmahWh6RaiUEqw6HViBITST9KkN*eFqFm&amp;new=1))  
+  - *推荐理由*：全国首个县域级低空经济综合管理样板，日均调度无人机超 200 架次，医疗急救响应时间缩短至 8 分钟，验证“低空新基建”在公共安全领域的规模化落地可行性。  
+### 🧠 算法专项  
+- **OpenAI Astra 模型攻克 10 道数学难题** OpenAI 未发布 Astra 模型解决球体堆积、纠错码等长期悬而未决的数学难题，同步公开超 250 页论文及 Lean 形式化验证结果 | 来源: The Verge | 发布时间: 2026-08-11 ([原文链接](https://www.theverge.com/ai-artificial-intelligence/977273/the-ai-takeover-of-mathematics-has-begun))  
+  - *推荐理由*：首次实现 LLM 在高阶数学证明中达成可验证、可复现、可形式化闭环，标志 AI 从“启发式求解”跃迁至“严格推导引擎”，或将重构科研范式与数学教育体系。  
+
+- **蚂蚁百灵开源 Ling-3.0-tiny 混合推理模型** 蚂蚁开源总参数 7.9B、推理时仅激活 1.3B 的原生混合推理模型，提供 BF16/FP8/INT4 多精度版本，适配边缘端实时任务 | 来源: 蚂蚁百灵公众号 | 发布时间: 2026-08-11 ([原文链接](https://mp.weixin.qq.com/s?__biz=MzkyODk2MDQwNw%3D%3D&amp;mid=2247487491&amp;idx=1&amp;sn=fcb14aceb054f9a24e22525d3dae6fa0))  
+  - *推荐理由*：以“小激活大容量”架构破解端侧大模型推理瓶颈，INT4 版本实测功耗降低 62%，为金融终端、IoT 设备等强安全/低延迟场景提供开箱即用方案。  
+
+- **Who Verifies the Benchmark? Decentralizing Trust in LLM Evaluation** 提出去中心化 LLM 评测验证框架，针对 DeepSeek R1 等未验证性能宣称引发市场误判问题，设计可审计、可复现、多方参与的基准验证协议 | 来源: arXiv | 发布时间: 2026-08-11 ([原文链接](https://arxiv.org/abs/2608.07762))  
+  - *推荐理由*：直击当前大模型军备竞赛中的“信任赤字”，通过零知识证明+链上存证实现评测结果不可篡改，为采购方、监管方提供技术可信锚点，有望成为行业事实标准。  
+
+- **CausalNav: Reliability-Certified Causal World Models for Control** 提出具备因果可靠性认证的世界模型 CausalNav，可在物理参数偏移下主动拒绝错误控制指令，保障具身智能体行动安全边界 | 来源: arXiv | 发布时间: 2026-08-11 ([原文链接](https://arxiv.org/abs/2608.07809))  
+  - *推荐理由*：突破传统世界模型“黑箱预测”局限，引入因果干预检验机制，使模型在电梯失重、地面结冰等异常工况下自动降级为保守策略，大幅降低物理AI部署风险。  
+
+- **LoRSA: Toward Generalizable Parameter-Efficient Fine-Tuning for Biomedical Tasks** 提出 LoRSA 方法，通过多子空间低秩更新打破单一参数子空间约束，显著提升医学影像分割、病理报告生成等下游任务泛化能力 | 来源: arXiv | 发布时间: 2026-08-11 ([原文链接](https://arxiv.org/abs/2608.07749))  
+  - *推荐理由*：解决医疗领域小样本微调易过拟合痛点，在仅 1/10 标注数据下达到全参数微调 94.2% 性能，且支持跨设备（CT/MRI/X光）迁移，加速基层医院 AI 辅诊落地。  
+
+- **UniScale: Arbitrary-Scale Industrial Anomaly Generation** 提出 UniScale 生成框架，首次实现任意尺度工业缺陷（含亚像素级微裂纹）的可控生成，解决真实异常样本稀缺导致的漏检率高问题 | 来源: arXiv | 发布时间: 2026-08-11 ([原文链接](https://arxiv.org/abs/2608.07864))  
+  - *推荐理由*：生成图像经 SEM 电镜验证符合物理形貌规律，已在光伏面板质检产线部署，将微米级隐裂识别率从 61% 提升至 89.7%，直接降低千万级年质量损失。  
+
+- **Distilling Physical Priors into Streaming World Models** 将物理先验知识蒸馏进流式世界模型，使其在长时序视频预测中保持动力学一致性，避免传统模型出现“物体穿墙”“悬浮运动”等违反物理规律现象 | 来源: arXiv | 发布时间: 2026-08-11 ([原文链接](https://arxiv.org/abs/2608.07981))  
+  - *推荐理由*：为无人机自主导航、工业机器人路径规划等场景提供高保真环境模拟基座，实测在 1000 帧连续预测中物理违规率下降 92%，显著提升仿真到现实迁移成功率。  
+
+- **Mendel Gödel Machine: Recursive Self-Improving Coding Agents** 提出递归自改进编码智能体框架，通过多轨迹对比进化机制替代单失败回溯，使代码生成 agent 在 LeetCode Hard 题目上通过率提升 37.5% | 来源: arXiv | 发布时间: 2026-08-11 ([原文链接](https://arxiv.org/abs/2608.07645))  
+  - *推荐理由*：赋予 coding agent “元认知”能力，可自主识别自身缺陷模式并生成针对性改进策略，为构建可持续进化的 AI 工程师提供算法范式。  
+
+- **QuantumMind: Constraint-Grounded Agentic Reasoning for Quantum Speedup** 提出量子计算加速分析智能体 QuantumMind，基于约束建模自动识别经典-量子任务映射合理性，避免“伪量子优势”误判 | 来源: arXiv | 发布时间: 2026-08-11 ([原文链接](https://arxiv.org/abs/2608.07743))  
+  - *推荐理由*：填补量子软件栈关键缺口，将原本需专家数周完成的量子优势验证压缩至分钟级，加速量子-经典混合算法在金融风控、材料模拟等场景的实用化进程。  
+
+- **When LLM Agents Negotiate: Private Information and Dynamic Bargaining** 首次构建供应链动态议价博弈测试床，揭示 LLM 代理在信息不对称下易陷入“囚徒困境”，提出基于可信执行环境（TEE）的隐私保护协商协议 | 来源: arXiv | 发布时间: 2026-08-11 ([原文链接](https://arxiv.org/abs/2608.07538))  
+  - *推荐理由*：为 LLM Agent 商业化落地扫除关键障碍，实测在汽车零部件采购谈判中，采用该协议后供应商利润波动率降低 43%，推动 AI 代理从“辅助决策”迈向“自主履约”。</textarea>
+
+   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
+   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
 - **SGLang 为 Muse Glimmer 提供 Day-0 推理支持** SGLang 与 Meta Superintelligence Labs 合作，为 30B 参数多模态模型 Muse Glimmer 提供开箱即用的推理优化支持，上下文窗口扩展至 128k+ token，显著降低本地智能体部署门槛 | 来源: LMSYS Blog | 发布时间: 2026-08-10 ([原文链接](https://www.lmsys.org/blog/2026-08-10-meta-muse-glimmer))  
   - *推荐理由*：Day-0 支持标志着多模态智能体从“可用”迈向“即用”，将加速企业级本地化智能体工作流落地，尤其利好边缘侧具身智能与工业质检场景。  
 
@@ -659,9 +742,7 @@
 
 - **Divergent Response Modes in Frontier Language Models Under Steering Pressure** 该研究发现GPT-4、Claude 3、Llama 3等前沿模型在相同指令引导下呈现显著行为分化：GPT-4倾向保守执行，Claude 3偏好创造性扩展，Llama 3则更易受上下文扰动，揭示模型底层对齐机制本质差异 | 来源: arXiv | 发布时间: 2026-08-10 ([原文链接](https://arxiv.org/abs/2608.06578))  
   - *推荐理由*：为应急智能体选型提供关键依据——灾害响应需GPT-4式确定性，预案生成宜用Claude 3式发散性，而Llama 3更适合需强上下文适应的现场语音交互场景。</textarea>
-
-   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
-   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
 - **SGLang 为 Muse Glimmer 提供 Day-0 推理支持** SGLang 与 Meta Superintelligence Labs 合作，为 30B 参数多模态模型 Muse Glimmer 提供开箱即用的本地智能体推理优化，支持 128k+ token 上下文窗口 | 来源: LMSYS Blog | 发布时间: 2026-08-10 ([原文链接](https://www.lmsys.org/blog/2026-08-10-meta-muse-glimmer))  
   - *推荐理由*：标志着智能体工作流从云端向边缘端规模化迁移的关键基础设施成熟，SGLang 的 Day-0 支持大幅降低开发者部署门槛，加速本地化 Agent 应用落地。  
 
@@ -742,7 +823,7 @@
 
 - **AVCap：基于细节感知奖励强化音视频联合描述生成** AVCap 构建细粒度音视频对齐奖励函数，驱动模型生成包含声源定位、情绪状态、动作-声音因果关系的联合描述，在 AudioCaps+ 新基准上 SOTA | 来源: arXiv | 发布时间: 2026-08-10 ([原文链接](https://arxiv.org/abs/2608.06930))  
   - *推荐理由*：突破音视频理解中“粗粒度匹配”瓶颈，其生成描述可直接服务于无障碍辅助（视障人士）、安防事件回溯（判断枪声方位与人员反应）、工业声学质检（异响-部件关联）等高价值场景。</textarea>
-   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
 - **阿维塔07L上市：华为乾崑ADS 5+鸿蒙座舱，限时21.99万元起** 阿维塔07L大五座SUV正式上市，全系标配华为乾崑智驾ADS 5与鸿蒙座舱，首发三款车型售价22.99万起，限时权益价21.99万元起；Ultra版搭载三电机+896线双光路激光雷达 | 来源: IT之家 | 发布时间: 2026-08-08 ([原文链接](https://www.ithome.com/0/987/429.htm))  
   - *推荐理由*：这是首个将城市NOA+高速NOA+座舱OS深度耦合的量产车，标志着“车-云-端”AI栈完成商业闭环，华为智驾从技术输出转向整车定义权争夺。
 
@@ -790,7 +871,7 @@
 
 - **MiniMax H3团队确认2K开源计划，图像模型与Apache-2.0许可正在推进** MiniMax H3团队在Reddit AMA中确认：旗下2K系列模型将于Q4开源，首期开放文本生成能力；图像生成模型已进入内测，Apache-2.0许可证正在法务审核中，强调“开源不等于放弃商业化壁垒” | 来源: InfoQ | 发布时间: 2026-08-08 ([原文链接](https://www.infoq.cn/article/9C3eK9tJqDXbabbBy3aj?utm_source=rss&amp;utm_medium=article))  
   - *推荐理由*：在闭源模型主导的当下，此举将显著降低中小开发者接入高质量中文多模态能力的门槛，尤其利好边缘端应急设备（如巡检无人机）的轻量化模型部署，加速AI普惠化进程。</textarea>
-   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
 - **OpenAI 将 Astra 列为首个“关键”网络安全模型** OpenAI依据其“准备框架”首次将即将发布的Astra模型评定为“关键”级网络安全模型，将实施额外安全控制措施，并加速向防御者交付其先进网络能力 | 来源: OpenAI官方 | 发布时间: 2026-08-07 ([原文链接](https://x.com/OpenAI/status/2085801349866729975))  
   - *推荐理由*：标志着AI安全治理进入“分级管控”新阶段，Astra或成为首个按国家级关键基础设施标准管理的大模型，为后续AI安全法规（如欧盟AI Act实施细则）提供实践锚点。  
 
@@ -874,7 +955,7 @@
 
 - **Woodpecker Distillation：弱模型诊断强模型推理缺陷的新蒸馏范式** Woodpecker利用轻量级弱模型（如TinyBERT）对强模型（如GPT-4）推理链进行逐步诊断，定位中间步骤的逻辑漏洞而非整体失效，再针对性蒸馏修复 | 来源: arXiv | 发布时间: 2026-08-07 ([原文链接](https://arxiv.org/abs/2608.05168))  
   - *推荐理由*：颠覆传统知识蒸馏思路，将“能力压缩”升级为“缺陷修复”，弱模型作为低成本“调试器”，大幅降低大模型推理纠错成本，为高可靠AI系统提供可解释、可干预的维护路径。</textarea>
-   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
 - **Agent Plugins 1.0.0 发布：谷歌、亚马逊、微软等支持的统一智能体插件规范** Agent Plugins 1.0.0 是首个由谷歌、亚马逊、微软联合推动的中立智能体插件标准，通过标准化 plugin.json 清单与目录结构，实现技能包跨平台可移植，显著降低开发者适配成本 | 来源: Google Developers Blog | 发布时间: 2026-08-06 ([原文链接](https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more))  
   - *推荐理由*：该规范终结了智能体生态碎片化困局，为 Agent SDK、IDE 插件、RAG 工具链提供统一封装范式，将加速企业级智能体规模化落地，是继 MCP 后又一关键基础设施层突破。  
 
@@ -958,7 +1039,7 @@
 
 - **When Prompts Become Pixels：面向多模态推理的提示区域接地技术** 该论文提出 Prompt-Region Grounding 方法，使多模态大模型能精准定位截图中“提问框”“按钮区域”等像素级提示位置，在 ScreenSpot 基准上 grounding 准确率达 94.7% | 来源: arXiv | 发布时间: 2026-08-06 ([原文链接](https://arxiv.org/abs/2608.04726))  
   - *推荐理由*：攻克 GUI 操作自动化核心难点，使 Agent 能真正“看懂界面”，为 RPA 升级为自主智能体、手机端 AI 助手实现跨 App 操作提供底层视觉理解能力。</textarea>
-   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
 - **Demis Hassabis 转任 Google DeepMind 主席与 Alphabet 首席科学家** Demis Hassabis 卸任 GDM CEO，转任主席兼 Alphabet 首席科学家，聚焦长期科学战略与 Isomorphic 疾病治愈研究；Koray Kavukcuoglu 接任高级副总裁，领导下一阶段发展 | 来源: X（@demishassabis） | 发布时间: 2026-08-05 ([https://x.com/demishassabis/status/2085034334914769203](https://x.com/demishassabis/status/2085034334914769203))  
   - *推荐理由*：标志 Google DeepMind 进入“战略科学家主导+执行团队落地”的新治理范式，强化基础科研与产业转化双轨并重，对全球AI组织架构演进具风向标意义。  
 
@@ -1039,7 +1120,7 @@
 
 - **Wiring Beats Blending：Transformer 尺寸间知识迁移的本质规律** 通过对 Pythia 1.4B→410M 模型转换的端到端分析发现：表征对齐度高（R²=0.84），但注意力头连接模式（wiring）比权重混合（blending）更具迁移鲁棒性；提出基于 wiring 的高效小模型蒸馏方法 | 来源: arXiv | 发布时间: 2026-08-06 ([https://arxiv.org/abs/2608.02829](https://arxiv.org/abs/2608.02829))  
   - *推荐理由*：颠覆“大模型蒸馏=权重压缩”传统认知，揭示模型尺寸迁移本质在于结构拓扑而非数值分布，Wiring 优先策略可提升小模型部署精度 5.7%，为端侧大模型轻量化提供全新理论支点。  </textarea>
-   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
 - **Google Cloud API Gateway 推出统一模型路由功能** Google Cloud API Gateway 新增模型路由（Public Preview），支持在OpenAPI 3.x中配置虚拟模型名到Gemini/Claude/OpenAI OSS-GPT等后端的映射，自动转码并负载均衡，无需硬编码或自建代理 | 来源: Google Developers Blog | 发布时间: 2026-08-04 ([原文链接](https://developers.googleblog.com/a-unified-api-for-ai-model-routing))  
   - *推荐理由*：首次实现跨厂商、跨架构模型的标准化抽象层，大幅降低企业多模型混合编排复杂度，为MaaS（Model-as-a-Service）生态奠定基础设施底座。  
 
@@ -1129,89 +1210,11 @@
 
 - **基于掩码引导潜在扩散的医学异常检测重建偏移判别法** arXiv提出Reconstruction-Shift Discrimination方法，利用掩码引导的潜在扩散模型学习正常解剖模式，通过重建误差偏移而非绝对差异识别异常，显著提升微小病灶检出率 | 来源: arXiv | 发布时间: 2026-08-04 ([原文链接](https://arxiv.org/abs/2608.00444))  
   - *推荐理由*：克服传统重建法对伪影敏感的缺陷，将异常检测从“像素级残差”升级为“解剖一致性判别”，更适合乳腺钼靶、眼底照相等精细影像场景。  </textarea>
-   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
-- **阿里“千问办公”开启公测** 阿里旗下企业级Agent产品“千问办公”（QwenWork）于8月3日开启公测，整合QoderWork、MuleRun、悟空三款产品，支持桌面端、云端、协同三类Agent形态 | 来源: 雷峰网 | 发布时间: 2026-08-03 ([https://www.leiphone.com/category/industrynews/keVMfihBTyvo7FGk.html](https://www.leiphone.com/category/industrynews/keVMfihBTyvo7FGk.html))  
-  - *推荐理由*：首个真正打通“个人提效—团队协同—企业治理”三层Agent能力的产品，其钉钉深度集成策略将加速AI办公从工具级向组织级渗透，定义下一代生产力平台标准。  
-
-- **欧盟《人工智能法案》透明度规则正式生效** 欧盟强制要求AI系统向用户披露交互性质，并对合成音视频/文本添加机器可读水印；违规最高罚1500万欧元或全球年营收3% | 来源: The Verge | 发布时间: 2026-08-02 ([https://www.theverge.com/ai-artificial-intelligence/974571/eu-ai-act-transparency-labels-rules-deepfakes](https://www.theverge.com/ai-artificial-intelligence/974571/eu-ai-act-transparency-labels-rules-deepfakes))  
-  - *推荐理由*：全球首个落地的AI强制披露法规，将倒逼大模型厂商重构输出管道与元数据嵌入机制，国内出海企业需立即适配水印API与用户提示模块，否则面临市场准入风险。  
-
-- **Google Agent Skills 开源技能库构建方法详解** Google公开Agent Skills治理框架：标准化目录结构、CI/CD流水线（含AI辅助清单）、远程MCP工具优先引用机制，GitHub星标超1.5万 | 来源: Google AI DEV | 发布时间: 2026-08-03 ([https://dev.to/googleai/behind-the-scenes-how-we-build-test-and-scale-google-agent-skills-1am5](https://dev.to/googleai/behind-the-scenes-how-we-build-test-and-scale-google-agent-skills-1am5))  
-  - *推荐理由*：定义了Agent技能工业化生产范式，其“测试即契约”理念（每个技能必须通过自动化校验）为行业提供可复用的质量保障模板，避免Agent生态陷入碎片化陷阱。  
-
-- **Cloudflare 推出 @cloudflare/computer 智能体运行时预览版** Cloudflare发布开源智能体运行时，为每个Agent提供隔离虚拟文件系统，并支持isolate、容器沙箱、浏览器三类执行环境 | 来源: Cloudflare Blog | 发布时间: 2026-08-03 ([https://blog.cloudflare.com/cloudflare-computer](https://blog.cloudflare.com/cloudflare-computer))  
-  - *推荐理由*：解决Agent安全执行的核心痛点——代码沙箱与状态持久化矛盾，虚拟文件系统使Agent具备跨任务记忆能力，而多环境支持兼顾性能与隔离强度，是Agent基础设施关键拼图。  
-
-- **Palantir CEO 称 AI 行业具“马克思主义色彩”** Palantir CEO Alex Karp批评前沿AI实验室意图“占有合作伙伴生产资料”，主张模型无关型AI软件，让企业掌控自身提示词、编排与上下文数据 | 来源: TechCrunch | 发布时间: 2026-08-03 ([https://techcrunch.com/2026/08/03/after-killer-quarter-palantir-ceo-alex-karp-calls-ai-industry-marxist](https://techcrunch.com/2026/08/03/after-killer-quarter-palantir-ceo-alex-karp-calls-ai-industry-marxist))  
-  - *推荐理由*：直指当前AI产业核心矛盾——模型厂商与客户的数据主权之争，其“AI废气”概念（提示词/上下文/编排日志）将成为下一代企业AI治理的关键资产维度。  
-
-- **阿里Qwen3.8正式发布，编程与办公再进化** 阿里发布Qwen3.8，总参2.4万亿，在Coding与Cowork场景大幅跃升；API已上线千问AI平台，定价策略凸显商业化成熟度 | 来源: 雷峰网 | 发布时间: 2026-08-03 ([https://www.leiphone.com/category/industrynews/M2J5PdYX80CwYSvX.html](https://www.leiphone.com/category/industrynews/M2J5PdYX80CwYSvX.html))  
-  - *推荐理由*：以“编程+办公”双引擎突破通用大模型瓶颈，其隐式缓存定价（1.5元/百万Tokens）体现对高频交互场景的深度理解，标志着大模型从能力竞赛转向场景经济价值兑现。  
-
-- **美国国防部新规禁止军用无人机使用中国电机** 美国防部“无人机主导权二期”新规本月起禁用中国产电机，FCC对商用无人机的豁免条款将于2027年1月1日到期 | 来源: DroneXL | 发布时间: 2026-08-03 ([https://dronexl.co/2026/08/03/american-drone-component-gap-commercial-fcc-january-2027/](https://dronexl.co/2026/08/03/american-drone-component-gap-commercial-fcc-january-2027/))  
-  - *推荐理由*：表面是供应链安全，实质是消防无人机自主可控的前置布局——电机直接影响续航、载荷与抗风稳定性，该禁令将加速国产无刷电机在消防巡检、灭火弹投送等场景的替代进程。  
-### 🔥 热点新闻  
-- **中信建投：北美云厂商资本开支继续高增长** 北美四家云厂商2026年资本开支指引达7200–7450亿美元，AI算力基建持续扩张；中信建投指出当前存在超跌，建议关注低估值高股息标的 | 来源: 36氪 | 发布时间: 2026-08-04 ([https://36kr.com/newsflashes/3924464275257472?f=rss](https://36kr.com/newsflashes/3924464275257472?f=rss))  
-  - *推荐理由*：资本开支数据是AI产业景气度最硬指标，7450亿美元规模印证算力需求刚性，而“超跌+高低切”判断反映市场正从主题炒作转向盈利兑现逻辑，影响二级市场配置策略。  
-
-- **苹果曝出数据管理漏洞：离职员工仍可访问iCloud机密文件** 苹果员工离职后仍可通过个人iCloud访问在职期间共享文档，根源在于公司iCloud空间与个人Apple ID长期绑定，导致权限回收失效 | 来源: IT之家 | 发布时间: 2026-08-03 ([https://www.ithome.com/0/985/254.htm](https://www.ithome.com/0/985/254.htm))  
-  - *推荐理由*：暴露企业级AI时代最隐蔽风险——身份与数据边界模糊化；该漏洞本质是“零信任”缺失，将推动企业重构账号体系与数据生命周期管理规范。  
-
-- **国际刑警组织：AI已成非洲网络犯罪核心驱动力** AI参与非洲55%网络犯罪案件，使攻击工业化、规模化；东非成移动支付诈骗中心，南非成全球威胁行为者集火地 | 来源: IT之家 | 发布时间: 2026-08-03 ([https://www.ithome.com/0/985/252.htm](https://www.ithome.com/0/985/252.htm))  
-  - *推荐理由*：揭示AI双刃剑效应的全球失衡——技术红利未同步抵达治理能力，非洲案例警示：AI安全不能仅靠技术防御，需配套法律协同与跨国执法机制建设。  
-
-- **英国再要求设加密后门，苹果提起法律诉讼反击** 英国政府依据《调查权力法案》秘密下发TCN通知，要求苹果在iCloud中创建绕过端到端加密的后门；苹果已发起新一轮法律诉讼 | 来源: IT之家 | 发布时间: 2026-08-03 ([https://www.ithome.com/0/985/251.htm](https://www.ithome.com/0/985/251.htm))  
-  - *推荐理由*：全球加密治理博弈进入深水区，“安全vs隐私”冲突已从政策辩论升级为司法对抗；苹果胜诉将确立端到端加密不可妥协原则，失败则可能引发全球监管连锁反应。  
-### 🚨 应急业务  
-- **“启直5号”倾转旋翼无人机首飞成功** 南京启直航空研发的1.5吨级倾转旋翼无人机“启直5号”于8月1日在滁州试飞基地完成首次公开飞行，标志国产倾转旋翼技术迈向产业化 | 来源: 科学网 | 发布时间: 2026-08-01 ([http://news.sciencenet.cn/htmlnews/2026/8/569263.shtm](http://news.sciencenet.cn/htmlnews/2026/8/569263.shtm))  
-  - *推荐理由*：倾转旋翼兼具直升机垂直起降与固定翼高速巡航优势，特别适用于山地、海岛等复杂地形应急响应；其1.5吨载荷能力可支持大型传感器吊舱或救援物资投送，填补国内中型应急航空器空白。  
-
-- **ideaForge获151亿卢比资助推进重型无人机YETI平台** 印度无人机厂商ideaForge获印度技术发展局151亿卢比资助，用于加速重型物流无人机YETI平台研发，目标提升高原/边境地区物资投送能力 | 来源: sUAS News | 发布时间: 2026-08-03 ([https://www.suasnews.com/2026/08/ideaforge-receives-tdb-nod-for-financial-assistance-of-%e2%82%b9151-crore-under-rdi-scheme-to-advance-heavy-lift-uav-platform-yeti/](https://www.suasnews.com/2026/08/ideaforge-receives-tdb-nod-for-financial-assistance-of-%e2%82%b9151-crore-under-rdi-scheme-to-advance-heavy-lift-uav-platform-yeti/))  
-  - *推荐理由*：YETI平台针对高海拔、强风等极端环境优化，其资助落地反映南亚国家将无人机作为应急基建核心载体的战略转向，对我国高原应急体系建设具直接参考价值。  
-
-- **美国交通部拟拨900万美元无人机巡检补助金** 美国交通部预告FY26无人机基础设施巡检补助计划：总额900万美元，9月15日发通知，11月15日截止申请，限5个项目，需50%地方配套资金 | 来源: DroneXL | 发布时间: 2026-08-03 ([https://dronexl.co/2026/08/03/usdot-diig-9-million-drone-inspection-grants-fy26/](https://dronexl.co/2026/08/03/usdot-diig-9-million-drone-inspection-grants-fy26/))  
-  - *推荐理由*：虽金额有限，但释放明确政策信号——联邦层面正将无人机巡检纳入交通基础设施运维标准流程；其“50%匹配”要求倒逼地方政府建立可持续投入机制，加速行业商业模式闭环。  
-### 🧠 算法专项  
-- **AirLLM 实现单块 4GB GPU 运行 70B 模型推理** AirLLM项目实现单卡4GB显存运行70B参数模型推理，无需多卡或量化压缩，已在GitHub开源并引发社区热议 | 来源: Hacker News（buzzing.cc翻译） | 发布时间: 2026-08-03 ([https://github.com/lyogavin/airllm](https://github.com/lyogavin/airllm))  
-  - *推荐理由*：突破显存墙的技术路径具有颠覆性——通过极致内存复用与计算调度优化，使消费级硬件具备企业级模型服务能力，或将重塑边缘AI部署成本结构。  
-
-- **大晓开源L5级具身数据集ACE-Data-0** 大晓开源ACE-Data-0，覆盖200个家庭任务、1700万帧真实家庭场景视频，将物理世界转化为机器人训练教材，支持具身智能长周期任务学习 | 来源: InfoQ | 发布时间: 2026-08-03 ([https://www.infoq.cn/article/KlOeH3DoO10hQixeYQvM?utm_source=rss&amp;utm_medium=article](https://www.infoq.cn/article/KlOeH3DoO10hQixeYQvM?utm_source=rss&amp;utm_medium=article))  
-  - *推荐理由*：填补具身智能高质量家庭场景数据空白，其“任务-动作-状态”三元组标注方式，可直接用于训练应急机器人执行灾后物品识别、障碍清理等复杂操作，加速具身AI在真实环境落地。  
-
-- **MiniMax H3 全模态视频模型正式开源** MiniMax开源H3模型，支持文本、图像、音频、视频统一理解与生成，最高输出2K分辨率、15秒时长、32kHz原生立体声视频 | 来源: MiniMax（稀宇科技） | 发布时间: 2026-08-03 ([https://mp.weixin.qq.com/s?__biz=MzE5MTA3NzcxMQ%3D%3D&amp;mid=2247488931&amp;idx=1&amp;sn=0506e1d52edd5166becf35f5ebd83a07](https://mp.weixin.qq.com/s?__biz=MzE5MTA3NzcxMQ%3D%3D&amp;mid=2247488931&amp;idx=1&amp;sn=0506e1d52edd5166becf35f5ebd83a07))  
-  - *推荐理由*：H3是首个支持原生立体声+2K视频联合生成的开源全模态模型，突破传统视频生成在音画同步与时空保真上的工程瓶颈，为具身智能、虚拟制片等场景提供新基座。  
-
-- **商汤发布 SenseNova U1.5-Lite-Preview 开源多模态模型** 商汤基于NEO-Unify架构推出轻量级统一多模态模型，仅8B-MoT参数即达商业闭源模型生成质量，支持4K图像编辑与精细视觉控制 | 来源: 商汤 SenseTime | 发布时间: 2026-08-03 ([https://x.com/SenseTime_AI/status/2084288424236782073](https://x.com/SenseTime_AI/status/2084288424236782073))  
-  - *推荐理由*：以极小参数量实现原生多模态贯通，验证了“统一架构+任务解耦”的技术路线可行性，为边缘端多模态Agent提供可部署基座，显著降低终端侧AI应用门槛。  
-
-- **Qwen3.8-Max 发布：开源最强编码与协作模型** 阿里发布Qwen3.8-Max，2.4万亿参数（95B激活），首次开源Qwen-Max级权重，聚焦编程与专业办公场景，Arena榜单稳居全球第一梯队 | 来源: Qwen官方博客 | 发布时间: 2026-08-03 ([https://qwen.ai/blog?id=qwen3.8](https://qwen.ai/blog?id=qwen3.8))  
-  - *推荐理由*：打破“大模型必须闭源才能商用”的惯性认知，其开放权重策略将加速企业级Agent生态建设，尤其利好金融、政务等对模型可控性要求极高的垂直领域。  
-
-- **原生统一多模态进阶！SenseNova U1.5-Lite-Preview开源** 商汤开源U1.5-Lite-Preview，非简单参数升级，而是系统性贯通视觉理解、推理、生成与编辑，以8B-MoT实现4K真实质感与复杂视觉控制 | 来源: 雷峰网 | 发布时间: 2026-08-03 ([https://www.leiphone.com/category/industrynews/qqTUnzcUVPuJaEeA.html](https://www.leiphone.com/category/industrynews/qqTUnzcUVPuJaEeA.html))  
-  - *推荐理由*：热度源于其技术哲学转变——放弃“多模型拼接”，坚持单一架构原生多模态，为工业设计、数字孪生等强视觉控制需求提供确定性方案，引发学术界与工业界双重关注。  
-
-- **OpenClaw与Ollama协同构建全自动AI Agent系统** arXiv论文提出Agentic AI分层架构：分离推理层（LLM）、编排层（OpenClaw）、执行层（Ollama），解决现有Agent系统中动作不可控、状态不一致问题 | 来源: arXiv | 发布时间: 2026-08-03 ([https://arxiv.org/abs/2607.28629](https://arxiv.org/abs/2607.28629))  
-  - *推荐理由*：首次系统性解耦Agent三大核心能力，为工业级Agent提供可验证、可审计的架构范式；Ollama本地执行能力尤其适配消防、电力等对数据不出域有强要求的应急场景。  
-
-- **SafeNexus：发现并调控多模态大模型通用安全神经元** 提出首个面向MLLM的安全神经元定位与干预框架，可在文本、图像、视频多模态输入下统一抑制有害内容生成，且不损害正常能力 | 来源: arXiv | 发布时间: 2026-08-03 ([https://arxiv.org/abs/2607.28969](https://arxiv.org/abs/2607.28969))  
-  - *推荐理由*：突破传统安全微调局限，通过神经元级干预实现跨模态安全对齐，对应急指挥系统中AI生成的灾情研判报告、视频摘要等高敏感输出具有强防护价值。  
-
-- **Rethinking Detection Calibration：从坐标与方向视角重校准检测置信度** 提出新型检测校准方法，通过建模预测框坐标偏移与方向偏差分布，显著缓解深度模型过度自信问题，在COCO上将mAP@.5提升2.3% | 来源: arXiv | 发布时间: 2026-08-03 ([https://arxiv.org/abs/2607.29040](https://arxiv.org/abs/2607.29040))  
-  - *推荐理由*：建筑病害识别、火灾烟雾检测等应急视觉任务对置信度可靠性要求极高；该方法无需修改主干网络，可即插即用地提升YOLO系列模型在低信噪比场景下的决策可信度。  
-
-- **OsteoCAD：面向骨肿瘤分割的人机协同云边框架** 提出云边协同的骨肿瘤分割框架，医生可在边缘端实时标注修正，系统自动同步至云端模型更新，降低医疗AI部署门槛 | 来源: arXiv | 发布时间: 2026-08-03 ([https://arxiv.org/abs/2607.29266](https://arxiv.org/abs/2607.29266))  
-  - *推荐理由*：虽属医疗领域，但其“人机协同+增量学习”范式可迁移至应急场景——如地质灾害隐患点标注、危房结构缺陷识别等需专家介入的视觉任务，提升模型迭代效率与现场适应性。  
-
-- **QR-Structured Thermal Triggers：针对红外视觉语言模型的定向语义攻击** 设计基于二维码结构的热扰动触发器，可精准诱导红外VLM在开放词汇分类、图像描述等任务中产生指定错误输出 | 来源: arXiv | 发布时间: 2026-08-03 ([https://arxiv.org/abs/2607.29445](https://arxiv.org/abs/2607.29445))  
-  - *推荐理由*：揭示红外感知系统的新型脆弱性，对依赖热成像的消防无人机、森林火情监测系统构成现实威胁；该研究将推动红外VLM鲁棒性评测标准建立，倒逼安防级模型加固。  
-
-- **How Hard Does It Think？分析大模型思维链推理能耗** 提出Step-Aware能量分析框架，量化CoT各推理步骤的计算资源消耗，发现“中间步骤冗余”是主要能耗来源，可据此剪枝优化 | 来源: arXiv | 发布时间: 2026-08-03 ([https://arxiv.org/abs/2607.28674](https://arxiv.org/abs/2607.28674))  
-  - *推荐理由*：应急现场常依赖边缘设备运行推理，该方法可指导模型在保持决策质量前提下压缩推理步数，显著降低无人机、手持终端等设备功耗，延长单次作业续航时间。</textarea>
 
    <script>
        // AI 推荐评分映射（仅 today 有；历史早报 tab 无评分显示）
        // 由后端 render() 注入：url -> score
-       const SCORES_MAP = {"https://www.lmsys.org/blog/2026-08-10-meta-muse-glimmer": 85.0, "https://x.com/Alibaba_Qwen/status/2086664887560970531": 85.0, "https://mp.weixin.qq.com/s?__biz=MzYzNDE5MDEwMQ%3D%3D&mid=2247488345&idx=1&sn=ef4e57c9c9350f9238d90211eb2dd453": 82.0, "https://www.a16z.news/p/can-agents-use-a-computer-yet-weve": 80.0, "https://bobdahacker.com/blog/tldv-hack": 79.0, "https://openchamber.dev/": 78.0, "https://x.com/JensenHuang/status/2086934705207959965": 76.0, "https://x.com/alexandr_wang/status/2086756152034066792": 76.0, "https://www.leiphone.com/category/industrynews/mu3h6gC4Fx0CZl8K.html": 88.0, "https://www.leiphone.com/category/industrynews/jO3S36y9Au6IJBTs.html": 88.0, "https://www.ithome.com/0/988/045.htm": 86.0, "https://www.ithome.com/0/988/099.htm": 85.0, "https://www.ithome.com/0/988/073.htm": 85.0, "https://www.ithome.com/0/988/046.htm": 85.0, "https://www.leiphone.com/category/transportation/uv0khddWPw7ZLS8V.html": 85.0, "https://www.ithome.com/0/988/068.htm": 84.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786408250&ver=6897&signature=69dC8k3LlCKp*NzQA2I5VOwMIYRDnSEzO6KSZatzfFFT65vcVEw9o-ygpMYjrfJ49-Gj-v8MObQW-vJPZwVzXnz69*L8v7DrCdQ3FR-RbhDZhZ20-qzcj8VuAz*YolZf&new=1": 78.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786408250&ver=6897&signature=69dC8k3LlCKp*NzQA2I5VOwMIYRDnSEzO6KSZatzfFHg*NROpmdA1*6UwGELj*PDGUkNhNOA7Jud9Nl7EqQuuk3rmzWj*IQ5EL0HRHAH6RxYXb8ydPu*ngowzPWCqaro&new=1": 75.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786408242&ver=6897&signature=3*H3qHvhCWt2xo1gcFi5Kpfv2foRjwj6NQdGVHSw-5t9utFs94dfvGdfUqjsOg1-PZi2qOHwGSYtLFjI5cu2lcuxhPLvVrikYVLnN9yH4qjykS2gjm4xylV3M29JWQmY&new=1": 73.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786408246&ver=6897&signature=IsW9gXQl5DOMPA55vaNSIfJ1JyEhYZKISd1iODZwTSVC87CIrY5szzp4WRZuh6s5VAwbig9e735a*i8kOKDIGzYBaWoX8de5wYrL*Ghw73DigOhrkTddZj*FSolQ0l5s&new=1": 72.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786408259&ver=6897&signature=hSuNhZdfqKoFiBlGAkDJkHLnwwNY6PWtjbB1ePe2jnTyvR6OlsaTJgjq0OomGlrqbNuxdjPXVdwyA9fXncyWlkgKvtt1o2GbnuMMcxppW9eVAriDuYhJANt8*UiN4JDD&new=1": 70.0, "https://dronexl.co/2026/08/10/brinc-liveops-wildfire-smoke-layers-noaa/": 68.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786408250&ver=6897&signature=69dC8k3LlCKp*NzQA2I5VOwMIYRDnSEzO6KSZatzfFHxD7m26D-0xHwukRlc3Wyd1D*gI9tlrzLLIV23hTULwIjSndr1y3SD3vlUwkY8mf1kWxUsJckWKdB6WzRXtV7t&new=1": 68.0, "https://dronexl.co/2026/08/10/thinkon-avss-sovereign-tak-canada/": 65.0, "https://arxiv.org/abs/2608.06769": 86.0, "https://arxiv.org/abs/2608.07051": 86.0, "https://arxiv.org/abs/2608.06691": 85.0, "https://arxiv.org/abs/2608.06850": 85.0, "https://arxiv.org/abs/2608.06929": 85.0, "https://arxiv.org/abs/2608.07015": 85.0, "https://arxiv.org/abs/2608.07088": 85.0, "https://arxiv.org/abs/2608.06578": 85.0};
+       const SCORES_MAP = {"https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron": 90.0, "https://www.theverge.com/ai-artificial-intelligence/977273/the-ai-takeover-of-mathematics-has-begun": 88.0, "https://www.theverge.com/ai-artificial-intelligence/978113/chatgpt-gemini-1-billion-users": 85.0, "https://mp.weixin.qq.com/s?__biz=MzkyODk2MDQwNw%3D%3D&mid=2247487491&idx=1&sn=fcb14aceb054f9a24e22525d3dae6fa0": 85.0, "https://www.ithome.com/0/988/239.htm": 85.0, "https://cloud.google.com/blog/products/databases/accelerate-postgresql-migrations-with-gemini-in-dms": 80.0, "https://mp.weixin.qq.com/s?__biz=MzkyMzI3NzQ0Mg%3D%3D&mid=2247494052&idx=1&sn=ee3ab3d0f4550e9120927c53a27522c9": 80.0, "https://www.lighthousenewsletter.com/p/i-put-github-copilot-behind-a-mitm": 75.0, "https://www.ithome.com/0/988/570.htm": 85.0, "https://www.ithome.com/0/988/562.htm": 85.0, "https://www.ithome.com/0/988/552.htm": 85.0, "https://www.leiphone.com/category/industrynews/D47bzyvQEgPf7PUB.html": 85.0, "https://www.ithome.com/0/988/555.htm": 80.0, "https://www.ithome.com/0/988/556.htm": 75.0, "https://www.ithome.com/0/988/554.htm": 75.0, "https://www.ithome.com/0/988/544.htm": 75.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786494645&ver=6899&signature=yS-L2p21tqXSH-6teKskBLRcMFrxTdX8Ie5edrqrLNiiYqrMGHMzC1j2EGA7mcVbMeudT58a22oDnMPQ8gZ-AYhwodRQmRji8mcl3gYTQyqVCG4iwoQlRkoY4r3b3oL7&new=1": 65.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786494619&ver=6899&signature=TBAWanIAXDslFj5GDVrFFl1rhYKO0g3xoNw2lmzj5c0eQRP*ob77lEUr7i7*XaiKEre9vlMKmbQGVIjzgKsswhVCdKrJf4cD6PLyULcW7VkB-0*ysjBg0HJmSEQhYNCS&new=1": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786494653&ver=6899&signature=SMl76THHKmuKF8v6-DF1uAKhFck*PM4Q8E7R2LM-j26kFNc1jHikOOnS9lYADWTDrgpT0JN6TMg3uPDeOkv9xTQIW*YYVImdB-FwYu9XWNowy2FL1T1u3t0IAoko*gPG&new=1": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786494653&ver=6899&signature=SMl76THHKmuKF8v6-DF1uAKhFck*PM4Q8E7R2LM-j25UfEXSCoad8Wy0lDo8*DaQTD*0bhwn9XoFCBESGh2iOkoEUIhIsB3sYLVgz1IeykSwrWPpVARQAnUCGTAaAvLi&new=1": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1786494653&ver=6899&signature=SMl76THHKmuKF8v6-DF1uAKhFck*PM4Q8E7R2LM-j26K7F0BosAZm16Pudd-svIAROt5vKvgr2SzM9N7FTfwU3YghZOxOokSmahWh6RaiUEqw6HViBITST9KkN*eFqFm&new=1": 60.0, "https://arxiv.org/abs/2608.07762": 87.0, "https://arxiv.org/abs/2608.07809": 86.0, "https://arxiv.org/abs/2608.07749": 85.0, "https://arxiv.org/abs/2608.07864": 85.0, "https://arxiv.org/abs/2608.07981": 85.0, "https://arxiv.org/abs/2608.07538": 85.0, "https://arxiv.org/abs/2608.07645": 85.0, "https://arxiv.org/abs/2608.07743": 85.0};
 
        // 分类配置
        const CATEGORY_CONFIG = {
@@ -1618,7 +1621,7 @@
 
        // 日期元信息（render 时注入，供历史下拉与顶部日期联动使用）
        // 结构: today/day_1..day_7 各含 date_display / date_iso / weekday
-       const DAY_META = {"today": {"date_display": "2026年08月11日", "date_iso": "2026-08-11", "weekday": "周二"}, "day_1": {"date_display": "2026年08月10日", "date_iso": "2026-08-10", "weekday": "周一"}, "day_2": {"date_display": "2026年08月09日", "date_iso": "2026-08-09", "weekday": "周日"}, "day_3": {"date_display": "2026年08月08日", "date_iso": "2026-08-08", "weekday": "周六"}, "day_4": {"date_display": "2026年08月07日", "date_iso": "2026-08-07", "weekday": "周五"}, "day_5": {"date_display": "2026年08月06日", "date_iso": "2026-08-06", "weekday": "周四"}, "day_6": {"date_display": "2026年08月05日", "date_iso": "2026-08-05", "weekday": "周三"}, "day_7": {"date_display": "2026年08月04日", "date_iso": "2026-08-04", "weekday": "周二"}};
+       const DAY_META = {"today": {"date_display": "2026年08月12日", "date_iso": "2026-08-12", "weekday": "周三"}, "day_1": {"date_display": "2026年08月11日", "date_iso": "2026-08-11", "weekday": "周二"}, "day_2": {"date_display": "2026年08月10日", "date_iso": "2026-08-10", "weekday": "周一"}, "day_3": {"date_display": "2026年08月09日", "date_iso": "2026-08-09", "weekday": "周日"}, "day_4": {"date_display": "2026年08月08日", "date_iso": "2026-08-08", "weekday": "周六"}, "day_5": {"date_display": "2026年08月07日", "date_iso": "2026-08-07", "weekday": "周五"}, "day_6": {"date_display": "2026年08月06日", "date_iso": "2026-08-06", "weekday": "周四"}, "day_7": {"date_display": "2026年08月05日", "date_iso": "2026-08-05", "weekday": "周三"}};
 
        // 历史记录列表（今天放第一位，方便从历史日期返回今天）
        const HISTORY_DAYS = ['today', 'day_1', 'day_2', 'day_3', 'day_4', 'day_5', 'day_6', 'day_7'];
