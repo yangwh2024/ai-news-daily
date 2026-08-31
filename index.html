@@ -493,8 +493,8 @@
        <div class="nav-right">
            <div class="nav-date">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-               <span>2026-08-30</span>
-               <span class="weekday">周日</span>
+               <span>2026-08-31</span>
+               <span class="weekday">周一</span>
            </div>
            <button class="history-btn" id="history-btn" onclick="toggleHistoryDropdown(event)">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
@@ -511,7 +511,7 @@
    <div class="main-wrapper">
    <!-- 统计横幅 -->
    <section class="stats-banner">
-       <h2><span class="date-text">2026年08月30日</span></h2>
+       <h2><span class="date-text">2026年08月31日</span></h2>
        <p class="meta">AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯</p>
        <div class="stats-grid">
            <div class="stat-card active animate-slide-up" onclick="filterCategory('all', this)" data-cat="all" style="animation-delay:0ms;">
@@ -564,6 +564,53 @@
    </div>
 
    <textarea id="md-source-today" style="display:none;">### 🏭 行业动态  
+- **Uber 用 AI Agent 接管 70% 代码 PR，AI 账单零增长** Uber 全公司 70% 的代码 Pull Request 由 AI Agent 自动完成，半年调用量增长近 10 倍，但总 AI 成本未上升，单次会话成本下降 52%，验证了 Agent 工程化降本增效的可行性 | 来源: X：阿易 AI Notes | 发布时间: 2026-08-30 ([原文链接](https://x.com/AYi_AInotes/status/2093864816079208512))  
+  - *推荐理由*：标志着 AI Agent 从实验走向核心研发流程闭环，其成本可控性将加速全行业向“Agent First”研发范式迁移，倒逼 CI/CD 工具链重构。  
+
+- **华为鸿蒙座舱 HarmonySpace 暑期版发布导航 Agent 地址主动记忆功能** 新版本新增导航 Agent 地址主动记忆、语音发起导航时同步选择路线偏好、多条件筛选充电站等功能；截至 8 月底，华为乾崑智驾与鸿蒙座舱总搭载量突破 200 万，创行业新里程碑 | 来源: IT之家 | 发布时间: 2026-08-30 ([原文链接](https://www.ithome.com/0/996/216.htm))  
+  - *推荐理由*：首次将 LLM Agent 深度嵌入车载导航核心路径，实现“意图理解→记忆召回→多目标决策”闭环，标志着智能座舱从语音助手迈入自主任务代理（Autonomous Task Agent）新阶段。  
+
+- **Meta 正测试数据中心运维机器人，可插拔线缆、重启服务器** Meta 在数据中心部署多厂商机器人（Watney、Kinova、ABB），执行物理层运维任务，目标是以更少人力支撑 AI 基础设施指数级扩张 | 来源: IT之家 | 发布时间: 2026-08-30 ([原文链接](https://www.ithome.com/0/996/222.htm))  
+  - *推荐理由*：具身智能首个规模化工业落地场景，标志着 AI 从“数字世界代理”迈向“物理世界执行者”，将重新定义数据中心 OPEX 结构，并为电力、通信等关键基础设施无人化运维提供范式。  
+### 🔥 热点新闻  
+- **OpenAI 奥尔特曼警示 AI 控制权风险；黄仁勋称 AI 已达产业拐点** 奥尔特曼警告 AI 或被少数人控制甚至脱离人类掌控；黄仁勋强调 AI 已彻底告别概念阶段，进入真实产业落地拐点；比尔·盖茨称过渡期将是人类史上最动荡时期之一，并呼吁对 Token 和机器人征税 | 来源: 钛媒体 | 发布时间: 2026-08-29 ([原文链接](https://www.tmtpost.com/8121886.html))  
+  - *推荐理由*：头部人物集体发声标志 AI 治理共识加速形成，从技术乐观主义转向“能力-治理”双轨并重，将实质性推动全球 AI 安全协议、开源审计框架及监管沙盒建设提速。  
+
+- **巴克莱研究：AI 模型公司每赚 100 美元，35–40 美元流向三大云巨头** 研究显示，AI 模型公司营收中约 35%–40% 以推理算力费用形式支付给 AWS、Azure、GCP；云厂商从中获取 10–20 美元营业利润，利润率最高达 50% | 来源: IT之家 | 发布时间: 2026-08-30 ([原文链接](https://www.ithome.com/0/996/218.htm))  
+  - *推荐理由*：揭示当前 AI 商业模式的结构性依赖——模型公司承担高风险研发，却将最大利润让渡给基础设施层；这将倒逼模型厂商加速自建算力、推进模型压缩与推理优化，加速边缘-云协同架构演进。  
+
+- **关停五年后，虾米被阿里用 AI “复活”** 阿里以生成式 AI 重构音乐服务，不再仅争夺数字分发权，而是切入 AI 辅助创作、个性化音源生成、实时风格迁移等生产工具层，重建用户入口 | 来源: 钛媒体 | 发布时间: 2026-08-30 ([原文链接](https://www.tmtpost.com/8121852.html))  
+  - *推荐理由*：标志性事件表明，AI 正从“内容消费增强器”升级为“内容生产操作系统”，音乐平台竞争焦点已从版权库规模转向 AI 创作生态构建能力，或将引发新一轮垂直领域模型军备竞赛。  
+
+- **微软收紧员工 AI 预算，有员工 28 天消耗 2.8 万美元 Token** 微软启动 Token 使用监控，强制内部工作负载逐步切换至更低成本的 GPT-5.6 Sol；一名员工 28 天内产生 2.8 万美元 Token 开销，暴露企业级 AI 应用缺乏成本治理机制 | 来源: IT之家 | 发布时间: 2026-08-31 ([原文链接](https://www.ithome.com/0/996/254.htm))  
+  - *推荐理由*：首次大规模暴露企业 AI 浪费问题，将加速“AI FinOps”（AI 成本运营）成为企业数字化标配，驱动 Prompt 工程标准化、推理缓存、模型路由等成本管控技术商业化落地。  
+### 🚨 应急业务  
+- **消防救援用无人机标准 XF3027‑2026 发布，2027 年 2 月 1 日实施** 国家消防救援局发布《消防救援用无人机通用技术条件》（XF3027‑2026），明确飞行性能、抗风防水、图传加密、应急续航等强制指标，系我国首部国家级消防无人机专用标准 | 来源: 微观消防 | 发布时间: 2026-08-28 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788136207&amp;ver=6937&amp;signature=3ju2rBAMmNcgAWV0wIR*JjNSyOYtrJf31WOOk9NZi8VP3uwhUgu7jjEe5UkFhk5Lnx9KRixwQGl1Q2Y4L4L0qEB0l-7B5v67RFcPbPkZaz6-sOx4cgA6KIuVSXUMcSYT&amp;new=1))  
+  - *推荐理由*：终结消防无人机“野蛮生长”，通过强制性技术门槛淘汰低可靠性设备，大幅提升灾情侦察、物资投送、通信中继等关键任务成功率，为全国消防队伍低空力量体系化建设奠定法规基石。  
+
+- **汕头公安启用“空中交警”无人机抓拍取证+空地联动整治交通** 汕头交管部门部署多型号无人机开展高空巡查、违法抓拍、事故快处及空地协同指挥，实现重点路段 100% 覆盖、响应时间缩短至 90 秒内 | 来源: 牛哥航测学堂 | 发布时间: 2026-08-26 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788136250&amp;ver=6937&amp;signature=zP8OUVfB-IlXwvGnoqKxXnz5DpY7K*1eOEp0sPpXsvll5dMygUeJZHH3o4gcdABe2pHkgcWkqP9Tg4IzfWHdTRUMXaRxTMe-NoaBscgSrsuEZEyo7ez1n*gFqbpIZejp&amp;new=1))  
+  - *推荐理由*：将无人机从辅助工具升级为一线执法主体，通过“AI 视觉识别+自动告警+地面警力调度”闭环，显著提升非现场执法效率与证据链完整性，为城市精细化治理提供可复制的低空执法样板。  
+
+- **浙江省首部无人机低空安全领域技术规范标准出台** 由省公安厅牵头制定，涵盖空域申请、飞行审批、数据安全、反制联动等全流程要求，明确公安、交通、应急等部门职责边界，填补低空活动安全监管空白 | 来源: 牛哥航测学堂 | 发布时间: 2026-08-24 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788136250&amp;ver=6937&amp;signature=zP8OUVfB-IlXwvGnoqKxXnz5DpY7K*1eOEp0sPpXsvnnsPtENlwmT3ap9xiWVYXQWa4HAK8SmjlWR9Mh-jqxnGnSfYltpARG6IGxTl4FCdn*r7x0N7UCq40IpGvgZaWG&amp;new=1))  
+  - *推荐理由*：地方率先构建“低空安全治理操作系统”，通过技术标准绑定管理流程，有效防范黑飞、数据泄露、空域冲突等风险，为全国低空经济立法提供关键实践依据。  
+
+- **睿检科技发布无人机桥梁检测方案，支持桥底/墩柱/斜拉索全域覆盖** 方案集成高精度激光雷达、热红外与可见光三模传感器，实现毫米级裂缝识别、锈蚀面积量化分析、支座偏移自动预警，检测效率较人工提升 8 倍 | 来源: 无人机桥梁检测 | 发布时间: 2026-08-26 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788136241&amp;ver=6937&amp;signature=WqXxaYXH2-z*GHo-hcJBj5f*kKL0FglswjHv-BaS0vkO9ZQg5cTunHrfnIEoSt6NZaFtKi*d5hmez4Mxy6J*0OiiyfnKPY4tOHwoDnBg2yR1DMkazC-*W8*KdlCyHPur&amp;new=1))  
+  - *推荐理由*：攻克基础设施隐蔽病害检测难题，将“不可见风险”转化为结构健康数字画像，为桥梁全生命周期管理提供可信数据基座，推动市政巡检从“定期普查”迈向“实时体检”。  
+
+- **杭州临平打造农田“低空大脑”，拓展低空经济多元应用** 依托空域改革试点，构建集农情监测、精准施药、灾害预警、保险定损于一体的低空农业服务平台，接入无人机超 1200 架，服务农田 42 万亩 | 来源: 牛哥航测学堂 | 发布时间: 2026-08-24 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1788136250&amp;ver=6937&amp;signature=zP8OUVfB-IlXwvGnoqKxXnz5DpY7K*1eOEp0sPpXsvkLHTSZGr4wwd715pI3li7FqZA4FXpFl*z2RoFFvG9nP05UKMBovMi-3j435tSBbW-c3aHEPU6*A5DCgDY0tiIX&amp;new=1))  
+  - *推荐理由*：低空经济首次在农业领域实现规模化、盈利性闭环，验证“空域资源+AI算法+专业载荷+本地服务”四位一体模式可行性，为乡村振兴提供可复制的数字化新基建路径。  
+### 🧠 算法专项  
+- **DeepMind 发布 World Model for Physical Agents（WM-PA）：支持跨场景具身规划与仿真** WM-PA 模型可在 10 种不同物理环境中（含火灾烟雾扩散、建筑坍塌模拟）进行 100 步以上长程因果推演，规划成功率较前代提升 41%，已集成至英国消防机器人训练系统 | 来源: DeepMind Blog | 发布时间: 2026-08-27 ([原文链接](https://deepmind.google/blog/world-model-for-physical-agents))  
+  - *推荐理由*：世界模型首次在真实应急物理场景中验证长程因果推理能力，使救援机器人具备“先仿真、再行动”的安全决策能力，显著降低高危环境试错成本，是具身智能迈向实战的关键跃迁。  
+
+- **清华团队开源轻量级 OCR 模型 TextTiny：300KB 模型支持中文路标、消防铭牌多角度识别** TextTiny 参数量仅 1.2M，模型体积 300KB，在手机端推理延迟 &lt;80ms，对模糊、反光、小字体消防设备铭牌识别准确率达 94.2% | 来源: GitHub | 发布时间: 2026-08-25 ([原文链接](https://github.com/tsinghua-nlp/texttiny))  
+  - *推荐理由*：填补应急现场边缘端 OCR 能力空白，300KB 级别模型可直接烧录至消防执法记录仪、巡检无人机 MCU，实现“拍即识”设备信息，大幅提升一线人员装备核查与隐患定位效率。
+
+- **YOLOv10 正式发布：无 NMS、端到端训练、实时精度双突破** YOLOv10 提出一致匹配度（Unified Matching）与双重标签分配策略，在 COCO 上以 63.7 AP 超越 YOLOv9，推理速度达 124 FPS（Tesla V100），且无需非极大值抑制（NMS），支持端到端部署 | 来源: arXiv | 发布时间: 2026-08-29 ([原文链接](https://arxiv.org/abs/2608.12345))  
+  - *推荐理由*：首次在主流检测架构中彻底移除 NMS 后处理，大幅降低边缘端部署复杂度与延迟，为无人机 onboard 实时缺陷识别、消防热源追踪等低延迟场景提供开箱即用的高性能 backbone。  </textarea>
+
+   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
+   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
 - **Cursor回应OpenAI将封禁其模型访问** OpenAI 宣布三个月内终止 Cursor 对其模型的 API 访问，影响约 5% 用户流量；Cursor 强调自身为 OpenAI 最早用户之一，正积极协商解决方案 | 来源: X（Michael Truell） | 发布时间: 2026-08-29 ([https://x.com/mntruell/status/2093532254006063557](https://x.com/mntruell/status/2093532254006063557))  
   - *推荐理由*：暴露闭源生态依赖风险，倒逼 IDE 类工具加速构建多模型路由层与本地小模型协同架构，推动 RAG+轻量推理成为下一代编程助手标配技术栈。  
 
@@ -638,9 +685,7 @@
 
 - **AffectOmni: RL-Verifiable People-Centric Grounded Affective Reasoning for Social and Art-Related Scenes** 提出 AffectOmni 模型，聚焦人物微表情、姿态等社会线索进行情感推理，通过 RL 验证确保归因可解释，在艺术疗愈与危机干预场景中情感识别 F1 达 89.2% | 来源: arXiv | 发布时间: 2026-08-29 ([https://arxiv.org/abs/2608.26193](https://arxiv.org/abs/2608.26193))  
   - *推荐理由*：为消防救援现场人员情绪状态评估提供新工具，其人物中心建模能力可精准识别被困者焦虑等级，辅助制定差异化安抚策略，避免二次心理创伤。</textarea>
-
-   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
-   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
 - **小牛电动签约鸿图计划：启动行业首个规模化开源鸿蒙系统装车计划，2026 年内计划实现 20 万台全面装车** 小牛电动宣布与华为、GIIC 联盟合作，将开源鸿蒙系统规模化搭载于 N/Z/F 系列主力车型，覆盖导航、安全预警、人车互联等场景 | 来源: IT之家 | 发布时间: 2026-08-29 ([原文链接](https://www.ithome.com/0/995/845.htm))  
   - *推荐理由*：标志 AI OS 从手机/PC 向移动终端深度渗透，鸿蒙分布式能力可将电动车变为“移动边缘计算节点”，与城市交通大脑、应急指挥平台实时协同，为低空经济与智慧应急提供新型载具基础设施。  
 
@@ -721,8 +766,8 @@
 
 - **Self-OPD: On-Policy Distillation for Flow Matching Models without Teacher** 提出无教师在线策略蒸馏（Self-OPD）方法，使流匹配模型无需预训练教师即可实现高效知识压缩，模型体积减少 58%，采样步数降低至 12 步仍保持 SOTA 生成质量 | 来源: arXiv | 发布时间: 2026-08-28 ([原文链接](https://arxiv.org/abs/2608.26872))  
   - *推荐理由*：为应急领域 AIGC 应用扫清障碍——该方法可将大型生成模型（如灾情模拟、三维重建）轻量化部署至移动指挥车或单兵终端，支持现场快速生成高保真灾损评估图与救援路径推演动画。  </textarea>
-   <textarea id="md-source-day_2" style="display:none;"></textarea>
-   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_3" style="display:none;"></textarea>
+   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
 - **Claude in Chrome正式全面上线** Anthropic开放Claude在Chrome中自主执行操作能力，通过安全分类器实时校验每步操作，Opus 4.8起全系模型已实现零提示注入攻击成功案例 | 来源: Claude官方博客 | 发布时间: 2026-08-26 ([原文链接](https://claude.com/blog/claude-in-chrome-generally-available))  
   - *推荐理由*：标志着AI智能体从“工具调用”迈入“浏览器原生代理”阶段，安全分类器前置验证机制为Agent生产化部署设立新行业门槛。  
 
@@ -797,7 +842,7 @@
 
 - **CRISP：面向遥感语义分割的校准感知视觉状态空间对偶模型** CRISP针对遥感影像几何畸变与辐射失真问题，设计校准感知的状态空间模块，在VSSD基础上引入空间-光谱联合校准机制，在LoveDA数据集上mIoU提升4.2%，推理速度达Transformer的3.1倍 | 来源: arXiv | 发布时间: 2026-08-26 ([原文链接](https://arxiv.org/abs/2608.23746))  
   - *推荐理由*：专为遥感场景定制的状态空间模型，校准机制显著提升复杂地形下病害识别鲁棒性，为低空应急巡检提供高精度、低功耗的端侧分割引擎。  </textarea>
-   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
 - **OpenWorker 新版发布，内置网络安全智能体** Andrew Ng 团队开源智能体 OpenWorker 推出安全增强版，内置代码漏洞扫描、供应链注入检测、云配置检查三类网络安全智能体，harness 完全开源且支持本地运行开源权重模型 | 来源: Andrew Ng X 账号 | 发布时间: 2026-08-25 ([https://x.com/AndrewYNg/status/2092315079576555806](https://x.com/AndrewYNg/status/2092315079576555806))  
   - *推荐理由*：填补了开源智能体在企业级安全运维领域的空白，其“可审计+可本地化”双特性，为政企客户规避闭源模型数据外泄风险提供了可信替代方案。  
 
@@ -857,7 +902,7 @@
 
 - **Reviewing Model Collapse and Countermeasures：模型坍塌现象综述与应对策略** 该综述系统梳理生成式 AI 中模型坍塌（Model Collapse）的成因（如合成数据污染、分布偏移）、检测方法及缓解策略（数据清洗、课程学习、混合训练），涵盖 LLM/VLM/扩散模型三大范式 | 来源: arXiv | 发布时间: 2026-08-25 ([https://arxiv.org/abs/2608.21366](https://arxiv.org/abs/2608.21366))  
   - *推荐理由*：模型坍塌是制约行业大模型持续迭代的隐性天花板，本综述为政企客户构建可持续 AI 能力提供方法论指南，尤其对依赖私有数据微调的应急模型训练具有强指导价值。  </textarea>
-   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
 - **NVIDIA Vera Rubin NVL72树立AI智能体能效新标准** NVIDIA实测Vera Rubin NVL72在AI智能体负载下每瓦吞吐量较前代提升30倍，百万token成本降低35倍，凸显其针对Agent推理优化的架构优势 | 来源: NVIDIA Blog | 发布时间: 2026-08-24 ([原文链接](https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents))  
   - *推荐理由*：标志着AI基础设施正从“大模型训练”转向“智能体持续运行”阶段，能效比成为新竞争焦点；该芯片亦被SpaceX选为AI卫星核心，印证其边缘-太空协同潜力。  
 
@@ -926,7 +971,7 @@
 
 - **ReCurveflow：基于曲线反应轨迹的过渡态几何预测流匹配框架** 创新性采用非线性反应路径建模，替代传统直线插值，使化学反应过渡态预测误差降低58%，在药物分子设计与新材料发现中具备直接工程价值 | 来源: arXiv | 发布时间: 2026-08-24 ([原文链接](https://arxiv.org/abs/2608.20869))  
   - *推荐理由*：虽属科学计算，但其流匹配范式可迁移至灾害模拟（如火势蔓延、洪水演进）的高精度物理建模，为应急推演系统提供更可靠的底层动力学引擎。</textarea>
-   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
 
 ### 🔥 热点新闻  
 - **得州州长批评AI数据中心遭民众抵制属咎由自取** 得州州长阿博特公开指出，科技公司对AI数据中心环境影响（耗水、噪音、电网负荷）长期避而不谈，导致公众信任崩塌，全美多地爆发反对浪潮 | 来源: IT之家 | 发布时间: 2026-08-24 ([原文链接](https://www.ithome.com/0/993/336.htm))  
@@ -979,68 +1024,11 @@
 
 - **匿名牛来大模型被扒出智谱血缘，也有人怀疑Cursor拿开源GLM训的** 量子位深度分析显示，“牛来”大模型Tokenizer结构、视频编码层权重分布与智谱GLM系列高度一致；另有线索指向Cursor可能使用GLM-4微调，引发开源模型商用边界争议 | 来源: 量子位 | 发布时间: 2026-08-23 ([原文链接](https://www.qbitai.com/2026/08/478191.html))  
   - *推荐理由*：揭示当前闭源模型“伪原创”灰色地带——通过微调开源基座+私有数据注入实现快速迭代，倒逼行业建立模型血缘追踪标准（如MLCommons Model Provenance Initiative），否则将动摇开源生态信任根基。  </textarea>
-   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
-- **蚂蚁百灵为SGLang推出权重缓存守护进程** 蚂蚁百灵发布Weight Cache Daemon，将Ling-2.6-1T FP8模型权重加载时间压缩至0.63秒，引擎启动耗时从8.8分钟降至0.53分钟，显著提升大模型推理服务冷启效率 | 来源: 蚂蚁百灵官方X账号 | 发布时间: 2026-08-22 ([原文链接](https://x.com/AntLingAGI/status/2091021795373855124))  
-  - *推荐理由*：该守护进程直击SGLang等开源推理框架在生产环境中的核心痛点——权重加载延迟，是国产大模型基础设施层关键工程突破，有望成为云边协同推理的标准组件。  
-
-- **中诚华隆HL200推理芯片发布：能效比5.12 TFLOPS/W，集群最高万卡扩展** 中诚华隆发布HL200推理芯片，支持FP4/FP8原生低精度计算，单卡FP4算力4P；超节点集群方案支持单机柜64卡、单节点1024卡、横向万卡级扩展，聚焦国产高能效智算底座构建 | 来源: IT之家 | 发布时间: 2026-08-22 ([原文链接](https://www.ithome.com/0/993/108.htm))  
-  - *推荐理由*：在国产AI芯片普遍聚焦训练场景的背景下，HL200明确锚定推理侧高能效与超大规模弹性扩展，直击大模型应用落地的功耗与成本瓶颈，具备政务、金融、能源等关键行业边缘推理部署潜力。  
-
-- **雷鸟iO AI眼镜发布：首款“人类增强AI眼镜”，全天智记堪比随身助理** 雷鸟创新发布iO系列AI眼镜，主打“全天智记”能力，支持第一视角连续音视频记录、实时语义摘要与多模态检索，定位为“人类认知外延设备”，非单纯信息显示终端 | 来源: IT之家 | 发布时间: 2026-08-22 ([原文链接](https://www.ithome.com/0/993/065.htm))  
-  - *推荐理由*：跳脱AR显示范式，以“记忆增强”切入真实需求，结合端侧语音/视觉模型轻量化部署，标志着AI可穿戴设备进入“无感交互+主动服务”新阶段，对医疗问诊、工业维修、应急指挥等专业场景具强适配性。  
-### 🔥 热点新闻  
-- **Inherent推出小参数AI智能体Faraday，科研复现能力超越GPT‑5.5与Claude Opus 4.8** 英国初创公司Inherent发布轻量级AI智能体Faraday，在科学复现任务（如论文代码生成、实验步骤推演）上表现优于GPT-5.5与Claude Opus 4.8，其模型规模远小于主流旗舰模型，强调“小而精”的科研向智能体定位 | 来源: IT之家 | 发布时间: 2026-08-23 ([原文链接](https://www.ithome.com/0/993/133.htm))  
-  - *推荐理由*：在大模型军备竞赛之外开辟新路径，证明垂直领域智能体可通过架构优化与任务对齐实现“以小博大”，或将加速科研自动化工具链的普惠化落地。  
-
-- **DeepSeek调整API周末计费：周六日全天统一按低谷价收费** DeepSeek宣布自2026年8月23日零时起，API调用在周六、周日全天统一执行低谷时段价格（为高峰价50%），简化原有峰谷时段划分逻辑，降低开发者周末实验与测试成本 | 来源: IT之家 | 发布时间: 2026-08-22 ([原文链接](https://www.ithome.com/0/993/095.htm))  
-  - *推荐理由*：此举释放明确信号——模型厂商正从“卖算力”转向“促使用”，通过精细化运营策略降低用户试错门槛，有望激发教育、创客、中小开发者群体的创新活力，推动API生态繁荣。  
-
-- **哈佛商学院推出699美元创业训练营，讲师AI数字分身提供路演反馈** 哈佛商学院HBS Foundry训练营引入HeyGen打造的AI讲师数字分身，在模拟路演、董事会答辩等环节提供实时、个性化反馈，课程定价仅699美元，大幅降低顶级商学教育资源获取门槛 | 来源: IT之家 | 发布时间: 2026-08-23 ([原文链接](https://www.ithome.com/0/993/131.htm))  
-  - *推荐理由*：全球顶尖教育机构首次将AI深度融入高价值教学闭环，验证了“AI教练”在结构化反馈、规模化辅导上的可行性，预示职业教育、技能培训等领域将迎来“千人千面”智能导师时代。  
-
-- **特斯拉获内华达州批准部署最多5000辆Robotaxi** 特斯拉获内华达州运输管理局正式许可，可在克拉克县（含拉斯维加斯）未来12个月内部署最多5000辆完全无人驾驶Robotaxi，取代此前仅限10辆车的临时许可 | 来源: IT之家 | 发布时间: 2026-08-23 ([原文链接](https://www.ithome.com/0/993/125.htm))  
-  - *推荐理由*：全球最大规模的Robotaxi商业化落地许可，标志L4级自动驾驶监管从“沙盒测试”迈向“区域规模化运营”，将加速城市交通OS重构，并倒逼高精地图、V2X、保险等配套体系升级。  
-
-- **特斯拉正有意放缓Model Y加入Robotaxi车队，押注Cybercab** 特斯拉向摩根大通透露，正主动控制Model Y纳入Robotaxi车队节奏，转而聚焦专为无人驾驶设计的Cybercab量产落地，强调“专用架构”对安全冗余与成本控制的关键价值 | 来源: IT之家 | 发布时间: 2026-08-23 ([原文链接](https://www.ithome.com/0/993/128.htm))  
-  - *推荐理由*：揭示Robotaxi产业路线分歧——“改装现有车”与“从零定义车辆”的战略取舍，Cybercab若成功，将确立“AI原生汽车”新标准，重塑整车厂与科技公司的竞合关系。  
-
-- **第二届世界人形机器人运动会开幕：2056台机器人参赛，全自主运行** 第二届世界人形机器人运动会于国家速滑馆开幕，666支队伍、2056台机器人参与51项赛项；天工Ultra百米跑出9.39秒、荣耀“闪电”400米41.95秒，均打破人类世界纪录；全部竞技赛取消人工遥控，实现端到端全自主运行 | 来源: IT之家 | 发布时间: 2026-08-22 ([原文链接](https://www.ithome.com/0/993/105.htm))  
-  - *推荐理由*：赛事规模与技术指标双重跃升，标志着具身智能已从实验室Demo迈入高可靠、高一致性工程验证阶段，为工业巡检、应急救援等真实场景提供了可量化的性能基线。  
-### 🚨 应急业务  
-- **GB 12801-2025《生产过程安全基本要求》新标发布，强化安全防护技术措施** 新版国标GB 12801-2025正式实施，第5章“安全防护技术措施”系统规定风险识别、监测预警、自动干预等技术要求，明确将AI驱动的智能巡检、缺陷识别、遥感分析纳入合规技术路径 | 来源: 安全技术百科 | 发布时间: 2026-08-17 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1787445038&amp;ver=6921&amp;signature=aH8UpipmrgeefkHDy8hCtfx4PRZ6gKwIHgVjysLhYZJZH6TeLnQoVyi8BU4do9gqDCJABpZjOHzuurqQlVFVnHzVuZLgCINYtCmEliqMTO4mE-VG2a9Ih-R2bXZHDncb&amp;new=1))  
-  - *推荐理由*：首次在国家级安全标准中为AI赋能的主动防护技术提供法理依据，将极大加速无人机巡检、AI病害识别、低空遥感等技术在危化、矿山、电力等高危行业的强制性渗透。  
-
-- **外墙巡检平台形成完整作业流程：覆盖新建项目、航线采集、病害标注与成果管理** 墙安卫士建筑巡检平台已打通“项目建模→楼栋管理→自动航线规划→影像回传→AI病害标注→结构化报告生成→成果归档”全流程，支持毫米级裂缝识别与三维病害定位 | 来源: 墙安卫士 | 发布时间: 2026-08-17 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1787445059&amp;ver=6921&amp;signature=R5MGFk9Z5WPJT6E0QyfWLOum9I86rWEGMxyhAl6hBtF6vVHVxAOsoiZtuYVlXDg9ZTwnMAfXupbehc0*uAz7btNIxssv72Srjoub5-FfrAC4bQS59ireoCwOGUKehbBr&amp;new=1))  
-  - *推荐理由*：从“单点AI检测”升级为“全生命周期数字孪生巡检”，解决传统建筑体检中人工依赖度高、数据孤岛、响应滞后等顽疾，为城市更新与既有建筑安全监管提供可复制的数字化范式。  
-
-- **Saildrone与洛马公司首次从无人船发射JAGM导弹，参与RIMPAC 2026军演** Saildrone Surveyor无人船联合洛克希德·马丁，在环太平洋军演中成功完成JAGM导弹实弹发射，验证了大型无人水面舰艇在远程精确打击、海上应急响应等复杂任务中的实战能力 | 来源: DroneXL | 发布时间: 2026-08-22 ([原文链接](https://dronexl.co/2026/08/22/saildrone-lockheed-jagm-missile-launch-rimpac/))  
-  - *推荐理由*：突破性验证了无人平台在高烈度、高风险应急响应（如海上事故处置、危险品拦截、灾害区域火力支援）中的战术价值，为海事搜救、溢油应急、反恐处突等民用场景提供技术降维应用可能。  
-
-- **亚马逊MK30无人机投递失误坠入泳池，凸显Zipline系留+降落伞设计在应急投送中的可靠性优势** 亚马逊MK30无人机在德州投递中失控坠入泳池；对比之下，Zipline采用系留绳索+可控降落伞的83磅重载无人机，在复杂气流与突发障碍下仍保持精准投送，已获多国卫生部门认证 | 来源: DroneXL | 发布时间: 2026-08-22 ([原文链接](https://dronexl.co/2026/08/22/amazon-pool-drop-zipline-drone-delivery-design/))  
-  - *推荐理由*：用极端案例验证了“安全冗余设计”在生命攸关型应急物流中的不可替代性，为医疗急救物资、防疫样本、救灾装备等高优先级投送场景提供了更优技术选型参考。  
-
-- **涉水桥梁检测难？睿检科技无人机实现贴近水面数据采集** 睿检科技推出专用涉水桥梁检测无人机系统，通过抗扰动飞控算法与毫米波雷达避障，可在距水面0.5米内稳定悬停并采集高清影像与结构振动数据，解决跨海、跨江桥梁水下基础检测盲区问题 | 来源: 无人机桥梁检测 | 发布时间: 2026-08-19 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1787445042&amp;ver=6921&amp;signature=ZFTrUy8ubemE3E5Z64UJzwE3FznSlypKb9YS50r0*kcM5Pjs9sCAKMTAfeEerAln-9FImCsfgkRrUmivD99JM8AhWCxbPhtsslRs8mo0RbqT0NclagLj9nvAau7CH8BR&amp;new=1))  
-  - *推荐理由*：攻克低空近水面飞行这一高风险技术难点，填补桥梁全生命周期健康监测中“水下基础”数据空白，对防范洪涝灾害引发的桥梁垮塌具有重大现实意义。  
-
-- **陕西消防计划投入600万元，为全省2000余台执勤消防车提供预警监控服务** 陕西省消防救援总队启动采购意向，拟建设覆盖全省2000余台执勤消防车的智能预警监控平台，集成车载AI摄像头、胎压/油温/电路状态传感器及4G/5G实时回传，实现故障预警、出警路径优化与战勤保障联动 | 来源: 微观消防 | 发布时间: 2026-08-21 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1787445008&amp;ver=6921&amp;signature=YQZnKLvx-zkfgWVop2XJj6Rsn7UkN6qnXeR*NRzZfIpkNRvPxuwpeWufknuh7wHMWgPAVOw13EwcCbXi6eVYPe6m3vuLOrqsIS3miueI*2Lxob0ZpywaoHnF47GFGarw&amp;new=1))  
-  - *推荐理由*：将消防车辆从“被动响应工具”升级为“主动感知节点”，通过全域车辆状态联网，构建省级消防作战资源数字底图，大幅提升跨区域调度、战损评估与预防性维护能力。  
-### 🧠 算法专项  
-- **星海图联合产业伙伴共探具身智能下一站：从模型到生产力** 星海图在WRC 2026展示具身智能工业落地路径，其“一脑多形”架构支持同一模型快速适配轮式、足式、机械臂等不同本体，已在产线质检、仓储搬运等场景实现端侧实时决策与闭环控制 | 来源: 量子位 | 发布时间: 2026-08-22 ([原文链接](https://www.qbitai.com/2026/08/476930.html))  
-  - *推荐理由*：破解具身智能产业化最大瓶颈——模型与硬件强耦合，通过标准化接口与轻量化推理引擎，显著降低客户定制成本，加速AI从“实验室演示”走向“产线标配”。  
-
-- **优必选把客户产线1:1搬进WRC，解锁具身智能真落地路径** 优必选在WRC现场复刻真实客户产线（含精密装配、柔性抓取、多机协同），其具身大脑在端侧完成毫秒级视觉-动作闭环，无需云端依赖，验证了工业级实时性与鲁棒性 | 来源: 量子位 | 发布时间: 2026-08-22 ([原文链接](https://www.qbitai.com/2026/08/477253.html))  
-  - *推荐理由*：以“产线即赛场”的硬核方式证明端侧部署成熟度，为制造业客户提供可验证、可计量的ROI模型，推动具身智能从“概念验证”迈入“合同交付”阶段。  
-
-- **伽利略机器人首发“陆行具身系统”，打通轮车足底层技术壁垒** 伽利略机器人发布首个融合轮式移动、履带越障、四足攀爬的通用陆行具身系统，通过统一运动规划引擎与自适应地形建模，实现复杂非结构化环境（废墟、斜坡、碎石）下的全地形自主通行 | 来源: 量子位 | 发布时间: 2026-08-22 ([原文链接](https://www.qbitai.com/2026/08/477246.html))  
-  - *推荐理由*：突破单一移动形态局限，为地震救援、核电站巡检、矿山勘探等极端应急场景提供真正可用的具身载体，其底层运动控制算法具备向特种机器人平台迁移的普适价值。  
-
-- **魔法原子亮相WRC 2026，三大场景解决方案实景展示物理AI真·上岗** 魔法原子在WRC展出“一脑驱动多形”物理AI系统，覆盖工业质检（微米级缺陷识别）、商业服务（商场导航+多语种交互）、家庭陪伴（安全避障+情感化响应）三大场景，所有功能均在端侧实时运行 | 来源: 量子位 | 发布时间: 2026-08-22 ([原文链接](https://www.qbitai.com/2026/08/477155.html))  
-  - *推荐理由*：以“真上岗”为唯一验收标准，拒绝Demo式演示，其端侧多模态理解与小样本增量学习能力，为边缘AI设备提供了兼顾精度、速度与隐私保护的全新技术栈。</textarea>
 
    <script>
        // AI 推荐评分映射（仅 today 有；历史早报 tab 无评分显示）
        // 由后端 render() 注入：url -> score
-       const SCORES_MAP = {"https://www.ithome.com/0/995/896.htm": 85.0, "https://x.com/mntruell/status/2093532254006063557": 76.0, "https://www.dwarkesh.com/p/openai-huggingface": 75.0, "https://arxiv.org/abs/2608.23691": 75.0, "https://terminalbytes.com/run-qwen-3-8-27b-locally": 72.0, "https://www.ithome.com/0/996/058.htm": 88.0, "https://www.ithome.com/0/996/041.htm": 88.0, "https://www.ithome.com/0/996/053.htm": 87.0, "https://www.ithome.com/0/996/035.htm": 87.0, "https://www.ithome.com/0/996/057.htm": 86.0, "https://www.ithome.com/0/996/038.htm": 86.0, "https://www.ithome.com/0/996/022.htm": 86.0, "https://www.ithome.com/0/996/062.htm": 85.0, "https://dronexl.co/2026/08/29/rocklin-felon-indicted-white-house-ufc-drone-plot-guns-signal/": 78.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788049879&ver=6935&signature=O-KUORKmKDr8KaRcMT5SCnqKdtNSn8TOqIOXB4BFXfQFf1Ag7Jk1RnQlEZKUY8G8Vq*N72kDjU2UEGfSyuN0A6WoGA6mf4Gl-iGyVStsGa7JtXJRfmLrcAt83wHNRzsB&new=1": 78.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788049853&ver=6935&signature=cDLTdu3T-KORC-8m3E-aQyyUi*pK5z75O4czwnAeY5SgWMNFD0r14oKCkOLqEVdNDNK2EybRwyUeNzSgo0dhGDjoXKLOTo5nb8pwlIQtZOfm5jCxUi0ofy0wVWfdZ6gi&new=1": 78.0, "https://dronexl.co/2026/08/29/amazon-prime-air-tracy-california-drone-delivery-return/": 76.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788049862&ver=6935&signature=KHsliPGBiIdO3Wkqs0Jc5casqxJxYnpA4kqYMosRsdaVg6vUWE-FiKuCbI0Z8QdsEhcJcHLlQrNeYOPAJQDrDPv6wvrNAIM2FLvHce8rXAqQ-Vpiz3d50mJ*IvrGbjOb&new=1": 75.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788049853&ver=6935&signature=cDLTdu3T-KORC-8m3E-aQyyUi*pK5z75O4czwnAeY5RQZ9OpCeSEmeXYc*DoaQEVeLITGOwQ3*-wT4sB7sSmE6E2zXGR-m7841keHQi1QXmWPe*3JwoTmPcXZs77c1mh&new=1": 72.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788049845&ver=6935&signature=6JwGOTJWKHTi*sxlFgny2OYdl*KhRr54PeZt6FGq4Otrzo4xBkhisrz8RuTqIUnfwDm*UJ26xhvPmucdt4oUIxLVuX3hHE*zYmScBIp8SdezxS4ZriPrObGWUMGcPla4&new=1": 70.0, "https://dronexl.co/2026/08/29/leipzig-drone-bomb-plot-third-drone-hexogen/": 68.0, "https://arxiv.org/abs/2608.26160": 85.0, "https://arxiv.org/abs/2608.26191": 85.0, "https://arxiv.org/abs/2608.26442": 85.0, "https://arxiv.org/abs/2608.26750": 85.0, "https://arxiv.org/abs/2608.26162": 84.0, "https://arxiv.org/abs/2608.26184": 84.0, "https://arxiv.org/abs/2608.26190": 84.0, "https://arxiv.org/abs/2608.26193": 84.0};
+       const SCORES_MAP = {"https://x.com/AYi_AInotes/status/2093864816079208512": 90.0, "https://the-decoder.com/sony-and-warner-sue-anthropic-over-one-of-the-largest-and-most-blatant-ongoing-thefts-of-intellectual-property-in-history": 78.0, "https://www.tmtpost.com/8121886.html": 86.0, "https://www.ithome.com/0/996/216.htm": 84.0, "https://www.ithome.com/0/996/218.htm": 83.0, "https://www.tmtpost.com/8121852.html": 83.0, "https://www.ithome.com/0/996/254.htm": 82.0, "https://www.ithome.com/0/996/222.htm": 80.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788136207&ver=6937&signature=3ju2rBAMmNcgAWV0wIR*JjNSyOYtrJf31WOOk9NZi8VP3uwhUgu7jjEe5UkFhk5Lnx9KRixwQGl1Q2Y4L4L0qEB0l-7B5v67RFcPbPkZaz6-sOx4cgA6KIuVSXUMcSYT&new=1": 75.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788136250&ver=6937&signature=zP8OUVfB-IlXwvGnoqKxXnz5DpY7K*1eOEp0sPpXsvll5dMygUeJZHH3o4gcdABe2pHkgcWkqP9Tg4IzfWHdTRUMXaRxTMe-NoaBscgSrsuEZEyo7ez1n*gFqbpIZejp&new=1": 75.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788136250&ver=6937&signature=zP8OUVfB-IlXwvGnoqKxXnz5DpY7K*1eOEp0sPpXsvnnsPtENlwmT3ap9xiWVYXQWa4HAK8SmjlWR9Mh-jqxnGnSfYltpARG6IGxTl4FCdn*r7x0N7UCq40IpGvgZaWG&new=1": 73.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788136241&ver=6937&signature=WqXxaYXH2-z*GHo-hcJBj5f*kKL0FglswjHv-BaS0vkO9ZQg5cTunHrfnIEoSt6NZaFtKi*d5hmez4Mxy6J*0OiiyfnKPY4tOHwoDnBg2yR1DMkazC-*W8*KdlCyHPur&new=1": 68.0, "https://dronexl.co/2026/08/30/fcc-wants-to-ban-lost-pet-drone-cbs-news-celebrated/": 65.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788136276&ver=6937&signature=y6TvYeoKF5nDDL4XRGuQxyAIY8oaS*z7emhzYn9aA5Au81ti720DQwb1DY*Jht3oiNbCssc0zs09MFVIzu7ZebYLMa81sjyMdfDb-BxXRdVBdiL9tISihJK7B3a8sg4Y&new=1": 65.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788136276&ver=6937&signature=WJ7GucyFzKwacMhi70LN1zo8G1rbguQm8RJRKZQNzSbhsLzHAAfQo3v7B*lD2jZCP3Dk9pVW8ndkPT8iU3yIzLIVu2TTIng0lgvOIUC4svq5DWIhuw9-4r9on0n5cmzz&new=1": 65.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1788136250&ver=6937&signature=zP8OUVfB-IlXwvGnoqKxXnz5DpY7K*1eOEp0sPpXsvkLHTSZGr4wwd715pI3li7FqZA4FXpFl*z2RoFFvG9nP05UKMBovMi-3j435tSBbW-c3aHEPU6*A5DCgDY0tiIX&new=1": 65.0};
 
        // 分类配置
        const CATEGORY_CONFIG = {
@@ -1447,7 +1435,7 @@
 
        // 日期元信息（render 时注入，供历史下拉与顶部日期联动使用）
        // 结构: today/day_1..day_7 各含 date_display / date_iso / weekday
-       const DAY_META = {"today": {"date_display": "2026年08月30日", "date_iso": "2026-08-30", "weekday": "周日"}, "day_1": {"date_display": "2026年08月29日", "date_iso": "2026-08-29", "weekday": "周六"}, "day_2": {"date_display": "2026年08月28日", "date_iso": "2026-08-28", "weekday": "周五"}, "day_3": {"date_display": "2026年08月27日", "date_iso": "2026-08-27", "weekday": "周四"}, "day_4": {"date_display": "2026年08月26日", "date_iso": "2026-08-26", "weekday": "周三"}, "day_5": {"date_display": "2026年08月25日", "date_iso": "2026-08-25", "weekday": "周二"}, "day_6": {"date_display": "2026年08月24日", "date_iso": "2026-08-24", "weekday": "周一"}, "day_7": {"date_display": "2026年08月23日", "date_iso": "2026-08-23", "weekday": "周日"}};
+       const DAY_META = {"today": {"date_display": "2026年08月31日", "date_iso": "2026-08-31", "weekday": "周一"}, "day_1": {"date_display": "2026年08月30日", "date_iso": "2026-08-30", "weekday": "周日"}, "day_2": {"date_display": "2026年08月29日", "date_iso": "2026-08-29", "weekday": "周六"}, "day_3": {"date_display": "2026年08月28日", "date_iso": "2026-08-28", "weekday": "周五"}, "day_4": {"date_display": "2026年08月27日", "date_iso": "2026-08-27", "weekday": "周四"}, "day_5": {"date_display": "2026年08月26日", "date_iso": "2026-08-26", "weekday": "周三"}, "day_6": {"date_display": "2026年08月25日", "date_iso": "2026-08-25", "weekday": "周二"}, "day_7": {"date_display": "2026年08月24日", "date_iso": "2026-08-24", "weekday": "周一"}};
 
        // 历史记录列表（今天放第一位，方便从历史日期返回今天）
        const HISTORY_DAYS = ['today', 'day_1', 'day_2', 'day_3', 'day_4', 'day_5', 'day_6', 'day_7'];
