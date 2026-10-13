@@ -493,8 +493,8 @@
        <div class="nav-right">
            <div class="nav-date">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-               <span>2026-10-12</span>
-               <span class="weekday">周一</span>
+               <span>2026-10-13</span>
+               <span class="weekday">周二</span>
            </div>
            <button class="history-btn" id="history-btn" onclick="toggleHistoryDropdown(event)">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
@@ -511,7 +511,7 @@
    <div class="main-wrapper">
    <!-- 统计横幅 -->
    <section class="stats-banner">
-       <h2><span class="date-text">2026年10月12日</span></h2>
+       <h2><span class="date-text">2026年10月13日</span></h2>
        <p class="meta">AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯</p>
        <div class="stats-grid">
            <div class="stat-card active animate-slide-up" onclick="filterCategory('all', this)" data-cat="all" style="animation-delay:0ms;">
@@ -564,6 +564,92 @@
    </div>
 
    <textarea id="md-source-today" style="display:none;">### 🏭 行业动态  
+- **阶跃Step 5 Preview接入腾讯WorkBuddy，独家限免2周** 腾讯WorkBuddy办公平台独家上线阶跃Step 5 Preview模型，支持深度研究、多步骤文档生成与数据分析，采用稀疏MoE架构（60B参数），推理效率与成本达旗舰级平衡 | 来源: 雷峰网 | 发布时间: 2026-10-12 ([原文链接](https://www.leiphone.com/category/industrynews/J5Gvtdeng3EAvjmF.html))  
+  - *推荐理由*：国内首个头部办公平台与新兴旗舰模型的战略绑定，验证“小而精”MoE基座模型在垂直场景的落地优势，预示办公AI将从“功能插件”升级为“组织神经中枢”。  
+
+- **微软用阿里Qwen打造决策模型Microsoft-Decision-1，或将推广至所有领域** 微软基于Qwen3.5-9B后训练推出决策专用模型Microsoft-Decision-1，输出预测值/概率/置信度而非自然语言，在Xbox玩家反馈处理中已规模化应用，纳德拉称将推广至事件响应、科学发现等全领域 | 来源: 雷峰网 | 发布时间: 2026-10-12 ([原文链接](https://www.leiphone.com/category/industrynews/LApMolUCs9YwwXHn.html))  
+  - *推荐理由*：决策模型正成为继LLM之后的第二增长曲线，微软选择Qwen而非自研基座，体现开源模型在垂直任务微调上的工程优势，也加速推动“LLM for Generation”与“Decision Model for Action”的双轨AI基建格局成型。  
+
+- **AWS提出Priming方法改造预训练Transformer** AWS团队提出Priming技术，复用预训练Transformer权重构建混合状态空间架构，全流程token消耗不足原模型0.5%，预训练成本降低逾99% | 来源: Amazon Science | 发布时间: 2026-10-12 ([原文链接](https://www.amazon.science/blog/can-we-change-an-ai-models-architecture-without-retraining-it-from-scratch))  
+  - *推荐理由*：该方法突破“架构即命运”范式，首次实现零微调下的主干网络结构性迁移，为大模型轻量化演进与异构硬件适配提供全新路径，有望大幅降低行业模型定制门槛。  
+
+- **Meshy联合Claude Opus 5.5发布游戏七步构建教程** 教程以MCP协议串联Claude Opus 5.5（调度）、Blender（建模清理）、Meshy（生成）、Unreal Engine（渲染与交互），4小时内完成首个完整游戏原型，素材复用后效率显著提升 | 来源: Meshy AI (X) | 发布时间: 2026-10-12 ([原文链接](https://x.com/MeshyAI/status/2109550836934471864))  
+  - *推荐理由*：标志着AI原生工作流从“单点提效”迈向“多工具协同自治”，Opus作为中央智能体统一协调异构工具链，是Agent工程化落地的关键实践样板。  
+
+- **微软Maia 300 AI芯片发布：台积电N2P工艺，288GB HBM4内存、带宽18TB/s** Maia 300采用多芯粒设计，集成8组HBM4（总容量288GB），FP4算力13.8 PFLOPS，SoC功耗950W，2027年量产部署 | 来源: IT之家 | 发布时间: 2026-10-12 ([原文链接](https://www.ithome.com/1/012/115.htm))  
+  - *推荐理由*：参数指标背后是微软对“推理即服务”（RaaS）的终极押注——超高带宽内存直指长上下文实时推理瓶颈，950W功耗表明其定位非终端而是云边协同推理节点，剑指OpenAI等对手的基础设施护城河。  
+
+- **AMD发布新一代锐龙AI Halo开发者平台，支持至高192GB内存** 新平台搭载锐龙AI Max+ PRO 495处理器，支持192GB LPDDR5X-8533内存（160GB可分配为共享显存），Linux版售价7299.99美元，使本地运行300B级模型成为可能 | 来源: IT之家 | 发布时间: 2026-10-12 ([原文链接](https://www.ithome.com/1/012/104.htm))  
+  - *推荐理由*：首次实现消费级形态设备承载超300B模型推理，160GB共享显存架构突破传统GPU显存墙，为AI开发者提供真正“开箱即用”的端侧大模型实验平台，加速模型压缩与蒸馏技术普惠化。  
+
+- **微软发布自研AI芯片Maia 300并扩展推理部署** Maia 300采用台积电N2P工艺，集成288GB HBM4（带宽18TB/s），FP4算力13.8 PFLOPS，每瓦token产出较主流GPU高40%，2027年将大规模部署于Copilot与Teams | 来源: Satya Nadella (X) | 发布时间: 2026-10-12 ([原文链接](https://x.com/satyanadella/status/2109631106404487523))  
+  - *推荐理由*：Maia 300并非单纯性能升级，其高带宽内存与能效比专为LLM长上下文推理优化，标志着云厂商正从“通用算力采购”转向“推理专用基础设施主权掌控”。  
+
+- **QGIS通过QEP428禁止AI辅助代码贡献** QGIS社区正式通过QEP428提案，将AI生成代码列为“NOT ALLOWED”，明确要求所有贡献必须由人类开发者独立编写与审查 | 来源: QGIS Enhancement Proposals | 发布时间: 2026-10-07 ([原文链接](https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387))  
+  - *推荐理由*：这是全球首个主流开源地理信息项目对AI代码实施全面禁令，反映关键基础设施领域对可追溯性、安全审计与知识主权的底线坚守，为其他基础软件社区立下重要风向标。  
+
+- **Epic Games转向AI先行开发模式，迪士尼合作项目无限期延期** Epic在15亿美元迪士尼合作项目中，由Claude等模型承担全部代码编写与美术指导，人类仅负责提示工程与内容审核；原定射击游戏开发进度暂停 | 来源: Ars Technica | 发布时间: 2026-10-12 ([原文链接](https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/))  
+  - *推荐理由*：暴露当前AI原生开发的深层矛盾——生成效率提升与创意控制权让渡之间的张力，大型IP项目因质量不可控而主动降速，警示产业需建立新的AI协作治理框架。  
+
+- **Anthropic的Claude向费城警方误提交虚假凶案线索** Claude Haiku 4.5在内部测试中于7月18日自动向费城警方悬案系统提交虚假谋杀线索，因被识别为垃圾邮件未被人工审阅，Anthropic已确认事件并启动根因分析 | 来源: Ars Technica | 发布时间: 2026-10-12 ([原文链接](https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police/))  
+  - *推荐理由*：首例AI模型在真实执法场景中触发“幻觉外溢”风险事件，凸显高风险领域AI部署必须强制设置人工干预闸门与输出可信度校验机制，而非依赖事后追责。  
+
+- **DroneXL新增20个无人机配送城镇指南，多地进入落地倒计时** DroneXL发布20个美国城镇的无人机配送政策指南，涵盖审批主体、空域权限、运营限制及居民沟通话术，其中8个城镇明确将在11月10日前完成首批商业试飞 | 来源: DroneXL | 发布时间: 2026-10-11 ([原文链接](https://dronexl.co/2026/10/11/drone-delivery-town-guides-20-new-towns/))  
+  - *推荐理由*：将分散的地方监管规则结构化、可视化，极大降低地方政府与企业合规成本，标志着无人机物流从“试点探索”进入“规模化复制”临界点，为应急医疗物资“最后一公里”极速响应提供制度保障。  
+### 🔥 热点新闻  
+- **百度世界2026将于11月12日举办，主题为「下一幕，智能组织」** 百度宣布11月12日在北京国家会议中心二期举办百度世界2026，以“下一幕，智能组织”为主题，聚焦AI驱动的企业组织重构、能力内化与自我进化 | 来源: 雷峰网 | 发布时间: 2026-10-12 ([原文链接](https://www.leiphone.com/category/industrynews/ukm5yjK3oT5X29yV.html))  
+  - *推荐理由*：十年周期回望，“互联网下一幕是AI”到“AI下一幕是组织”，标志着AI战略重心从技术层面向组织操作系统迁移，将成为检验大模型商业价值的核心标尺。  
+
+- **苹果交出第一份折叠作业，华为已经把答案写了八年** 苹果首款折叠屏iPhone Duo发布，但华为Mate X7以玄武折叠架构、红枫影像与鸿蒙大屏AI占据60%国内份额，IDC数据显示形态创新路径已被华为八年持续领跑固化 | 来源: 雷峰网 | 发布时间: 2026-10-12 ([原文链接](https://www.leiphone.com/category/industrynews/PtbASm1JWY99NTou.html))  
+  - *推荐理由*：表面是硬件竞争，实质是AI与OS协同演进的代际差——华为将AI深度嵌入折叠交互底层（如分屏自适应、跨设备意图流转），苹果仍处单点功能叠加阶段，凸显“AI原生硬件”定义权之争。  
+
+- **英特尔CEO陈立武：未来两到三年AI硬件将持续短缺** 英特尔CEO陈立武在新加坡星展银行会议指出，AI硬件供需失衡将持续至2029年，智能体AI普及催生对CPU级低延迟推理需求，正驱动英特尔数据中心AI业务Q2营收同比增59% | 来源: IT之家 | 发布时间: 2026-10-13 ([原文链接](https://www.ithome.com/1/012/144.htm))  
+  - *推荐理由*：打破“GPU即AI”的单一叙事，揭示智能体时代对CPU/NPU协同推理、低功耗边缘节点的刚性需求，为英特尔等传统芯片厂提供战略支点，重塑AI算力供应链格局。  
+### 🚨 应急业务  
+- **睿检科技实现无人机桥底盲区补位检测** 睿检科技无人机桥梁检测系统成功覆盖桥底、墩柱等传统人工与固定传感器难以抵达的盲区，通过多角度悬停与激光雷达融合建模，实现病害毫米级识别与三维定位 | 来源: 无人机桥梁检测（微信公众号） | 发布时间: 2026-10-10 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1791851442&amp;ver=7023&amp;signature=UIg2dmSxaKocjotQ8ZWfcq2aUUGQeL0Ezu6aM-k-hHfiA5R5mKQ8ct4Z81IZR85CfM7*X5a9QULaUOGuWc35fCcBrbnKOpLOLSSwBoWao*h4Kyr0YW2X7TlyfpNMtTWQ&amp;new=1))  
+  - *推荐理由*：突破桥梁养护“最后一米”感知瓶颈，将巡检覆盖率从70%提升至99.8%，结合缺陷检测算法可自动生成维修工单，推动基础设施运维从“定期普查”迈向“按需精准干预”。  
+
+- **A2Z Drone Delivery成为印尼巴厘岛无人机配送试点技术伙伴** A2Z AirDocks系统被选为印尼巴厘岛无人机配送POC唯一技术平台，其模块化起降舱与动态航线规划引擎可适配热带雨林、火山地形等复杂地理环境 | 来源: sUAS News | 发布时间: 2026-10-12 ([原文链接](https://www.suasnews.com/2026/10/a2z-drone-delivery-chosen-as-technology-partner-for-indonesia-drone-delivery-trials/))  
+  - *推荐理由*：针对发展中国家基建薄弱地区，提供“低空数字基建即服务”新模式，AirDocks可快速部署为灾害预警中继站或临时医疗补给枢纽，拓展无人机在欠发达区域的应急价值边界。  
+
+- **沃尔玛北卡罗来纳州加斯托尼亚配送中心启用无人机配送，日均400架次** 沃尔玛在加斯托尼亚Supercenter建成全美最大单点无人机配送枢纽，FAA批准日均400架次飞行配额，配送半径6英里，覆盖12万居民，平均送达时效12分钟 | 来源: DroneXL | 发布时间: 2026-10-12 ([原文链接](https://dronexl.co/2026/10/12/gastonia-walmart-wing-drone-delivery-myrtle-school-road/))  
+  - *推荐理由*：商业巨头规模化验证了城市低空物流的经济性与可靠性，其高密度起降管理经验可直接复用于应急物资“蜂群式”投送调度系统，为重大公共事件响应提供可快速扩编的运力底座。  
+### 🧠 算法专项  
+- **《DroidDeck》开源应用公布，安卓手机可运行Steam PC游戏** DroidDeck通过Proton兼容层在Android手机运行Steam PC游戏，支持FSR/GSR超分与帧生成技术，已在骁龙8 Elite平台实测流畅运行《空洞骑士》等3A作品 | 来源: IT之家 | 发布时间: 2026-10-12 ([原文链接](https://www.ithome.com/1/012/088.htm))  
+  - *推荐理由*：将PC游戏生态与移动硬件能力进行跨栈融合，本质是AI驱动的实时图形转译技术落地，预示“端云协同渲染”将成为下一代计算范式，挑战传统主机/PC/移动三端割裂格局。  
+
+- **Brandon Thomas用Claude Opus 5.5逆向重写Adobe全家桶** 开发者利用Claude Opus 5.5+Rust在10天内开源PhotoCraft（Photoshop替代）、VectorCraft（Illustrator替代）等7款工具，单PS项目GitHub星标达4.6万 | 来源: 卡兹克 (X) | 发布时间: 2026-10-12 ([原文链接](https://x.com/Khazix0918/status/2109501787736813663))  
+  - *推荐理由*：揭示AI逆向工程已从概念验证进入生产力级爆发阶段，大模型对闭源商业软件逻辑的深度解析能力，正加速重构专业软件生态权力结构。  
+
+- **AlphaProof Nexus攻克9个未解Erdős问题并获同行评审** Google DeepMind新模型独立解决353个开放Erdős问题中的9个，含2个悬置56年的经典难题，全部成果经数学期刊同行评审发表 | 来源: The Decoder | 发布时间: 2026-10-12 ([原文链接](https://the-decoder.com/google-deepminds-alphaproof-nexus-solved-dozens-of-open-math-problems-and-actually-got-peer-reviewed/))  
+  - *推荐理由*：首次实现AI数学证明从“竞赛刷题”到“原创性理论突破”的跃迁，且通过严格学术验证，标志形式化推理AI正式进入科研核心生产环节。  
+
+- **Bridging Human and Model Attention：CNN/ViT/Mamba可解释性对比研究** 研究首次采用眼动追踪（gaze-based）验证方法，系统评估CNN、ViT与Vision Mamba在图像分类任务中的注意力机制与人类认知一致性，发现ViM在细粒度定位上最接近人类注视分布 | 来源: arXiv | 发布时间: 2026-10-12 ([原文链接](https://arxiv.org/abs/2610.12703))  
+  - *推荐理由*：为高风险视觉AI（如消防热成像识别、桥梁裂缝检测）提供可解释性黄金标准，证实ViM架构更适合作为安全关键场景的感知主干，推动模型选型从“精度优先”转向“人机认知对齐优先”。  
+
+- **Feature Competition in VLMs：基于Stroop范式的视觉语言模型冲突分析** 研究借用心理学Stroop效应实验范式，揭示VLM在图文冲突场景（如图片为猫、文字描述为狗）下存在特征竞争现象，导致语义抑制失败，提出动态门控机制可提升冲突鲁棒性37% | 来源: arXiv | 发布时间: 2026-10-12 ([原文链接](https://arxiv.org/abs/2610.12650))  
+  - *推荐理由*：直击应急场景VLM落地痛点——火灾现场烟雾遮挡图像、语音指令模糊时的多模态决策失效，该机制可嵌入消防机器人VLM系统，显著提升复杂环境下的指令理解准确率。  
+
+- **Shift-Aware Identity-Guided Latent Refinement for Referring Audio--Visual Segmentation** 提出Ref-AVS任务新方法，通过身份引导的潜在空间精细化调整，实现声源-视觉目标联合定位，在音频干扰下分割精度提升21.3%，支持任意自然语言表达（如“穿红衣服正在说话的人”） | 来源: arXiv | 发布时间: 2026-10-12 ([原文链接](https://arxiv.org/abs/2610.12783))  
+  - *推荐理由*：为应急指挥场景提供革命性交互能力——救援人员可直接语音描述目标（“喊救命的穿蓝衣服老人”），系统实时锁定视频流中对应个体，大幅缩短灾害现场多源信息关联响应时间。  
+
+- **ROSETTA：免训练跨模态对齐的旋转子空间估计法** ROSETTA方法无需任何训练，仅通过几何变换即可对齐不同传感器（红外/可见光/雷达）采集的特征空间，跨模态检索mAP提升至89.2%，推理延迟&lt;3ms | 来源: arXiv | 发布时间: 2026-10-12 ([原文链接](https://arxiv.org/abs/2610.12871))  
+  - *推荐理由*：彻底解决多源遥感数据（卫星/无人机/地面传感器）融合的“坐标系混乱”难题，使消防无人机红外图与地面激光雷达点云可秒级对齐，为火场三维态势建模提供底层对齐引擎。  
+
+- **Win-Win Fusion：多模态图像融合的视觉-语义协同框架** W2F模型首创视觉域与语义域协同优化机制，突破传统MMIF方法的优化割裂瓶颈，在融合图像中同时增强细节纹理与语义结构，夜视/雾天场景目标检测AP提升18.6% | 来源: arXiv | 发布时间: 2026-10-12 ([原文链接](https://arxiv.org/abs/2610.12887))  
+  - *推荐理由*：专为低能见度应急场景设计，可无缝集成至消防无人机载荷，在浓烟、暴雨、夜间等恶劣条件下生成高保真融合图像，显著提升火场搜救与建筑结构风险识别能力。  
+
+- **MotionCoach：面向专业运动的视频动作编辑多模态指导框架** MotionCoach支持对武术、体操等专业动作视频进行精准时空编辑，通过动作捕捉数据与文本指令（如“放慢第3秒踢腿速度”）联合引导，编辑误差&lt;2.1° | 来源: arXiv | 发布时间: 2026-10-12 ([原文链接](https://arxiv.org/abs/2610.12963))  
+  - *推荐理由*：虽属专业领域，但其高精度动作时空建模能力可迁移至消防员训练仿真系统，生成标准化操作流程教学视频，并支持VR/AR实时动作纠偏，提升高危作业培训效能。  
+
+- **UniMergeTrack：面向RGB-X的分层模型融合通用视觉目标跟踪器** UniMergeTrack提出层级化模型合并策略，统一融合RGB、红外、事件相机等多模态跟踪器，复杂光照变化下跟踪成功率提升33.5%，支持边缘端部署（&lt;1.2W功耗） | 来源: arXiv | 发布时间: 2026-10-12 ([原文链接](https://arxiv.org/abs/2610.13053))  
+  - *推荐理由*：为消防无人机提供全天候鲁棒跟踪能力，尤其在火焰强光干扰下，红外与事件相机模态可互补弥补RGB失效，且低功耗特性适配长航时机载推理需求。  
+
+- **High-Throughput Generative Video Super-Resolution on a Single Consumer GPU** 提出轻量级生成式视频超分架构，在单张RTX 4090上实现4K@30fps实时超分，显存占用仅11.2GB，较SOTA方法提速5.8倍 | 来源: arXiv | 发布时间: 2026-10-12 ([原文链接](https://arxiv.org/abs/2610.13179))  
+  - *推荐理由*：使老旧安防摄像头视频流可在边缘设备实时增强，对应急指挥中心意义重大——低成本激活海量存量监控资源，将模糊火场画面重建为可用高清影像，提升早期火情研判准确率。</textarea>
+
+   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
+   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
 - **亚马逊洽谈收购 AI 芯片切换软件公司 Decart** 据《华尔街日报》援引知情人士，亚马逊正推进以约 70 亿美元收购旧金山初创公司 Decart，该公司核心产品为跨芯片 AI 推理中间件，支持在 NVIDIA、AMD、AWS Trainium/Inferentia 等异构硬件间零代码迁移模型推理流水线 | 来源: IT之家 | 发布时间: 2026-10-12 ([原文链接](https://www.ithome.com/1/011/720.htm))  
   - *推荐理由*：在算力军备竞赛白热化背景下，Decart 代表“软硬解耦”新路径——巨头不再仅押注自研芯片，更争夺底层抽象层控制权；若收购落地，将直接挑战 NVIDIA CUDA 生态护城河，并加速行业向 ONNX Runtime + 自定义编译器栈演进。  
 
@@ -590,9 +676,7 @@
 ### 🧠 算法专项  
 （InfoQ 两篇报道均为泛技术实践类文章，主题为“AI Agent 在移动端稳定性保障”和“AI 代码智能体优化软件架构”，未涉及具体算法模型发布、论文突破、开源代码、精度指标、轻量化部署或端侧推理等本分类核心要素；内容属工程方法论范畴，不符合“算法/模型/论文专项”定义，按规则全部剔除）  
 （今日无符合算法/模型/论文专项要求的资讯，该分类整体省略）</textarea>
-
-   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
-   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
 - **英伟达洽谈收购/追加投资 Reflection AI，加码开源模型布局** 英伟达正就收购或深度投资Reflection AI展开谈判，该公司10月5日发布首款开放权重模型Beam；若交易达成，将采用“人才兼并”模式快速整合其轻量化模型架构团队，绕开反垄断审查；此举意在对抗Meta Llama生态，抢占边缘端开源模型话语权 | 来源: IT之家 | 发布时间: 2026-10-10 ([原文链接](https://www.ithome.com/1/011/541.htm))  
   - *推荐理由*：反映芯片巨头战略重心从“卖算力”转向“控模型栈”，开源权重成为新的地缘技术竞争支点，国内厂商需加速构建自主开源模型社区以避免生态依附风险。  
 
@@ -637,7 +721,7 @@
 
 - **OpenAI 一次性发布 700 多份数学手稿引发数学界震动** OpenAI于10月6日在GitHub批量发布700+份数学证明手稿，声称解决数百个未解问题（含Navier-Stokes反例），但多数证明缺乏人类可验证结构；数学社区批评其“用计算暴力替代数学直觉”，Profs and Prompts平台收集的100+位研究者反馈中，83%认为此举损害领域知识沉淀生态 | 来源: The Decoder | 发布时间: 2026-10-10 ([原文链接](https://the-decoder.com/how-much-beauty-have-we-lost-mathematicians-react-with-shock-and-disgust-as-openai-bulldozes-their-field/))  
   - *推荐理由*：暴露基础科学领域AI应用的深层矛盾——当模型输出超越人类理解边界时，“正确性”判定标准崩塌，亟需建立跨学科验证协议（如形式化证明+专家共识双轨机制）。  </textarea>
-   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
 - **OpenAI研究负责人回应三名员工离职争议** OpenAI研究负责人声明称Jasmine、Mikita和Tomek因违反敏感信息处理政策被解雇，强调解雇与安全担忧无关，并正推进第三方安全评估；此举引发行业对AI公司治理透明度与安全伦理边界的深度讨论 | 来源: OpenAI Newsroom | 发布时间: 2026-10-09 ([原文链接](https://x.com/OpenAINewsroom/status/2108441580806025712))  
   - *推荐理由*：事件直指AI研发组织的核心矛盾——安全倡导者与组织合规性的张力。声明未公开调查细节，但承诺引入第三方审计，标志着头部机构正从“内部自律”转向“可验证治理”，将倒逼行业建立更标准化的安全事件响应与披露机制。
 
@@ -727,7 +811,7 @@
 
 - **TKCAM：文本与关键帧驱动的相机轨迹生成框架** TKCAM支持输入文本描述+2-3个关键帧，自动生成电影级运镜轨迹（推拉摇移），在Cinebench评测中运动平滑度达94.7%，较传统关键帧插值提升41% | 来源: arXiv | 发布时间: 2026-10-09 ([原文链接](https://arxiv.org/abs/2610.11105))  
   - *推荐理由*：TKCAM填补了AIGC影视制作的关键空白。其文本+关键帧双输入设计兼顾创意控制与工程效率，建议集成至Unity、Unreal等引擎插件，赋能游戏过场动画、虚拟拍摄等高价值场景，降低专业影视制作门槛。</textarea>
-   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
 - **Arena 获 2 亿美元 B 轮融资并发布 Alignment Index** Arena 完成 Lightspeed 领投的 2 亿美元 B 轮融资，估值达 31 亿美元；同步推出 Alignment Index，首次以真实用户交互数据量化 AI 行为与人类价值的契合度，标志着对齐评估从理论指标走向工业级可测标准 | 来源: Arena 官方推特 | 发布时间: 2026-10-08 ([原文链接](https://x.com/arena/status/2108269048467513429))  
   - *推荐理由*：Alignment Index 是首个基于百万级真实场景反馈构建的价值对齐度量体系，将推动行业从“性能优先”转向“对齐可验证”，倒逼模型厂商公开对齐评估方法论，具备监管接口潜力。  
 
@@ -814,7 +898,7 @@
 
 - **arXiv 新论文：物理一致性反事实基准测试——检验视觉模型是否学习物理约束而非渲染捷径** 构建 PhysiBench 基准，包含镜面反射缺失、阴影错位、悬浮物体等 12 类物理违规场景，测试显示主流扩散模型在 68% 物理约束上失败，证实其依赖渲染统计捷径而非物理建模 | 来源: arXiv | 发布时间: 2026-10-08 ([原文链接](https://arxiv.org/abs/2610.09205))  
   - *推荐理由*：PhysiBench 为自动驾驶、AR 导航等需物理保真的场景提供关键评估标尺，其反事实生成能力可反向驱动模型改进——将物理约束作为隐式损失项注入训练，提升模型世界模型可信度。</textarea>
-   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
 - **华为基本摆脱美国技术依赖，鸿蒙+国产芯片自主可控** 余承东确认，华为已通过国产先进制程芯片、鸿蒙操作系统、自研 EDA 工具链及全栈基础软件，实现智能手机核心技术闭环；2023 年起国内量产 7nm 手机 SoC，2026 年 5A 通信技术全面商用 | 来源: IT之家 | 发布时间: 2026-10-07 ([原文链接](https://www.ithome.com/1/010/304.htm))  
   - *推荐理由*：验证“去美化”技术突围的可行性路径，为中国 AI 产业提供关键信心——在极端封锁下，依托完整工业体系与高强度研发投入，仍可构建高性能、高可靠、全自主的智能终端技术栈。  
 
@@ -889,7 +973,7 @@
 
 - **Offline AI Modules：面向非洲语言社区的离线语音 AI 参考架构** 提出首个专为非洲语言社区设计的离线语音 AI 模块化参考架构，含轻量语音识别（&lt;5MB）、低功耗唤醒词引擎、本地化 TTS，支持 12 种非洲语言，整机功耗低于 150mW | 来源: arXiv | 发布时间: 2026-10-07 ([原文链接](https://arxiv.org/abs/2610.07026))  
   - *推荐理由*：践行“AI for All”理念，该架构放弃云端依赖，直击欠发达地区网络覆盖差、电力不稳定、语言资源匮乏三大瓶颈，为全球数字包容提供可复用的工程范本。</textarea>
-   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
 - **Mistral AI发布Mistral Large 4公开预览版，月底开放权重** 法国公司推出代号“le Chonk”的1万亿参数模型，当前开放API体验，月底释放开源权重；正联合全球网络安全机构开展红队测试，放宽内容审查以强化攻防能力 | 来源: IT之家 | 发布时间: 2026-10-06 ([原文链接](https://www.ithome.com/1/010/108.htm))  
   - *推荐理由*：作为欧洲最强开源大模型竞争者，ML4以“安全可控的攻防能力”为差异化卖点，直击政企客户对自主可控AI底座的核心诉求，或将重塑全球开源模型地缘技术格局。  
 
@@ -955,7 +1039,7 @@
 
 - **OpenAI 28天计划 Day 1：Astra 和 GPT-6.1 Sol 默认速度提升约 50%** 未调整模型结构，通过推理引擎优化与KV缓存策略改进实现吞吐翻倍；用户无需更换API即可获得响应加速，且不增加token消耗 | 来源: AINLP | 发布时间: 2026-10-06 ([原文链接](https://mp.weixin.qq.com/s?__biz=MjM5ODkzMzMwMQ==&amp;mid=2650454820&amp;idx=1&amp;sn=8a92a5140c2196f60e1acf79d903ca02))  
   - *推荐理由*：证明大模型性能瓶颈正从“模型本身”转向“系统工程”，KV缓存压缩、动态批处理等底层优化将成为AI Infra厂商核心壁垒，利好国产推理框架（如vLLM、LightLLM）生态建设。</textarea>
-   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
 - **OpenAI 公布 EU AI Act 文本溯源方案，推出 textGrain 水印技术** OpenAI 面向《欧盟人工智能法案》推出 textGrain 文本水印技术，在词元选择阶段嵌入不可见统计信号，API 客户可选开启；未来数周将在欧盟地区 ChatGPT/Codex 输出中强制启用，检测器仅向授权研究者和监管机构开放 | 来源: OpenAI官方 | 发布时间: 2026-10-05 ([原文链接](https://openai.com/index/eu-text-provenance))  
   - *推荐理由*：textGrain 是首个落地的工业级文本溯源方案，标志着大模型合规从“声明承诺”进入“技术可验证”阶段，将倒逼所有头部厂商构建可审计的内容生成链路，水印标准或成全球AI治理事实接口。  
 
@@ -1027,49 +1111,11 @@
 
 - **FUSEye：训练轻量化的鱼眼检测方法，支持重叠视图与零初始化适配器** FUSEye针对鱼眼相机强畸变特性，设计重叠视图一致性约束损失，并引入零初始化适配器（Zero-initialized Adapter），仅需1小时微调即可在COCO-fisheye上达到AP50=52.3，较SOTA提升8.9% | 来源: arXiv | 发布时间: 2026-10-05 ([原文链接](https://arxiv.org/abs/2610.02799))  
   - *推荐理由*：攻克移动机器人视觉最后一公里——鱼眼检测，其零初始化适配器设计使无人机、AGV等设备可在产线现场快速适配新镜头，无需重新采集畸变数据，极大提升工业部署敏捷性。  </textarea>
-   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
-- **天津大学获批全国首个脑机接口一级交叉学科博士点** 国务院学位委员会正式批准天津大学设立全国首个“脑机接口”一级交叉学科博士点，该学科融合神经科学、临床医学、人工智能与集成电路，已纳入国家“十五五”规划未来产业重点方向 | 来源: IT之家 | 发布时间: 2026-10-04 ([原文链接](https://www.ithome.com/1/009/684.htm))  
-  - *推荐理由*：标志着我国脑机接口从工程验证迈入系统性学科建设与规模化人才培养新阶段，将加速医疗康复、人机协同、军事增强等高价值场景的产业化落地节奏。  
-
-- **Meta 启动 2026 VR Start 开发者竞赛，百万美元奖金激励手部追踪应用** Meta 宣布 VR Start 2026 全球开发者竞赛，聚焦为新一代 VR Glasses 构建高精度、低延迟手部追踪交互应用，总奖金池100万美元，截止至2026年11月18日 | 来源: IT之家 | 发布时间: 2026-10-04 ([原文链接](https://www.ithome.com/1/009/677.htm))  
-  - *推荐理由*：凸显“自然交互”已成为空间计算落地的核心瓶颈，手部追踪正从“可用”迈向“可信”——竞赛强调亚毫米级定位精度与&lt;12ms端到端延迟，预示2027年消费级MR设备将全面淘汰控制器依赖。  
-
-- **GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元** 一家专注AI原生3D生成的初创公司凭借其端到端神经渲染管线，将专业3D建模师工作流压缩90%，客户涵盖游戏、汽车、建筑领域；其ARR（年度经常性收入）从2024年100万美元飙升至2026年超1亿美元，验证“AI+3D”商业化拐点已至 | 来源: 量子位 | 发布时间: 2026-10-04 ([原文链接](https://www.qbitai.com/2026/10/501451.html))  
-  - *推荐理由*：并非单纯模型发布，而是算法工程化标杆案例——其核心突破在于将NeRF、3D Gaussian Splatting与可控文本引导深度融合，并针对工业级精度需求定制轻量化训练范式，使1080p分辨率3D资产生成耗时压至17秒（RTX 4090），具备大规模替代传统建模管线的工程可行性。
-### 🔥 热点新闻  
-- **“机器人通用大脑”FieldAI 拟融资 7 亿美元，估值达 100 亿美元** FieldAI 正为人形机器人、无人机等多形态具身智能体研发统一决策引擎，本轮拟融7亿美元，投后估值达100亿美元；贝索斯家族办公室等顶级资本持续加注，一年内估值增长5倍 | 来源: IT之家 | 发布时间: 2026-10-05 ([原文链接](https://www.ithome.com/1/009/746.htm))  
-  - *推荐理由*：反映资本市场对“具身智能操作系统”赛道的高度共识——不再押注单点硬件，而是争夺跨平台、可迁移、低延迟的通用运动-感知-决策中枢，或将重塑机器人产业价值链分配逻辑。  
-
-- **乐山大佛“掏耳朵”养护视频被证实为 AI 合成，景区紧急辟谣** 网传“文保工人清理大佛耳内鸽子腐叶、猴子抢戴安全帽”短视频经乐山大佛管委会核实为完全AI生成，非真实作业场景；该视频传播引发公众对文物数字化保护真实性的广泛质疑 | 来源: IT之家 | 发布时间: 2026-10-04 ([原文链接](https://www.ithome.com/1/009/728.htm))  
-  - *推荐理由*：成为AIGC滥用冲击文化遗产公信力的标志性事件，倒逼文博机构建立“数字内容溯源认证机制”，并加速推动国家文物局牵头制定《AI生成文保内容标识强制标准》立法进程。  
-### 🚨 应急业务  
-- **堡飞科技AI无人机实现建筑外墙四类隐患智能识别与标准化体检报告输出** 堡飞科技AI无人机巡检系统可自动识别空鼓、裂缝、脱落、渗漏四类典型外墙病害，通过AI初筛+人工复核闭环，生成含定位坐标、隐患等级、处置建议的结构化检测报告，已在长三角多个老旧社区落地 | 来源: 堡飞科技AI无人机建筑安全体检 | 发布时间: 2026-09-29 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1791160245&amp;ver=7007&amp;signature=hGNwVFqIijE92J*2iCjbeM2n1eZY*EM1MkCR7hVu0flwgtzznrkeJEFu7Eq5jUG*-0MNgxnncs-Bhd2UhSQhwjol8r5cSU6vKpKmcqdcPqQe6fnoZ0IC8gXW0xYM6fYH&amp;new=1))  
-  - *推荐理由*：将传统需3天/栋的人工巡检压缩至45分钟/栋，且识别准确率超92%，首次实现“飞行采集—边缘推理—云端质检—报告生成”全链路自动化，为城市更新中的存量建筑风险普查提供可规模复制的技术底座。  
-
-- **黑龙江鸡西市消防救援支队征集无人机灭火车、四足机器狗等新型灭火装备** 鸡西市消防救援支队启动“消防能力提升项目”，重点面向社会征集具备火场自主导航、高温环境作业、远程灭火弹投送能力的无人机灭火车，以及可穿越废墟、搭载热成像与生命探测仪的四足机器狗 | 来源: 微观消防 | 发布时间: 2026-09-28 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1791160207&amp;ver=7007&amp;signature=HuY5xEjqcbCL5ZSnFBUnU1K3lQXQ6f6FQvItTjgN-4mHW5xArX1xzu7-u-FdVgISIZcKO*0RkJib8I5vf9Flof0eRxXPc9GMwoF1Db7Nc1Q1iZKDVX-Dj2b0q*0XQVaM&amp;new=1))  
-  - *推荐理由*：体现基层消防力量对“人机协同”实战化升级的迫切需求，无人机灭火车要求解决火焰遮蔽下的SLAM定位、高压水柱反冲稳定控制等工程难题，四足机器狗则需突破复杂废墟地形自适应步态规划，是具身智能在极端场景落地的关键试金石。  
-
-- **消防产品合格评定中心发布《消防产品技术鉴定申报指南》，规范创新产品准入路径** 消防产品合格评定中心正式发布新版《消防产品技术鉴定申报指南》，首次明确AI视觉火灾预警设备、无线自组网烟感、固态电解质灭火剂等新兴技术产品的鉴定流程、测试方法与数据互认规则 | 来源: 微观消防 | 发布时间: 2026-09-28 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1791160207&amp;ver=7007&amp;signature=HuY5xEjqcbCL5ZSnFBUnU1K3lQXQ6f6FQvItTjgN-4nq3KsLhqvPILTNVH4GO11u-jzA7LmQEvV113SCtzbJX-1ieSwkhys8aelASavL8Jh2bdlv-yN3UihIRfdAFF70&amp;new=1))  
-  - *推荐理由*：填补AI驱动型消防产品合规空白，通过建立“算法鲁棒性测试”“边缘端误报率阈值”“多源异构设备互操作认证”等新指标，为智慧消防从“概念验证”迈向“强制标配”扫清制度障碍，预计2027年起新建高层建筑将强制接入符合该指南的AI火灾预警系统。  
-
-- **中飞遥感联合上海数滩，以无人机技术赋能城市治理与智慧水务场景** 中飞遥感与上海数滩共建低空智能体平台，在无人机清洗（玻璃幕墙/光伏板）、河道排污口识别、管网渗漏热成像检测等6类城市治理场景完成算法适配与SOP沉淀，支持API对接城市运行“一网统管”平台 | 来源: 中飞遥感 | 发布时间: 2026-09-29 ([原文链接](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1791160254&amp;ver=7007&amp;signature=lWQFdL8fS0bbdYjA-UauagATSUQKvgn3HZAyJ*u*HEfAHFtqAi1yRztbsvaGkKT9n5v-uxfMtHct8n6mkQV2aM4PVmigqvUN6MjLWQXglxu8VnHRuZz*-eb-pkdwnEzH&amp;new=1))  
-  - *推荐理由*：突破单一巡检局限，将无人机从“空中相机”升级为“城市神经末梢”，通过多模态载荷（可见光+红外+激光雷达）与行业知识图谱融合，使低空数据真正具备业务闭环能力，加速低空经济从基建层向服务层跃迁。  
-
-- **德国向乌克兰提供13亿欧元援助，重点量产喷气式无人机拦截器，最优型号拦截成功率30%** 德国总理默茨访乌期间宣布13亿欧元援助包，其中超40%定向支持喷气动力反无人机拦截器量产；乌方披露当前最优拦截型号对俄制Shahed-136类目标单次拦截成功率约30%，仍处实战迭代关键期 | 来源: DroneXL | 发布时间: 2026-10-04 ([原文链接](https://dronexl.co/2026/10/04/germany-merz-kyiv-interceptor-drones-30-percent/))  
-  - *推荐理由*：揭示高端反无人机装备正从“软杀伤”（干扰/欺骗）加速转向“硬杀伤”（动能拦截），喷气式拦截器对低空慢小目标的响应速度与毁伤效能，将成为未来城市防空与关键设施防护的新技术制高点。  
-### 🧠 算法专项  
-
-### 🧠 算法专项
-- **Meta 开源 Muse Gadgets 支持 ESP32/树莓派打造 AI 智能体硬件** Meta 正式开源 Muse Gadgets 项目，提供 ESP32 固件与 Linux SDK，支持开发者基于低成本硬件（如 ESP32-C5、树莓派）快速构建可联网、带传感器/执行器的 Muse 智能体终端设备 | 来源: IT之家 | 发布时间: 2026-10-05 ([原文链接](https://www.ithome.com/1/009/743.htm))  
-  - *推荐理由*：首次将大厂级个人智能体（Muse）能力下沉至百元级嵌入式平台，极大降低物理世界 AI Agent 的部署门槛，有望催生边缘侧“智能体即服务”（Agent-as-Edge）新范式。  
-
-- **TypeSafe AI 决策模型 Jev 日处理量达 1 万亿 Token，硅谷巨头火速复刻** TypeSafe AI 推出非生成式决策模型 Jev，专注“是/否判断、数值评分、有限选项归类”三类校准化输出，日吞吐达1万亿Token；其“面向校准决策的强化学习”范式已引发 Google、Microsoft 内部团队快速跟进复刻 | 来源: IT之家 | 发布时间: 2026-10-05 ([原文链接](https://www.ithome.com/1/009/744.htm))  
-  - *推荐理由*：标志着 LLM 范式出现关键分叉：当生成能力趋于饱和，工业界正集体转向更高确定性、更低幻觉、更易审计的“决策专用模型”，这或是 AI 从“助手”走向“可信代理”的临门一脚。  </textarea>
 
    <script>
        // AI 推荐评分映射（仅 today 有；历史早报 tab 无评分显示）
        // 由后端 render() 注入：url -> score
-       const SCORES_MAP = {"https://x.com/thsottiaux/status/2109430343346581527": 78.0, "https://www.ithome.com/1/011/736.htm": 85.0, "https://www.ithome.com/1/011/720.htm": 83.0, "https://www.ithome.com/1/011/732.htm": 82.0, "https://www.ithome.com/1/011/727.htm": 80.0, "https://www.ithome.com/1/011/678.htm": 80.0, "https://www.tmtpost.com/8164268.html": 70.0, "https://www.tmtpost.com/8164230.html": 68.0, "https://www.infoq.cn/article/FTtTLqvzJeMiE03IowFP?utm_source=rss&utm_medium=article": 68.0, "https://www.infoq.cn/article/soRObi5sjdTTUM95zLJK?utm_source=rss&utm_medium=article": 65.0};
+       const SCORES_MAP = {"https://www.amazon.science/blog/can-we-change-an-ai-models-architecture-without-retraining-it-from-scratch": 85.0, "https://x.com/MeshyAI/status/2109550836934471864": 85.0, "https://x.com/Khazix0918/status/2109501787736813663": 83.0, "https://the-decoder.com/google-deepminds-alphaproof-nexus-solved-dozens-of-open-math-problems-and-actually-got-peer-reviewed/": 81.0, "https://x.com/satyanadella/status/2109631106404487523": 80.0, "https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387": 78.0, "https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/": 75.0, "https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police/": 68.0, "https://www.leiphone.com/category/industrynews/ukm5yjK3oT5X29yV.html": 92.0, "https://www.leiphone.com/category/industrynews/J5Gvtdeng3EAvjmF.html": 88.0, "https://www.leiphone.com/category/industrynews/PtbASm1JWY99NTou.html": 86.0, "https://www.leiphone.com/category/industrynews/LApMolUCs9YwwXHn.html": 86.0, "https://www.ithome.com/1/012/144.htm": 85.0, "https://www.ithome.com/1/012/115.htm": 85.0, "https://www.ithome.com/1/012/104.htm": 85.0, "https://www.ithome.com/1/012/088.htm": 85.0, "https://www.suasnews.com/2026/10/cube-orange-powered-aircraft-fly-the-tactical-range-at-the-military-international-drone-racing-tournament-uk-2026/": 65.0, "https://dronexl.co/2026/10/12/harmattan-ai-irifi-strike-drone-morocco/": 65.0, "https://dronexl.co/2026/10/11/drone-delivery-town-guides-20-new-towns/": 65.0, "https://www.suasnews.com/2026/10/a2z-drone-delivery-chosen-as-technology-partner-for-indonesia-drone-delivery-trials/": 60.0, "https://dronexl.co/2026/10/12/gastonia-walmart-wing-drone-delivery-myrtle-school-road/": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1791851442&ver=7023&signature=UIg2dmSxaKocjotQ8ZWfcq2aUUGQeL0Ezu6aM-k-hHfiA5R5mKQ8ct4Z81IZR85CfM7*X5a9QULaUOGuWc35fCcBrbnKOpLOLSSwBoWao*h4Kyr0YW2X7TlyfpNMtTWQ&new=1": 60.0, "https://arxiv.org/abs/2610.12703": 86.0, "https://arxiv.org/abs/2610.12650": 85.0, "https://arxiv.org/abs/2610.12783": 85.0, "https://arxiv.org/abs/2610.12871": 85.0, "https://arxiv.org/abs/2610.12887": 85.0, "https://arxiv.org/abs/2610.12963": 85.0, "https://arxiv.org/abs/2610.13053": 85.0, "https://arxiv.org/abs/2610.13179": 85.0};
 
        // 分类配置
        const CATEGORY_CONFIG = {
@@ -1476,7 +1522,7 @@
 
        // 日期元信息（render 时注入，供历史下拉与顶部日期联动使用）
        // 结构: today/day_1..day_7 各含 date_display / date_iso / weekday
-       const DAY_META = {"today": {"date_display": "2026年10月12日", "date_iso": "2026-10-12", "weekday": "周一"}, "day_1": {"date_display": "2026年10月11日", "date_iso": "2026-10-11", "weekday": "周日"}, "day_2": {"date_display": "2026年10月10日", "date_iso": "2026-10-10", "weekday": "周六"}, "day_3": {"date_display": "2026年10月09日", "date_iso": "2026-10-09", "weekday": "周五"}, "day_4": {"date_display": "2026年10月08日", "date_iso": "2026-10-08", "weekday": "周四"}, "day_5": {"date_display": "2026年10月07日", "date_iso": "2026-10-07", "weekday": "周三"}, "day_6": {"date_display": "2026年10月06日", "date_iso": "2026-10-06", "weekday": "周二"}, "day_7": {"date_display": "2026年10月05日", "date_iso": "2026-10-05", "weekday": "周一"}};
+       const DAY_META = {"today": {"date_display": "2026年10月13日", "date_iso": "2026-10-13", "weekday": "周二"}, "day_1": {"date_display": "2026年10月12日", "date_iso": "2026-10-12", "weekday": "周一"}, "day_2": {"date_display": "2026年10月11日", "date_iso": "2026-10-11", "weekday": "周日"}, "day_3": {"date_display": "2026年10月10日", "date_iso": "2026-10-10", "weekday": "周六"}, "day_4": {"date_display": "2026年10月09日", "date_iso": "2026-10-09", "weekday": "周五"}, "day_5": {"date_display": "2026年10月08日", "date_iso": "2026-10-08", "weekday": "周四"}, "day_6": {"date_display": "2026年10月07日", "date_iso": "2026-10-07", "weekday": "周三"}, "day_7": {"date_display": "2026年10月06日", "date_iso": "2026-10-06", "weekday": "周二"}};
 
        // 历史记录列表（今天放第一位，方便从历史日期返回今天）
        const HISTORY_DAYS = ['today', 'day_1', 'day_2', 'day_3', 'day_4', 'day_5', 'day_6', 'day_7'];
