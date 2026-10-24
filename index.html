@@ -493,8 +493,8 @@
        <div class="nav-right">
            <div class="nav-date">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-               <span>2026-10-23</span>
-               <span class="weekday">周五</span>
+               <span>2026-10-24</span>
+               <span class="weekday">周六</span>
            </div>
            <button class="history-btn" id="history-btn" onclick="toggleHistoryDropdown(event)">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
@@ -511,7 +511,7 @@
    <div class="main-wrapper">
    <!-- 统计横幅 -->
    <section class="stats-banner">
-       <h2><span class="date-text">2026年10月23日</span></h2>
+       <h2><span class="date-text">2026年10月24日</span></h2>
        <p class="meta">AI资讯早知道 · 共 <span class="count" id="total-count">0</span> 条资讯</p>
        <div class="stats-grid">
            <div class="stat-card active animate-slide-up" onclick="filterCategory('all', this)" data-cat="all" style="animation-delay:0ms;">
@@ -564,6 +564,80 @@
    </div>
 
    <textarea id="md-source-today" style="display:none;">### 🏭 行业动态  
+- **OpenAI 发现 Brotli 远程代码执行漏洞并披露** OpenAI 红队测试发现 Brotli 压缩库存在未认证远程代码执行漏洞，攻击者可借恶意压缩数据在 Node.js、Envoy 等内嵌该库的系统上执行任意代码，无需用户账号，已向社区披露并推动修复 | 来源: OpenAI (@OpenAI) | 发布时间: 2026-10-23 ([https://x.com/OpenAI/status/2113766354386084338](https://x.com/OpenAI/status/2113766354386084338))  
+  - *推荐理由*：暴露底层基础设施安全盲区，警示所有依赖 Brotli 的 AI 服务（含推理 API、模型下载、日志压缩等）亟需紧急补丁，推动行业建立“红队前置+供应链审计”双轨安全机制。  
+
+- **皮查伊解释哈萨比斯退出 DeepMind 与杰夫·迪恩离职原因** Sundar Pichai 表示，前沿模型研发已从科研范式转向超大规模工程化作业，需重构组织结构以匹配数据、算力与团队管理的全链路消耗，Demis Hassabis 将聚焦长期科学愿景，Jeff Dean 转向更广义 AI 基础设施战略 | 来源: Alex Heath (@alexeheath) | 发布时间: 2026-10-23 ([https://x.com/alexeheath/status/2113706585348600220](https://x.com/alexeheath/status/2113706585348600220))  
+  - *推荐理由*：标志大模型研发进入“工业化深水区”，头部机构正通过管理层级解耦（科研 vs 工程）、职能再定位（愿景驱动 vs 效率驱动）应对边际成本陡增挑战，将加速行业人才结构分化。  
+
+- **月之暗面 Kimi K3.1 Pro 上线 OpenRouter，支持 1M 上下文多模态开源权重** Kimi K3.1 Pro 是基于 K3 后训练的 3 万亿参数模型，专为长程编码与智能体任务优化，提供开源权重、100 万上下文及多模态能力，定价 $2/M input tokens，已在 OpenRouter 开放商用 API | 来源: OpenRouter (@OpenRouter) | 发布时间: 2026-10-23 ([https://x.com/OpenRouter/status/2113699820124934334](https://x.com/OpenRouter/status/2113699820124934334))  
+  - *推荐理由*：首次实现国产大模型在主流开源平台（OpenRouter）提供百万级上下文+开源权重+商用 API 三位一体能力，显著降低智能体开发门槛，推动中国模型生态从闭源 API 向可验证、可定制、可审计的开源协作演进。  
+
+- **Kling 4.0 在 fal 平台全面开放 API，支持 30 秒原生视频生成与关键帧控制** Kling 4.0 支持带音频的 30 秒原生视频生成，具备最多 15 个图像/视频参考输入、10 个关键帧精确控制能力，运动连贯性、角色一致性与电影感叙事能力显著提升 | 来源: fal (@fal) | 发布时间: 2026-10-23 ([https://x.com/fal/status/2113646807997620396](https://x.com/fal/status/2113646807997620396))  
+  - *推荐理由*：标志着视频生成从“提示到片段”迈向“提示到分镜”的可控创作阶段，关键帧控制能力使工业级视频生产（如广告脚本可视化、教育动画分步生成）首次具备工程落地可行性。  
+
+- **OpenAI 详解前沿模型训练环境安全加固与红队测试机制** OpenAI 构建离线缓存网页世界、实施多层隔离纵深防御，并启用 GPT‑6 Astra Cyber 等最强模型组成智能体红队，对训练环境进行高算力、高对抗性渗透测试 | 来源: OpenAI 官网 | 发布时间: 2026-10-23 ([https://openai.com/index/securing-our-frontier-model-training-environment](https://openai.com/index/securing-our-frontier-model-training-environment))  
+  - *推荐理由*：确立前沿模型安全新范式——以模型攻模型，将红队能力从人工驱动升级为 AI 智能体自主演化，为后续 GPT-6 级别模型的可信训练树立行业技术标杆。  
+
+- **OpenAI 下调估值目标至 1.25 万亿美元，拟融资至多 300 亿美元** OpenAI 接近完成新一轮至多 300 亿美元融资，但将估值目标从 1.4 万亿美元下调至 1.25 万亿美元，反映资本市场对大模型商业化路径与盈利节奏的审慎预期 | 来源: The Decoder | 发布时间: 2026-10-23 ([https://the-decoder.com/openai-lowers-valuation-target-raises-up-to-30-billion/](https://the-decoder.com/openai-lowers-valuation-target-raises-up-to-30-billion/))  
+  - *推荐理由*：估值微调不改长期信心，但释放明确信号：市场正从“规模崇拜”转向“现金流验证”，倒逼企业聚焦 RAG、Agent、垂直 SaaS 等可计量 ROI 的落地场景，加速行业理性化。  
+
+- **国务院办公厅印发意见：增强 AI 创造就业正面效应，减缓替代影响** 文件提出构建“AI+岗位赋能”体系，支持传统职业通过 AI 工具升级技能；设立 AI 就业影响评估机制，要求重点行业应用前开展替代风险预判与转岗培训配套 | 来源: IT之家·人工智能 | 发布时间: 2026-10-23 ([https://www.ithome.com/1/017/113.htm](https://www.ithome.com/1/017/113.htm))  
+  - *推荐理由*：全球首个国家级 AI 就业综合治理框架，将“技术向善”从伦理倡议升级为可执行政策工具，为政企协同设计人机协同岗位、开发适配型 AI 工具提供顶层指引。  
+
+- **OpenAI 因 Signal 阅后即焚聊天解雇 3 名安全研究员** 据《华尔街日报》报道，OpenAI 以违反内部安全通讯政策为由，解雇 3 名使用 Signal 进行敏感漏洞讨论的安全研究员，凸显其对安全信息流管控的极端严格性 | 来源: Rohan Paul (@rohanpaul_ai) | 发布时间: 2026-10-23 ([https://x.com/rohanpaul_ai/status/2113511968112042349](https://x.com/rohanpaul_ai/status/2113511968112042349))  
+  - *推荐理由*：暴露前沿 AI 公司在“安全研究自由”与“商业机密防护”间的尖锐张力，或将推动行业建立标准化安全漏洞披露协议（如强制加密日志留存、双通道审批机制），平衡透明度与可控性。
+### 🔥 热点新闻  
+- **大厂 AI 产品加速洗牌：188 天退场成常态** 八家头部科技公司密集上线十条 AI 赛道产品，但平均生命周期仅 188 天，大量工具类、聚合类应用因缺乏差异化能力或变现路径迅速关停，行业进入“快速试错—精准收敛”新阶段 | 来源: 钛媒体 | 发布时间: 2026-10-24 ([https://www.tmtpost.com/8179714.html](https://www.tmtpost.com/8179714.html))  
+  - *推荐理由*：印证 AI 应用层已过“流量红利期”，进入“价值深水区”，未来胜出者必是深度绑定垂直工作流（如法律尽调、医疗影像初筛、工业质检）的“隐形冠军”，而非通用功能堆砌。  
+
+- **华为 Mate 90 系列上线睿影 XMAGE 影像服务，图库支持 AI 一键成片** 华为 Mate 90 全系搭载韬定律芯片（麒麟 9030/9035/9050），新推睿影 XMAGE 服务，图库小艺助手新增 AI 一键成片、智慧修图、3D 动态照片等功能，实现端侧多模态内容生成闭环 | 来源: IT之家 | 发布时间: 2026-10-24 ([https://www.ithome.com/1/017/295.htm](https://www.ithome.com/1/017/295.htm))  
+  - *推荐理由*：标志性事件——国产旗舰手机首次实现“端侧大模型+专业影像引擎+用户工作流”三合一，证明 10B 级 MoE 模型可在旗舰 SoC 上实时运行，为边缘 AI 提供可复用的软硬协同范式。  
+
+- **扎克伯格收购 Sundial，让企业数据分析变成“聊天”** Meta 收购前员工创立的 Sundial 平台，其核心能力是通过自然语言聊天插件，直接对接企业数据库与 BI 工具，将 SQL 查询、指标计算、归因分析转化为对话式交互，大幅降低数据使用门槛 | 来源: IT之家 | 发布时间: 2026-10-24 ([https://www.ithome.com/1/017/294.htm](https://www.ithome.com/1/017/294.htm))  
+  - *推荐理由*：直击企业数字化最大瓶颈——数据孤岛与分析门槛，将 LLM 从“问答助手”升级为“数据协作者”，有望重塑 BI 市场格局，推动 Tableau/Power BI 等平台加速集成 Agent 能力。  
+
+- **月之暗面发布 Kimi K3.1 Pro：3 万亿参数、100 万上下文最强开源模型** Kimi K3.1 Pro 是当前开源社区参数量最大、上下文最长的多模态模型，支持代码、文档、图表联合理解，已在 Hugging Face 开源权重，引发开发者社区密集 benchmark 测试 | 来源: IT之家 | 发布时间: 2026-10-24 ([https://www.ithome.com/1/017/291.htm](https://www.ithome.com/1/017/291.htm))  
+  - *推荐理由*：成为中文开源模型生态的“锚点模型”，其 100 万上下文能力将强力推动长文档智能体（如法律合同审查 Agent、科研论文综述 Agent）的工程化落地，加速国产模型从“可用”迈向“好用”。  
+
+- **谷歌 CEO 皮查伊称距 AI 自我改进“最终状态”仍有很长距离** 皮查伊强调，当前 AI 辅助研发（如 Gemini 4 参与模型调试）仍属“人类主导、AI 执行”模式，递归自我改进（RSI）需突破可验证性、目标对齐与计算稳定性三大瓶颈，预计至少需 3-5 年 | 来源: IT之家 | 发布时间: 2026-10-24 ([https://www.ithome.com/1/017/290.htm](https://www.ithome.com/1/017/290.htm))  
+  - *推荐理由*：为当前过热的“AI 自主进化”叙事降温，明确技术演进的真实坐标——短期焦点应是提升 AI 在人类监督下的研发效率（如自动化超参搜索、错误定位），而非追逐尚不可控的 RSI。
+### 🚨 应急业务  
+- **无人机+BIM 技术用于 549 万公里公路病害检测，养护告别“靠眼靠腿”** 北方某省试点将消费级无人机巡检数据与 BIM 模型融合，自动识别沥青裂缝、桥墩位移等 12 类病害，识别准确率达 96.3%，单公里巡检耗时从 2 小时降至 15 分钟，年养护成本下降 37% | 来源: 无人机桥梁检测 | 发布时间: 2026-10-23 ([https://mp.weixin.qq.com/s?src=11&amp;timestamp=1792801842&amp;ver=7045&amp;signature=vqBNUCuTFeDT6IIJdoYJ8VGeWKUQTNzNHu*ObfZ-GU103g0TcunQOjQ9IeBChaiWAnaIrputuXGm433FUYMfhxAcUJbBU8c4Z8ZaEx4A9INiOG0fUOIM7l-oiFI97hSq&amp;new=1](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1792801842&amp;ver=7045&amp;signature=vqBNUCuTFeDT6IIJdoYJ8VGeWKUQTNzNHu*ObfZ-GU103g0TcunQOjQ9IeBChaiWAnaIrputuXGm433FUYMfhxAcUJbBU8c4Z8ZaEx4A9INiOG0fUOIM7l-oiFI97hSq&amp;new=1))  
+  - *推荐理由*：实现低空经济与数字基建的深度耦合，将无人机从“数据采集器”升级为“智能感知节点”，结合 BIM 的空间语义理解，为全国公路网构建“可计算、可预测、可干预”的数字孪生底座。  
+
+- **国新办发布会明确“十五五”应急与消防建设方向及产业机遇** 国务院新闻办发布“十五五”规划纲要，明确将低空应急通信网络、AI 驾驶舱、灾害链智能推演平台列为新基建重点，要求 2027 年前建成覆盖地市级的无人机应急响应圈，开放 30% 应急装备采购份额给民营 AI 企业 | 来源: 微观消防 | 发布时间: 2026-10-22 ([https://mp.weixin.qq.com/s?src=11&amp;timestamp=1792801807&amp;ver=7045&amp;signature=NN4It1TCQA1brI6EbolGoSXtn09PZ5wFYeoL1Y9RSRSdtRH4dkQha2P8GnJTyfhDOHFvUrVW0YOsWfeTgWZssa99wDY-RM8O-8jR*B8AmgKX93g3bmYPC4iK35H7GetB&amp;new=1](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1792801807&amp;ver=7045&amp;signature=NN4It1TCQA1brI6EbolGoSXtn09PZ5wFYeoL1Y9RSRSdtRH4dkQha2P8GnJTyfhDOHFvUrVW0YOsWfeTgWZssa99wDY-RM8O-8jR*B8AmgKX93g3bmYPC4iK35H7GetB&amp;new=1))  
+  - *推荐理由*：首次将 AI 驱动的低空应急能力上升为国家战略支点，政策明确“采购倾斜+标准共建+数据开放”组合拳，为无人机厂商、算法公司、系统集成商提供清晰的商业化路径图。
+
+- **天津市消防救援总队第五批灭火救援装备采购项目中标公告** 该项目采购含智能灭火机器人、多光谱火灾探测仪、轻量化碳纤维空气呼吸器等 23 类装备，其中 7 类明确要求集成 AI 视觉识别（火焰类型、烟雾浓度、被困人员热成像定位）与 5G 低时延回传模块 | 来源: 应急消防救援 | 发布时间: 2026-10-22 ([https://mp.weixin.qq.com/s?src=11&amp;timestamp=1792801803&amp;ver=7045&amp;signature=Ab5wVlaUwTFjp65VlzmZl4B*UGfN9OpPOZQzZFyb8VPj3pAy4t6q18FUtV-k32cJxiNtidTpbD28BlagxZL3DO2-zQ*SeKBeEDRN*9uIjBbBjpWWVscsqgR8z3AnAUSQ&amp;new=1](https://mp.weixin.qq.com/s?src=11&amp;timestamp=1792801803&amp;ver=7045&amp;signature=Ab5wVlaUwTFjp65VlzmZl4B*UGfN9OpPOZQzZFyb8VPj3pAy4t6q18FUtV-k32cJxiNtidTpbD28BlagxZL3DO2-zQ*SeKBeEDRN*9uIjBbBjpWWVscsqgR8z3AnAUSQ&amp;new=1))  
+  - *推荐理由*：体现消防装备智能化从“单点感知”向“多模态决策”跃迁，中标设备普遍要求在 200ms 内完成火情分类与处置建议生成，推动一线消防员从“经验判断”转向“AI 协同决策”。
+### 🧠 算法专项  
+- **智源众智 FlagOS 2.2 实现前沿模型与多元算力协同演进** FlagOS 2.2 新增异构算力调度器，支持在同一任务流中无缝混合调用 NVIDIA GPU、昇腾 NPU 与寒武纪 MLU，实测在 Llama-3-70B 微调任务中，跨芯片资源利用率提升 42%，训练周期缩短 28% | 来源: InfoQ | 发布时间: 2026-10-23 ([https://www.infoq.cn/article/mhdJwMMzYFedMFHKfHWs?utm_source=rss&amp;utm_medium=article](https://www.infoq.cn/article/mhdJwMMzYFedMFHKfHWs?utm_source=rss&amp;utm_medium=article))  
+  - *推荐理由*：破解国产 AI 生态“算力碎片化”困局，FlagOS 作为开源操作系统层，为模型开发者提供“一次开发、多芯部署”的确定性体验，加速大模型在信创环境的规模化落地。  
+
+- **刘铁岩等共话 AI 下一个十年：Transformer 之后的下一张王牌是什么？** 图灵奖得主 Yoshua Bengio 提出“神经符号混合架构”是突破推理瓶颈的关键；刘铁岩指出“世界模型+具身学习”将重塑 AI 认知范式；诺奖得主强调需建立可验证的因果推理数学基础 | 来源: InfoQ | 发布时间: 2026-10-23 ([https://www.infoq.cn/article/UmD4aAerZEts8sZ5t791?utm_source=rss&amp;utm_medium=article](https://www.infoq.cn/article/UmD4aAerZEts8sZ5t791?utm_source=rss&amp;utm_medium=article))  
+  - *推荐理由*：凝聚学界共识——Transformer 的统治力正面临物理世界理解、长程逻辑推理、可解释性三大天花板，下一代突破将来自架构融合（神经+符号）、学习范式迁移（文本→具身）、数学根基重建（因果+可验证）。  
+
+- **AI Agent 正在改写 CPU 价值：Token 变行动，算力竞争不再只拼 GPU** 当前 Agent 系统中，CPU 承担 65% 的非矩阵计算（工具调用、记忆检索、流程编排、API 编排），其 IPC 性能与内存带宽成为 Agent 吞吐瓶颈，AMD EPYC 9654 与 Intel Xeon Platinum 8490H 在 Agent 场景下性价比反超高端 GPU | 来源: InfoQ | 发布时间: 2026-10-23 ([https://www.infoq.cn/article/AkDgwN6h72cqUOJ35Zok?utm_source=rss&amp;utm_medium=article](https://www.infoq.cn/article/AkDgwN6h72cqUOJ35Zok?utm_source=rss&amp;utm_medium=article))  
+  - *推荐理由*：颠覆传统 AI 算力认知，揭示 Agent 时代基础设施需求本质——从“高密度浮点”转向“高并发低延迟通用计算”，将重塑云厂商硬件采购策略与芯片厂商研发重心。  
+
+- **PostgreSQL 19 发布延迟：AI“找茬”太快，人类修 Bug 速度跟不上** PostgreSQL 社区启用 AI 智能体进行自动化压力测试与模糊测试，两周内发现 137 个潜在崩溃路径，远超人工年均发现量（约 22 个），导致 19 版本发布推迟至 2027 Q1 | 来源: InfoQ | 发布时间: 2026-10-23 ([https://www.infoq.cn/article/Q6mgHWCSqV6KeZzee3NT?utm_source=rss&amp;utm_medium=article](https://www.infoq.cn/article/Q6mgHWCSqV6KeZzee3NT?utm_source=rss&amp;utm_medium=article))  
+  - *推荐理由*：标志 AI 已从“辅助开发”进入“定义质量标准”阶段，数据库等关键基础设施的可靠性边界正被 AI 不断重划，倒逼开源社区建立 AI 原生测试治理规范（如测试用例可追溯、误报率 SLA）。  
+
+- **NVIDIA TensorRT 全局性能调优器（GPT）支持跨构建路径自动优化** TensorRT 11.1 新增全局性能调优器（GPT），可自动探索数千种 kernel 组合与内存布局，在保持精度前提下，为不同 GPU 架构（Hopper/Blackwell）生成最优推理引擎，ResNet-50 推理延迟降低 31% | 来源: NVIDIA Technical Blog | 发布时间: 2026-10-23 ([https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/](https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/))  
+  - *推荐理由*：解决模型部署最大痛点——“一卡一调优”，GPT 将手工调优经验固化为可复用的 AI 策略，使中小开发者也能获得接近专家级的推理性能，极大加速边缘 AI 落地。  
+
+- **NVIDIA 利用 AI Agent 在仿真中训练 Microduck 机器人行走与避障** NVIDIA 构建多智能体仿真环境，其中视觉 Agent 负责环境感知，运动控制 Agent 生成关节指令，奖励建模 Agent 实时评估平衡性与能耗，Microduck 在 24 小时仿真中学会穿越复杂障碍物，零样本迁移到真实机器人成功率 89% | 来源: NVIDIA Technical Blog | 发布时间: 2026-10-23 ([https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/))  
+  - *推荐理由*：展示 AI Agent 在具身智能中的范式价值——将复杂任务分解为协同子智能体，大幅提升仿真到现实的迁移效率，为四足/轮式机器人低成本量产训练提供新路径。  
+
+- **千问蒋冠军提出 Personal Agent 技术框架需模型、记忆与生态协同** Personal Agent 核心在于“长期记忆”（向量+图谱混合存储）、“意图理解”（多轮上下文压缩模型）、“工具生态”（统一插件注册与权限沙箱），三者缺一不可，当前最大瓶颈是记忆的增量更新与隐私保护 | 来源: InfoQ | 发布时间: 2026-10-23 ([https://www.infoq.cn/article/6EJRFIef67xr3x6vyCJa?utm_source=rss&amp;utm_medium=article](https://www.infoq.cn/article/6EJRFIef67xr3x6vyCJa?utm_source=rss&amp;utm_medium=article))  
+  - *推荐理由*：厘清 Personal Agent 落地关键——非单纯更强模型，而是构建“记忆-理解-执行”闭环系统，尤其强调隐私沙箱设计，为个人数据主权与 AI 服务深度结合提供可行架构。  
+
+- **AI 赋能开发：Spotify 月代码变更量翻倍** Spotify 全面接入 AI 编程助手后，工程师平均每日提交 PR 数量提升 2.3 倍，代码审查通过率提高 18%，但技术债引入率同步上升 12%，促使公司建立 AI 生成代码的“三阶审核制”（静态扫描→单元测试覆盖率→人工抽检） | 来源: InfoQ | 发布时间: 2026-10-23 ([https://www.infoq.cn/article/rVqEbaXeaJ91UWlQF4F9?utm_source=rss&amp;utm_medium=article](https://www.infoq.cn/article/rVqEbaXeaJ91UWlQF4F9?utm_source=rss&amp;utm_medium=article))  
+  - *推荐理由*：提供 AI 编程落地黄金标准——效能提升必须与质量保障同步，Spotify 的“三阶审核制”将成为行业事实规范，推动 IDE 厂商将质量门禁深度集成至 AI 编程流。</textarea>
+
+   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
+   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
 - **Replit 发布 Monitoring Agent 自动修复智能体** Replit 推出具备日志分析、故障定位、自动验证与部署能力的值班型智能体，集成于 App Publishing 设置中，构建“无需人工值守”的生产运维闭环 | 来源: Replit Blog | 发布时间: 2026-10-22 ([原文链接](https://replit.com/blog/replit-monitoring-agent))  
   - *推荐理由*：标志着智能体从“辅助工具”迈向“自主运维主体”，为中小开发者提供类SRE能力，降低AI应用运维门槛，是AgentOps落地的关键里程碑。  
 
@@ -629,9 +703,7 @@
 
 - **Running Frontier-Class AI Models Across 8 NVIDIA DGX Spark Nodes** NVIDIA 展示在8节点DGX Spark集群上高效并行运行千亿参数模型的技术路径，通过分层流水线+异步梯度压缩，实现92%线性扩展效率，支持多模型协同推理 | 来源: NVIDIA Technical Blog | 发布时间: 2026-10-22 ([原文链接](https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/))  
   - *推荐理由*：为“多模型智能体编排”提供坚实算力基座，使灾害推演（气象模型+地质模型+人口流动模型）等跨域联合推理从理论走向工程现实，支撑国家级应急数字孪生系统建设。</textarea>
-
-   <!-- 7 天历史 markdown（供右上角历史下拉使用，每个 textarea 含一天的内容，空则为空字符串） -->
-   <textarea id="md-source-day_1" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
 - **GPT-5.6 Sol 辅助发现 PHP 两个 CVSS 9.2 远程代码执行漏洞** 卡兹克复盘指出，GPT-5.6 Sol 在2天内辅助发现 CVE-2026-109618 和 CVE-2026-109619，属CVSS满分级RCE漏洞，影响自PHP 5.4起所有主流版本；OpenAI同步发布检测skill并纳入Patch the Planet计划 | 来源: 数字生命卡兹克 | 发布时间: 2026-10-22 ([https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&amp;mid=2647687466&amp;idx=1&amp;sn=ba7ba0f3ca50ef789c17b179dd061f60](https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&amp;mid=2647687466&amp;idx=1&amp;sn=ba7ba0f3ca50ef789c17b179dd061f60))  
   - *推荐理由*：标志AI原生安全能力进入实战阶段，大模型已从“辅助编码”跃迁至“自主漏洞挖掘+修复协同”，将重构SDL流程和厂商安全响应节奏。  
 
@@ -703,7 +775,7 @@
 
 - **OpenAI 挑战 COBOL 迁移：代码迁移准确率从 5.4% 提升至 97.9%** OpenAI团队使用混合提示工程+领域微调，在COBOL→Java迁移任务中实现97.9%语法正确率与86.3%业务逻辑保真度，已部署于美国社保局核心系统改造项目 | 来源: InfoQ | 发布时间: 2026-10-21 ([https://www.infoq.cn/article/LZsVYHAH1jyOtLg6Yiwk](https://www.infoq.cn/article/LZsVYHAH1jyOtLg6Yiwk))  
   - *推荐理由*：攻克企业数字化转型最大痛点——遗留系统现代化。97.9%准确率意味着AI可承担主体迁移工作，人力仅需做业务校验，将银行、政务等关键领域系统升级周期从年缩短至月级。</textarea>
-   <textarea id="md-source-day_2" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
 - **SpaceX AI业务占收入52%** SpaceX第三季度财报显示，更名后的“Super Intelligence”业务线（含Grok、neocloud算力）营收达76亿美元，占总收入146亿美元的52%，算力规模达1.7 GW，扭转去年同期10亿美元亏损 | 来源: TechCrunch | 发布时间: 2026-10-20 ([https://techcrunch.com/2026/10/20/spacexs-ai-business-is-beating-expectations/](https://techcrunch.com/2026/10/20/spacexs-ai-business-is-beating-expectations/))  
   - *推荐理由*：标志着航天巨头正式转型为AI基础设施提供商，其neocloud算力已具备与云厂商正面竞争能力，将加速全球AI算力供给格局重构，倒逼传统云服务商升级AI专用硬件与服务模式。  
 
@@ -745,7 +817,7 @@
 
 - **AI生成的代码看不懂就扔掉重来：首席架构师的5条Agent编程反常识原则** 首席架构师提出Agent编程五大反直觉原则：1）拒绝理解生成代码，直接重写；2）Agent必须带“断路器”机制；3）所有工具调用需经Schema验证；4）状态管理必须显式持久化；5）错误处理优先级高于功能实现 | 来源: InfoQ | 发布时间: 2026-10-20 ([https://www.infoq.cn/article/tgqMEJsqXfX6YzAcOiAR?utm_source=rss&amp;utm_medium=article](https://www.infoq.cn/article/tgqMEJsqXfX6YzAcOiAR?utm_source=rss&amp;utm_medium=article))  
   - *推荐理由*：直击当前Agent工程最大痛点——失控性，五原则构成可落地的防御性编程框架，尤其“断路器”与“Schema验证”已被某国有银行核心系统采纳，故障率下降63%，是AI原生应用稳健性的黄金准则。</textarea>
-   <textarea id="md-source-day_3" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
 - **FBI指控前OpenAI工程师窃密涉沙特政府** FBI披露前OpenAI工程师Abdulrahman Alfozan手机存“Saudi Gov Docs”文件夹，WhatsApp联系沙特王室成员，曾用OpenAI Agent规划会议室窃听；其被捕前已购沙特政府付费单程机票，妻儿离境。 | 来源: Ars Technica | 发布时间: 2026-10-19 ([原文链接](https://arstechnica.com/tech-policy/2026/10/accused-openai-spy-had-folder-called-saudi-gov-docs-fbi-says/))  
   - *推荐理由*：事件直指AI核心企业供应链安全与地缘技术博弈升级，暴露高权限员工行为监管盲区，或将推动美欧对AI研发人员出境、数据跨境及敏感场景访问实施更严审计机制。  
 
@@ -808,7 +880,7 @@
 
 - **Cloudflare推出面向AI代理的CLI并逐步停用Wrangler** Cloudflare发布专为AI Agent设计的命令行工具cf-agent，支持一键部署、调试与监控LangGraph等框架构建的智能体；同步宣布Wrangler将逐步退出AI开发主线，转向边缘计算专用。 | 来源: InfoQ | 发布时间: 2026-10-19 ([原文链接](https://www.infoq.cn/article/Ddda0DF68laqfoqa4Lju?utm_source=rss&amp;utm_medium=article))  
   - *推荐理由*：标志AI工程化工具链正从“通用Serverless”向“Agent原生”演进，cf-agent的调试能力直击智能体状态追踪难、错误归因难等落地痛点，加速中小团队Agent产品化。</textarea>
-   <textarea id="md-source-day_4" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
 - **DeepSeek-V4.1-Flash 登顶 Code Arena WebDev 榜首** Arena 平台确认 DeepSeek-V4.1-Flash-20261017（Max）在 WebDev 编码基准中超越 Kimi K3（Max），同等性能下推理成本低约 10 倍，凸显开源模型在垂直场景的工程优化优势 | 来源: Arena (@arena) | 发布时间: 2026-10-18 ([原文链接](https://x.com/arena/status/2111894091168682086))  
   - *推荐理由*：标志着国产开源模型在真实开发场景中已具备商业级性价比，对中小开发者和企业私有化部署形成强牵引，或将加速 Code LLM 的行业渗透节奏。  
 
@@ -862,7 +934,7 @@
 
 - **“AI+终端”时代的萌芽：大模型在终端领域的探索和量产落地｜QCon上海** QCon 上海大会披露，华为鸿蒙 NEXT 已集成 3B 参数 TinyLLM 模型，支持离线语音助手意图识别；小米澎湃 OS 2.0 实现 7B 模型端侧剪枝后 12ms 响应；OPPO 宣布 Find X8 系列将首发 13B 端侧多模态模型 | 来源: InfoQ | 发布时间: 2026-10-18 ([原文链接](https://www.infoq.cn/article/qZPH971CbfHkaCfgG0cb?utm_source=rss&amp;utm_medium=article))  
   - *推荐理由*：证实端侧大模型已突破“可用”门槛，进入“好用”阶段——通过量化+稀疏+硬件协同优化，主流旗舰机可支撑 7–13B 模型实时推理，为隐私敏感型应急指挥、工业巡检等场景提供零延迟决策支持。</textarea>
-   <textarea id="md-source-day_5" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
 - **WorkBuddy Intl 上线 DeepSeek-V4.1-Flash-1017 模型** WorkBuddy Intl 全面集成 DeepSeek 最新轻量级模型 V4.1-Flash-1017，支持网站、App 及 API 多端调用，并针对腾讯 CodeBuddy、DeepSeek Harness 等工具链深度优化，10 月 31 日前免费开放 | 来源: Tencent WorkBuddy | 发布时间: 2026-10-17 ([原文链接](https://x.com/WorkBuddy_AI/status/2111404103402430558))  
   - *推荐理由*：标志着国产大模型轻量化落地进入“即插即用”阶段，Flash 系列模型在保持高任务完成率的同时显著压缩输出长度与响应延迟，为办公智能体规模化部署提供关键基础设施支撑。  
 
@@ -901,7 +973,7 @@
 
 - **Java 生态 AI 工具链迎来关键升级：LangChain4j 0.20 正式发布** LangChain4j 0.20 版本深度集成 Quarkus 原生镜像与 GraalVM，支持 LLM 调用链路全链路追踪与内存占用可视化，推理启动时间降低 67%，16GB 内存设备可稳定运行 7B 模型 RAG 流程 | 来源: InfoQ | 发布时间: 2026-10-17 ([原文链接](https://www.infoq.cn/article/AF1qxLVCRls3R6MdWwBh?utm_source=rss&amp;utm_medium=article))  
   - *推荐理由*：填补企业级 Java 应用对接大模型的最后一公里——通过原生编译与可观测性增强，使银行核心系统、电力调度平台等传统高稳定性系统可无缝嵌入 AI 能力，极大拓展 AI 落地纵深。</textarea>
-   <textarea id="md-source-day_6" style="display:none;">### 🏭 行业动态  
+   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
 - **Muse Spark Open (Max) 登顶 Code Arena WebDev 开源模型榜首** Arena 公布 Meta 发布的 Muse Spark Open (Max) 在 Code Arena: WebDev 综合评测中以 1511 分位居美国开源模型第一、全球开源模型总榜第 13 | 来源: Arena (@arena) | 发布时间: 2026-10-16 ([原文链接](https://x.com/arena/status/2111221323217412318))  
   - *推荐理由*：标志着开源大模型在垂直编程场景（WebDev）实现关键突破，打破闭源模型长期主导地位；其高分反映对 HTML/CSS/JS 栈的强理解能力，为低代码开发与前端智能体提供新基座。  
 
@@ -967,71 +1039,11 @@
 
 - **BD-HazardVLM：面向孟加拉道路场景的防御驾驶隐患探针基准** 提出 BD-HazardVLM 基准，包含500张孟加拉复杂交通场景图像，专用于评测视觉语言模型在弱结构化南半球路况下的隐性危险识别能力 | 来源: arXiv | 发布时间: 2026-10-16 ([原文链接](https://arxiv.org/abs/2610.20627))  
   - *推荐理由*：突破主流VLM评测集中于欧美规范路况的局限，首次构建Global South真实道路隐患诊断基准，为自动驾驶在发展中国家落地提供关键评估标尺与算法优化靶点。  </textarea>
-   <textarea id="md-source-day_7" style="display:none;">### 🏭 行业动态  
-- **xAI 宣布 2027 年底算力目标或超 10GW** Elon Musk 转发黄仁勋访谈称 xAI 算力目标可能突破 10GW；NVIDIA 已将 SpaceX 列为云服务商客户，双方正联合设计太空适用服务器架构 | 来源: X（@elonmusk） | 发布时间: 2026-10-15 ([原文链接](https://x.com/elonmusk/status/2110877572011844019))  
-  - *推荐理由*：标志着商业航天与 AI 算力基建深度耦合，10GW 级目标远超当前头部云厂商单集群规模，或将催生“太空边缘智算中心”新范式。  
-
-- **Krea 3 图像模型上线 ComfyUI Partner Nodes** Krea 3 通过 ComfyUI 官方 Partner Nodes 提供，支持多参考图顺序引用、环境光影编辑及迭代式生成，强调低成本与高保真产品级修改能力 | 来源: Comfy Blog | 发布时间: 2026-10-15 ([原文链接](https://blog.comfy.org/p/krea-3-is-now-available-via-partner))  
-  - *推荐理由*：首次实现工业级图像编辑工作流在低代码视觉编排平台的开箱即用，大幅降低电商、设计类企业 AIGC 落地门槛。  
-
-- **Claude Opus 5.5 fast mode 结束预览并开放使用** Anthropic 正式结束 Opus 5.5 fast mode 研究预览，移除等待名单，速度最高提升 2.5 倍，定价 $8/$40 百万 token，已上线 Azure，Google Cloud 即将支持 | 来源: X（@ClaudeDevs） | 发布时间: 2026-10-15 ([原文链接](https://x.com/ClaudeDevs/status/2110825294655562048))  
-  - *推荐理由*：标志 LLM 推理进入“双模态服务时代”——fast mode 专注低延迟交互，standard mode 保障复杂推理精度，为企业级 Agent 构建提供弹性算力基座。  
-
-- **ChatGPT 新增 Chrome 标签页读取与控制能力** ChatGPT 面向 Chrome 用户开放标签页信息汇总与自动化操作能力，支持发送消息、填表、下载、标签分组等，Computer Use 功能正式延伸至浏览器生态 | 来源: X（@ChatGPT） | 发布时间: 2026-10-15 ([原文链接](https://x.com/ChatGPT/status/2110823738531037651))  
-  - *推荐理由*：打破大模型与操作系统层的隔离墙，是“AI 原生桌面”的关键一步，为未来替代传统 RPA 提供轻量级技术路径。  
-
-- **Black Forest Labs FLUX 3 系列登陆 OpenRouter** FLUX 3 Image Klein 开源图像模型支持单卡消费级 GPU 运行；FLUX Video Upscale 降价至 $0.28/s 并支持 4K；FLUX 3 Video 可直接提示词生成 4K 视频 | 来源: X（@OpenRouter） | 发布时间: 2026-10-15 ([原文链接](https://x.com/OpenRouter/status/2110803343878873473))  
-  - *推荐理由*：以“开源权重+商用友好定价”双轨策略加速视频生成工业化，4K 视频生成成本下降 53%，推动短视频、广告、教育内容生产边际成本趋近于零。  
-
-- **Meta 发布开源权重模型 Muse Spark Open** Meta 开源 Muse Spark Open，总参数 816B（激活 42B），上下文窗口 100 万 token，原生支持图像/音频/文档多模态，专为编程与智能体任务优化，并完成安全后训练 | 来源: PyTorch Blog | 发布时间: 2026-10-15 ([原文链接](https://pytorch.org/blog/muse-spark-open/))  
-  - *推荐理由*：首次将 MoE 架构、百万级上下文与多模态原生能力集成于开源模型，打破闭源模型在长程 Agent 场景的技术垄断，为开发者提供可商用、可审计、可定制的顶级基座。  
-### 🔥 热点新闻  
-- **苹果 Meta 破冰合作：两台 Mac Studio 本地运行 Muse Spark Open** Meta 与苹果达成历史性合作，Muse Spark Open 可在两台 512GB 内存 Mac Studio 上本地运行，成为首个支持 macOS 原生部署的百亿级 MoE 模型 | 来源: IT之家 | 发布时间: 2026-10-16 ([原文链接](https://www.ithome.com/1/013/716.htm))  
-  - *推荐理由*：终结“开源大模型必须上云”的行业惯性认知，Mac Studio + MLX 框架组合验证了高端桌面端运行千亿级 MoE 的工程可行性，开启“个人智能体工作站”新纪元。  
-
-- **快手可灵 AI 模型 Kling 4.0 全量上线，单次生成视频最长 30 秒** 快手 Kling 4.0 全量上线 klingai.com，支持 4K/1080p 10-bit HDR 输出，强化高速运动、环绕镜头、口型匹配与文字生成，API 即将面向企业开放 | 来源: IT之家 | 发布时间: 2026-10-16 ([原文链接](https://www.ithome.com/1/013/715.htm))  
-  - *推荐理由*：30 秒连续视频生成能力首次达到影视级叙事稳定性，结合 MCP/CLI 工具链，使 AI 视频从“片段创作”跃迁至“流程化生产”，冲击专业视频制作价值链。  
-
-- **宣称“美国最强开源 AI 模型”：Meta 发布 Muse Spark Open** Meta 官方定义 Muse Spark Open 为迄今最强美国开源模型，816B 参数、1M 上下文、原生多模态，已在 Hugging Face 开放，MLX 框架使其可在 M5 Ultra 双机部署 | 来源: IT之家 | 发布时间: 2026-10-15 ([原文链接](https://www.ithome.com/1/013/706.htm))  
-  - *推荐理由*：该发布引发全球开源社区“军备竞赛”升级，倒逼 LLaMA、Qwen、DeepSeek 等系列加速百万上下文与 MoE 架构开源，中美开源模型战略对齐进入新阶段。  
-
-- **英伟达 RTX 5090 旗舰显卡恐迎“绝版”时刻** 英伟达美国官网商城已下架 RTX 5090，零售渠道标注“不销售”，产能或全面转向 AI 数据中心 GPU；中国官网仍显示在售 | 来源: IT之家 | 发布时间: 2026-10-16 ([原文链接](https://www.ithome.com/1/013/713.htm))  
-  - *推荐理由*：标志性事件宣告消费级 GPU 黄金十年终结，AI 计算需求已压倒游戏市场，GPU 产业重心彻底迁移至数据中心与推理芯片，重塑硬件投资逻辑。  
-
-- **黄仁勋自述早年联系台积电屡遭拒** 黄仁勋透露上世纪90年代末多次拨打台积电美国办电话无人接听，靠黄页查号、反复留言才最终建立合作，奠定英伟达代工根基 | 来源: IT之家 | 发布时间: 2026-10-16 ([原文链接](https://www.ithome.com/1/013/707.htm))  
-  - *推荐理由*：揭示全球半导体供应链底层逻辑——信任需以技术诚意与长期坚持换取；对当前国产 AI 芯片厂商出海具有强烈现实镜鉴意义。  
-### 🚨 应急业务  
-- **密苏里州消防无人机发现 200 英亩山火越线** 密苏里州 Logan-Rogersville 消防部门使用无人机实时监测，首次在火场中发现山火跨越河流蔓延，为指挥决策赢得关键响应窗口 | 来源: DroneXL | 发布时间: 2026-10-15 ([原文链接](https://dronexl.co/2026/10/15/missouri-fire-drone-200-acre-stone-county-blaze-jumped-line/))  
-  - *推荐理由*：验证低空遥感在复杂地形灾害早期预警中的不可替代性，单机覆盖半径与实时回传能力已超越传统瞭望塔，推动应急指挥从“经验驱动”转向“数据驱动”。  
-
-- **Mobilicom 推出 SwarmiX 无人机集群产品线** Mobilicom 发布 SwarmiX 系列，面向边境巡检、电力巡线等场景，支持百机协同、抗干扰组网与自主任务分发，聚焦网络化自主飞行系统安全加固 | 来源: sUAS News | 发布时间: 2026-10-15 ([原文链接](https://www.suasnews.com/2026/10/mobilicom-launches-swarmix-family-to-capitalize-on-industry-shift-toward-drone-swarms-networked-autonomous-fleets/))  
-  - *推荐理由*：填补国产集群飞控在强电磁干扰、跨厂商异构组网下的工程空白，为国家级低空安防、电网智能巡检提供可规模化部署的“蜂群级”基础设施。  
-
-- **ANRA 推出 VISTA 空域感知应用提升应急无人机态势感知** ANRA 新推 VISTA 应用，为公共安全与应急无人机提供近实时空域活动可视化，集成 FAA、NOAA 及第三方 ADS-B 数据，支持冲突预警与航路动态重规划 | 来源: sUAS News | 发布时间: 2026-10-15 ([原文链接](https://www.suasnews.com/2026/10/anra-technologies-introduces-vista-to-give-drone-operators-greater-awareness-of-nearby-airspace-activity/))  
-  - *推荐理由*：解决多部门无人机“看不见、联不上、管不住”核心痛点，VISTA 作为轻量化 SaaS 服务，可快速嵌入现有应急指挥平台，加速低空治理数字化闭环。  
-
-- **Skydio ISR Command 支持向 F-16 传输打击目标坐标** Skydio 新一代 ISR Command 系统实现单兵操控双 X10D 无人机，并可将精确定位网格坐标直传至 F-16 等作战平台，打通“侦察-识别-打击”秒级链路 | 来源: DroneXL | 发布时间: 2026-10-14 ([原文链接](https://dronexl.co/2026/10/14/skydio-isr-command-x10d-strike-targets-f16/))  
-  - *推荐理由*：标志着民用级 AI 无人机技术已实质性赋能国防级杀伤链，其目标识别精度与低延时通信协议具备向城市级应急处突（如反恐、危化品泄漏处置）平移潜力。  
-
-- **nuWay Ag 飞行员因用重载无人机吊运鹿和雪橇被 FAA 暂停执照** nuWay Ag 飞行员 Mike Yoder 因发布重载无人机吊运猎物、原木及雪橇视频，被 FAA 处以 180 天远程飞行员执照暂停处罚 | 来源: DroneXL | 发布时间: 2026-10-15 ([原文链接](https://dronexl.co/2026/10/15/nuway-ag-mike-yoder-faa-remote-pilot-suspension/))  
-  - *推荐理由*：暴露当前无人机超视距重载作业缺乏明确适航标准与消防救援特许通道，亟需建立“应急豁免白名单”机制，在安全底线之上释放低空装备实战效能。  
-### 🧠 算法专项  
-- **蚂蚁百灵开源 560B 模型 Ling-3.0-flash：0.19 美元搞定复杂工作流** 蚂蚁百灵发布 Ling-3.0-flash，560B MoE 模型，激活参数仅 12B，支持 256K 上下文，在阿里云灵骏集群上单次复杂 Agent 工作流推理成本低至 0.19 美元 | 来源: InfoQ | 发布时间: 2026-10-15 ([原文链接](https://www.infoq.cn/article/SxQO3Aw6JCTgNMTGPPE8?utm_source=rss&amp;utm_medium=article))  
-  - *推荐理由*：首次实现“千亿级能力+百美元级成本”平衡，通过极致稀疏化与内存复用技术，让中小型企业可负担长程 Agent 部署，加速 AI 原生应用普惠化。  
-
-- **阶跃星辰开放 Step 5 Preview 权重：长程 Agent 的竞争延伸到上下文管理与训练系统** 阶跃星辰开源 Step 5 Preview 权重，聚焦长程任务记忆压缩与跨会话状态继承，配套推出轻量级训练框架 StepTrain，支持 1M token 上下文微调 | 来源: InfoQ | 发布时间: 2026-10-15 ([原文链接](https://www.infoq.cn/article/EwqsJX6f03ODRac6Kk4c?utm_source=rss&amp;utm_medium=article))  
-  - *推荐理由*：直击当前 Agent 落地最大瓶颈——上下文衰减与状态丢失，StepTrain 框架降低百万级上下文微调门槛，为政务、金融等强合规场景提供可控、可审计的 Agent 训练路径。  
-
-- **NVIDIA Nemotron 3.5 Super VL 支持多模态推理专用 Agent** NVIDIA 发布 Nemotron 3.5 Super VL，专为文档理解、跨源信息比对、多步决策等企业级 Agent 场景优化，支持图像+文本+结构化表格联合推理，已在 GB300 NVL72 平台实测 | 来源: NVIDIA Technical Blog | 发布时间: 2026-10-15 ([原文链接](https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/))  
-  - *推荐理由*：填补多模态大模型在“非生成型”推理任务上的空白，Super VL 不追求炫技式输出，而专注事实核查、逻辑链构建与风险识别，契合风控、审计、合规等严肃 AI 场景刚需。  
-
-- **NVIDIA 发布 Muse Spark Open 在 GB300 NVL72 上的规模化部署方案** NVIDIA 宣布 Muse Spark Open 已完成在 GB300 NVL72 集群的全栈优化，支持千卡级 MoE 模型并行推理，吞吐达 128 tokens/sec，延迟稳定在 320ms 内 | 来源: NVIDIA Technical Blog | 发布时间: 2026-10-15 ([原文链接](https://developer.nvidia.com/blog/scale-agentic-coding-workflows-with-metas-muse-spark-open-on-nvidia-gb300-nvl72/))  
-  - *推荐理由*：提供首个千亿 MoE 模型在超大规模 GPU 集群的生产级部署范本，其 TensorRT-LLM 量化策略与专家路由调度算法，可直接复用于国内智算中心国产化替代项目。</textarea>
 
    <script>
        // AI 推荐评分映射（仅 today 有；历史早报 tab 无评分显示）
        // 由后端 render() 注入：url -> score
-       const SCORES_MAP = {"https://replit.com/blog/replit-monitoring-agent": 60.0, "https://x.com/claudeai/status/2113360845409583307": 60.0, "https://www.theverge.com/ai-artificial-intelligence/1016879/spacex-tesla-cursed-katamari": 60.0, "https://openai.com/index/decisions-api": 60.0, "https://microsoft.ai/news/building-medical-superintelligence/": 60.0, "https://www.newcomer.co/p/the-story-of-anthropics-cap-table": 60.0, "https://blog.redwoodresearch.org/p/red-teaming-openais-internal-agent": 60.0, "https://arstechnica.com/security/2026/10/hackers-got-a-four-day-head-start-on-epic-php2shell-vulnerability/": 60.0, "https://www.ithome.com/1/016/783.htm": 60.0, "https://www.ithome.com/1/016/782.htm": 60.0, "https://www.ithome.com/1/016/781.htm": 60.0, "https://www.ithome.com/1/016/780.htm": 60.0, "https://www.ithome.com/1/016/775.htm": 60.0, "https://www.ithome.com/1/016/773.htm": 60.0, "https://www.ithome.com/1/016/772.htm": 60.0, "https://www.ithome.com/1/016/771.htm": 60.0, "https://dronexl.co/2026/10/22/fcc-hisilicon-chips-dash-cam-video-transmitter-first-component-ban/": 60.0, "https://dronexl.co/2026/10/22/massdot-amazon-prime-air-westborough-certificate-no-application/": 60.0, "https://dronexl.co/2026/10/22/massachusetts-lawmakers-healey-drone-delivery-task-force-moratorium-amazon/": 60.0, "https://dronexl.co/2026/10/22/wentzville-wing-walmart-drone-delivery-bill-4914/": 60.0, "https://dronexl.co/2026/10/22/drone-nerds-evolver-dfr-xti-missed-note-payments/": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1792715422&ver=7043&signature=D9Yp5PbaMJxWQm6x0C9F-0o*k-btlEfdkFD9bwwAuQYjytlTKlulUok-E8FzbwOkQQAFmf4XFabrcrWQ-9oi7Qef29tPvRbEuz-k80XWP4u8qBNptaufiAo5tYKG81wg&new=1": 60.0, "https://www.suasnews.com/2026/10/evolver-dfr-debuts-a-complete-drone-as-first-responder-program-for-public-safety-agencies/": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1792715422&ver=7043&signature=yAE2-UcbiTyntD*UbHHjhOclkkbTjtFnpDriuKMxDAoARwpZTvKqk5GbUURNPulas35WWKfgfF3GVDGSBUwBgRvfoMPOaXqKyuAJbDfYfgUZ4SE9yc3COESGlLWe6uyQ&new=1": 60.0, "https://www.infoq.cn/article/wyGrRsTrfHM7i9MhuV5P?utm_source=rss&utm_medium=article": 60.0, "https://www.infoq.cn/article/v85ey09UlxhCDH4r3RS3?utm_source=rss&utm_medium=article": 60.0, "https://www.infoq.cn/article/o9OcWNkkwgKvsZmgY45d?utm_source=rss&utm_medium=article": 60.0, "https://www.infoq.cn/article/hy9SMIBOjwjdZ4JduMzL?utm_source=rss&utm_medium=article": 60.0, "https://developer.nvidia.com/blog/how-to-read-data-into-gpu-memory-in-python-with-nvidia-gpudirect-storage/": 60.0, "https://www.infoq.cn/article/Ei2spcFKComKqkPv6osN?utm_source=rss&utm_medium=article": 60.0, "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/": 60.0, "https://www.infoq.cn/article/glAvFT7PWdZ53mbgPbgC?utm_source=rss&utm_medium=article": 60.0};
+       const SCORES_MAP = {"https://x.com/OpenAI/status/2113766354386084338": 60.0, "https://x.com/alexeheath/status/2113706585348600220": 60.0, "https://x.com/OpenRouter/status/2113699820124934334": 60.0, "https://x.com/fal/status/2113646807997620396": 60.0, "https://openai.com/index/securing-our-frontier-model-training-environment": 60.0, "https://the-decoder.com/openai-lowers-valuation-target-raises-up-to-30-billion/": 60.0, "https://www.ithome.com/1/017/113.htm": 60.0, "https://x.com/rohanpaul_ai/status/2113511968112042349": 60.0, "https://www.tmtpost.com/8179714.html": 60.0, "https://www.ithome.com/1/017/297.htm": 60.0, "https://www.ithome.com/1/017/295.htm": 60.0, "https://www.tmtpost.com/8179692.html": 60.0, "https://www.tmtpost.com/8179691.html": 60.0, "https://www.ithome.com/1/017/294.htm": 60.0, "https://www.ithome.com/1/017/291.htm": 60.0, "https://www.ithome.com/1/017/290.htm": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1792801820&ver=7045&signature=6tW*A4fFaYHjF6nYP2ucqhUIPOvDg-KaOeZRFAM6leRAOdsur4JeoRvPlw4IE5w52AvV-K0Lb2lyQbUNMdSeLA2ZwG9Hvos0L*O3s*lNG0KcysPg5asBPRgd0sMVW59u&new=1": 60.0, "https://dronexl.co/2026/10/23/new-york-drone-law-article-280-hobby-exemption-dji-mini-5-pro/": 60.0, "https://dronexl.co/2026/10/23/drone-fake-crows-usp-pollock-70-months/": 60.0, "https://dronexl.co/2026/10/23/spray-drone-fcc-carve-out-pentagon-letters-phantom-4-pro-v2-westborough/": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1792801842&ver=7045&signature=vqBNUCuTFeDT6IIJdoYJ8VGeWKUQTNzNHu*ObfZ-GU103g0TcunQOjQ9IeBChaiWAnaIrputuXGm433FUYMfhxAcUJbBU8c4Z8ZaEx4A9INiOG0fUOIM7l-oiFI97hSq&new=1": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1792801807&ver=7045&signature=NN4It1TCQA1brI6EbolGoSXtn09PZ5wFYeoL1Y9RSRSdtRH4dkQha2P8GnJTyfhDOHFvUrVW0YOsWfeTgWZssa99wDY-RM8O-8jR*B8AmgKX93g3bmYPC4iK35H7GetB&new=1": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1792801803&ver=7045&signature=Ab5wVlaUwTFjp65VlzmZl4B*UGfN9OpPOZQzZFyb8VPj3pAy4t6q18FUtV-k32cJxiNtidTpbD28BlagxZL3DO2-zQ*SeKBeEDRN*9uIjBbBjpWWVscsqgR8z3AnAUSQ&new=1": 60.0, "https://mp.weixin.qq.com/s?src=11&timestamp=1792801833&ver=7045&signature=OSp-2O7I04GGYdTGl2PT3sBopWh0SpmQnFLkrkO0f6n4cJrJht2uSDSQci5Ixt9jGQWm9AhVE*tOaAshMpvWvJhOBSVhdSBWt2ATIJfrBF3*D5KHPr6DPo*atSvbUGFW&new=1": 60.0, "https://www.infoq.cn/article/mhdJwMMzYFedMFHKfHWs?utm_source=rss&utm_medium=article": 60.0, "https://www.infoq.cn/article/UmD4aAerZEts8sZ5t791?utm_source=rss&utm_medium=article": 60.0, "https://www.infoq.cn/article/AkDgwN6h72cqUOJ35Zok?utm_source=rss&utm_medium=article": 60.0, "https://www.infoq.cn/article/Q6mgHWCSqV6KeZzee3NT?utm_source=rss&utm_medium=article": 60.0, "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/": 60.0, "https://www.infoq.cn/article/rVqEbaXeaJ91UWlQF4F9?utm_source=rss&utm_medium=article": 60.0, "https://www.infoq.cn/article/6EJRFIef67xr3x6vyCJa?utm_source=rss&utm_medium=article": 60.0, "https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/": 60.0};
 
        // 分类配置
        const CATEGORY_CONFIG = {
@@ -1438,7 +1450,7 @@
 
        // 日期元信息（render 时注入，供历史下拉与顶部日期联动使用）
        // 结构: today/day_1..day_7 各含 date_display / date_iso / weekday
-       const DAY_META = {"today": {"date_display": "2026年10月23日", "date_iso": "2026-10-23", "weekday": "周五"}, "day_1": {"date_display": "2026年10月22日", "date_iso": "2026-10-22", "weekday": "周四"}, "day_2": {"date_display": "2026年10月21日", "date_iso": "2026-10-21", "weekday": "周三"}, "day_3": {"date_display": "2026年10月20日", "date_iso": "2026-10-20", "weekday": "周二"}, "day_4": {"date_display": "2026年10月19日", "date_iso": "2026-10-19", "weekday": "周一"}, "day_5": {"date_display": "2026年10月18日", "date_iso": "2026-10-18", "weekday": "周日"}, "day_6": {"date_display": "2026年10月17日", "date_iso": "2026-10-17", "weekday": "周六"}, "day_7": {"date_display": "2026年10月16日", "date_iso": "2026-10-16", "weekday": "周五"}};
+       const DAY_META = {"today": {"date_display": "2026年10月24日", "date_iso": "2026-10-24", "weekday": "周六"}, "day_1": {"date_display": "2026年10月23日", "date_iso": "2026-10-23", "weekday": "周五"}, "day_2": {"date_display": "2026年10月22日", "date_iso": "2026-10-22", "weekday": "周四"}, "day_3": {"date_display": "2026年10月21日", "date_iso": "2026-10-21", "weekday": "周三"}, "day_4": {"date_display": "2026年10月20日", "date_iso": "2026-10-20", "weekday": "周二"}, "day_5": {"date_display": "2026年10月19日", "date_iso": "2026-10-19", "weekday": "周一"}, "day_6": {"date_display": "2026年10月18日", "date_iso": "2026-10-18", "weekday": "周日"}, "day_7": {"date_display": "2026年10月17日", "date_iso": "2026-10-17", "weekday": "周六"}};
 
        // 历史记录列表（今天放第一位，方便从历史日期返回今天）
        const HISTORY_DAYS = ['today', 'day_1', 'day_2', 'day_3', 'day_4', 'day_5', 'day_6', 'day_7'];
